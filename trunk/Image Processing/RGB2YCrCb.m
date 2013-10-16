@@ -1,4 +1,6 @@
 I = imread('D:\Document\Master\Image Processing\lena.bmp');
+figure(1);
+imshow(I);
 X = reshape(double(I),size(I));
 T = X;
 [m,n,p]=size(I);
@@ -10,4 +12,5 @@ for k=1:m
     end
 end
 T = reshape(uint8(T),size(I));
-imshow(T)
+figure(2);
+imshow(T);
