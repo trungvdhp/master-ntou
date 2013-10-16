@@ -1,5 +1,5 @@
 function y = Cosine(n)
-% Plot y = cos(x ) for x = [0, 2pi] by applying vectorization and symmetry.
+% Plot y = cos(x) for x = [0, 2pi] by applying vectorization and symmetry.
 % Display the results in a table.
 % NOTE: (n-1) must be a multiple of 4.
 m = (n-1)/4;
