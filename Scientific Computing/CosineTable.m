@@ -1,4 +1,4 @@
-function y = Cosine(n)
+function y = CosineTable(n)
 % Plot y = cos(x) for x = [0, 2pi] by applying vectorization and symmetry.
 % Display the results in a table.
 % NOTE: (n-1) must be a multiple of 4.
