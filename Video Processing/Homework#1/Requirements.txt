@@ -1,0 +1,11 @@
+Convert from RGB image to YCbCr image
+1. Original Image: Lena.bmp (512x512 pixel)
+2. Equations:
+	Y = 0.299R + 0.587G+ 0.114B
+	Cb = 0.564(B - Y) + 128
+	Cr = 0.713(R - Y) + 128
+3. Outputs:
+	Y component (RGB image of Y component)
+	Cb component ((RGB image of Cb component)
+	Cr component ((RGB image of Cr component)
+	Source code (Matlab, OpenCV,...)
