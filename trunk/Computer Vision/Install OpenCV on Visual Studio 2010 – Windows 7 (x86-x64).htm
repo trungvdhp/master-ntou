@@ -1,0 +1,1520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0107)http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Cài đặt OpenCV trên Visual Studio 2010 – Windows 7 (x86-x64) | Huong Tran's blog</title>
+	<link rel="pingback" href="http://huongtrantt.wordpress.com/xmlrpc.php">
+	<meta name="google-site-verification" content="dBw5CvburAxi537Rp9qi5uG2174Vb6JwHwIRwPSLIK8">
+<meta name="msvalidate.01" content="12C1203B5086AECE94EB3A3D9830B2E">
+<link rel="alternate" type="application/rss+xml" title="Huong Tran&#39;s blog » Feed" href="http://huongtrantt.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Huong Tran&#39;s blog » Comments Feed" href="http://huongtrantt.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Huong Tran&#39;s blog » Cài đặt OpenCV trên Visual Studio 2010 – Windows 7 (x86-x64) Comments Feed" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/feed/">
+<script src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/quant.js" async="" type="text/javascript"></script><script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" id="all-css-0" href="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-0" href="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/global-print.css" type="text/css" media="print">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/saved_resource(1)"></script><style type="text/css"></style>
+<link rel="stylesheet" id="all-css-0" href="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://huongtrantt.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://huongtrantt.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Qwiki – công cụ tìm kiếm tương lai?" href="http://huongtrantt.wordpress.com/2010/11/10/qwiki-cng-c%e1%bb%a5-tm-ki%e1%ba%bfm-t%c6%b0%c6%a1ng-lai/">
+<link rel="next" title="Nơi ấy …" href="http://huongtrantt.wordpress.com/2011/08/14/n%c6%a1i-%e1%ba%a5y/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/">
+<link rel="shortlink" href="http://wp.me/p15Lzu-2U">
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&url=http%3A%2F%2Fhuongtrantt.wordpress.com%2F2010%2F11%2F30%2Fci-d%25e1%25ba%25b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64%2F&for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&url=http%3A%2F%2Fhuongtrantt.wordpress.com%2F2010%2F11%2F30%2Fci-d%25e1%25ba%25b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64%2F&for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cài đặt OpenCV trên Visual Studio 2010 – Windows 7 (x86-x64)">
+<meta property="og:url" content="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/">
+<meta property="og:description" content="OpenCV là thư viện mã nguồn mở về Computer Vision do Intel thiết kế, cung cấp các hàm, lớp ứng dụng các thuật toán về xử lý ảnh với ngôn ngữ C/C++. Để cài đặt và sử dụng OpenCV (phiên bản hiện nay ...">
+<meta property="og:site_name" content="Huong Tran&#39;s blog">
+<meta property="og:image" content="http://i2.wp.com/huongtrantt.files.wordpress.com/2010/11/13_thumb.png?fit=1600%2C1600">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:image" content="http://i2.wp.com/huongtrantt.files.wordpress.com/2010/11/13_thumb.png?fit=1600%2C1600">
+<meta name="twitter:card" content="photo">
+<meta name="twitter:creator" content="@wordpressdotcom">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/3af6f5425036f65fa5158afe70f6e55d?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/3af6f5425036f65fa5158afe70f6e55d?s=16" sizes="16x16">
+<link rel="apple-touch-icon-precomposed" href="http://0.gravatar.com/blavatar/e2f7a597d113d1fe18b569340077ef0b?s=114">
+<link rel="openid.server" href="http://huongtrantt.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://huongtrantt.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://huongtrantt.wordpress.com/osd.xml" title="Huong Tran&#39;s blog">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+		<style>
+		/* <![CDATA[ */
+		/* Block: reblog */
+		
+		.reblog-from img                   { margin: 0 10px 0 0; vertical-align: middle; padding: 0; border: 0; }
+		.reblogger-note img.avatar         { float: left; padding: 0; border: 0; }
+		.reblogger-note-content            { margin: 0 0 20px; }
+		.reblog-post .wpcom-enhanced-excerpt-content { border-left: 3px solid #eee; padding-left: 15px; }
+		.reblog-post ul.thumb-list         { display: block; list-style: none; margin: 2px 0; padding: 0; clear: both; }
+		.reblog-post ul.thumb-list li      { display: inline; margin: 0; padding: 0 1px; border: 0; }
+		.reblog-post ul.thumb-list li a    { margin: 0; padding: 0; border: 0; }
+		.reblog-post ul.thumb-list li img  { margin: 0; padding: 0; border: 0; }
+		
+		.reblog-post .wpcom-enhanced-excerpt { clear: both; }
+		
+		.reblog-post .wpcom-enhanced-excerpt address,
+		.reblog-post .wpcom-enhanced-excerpt li,
+		.reblog-post .wpcom-enhanced-excerpt h1,
+		.reblog-post .wpcom-enhanced-excerpt h2,
+		.reblog-post .wpcom-enhanced-excerpt h3,
+		.reblog-post .wpcom-enhanced-excerpt h4,
+		.reblog-post .wpcom-enhanced-excerpt h5,
+		.reblog-post .wpcom-enhanced-excerpt h6,
+		.reblog-post .wpcom-enhanced-excerpt p { font-size: 100% !important; }
+		
+		.reblog-post .wpcom-enhanced-excerpt blockquote,
+		.reblog-post .wpcom-enhanced-excerpt pre,
+		.reblog-post .wpcom-enhanced-excerpt code,
+		.reblog-post .wpcom-enhanced-excerpt q { font-size: 98% !important; }
+		
+
+		/* ]]> */
+		</style>
+		<style type="text/css">
+.widget_twitter li {
+	word-wrap: break-word;
+}
+</style>
+<meta name="application-name" content="Huong Tran&#39;s blog"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Que sera, sera"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://huongtrantt.wordpress.com/feed/;icon-uri=http://1.gravatar.com/blavatar/3af6f5425036f65fa5158afe70f6e55d?s=16"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="title" content="Cài đặt OpenCV trên Visual Studio 2010 – Windows 7 (x86-x64) | Huong Tran&#39;s blog on WordPress.com">
+<meta name="description" content="OpenCV là thư viện mã nguồn mở về Computer Vision do Intel thiết kế, cung cấp các hàm, lớp ứng dụng các thuật toán về xử lý ảnh với ngôn ngữ C/C++. Để cài đặt và sử dụng OpenCV (phiên bản hiện nay là OpenCV 2.1.0) với Visual Studio 2010 (trên Windows 7 x86_x64), cần…">
+		<style type="text/css">
+			#header {
+				background: transparent url(http://huongtrantt.files.wordpress.com/2010/09/wl_0031.jpg) no-repeat;
+				border: none;
+			}
+		</style>
+		<style type="text/css">
+			#header h1,
+			#header h1 a,
+			#header h1 a:visited,
+			#header h4,
+			#header h4 a,
+			#header h4 a:visited,
+			.header-left {
+				color: #333333;
+			}
+		</style>
+
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/google_service.js">
+</script>
+<script type="text/javascript">
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script><script src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/google_ads.js"></script>
+<script type="text/javascript">
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post"); }
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 16150844, pt: 'permalink', wa: 0, as: 0, domain: 'huongtrantt.wordpress.com', url: 'http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/', gid: '', };
+</script>
+<style id="syntaxhighlighteranchor"></style>
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/wax2knl.js"></script><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript"> 
+	window.google_analytics_uacct = "UA-52447-2"; 
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ga.js"></script>
+<script charset="utf-8" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/rate.php"></script><style type="text/css" id="pd_popup_holder_style_2833670_post_180">#pd_popup_holder_2833670_post_180 { position:absolute; display:none; width:350px; height:auto; top:0px; left:0px; z-index:10000; border:solid 1px #CCC; background-color:white; padding:0px 15px;font-family:Arial,Sans;box-shadow: -10px 10px 20px rgba(0, 0, 0, .5);-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25);-moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25); }</style><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/services.css"><script src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d.json" type="text/javascript"></script></head><div id="og4UJz4R5fshj31EtFZMmiEIp" class="FEfg3LIzbxeTaVnlD7CpT2L5ES" style="display: none;"></div><div id="PPze_fZ89OhBx0KBizh88U7yso" class="FEfg3LIzbxeTaVnlD7CpT2L5ES" style="display: none;"></div><div id="q8Amra3Hoxt0_tp6SRpC" class="FEfg3LIzbxeTaVnlD7CpT2L5ES" style="display: none;"></div>
+
+<body class="single single-post postid-180 single-format-standard typekit-enabled mp6 highlander-enabled highlander-light" style="" data-twttr-rendered="true" cz-shortcut-listen="true">
+
+<div id="header">
+	<div class="header-left">
+					<h4><a href="http://huongtrantt.wordpress.com/">Huong Tran's blog</a></h4>
+				<p id="description">Que sera, sera</p>
+	</div>
+	<div class="header-right">
+		<form method="get" id="searchform" action="http://huongtrantt.wordpress.com/">
+			<div><label class="hidden" for="s">Search:</label>
+			<input type="text" value="" name="s" id="s" x-webkit-speech="undefined">
+			<input type="submit" id="searchsubmit" value="Go"></div>
+		</form>
+	</div>
+</div>
+<div id="access">
+	<div id="nav">
+		<div id="supernav" class="navleft nav">
+			<div class="menu"><ul><li><a href="http://huongtrantt.wordpress.com/">Home</a></li><li class="page_item page-item-2"><a href="http://huongtrantt.wordpress.com/about/">About</a></li></ul></div>
+		</div>
+		<div class="navright">
+			<a class="rsslink" rel="nofollow" href="http://huongtrantt.wordpress.com/feed/">Posts</a>
+			<a class="rsslink" rel="nofollow" href="http://huongtrantt.wordpress.com/comments/feed/">Comments</a>
+		</div>
+	</div>
+
+	<div id="subnav" class="subnav nav">
+		<div class="menu-categories-container"><ul id="menu-categories" class="menu"><li id="menu-item-94" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-94"><a href="http://huongtrantt.wordpress.com/category/computers-and-internet/">Computers and Internet</a></li>
+<li id="menu-item-95" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-95"><a href="http://huongtrantt.wordpress.com/category/crm/">CRM</a></li>
+<li id="menu-item-96" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-96"><a href="http://huongtrantt.wordpress.com/category/microsoft-student-partner-msp/">Microsoft Student Partner (MSP)</a></li>
+<li id="menu-item-97" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-97"><a href="http://huongtrantt.wordpress.com/category/expression/">Expression</a></li>
+<li id="menu-item-98" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-98"><a href="http://huongtrantt.wordpress.com/category/imagine-cup/">Imagine Cup</a></li>
+</ul></div>	</div>
+</div>
+
+<div id="wrap">
+<div id="content">
+
+	<div id="content-left">
+
+		
+			<div id="nav-above">
+				<div class="nav-previous"><a href="http://huongtrantt.wordpress.com/2010/11/10/qwiki-cng-c%e1%bb%a5-tm-ki%e1%ba%bfm-t%c6%b0%c6%a1ng-lai/" rel="prev"><span class="meta-nav">←</span> Qwiki – công cụ tìm kiếm tương&nbsp;lai?</a></div>
+				<div class="nav-next"><a href="http://huongtrantt.wordpress.com/2011/08/14/n%c6%a1i-%e1%ba%a5y/" rel="next">Nơi ấy&nbsp;… <span class="meta-nav">→</span></a></div>
+			</div>
+
+			<div class="post-180 post type-post status-publish format-standard hentry category-computers-and-internet tag-cmake tag-opencv tag-visual-studio-2010 tag-windows-7">
+
+				<div class="entry">
+
+					<h1>Cài đặt OpenCV trên Visual Studio 2010 – Windows 7&nbsp;(x86-x64)</h1>
+
+					<div class="post-info">
+						<p>
+							<span class="time">November 30, 2010</span>
+																						<span class="post-comments"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comments" title="Comment on Cài đặt OpenCV trên Visual Studio 2010 – Windows 7 (x86-x64)">20 Comments</a></span>
+																				</p>
+					</div>
+
+					<p>OpenCV là thư viện mã nguồn mở về Computer Vision do Intel thiết kế, cung cấp các hàm, lớp ứng dụng các thuật toán về xử lý ảnh với ngôn ngữ C/C++.</p>
+<p>Để cài đặt và sử dụng OpenCV (phiên bản hiện nay là OpenCV 2.1.0) với Visual Studio 2010 (trên Windows 7 x86_x64), cần phải download các phần sau:</p>
+<p>1. OpenCV: thư viện OpenCV 2.1.0. Download file cài đặt <a href="http://sourceforge.net/projects/opencvlibrary/files/">tại đây .</a></p>
+<p>2. CMake: phiên bản OpenCV 2.x chỉ cung cấp mã nguồn chứ không tích hợp tập thực thi và cấu hình dự án cho từng mội trường phát triển. Vì thế ta sử dụng CMake để tạo, cấu hình dự án cho phù hợp với môi trường phát triển, cụ thể ở đây là tạo project để build file .dll và .lib để sử dụng OpenCV trong Visual Studio 2010 trên Windows x64. Download file cài đặt <a href="http://www.cmake.org/cmake/resources/software.html">tại đây</a>.</p>
+<p>Các bước cài đặt OpenCV:</p>
+<p>1. Chạy file OpenCV-2.1.0-win32-vs2008.exe để cài đặt OpenCV. Lưu ý khi cài đặt lựa chọn: Add OpenCV to the system PATH. Đường dẫn mặc định của chương trình là: C:\OpenCV2.1</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/0.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="OpenCV Setup" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/0_thumb.png" border="0" alt="OpenCV Setup" width="244" height="190"></a></p>
+<p>2. Cài đặt CMake.</p>
+<p>3. Tiếp theo, ta sẽ sử dụng CMake tạo project để build file thư viện OpenCV phù hợp với Visual Studio 2010. Vào C:\OpenCV2.1, tạo thư mục build để chứa project.</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/1.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Configure CMake" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/1_thumb.png" border="0" alt="Configure CMake" width="244" height="175"></a></p>
+<p>4. Click nút Configure để lựa chọn môi trường phát triển, ở đây lựa chọn Visual Studio 10 Win64. Click Finish.</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/2.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Configure CMake for Visual Studio 2010 win64" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/2_thumb.png" border="0" alt="Configure CMake for Visual Studio 2010 win64" width="244" height="175"></a></p>
+<p>5. Nhấn chọn tiếp nút Configure lần nữa, sau đó nhấn nút Generate để hoàn tất việc tạo project:</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/6.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Configure CMake for Visual Studio 2010 win64" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/6_thumb.png" border="0" alt="Configure CMake for Visual Studio 2010 win64" width="244" height="175"></a></p>
+<p>6. Vào C:\OpenCV2.1\build, mở file OpenCV.sln vừa tạo:</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/7.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="OpenCVBuild project" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/7_thumb.png" border="0" alt="OpenCVBuild project" width="244" height="100"></a></p>
+<p>7. Khi biên dịch file .dll và .lib cho OpenCV, nên lưu ý chế độ của project là debug hay release. Riêng trong trường hợp này, biên dịch để sử dụng trong Visual Studio 2010 trên Windows 7 x64, để tránh xảy ra lỗi : <strong>the application was unable to start correctly 0xc0150002 </strong>về sau, nên để chế độ là <strong>release</strong>.</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/8.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Release Mode VS 2010" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/8_thumb.png" border="0" alt="Release Mode VS 2010" width="244" height="161"></a></p>
+<p>8. Biên dịch chương trình, sau khi biên dịch, ta sẽ có các file OpenCV dll trong C:\OpenCV2.1\build\bin\Release và OpenCV lib trong C:\OpenCV2.1\build\lib\Release. Ngoài ra, các tập tin header .h nằm ở địa chỉ: C:\OpenCV2.1\include\opencv</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/9.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Build OpenCV with VS2010" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/9_thumb.png" border="0" alt="Build OpenCV with VS2010" width="244" height="161"></a></p>
+<p>9. Tiếp theo, ta sẽ tạo thử một project chạy thử sử dụng thư viện vừa biên dịch trên. Tạo mới Project, đặt tên là OpenCV Demo:</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/10.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="New Project VS2010" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/10_thumb.png" border="0" alt="New Project VS2010" width="244" height="161"></a></p>
+<p>10. Cấu hình Visual Studio 2010 để reference các đường dẫn đến các file .h, .dll, .lib. Với phiên bản cũ hơn, chẳng hạn như Visual Studio 2008, khi cấu hình sẽ vào Tools-&gt; Options-&gt; VC++ Directories để cấu hình cho tất cả các project, tuy nhiên, ở Visual Studio 2010 thì chỉ cho phép cấu hình riêng với từng project. Click chuột phải vào project, chọn Properties:</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/11.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Project Properties - VS 2010" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/11_thumb.png" border="0" alt="Project Properties - VS 2010" width="244" height="161"></a></p>
+<p>11. Cấu hình VC++ Directories:</p>
+<li>Include Directories… add: ‘C:\OpenCV2.1\include\opencv;’</li>
+<li>Library Directories:
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>Debug Builds.. add: ‘C:\OpenCV2.1\build\lib\Debug’, ‘C:\OpenCV2.1\build\bin\Debug’</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Release Builds.. add: ‘C:\OpenCV2.1\build\lib\Release’, ‘C:\OpenCV2.1\build\bin\Release’</li>
+</ul>
+</li>
+<li>Source Directories… add: ‘C:\OpenCV2.1\src\cv; C:\OpenCV2.1\src\cvaux; C:\OpenCV2.1\src\cxcore; C:\OpenCV2.1\src\highgui; C:\OpenCV2.1\src\ml;’</li>
+<li>Linker -&gt; Input -&gt; Additional Dependencies…
+<ul>
+<li>Debug Builds.. add: ‘cv210d.lib; cxcore210d.lib; highgui210d.lib;’</li>
+<li>Release Builds.. add: ‘cv210.lib; cxcore210.lib; highgui210.lib;’ <!--EndFragment--></li>
+</ul>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/12.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Configure VC++ Directories - VS2010" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/12_thumb.png" border="0" alt="Configure VC++ Directories - VS2010" width="244" height="174"></a></p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/13.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Configure VC++ Directories for OpenCV - VS2010" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/13_thumb.png" border="0" alt="Configure VC++ Directories for OpenCV - VS2010" width="238" height="244"></a></p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/14.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="Configure VC++ Directories for OpenCV - VS2010" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/14_thumb.png" border="0" alt="Configure VC++ Directories for OpenCV - VS2010" width="244" height="174"></a></p>
+<p>12. Nội dung file OpenCVDemo.cpp:</p>
+<blockquote><p>#include “stdafx.h”</p>
+<p>#include &lt;cv.h&gt;<br>
+#include &lt;cxcore.h&gt;<br>
+#include &lt;highgui.h&gt;</p>
+<p>int _tmain(int argc, _TCHAR* argv[])<br>
+{<br>
+IplImage *img = cvLoadImage(“test.jpg”);<br>
+cvNamedWindow(“Image:”,1);<br>
+cvShowImage(“Image:”,img);</p>
+<p>cvWaitKey();<br>
+cvDestroyWindow(“Image:”);<br>
+cvReleaseImage(&amp;img);</p>
+<p>return 0;</p>
+<p>}</p></blockquote>
+<p>13. Copy file test.jpg vào C:\Users\USERNAME\Documents\Visual Studio 2010\Projects\OpenCVDemo\OpenCVDemo để chạy thử chương trình. Biên dịch chương trình ta được kết quả:</p>
+<p><a href="http://huongtrantt.files.wordpress.com/2010/11/19.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="OpenCV Demo" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/19_thumb.png" border="0" alt="OpenCV Demo" width="244" height="161"></a></p></li>
+
+<div class="wpa" style="position: relative; width:300px; text-align: center; padding: 0; margin: 10px auto; overflow: hidden; clear: both;">
+<a style="position: absolute; text-align: left; display: block; font: 9px/1 sans-serif; text-decoration: underline;" href="http://en.wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Enterprise";
+		var wpcom_adclk_slot = "wpcom_below_post";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "huongtrantt.wordpress.com");
+GA_googleAddAttr("BlogId", "16150844");
+GA_googleAddAttr("Autotag", "technology");
+GA_googleAddAttr("Tag", "computers-and-internet");
+GA_googleAddAttr("Tag", "cmake");
+GA_googleAddAttr("Tag", "opencv");
+GA_googleAddAttr("Tag", "visual-studio-2010");
+GA_googleAddAttr("Tag", "windows-7");
+GA_googleAddAttr("theme_bg", "f0f0f0");
+GA_googleAddAttr("theme_border", "cccccc");
+GA_googleAddAttr("theme_text", "555555");
+GA_googleAddAttr("theme_link", "008DCF");
+GA_googleAddAttr("theme_url", "008DCF");
+GA_googleAddAdSensePageAttr("google_page_url", "http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/");
+GA_googleFillSlot("wpcom_below_post");
+}
+</script><script src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ads"></script>
+</div>
+<style type="text/css">
+div.wpa>div { margin-top: 1em; } #google_ads_div_wpcom_below_post_adsafe_ad_container { display: block !important; }
+</style>
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//stats.wordpress.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+<div id="jp-post-flair" class="sharedaddy sd-rating-enabled sd-like-enabled sd-sharing-enabled"><div class="sd-block sd-rating"><h3 class="sd-title">Rate this:</h3><div class="pd-rating" id="pd_rating_holder_2833670_post_180" style="display: inline-block;"><div class="rating-icons" id="pd_rate_2833670_post_180" style="float:left;"><div class="rating-star-icon" onmouseout="PDRTJS_2833670_post_180.rebuild();" onclick="PDRTJS_2833670_post_180.rate(1);" onmouseover="PDRTJS_2833670_post_180.hover(1);" id="PDRTJS_2833670_post_180_stars_1" style="background-size: 32px 48px!important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(http://i0.poll.fm/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2833670_post_180.rebuild();" onclick="PDRTJS_2833670_post_180.rate(2);" onmouseover="PDRTJS_2833670_post_180.hover(2);" id="PDRTJS_2833670_post_180_stars_2" style="background-size: 32px 48px!important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(http://i0.poll.fm/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2833670_post_180.rebuild();" onclick="PDRTJS_2833670_post_180.rate(3);" onmouseover="PDRTJS_2833670_post_180.hover(3);" id="PDRTJS_2833670_post_180_stars_3" style="background-size: 32px 48px!important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(http://i0.poll.fm/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2833670_post_180.rebuild();" onclick="PDRTJS_2833670_post_180.rate(4);" onmouseover="PDRTJS_2833670_post_180.hover(4);" id="PDRTJS_2833670_post_180_stars_4" style="background-size: 32px 48px!important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(http://i0.poll.fm/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2833670_post_180.rebuild();" onclick="PDRTJS_2833670_post_180.rate(5);" onmouseover="PDRTJS_2833670_post_180.hover(5);" id="PDRTJS_2833670_post_180_stars_5" style="background-size: 32px 48px!important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(http://i0.poll.fm/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div></div><span style="float:left;">&nbsp;</span><div id="rating_info_2833670_post_180" style="display:block;float:left;background:url(http://i0.poll.fm/images/ratings/info.png) no-repeat 3px 2px;width:16px;height:16px;cursor:pointer; null " onclick="javascript:PDRTJS_2833670_post_180.togglePopup();return false;"><span style="display:none;">i</span></div><div class="pd_popup_holder" id="pd_popup_holder_2833670_post_180">&nbsp;</div><div class="rating-msg" id="PDRTJS_2833670_post_180_msg" style="float:left; padding-left: 5px; text-align: left; font:normal normal /16px ; color: #;">2 Votes</div><p style="padding: 0px; margin: 0px; clear: both;"></p><img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/p-ab3gTb8xb3dLg.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"></div></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-email share-service-visible"><a rel="nofollow" class="share-email sd-button share-icon" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?share=email&nb=1" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-print"><a rel="nofollow" class="share-print sd-button share-icon" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#print" title="Click to print"><span>Print</span></a></li><li class="share-digg"><a rel="nofollow" class="share-digg sd-button share-icon" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?share=digg&nb=1" title="Click to Digg this post"><span>Digg</span></a></li><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?share=facebook&nb=1" title="Share on Facebook" id="sharing-facebook-180"><span>Facebook<span class="share-count">2</span></span></a></li><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?share=twitter&nb=1" title="Click to share on Twitter" id="sharing-twitter-180"><span>Twitter</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-16150844-180-5268cae8652d2" data-src="//widgets.wp.com/likes/#blog_id=16150844&amp;post_id=180&amp;origin=huongtrantt.wordpress.com&amp;obj_id=16150844-180-5268cae8652d2" data-name="like-post-frame-16150844-180-5268cae8652d2"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-16150844-180-5268cae8652d2" height="55px" width="100%" frameborder="0" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/saved_resource.htm" style="display: inline;"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div><div class="clear"></div>
+					
+					<!--
+					<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/"
+    dc:identifier="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/"
+    dc:title="C&agrave;i đặt OpenCV tr&ecirc;n Visual Studio 2010 &ndash; Windows 7&nbsp;(x86-x64)"
+    trackback:ping="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/trackback/" />
+</rdf:RDF>					-->
+
+				</div>
+
+				<div class="post-meta">
+					<p>
+						<span class="categories">Filed under <a href="http://huongtrantt.wordpress.com/category/computers-and-internet/" title="View all posts in Computers and Internet" rel="category tag">Computers and Internet</a></span>
+						<span class="tags">Tagged with <a href="http://huongtrantt.wordpress.com/tag/cmake/" rel="tag">CMake</a>, <a href="http://huongtrantt.wordpress.com/tag/opencv/" rel="tag">OpenCV</a>, <a href="http://huongtrantt.wordpress.com/tag/visual-studio-2010/" rel="tag">Visual Studio 2010</a>, <a href="http://huongtrantt.wordpress.com/tag/windows-7/" rel="tag">Windows 7</a></span>					</p>
+				</div>
+
+			</div>
+
+						<div class="author-box">
+				<p><img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d" class="avatar avatar-70 grav-hashed grav-hijack" height="70" width="70" id="grav-63407362cd10d76ce4b5df03e356a32d-0"><strong>About Huong Tran</strong><br>Business Analyst</p>
+			</div>
+			
+						<p></p>
+
+			<div id="comments">
+	
+
+	<h3 id="comments-title">20 Responses to <em>Cài đặt OpenCV trên Visual Studio 2010 – Windows 7&nbsp;(x86-x64)</em>	</h3>
+
+	<ol class="commentlist snap_preview">
+				<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-44">
+		<div id="comment-44">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/00c52d0582ccf294bf080e31668cdad3" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-00c52d0582ccf294bf080e31668cdad3-0">			<cite class="fn"><a href="http://phonglengocky.wordpress.com/" rel="external nofollow" class="url">Phong Le Ngoc Ky</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-44">November 30, 2010 at 10:50 PM</a></div>
+
+		<div class="comment-body"><p>So cool with OpenCV on VS2010</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=44#respond" onclick="return addComment.moveForm(&quot;comment-44&quot;, &quot;44&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nbaoduy odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-45">
+		<div id="comment-45">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/b2e80405f81bd62a8ff9d9e2bc212d7f" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-b2e80405f81bd62a8ff9d9e2bc212d7f-0">			<cite class="fn">Duy Nguyen</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-45">December 1, 2010 at 7:50 AM</a></div>
+
+		<div class="comment-body"><p>CRM -&gt; HRM -&gt; Computer Vison @@ What’s the road of you!</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=45#respond" onclick="return addComment.moveForm(&quot;comment-45&quot;, &quot;45&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-46">
+		<div id="comment-46">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/f61e847174fe2e4b0e6697fd0ca1c071" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-f61e847174fe2e4b0e6697fd0ca1c071-0">			<cite class="fn"><a href="http://www.mediafire.com/ebookNgan" rel="external nofollow" class="url">Kim Ngan</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-46">December 1, 2010 at 10:17 AM</a></div>
+
+		<div class="comment-body"><p>Thank you. I like it.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=46#respond" onclick="return addComment.moveForm(&quot;comment-46&quot;, &quot;46&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-huongtrantt bypostauthor odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-47">
+		<div id="comment-47">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d(1)" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-63407362cd10d76ce4b5df03e356a32d-1">			<cite class="fn"><a href="http://huongtrantt.wordpress.com/" rel="external nofollow" class="url">Huong Tran</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-47">December 1, 2010 at 5:23 PM</a></div>
+
+		<div class="comment-body"><p>@Phong, Ngan: Thanks <img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/icon_biggrin.gif" alt=":D" class="wp-smiley"><br>
+@Duy: I need to run a small demo that  used this library in class, and I met some difficulties when configured with VS2010 on x64. So I post this entry <img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=47#respond" onclick="return addComment.moveForm(&quot;comment-47&quot;, &quot;47&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-48">
+		<div id="comment-48">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/dece68210ddf9b40cf1d34f1a513b23b" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-dece68210ddf9b40cf1d34f1a513b23b-0">			<cite class="fn"><a href="http://www/" rel="external nofollow" class="url">hai Microsoft</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-48">December 1, 2010 at 9:15 PM</a></div>
+
+		<div class="comment-body"><p>Bai viet cua ai thay quen quen. Vs2010</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=48#respond" onclick="return addComment.moveForm(&quot;comment-48&quot;, &quot;48&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-huongtrantt bypostauthor odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-49">
+		<div id="comment-49">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d(1)" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-63407362cd10d76ce4b5df03e356a32d-2">			<cite class="fn"><a href="http://huongtrantt.wordpress.com/" rel="external nofollow" class="url">Huong Tran</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-49">December 2, 2010 at 10:04 PM</a></div>
+
+		<div class="comment-body"><p>Hihi, lâu rồi không gặp anh Hải <img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/icon_biggrin.gif" alt=":D" class="wp-smiley"> </p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=49#respond" onclick="return addComment.moveForm(&quot;comment-49&quot;, &quot;49&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nbaoduy even thread-even depth-1 highlander-comment" id="li-comment-50">
+		<div id="comment-50">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/b2e80405f81bd62a8ff9d9e2bc212d7f" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-b2e80405f81bd62a8ff9d9e2bc212d7f-1">			<cite class="fn">Duy Nguyen</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-50">December 4, 2010 at 11:20 PM</a></div>
+
+		<div class="comment-body"><p>Of cause, there’re so many problems when transit from 32bit platform to 64bit platform, especially when you working with native code.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=50#respond" onclick="return addComment.moveForm(&quot;comment-50&quot;, &quot;50&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-51">
+		<div id="comment-51">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/fa9313db7703b4b9d8077e7d0b7ea3d8" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-fa9313db7703b4b9d8077e7d0b7ea3d8-0">			<cite class="fn">bvhoang</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-51">December 10, 2010 at 11:52 PM</a></div>
+
+		<div class="comment-body"><p>Huong Tran co the cho hoi vai` vấn đề về xử lí ảnh với opencv trên nền VC++ được không ạ,<br>
+vì hiện tại e cũng đang làm về xử lí ảnh, mà có nhiều vấn đề phức tạp quá.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=51#respond" onclick="return addComment.moveForm(&quot;comment-51&quot;, &quot;51&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-huongtrantt bypostauthor even thread-even depth-1 highlander-comment" id="li-comment-52">
+		<div id="comment-52">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d(1)" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-63407362cd10d76ce4b5df03e356a32d-3">			<cite class="fn"><a href="http://huongtrantt.wordpress.com/" rel="external nofollow" class="url">Huong Tran</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-52">December 14, 2010 at 2:40 PM</a></div>
+
+		<div class="comment-body"><p>Chào bạn, thật ra mình cũng là beginner với OpenCV thôi, do học trên trường có liên quan sử dụng 1 ít đến phần này, có khi không rành bằng bạn (^ ^). Về OpenCV thì mình coi trong cuốn sách này – Learning OpenCV Computer Vision with OpenCV Library – O’Reilly:<br>
+<a href="http://www.box.net/shared/32akpkqxak" rel="nofollow">http://www.box.net/shared/32akpkqxak</a><br>
+Có lẽ bạn có rồi, nếu chưa thì hi vọng nó giúp ích được phần nào <img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=52#respond" onclick="return addComment.moveForm(&quot;comment-52&quot;, &quot;52&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-53">
+		<div id="comment-53">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/0760319a81425c1c5d63838c08ffbf3e" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-0760319a81425c1c5d63838c08ffbf3e-0">			<cite class="fn"><a href="http://monex.to/" rel="external nofollow" class="url">monex.com</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-53">December 22, 2010 at 2:57 PM</a></div>
+
+		<div class="comment-body"><p>.After youve created a project youll need to add the OpenCV dependencies. To create your own OpenCV-based project in Visual Studio do the following Linking DLLs Customize Global Options C OpenCV1.0lib C OpenCV1.0cvinclude .</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=53#respond" onclick="return addComment.moveForm(&quot;comment-53&quot;, &quot;53&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-55">
+		<div id="comment-55">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/0d75838d21e17b5ea1bbda7965c0352c" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-0d75838d21e17b5ea1bbda7965c0352c-0">			<cite class="fn">thanh</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-55">February 24, 2011 at 9:14 PM</a></div>
+
+		<div class="comment-body"><p>cai open CV co the chay tren win xp dc hay k vay??? Hay bat buoc phai la win 7</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=55#respond" onclick="return addComment.moveForm(&quot;comment-55&quot;, &quot;55&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	<ul class="children">
+		<li class="comment byuser comment-author-huongtrantt bypostauthor odd alt depth-2 highlander-comment" id="li-comment-56">
+		<div id="comment-56">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d(1)" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-63407362cd10d76ce4b5df03e356a32d-4">			<cite class="fn"><a href="http://huongtrantt.wordpress.com/" rel="external nofollow" class="url">Huong Tran</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-56">February 25, 2011 at 10:50 PM</a></div>
+
+		<div class="comment-body"><p>OpenCV cài đặt và chạy trên Win XP được <img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=56#respond" onclick="return addComment.moveForm(&quot;comment-56&quot;, &quot;56&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-57">
+		<div id="comment-57">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/2f75f9ba49f401e7685e66a8ba7afb7f" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-2f75f9ba49f401e7685e66a8ba7afb7f-0">			<cite class="fn">quangbinh</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-57">February 28, 2011 at 9:09 PM</a></div>
+
+		<div class="comment-body"><p>sao mình cài trên XP mà không được .Nó báo lỗi khi Nhấn chọn tiếp nút Configure lần nữa, sau đó nhấn nút Generate để hoàn tất việc tạo project</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=57#respond" onclick="return addComment.moveForm(&quot;comment-57&quot;, &quot;57&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	<ul class="children">
+		<li class="comment byuser comment-author-huongtrantt bypostauthor odd alt depth-2 highlander-comment" id="li-comment-58">
+		<div id="comment-58">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d(1)" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-63407362cd10d76ce4b5df03e356a32d-5">			<cite class="fn"><a href="http://huongtrantt.wordpress.com/" rel="external nofollow" class="url">Huong Tran</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-58">March 2, 2011 at 12:58 AM</a></div>
+
+		<div class="comment-body"><p>Phần Configure này là của CMake làm việc, chứ không phải OpenCV, bạn có thể search CMake và WinXP để tìm giải pháp với trường hợp của bạn <img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=58#respond" onclick="return addComment.moveForm(&quot;comment-58&quot;, &quot;58&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-59">
+		<div id="comment-59">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/edf9b90a5fccbcb5fbcd43d00d9d7241" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-edf9b90a5fccbcb5fbcd43d00d9d7241-0">			<cite class="fn">nlhoantu</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-59">March 12, 2011 at 10:10 PM</a></div>
+
+		<div class="comment-body"><p>bước 13 mih chua hiu ro lắm ai nói cụ thể hơn đc ko?</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=59#respond" onclick="return addComment.moveForm(&quot;comment-59&quot;, &quot;59&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-60">
+		<div id="comment-60">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/e68f32b511b4ceadf76d0119a54ce934" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-e68f32b511b4ceadf76d0119a54ce934-0">			<cite class="fn">kimsen</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-60">March 18, 2011 at 10:35 PM</a></div>
+
+		<div class="comment-body"><p>mình cũng mới tìm hiểu nên cũng chưa biết, máy báo lỗi c:\opencv2.2\3rdparty\include\zconf.h(364) : fatal error C1083: Cannot open include file: ‘sys/types.h’: No such file or directory pngwutil.c .bạn nào biết sửa dùm mình với</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=60#respond" onclick="return addComment.moveForm(&quot;comment-60&quot;, &quot;60&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-63">
+		<div id="comment-63">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/402ae5e4d5c06ddd8b494f61ae1e31e2" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-402ae5e4d5c06ddd8b494f61ae1e31e2-0">			<cite class="fn">flashworld</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-63">March 23, 2011 at 12:05 PM</a></div>
+
+		<div class="comment-body"><p>Thanks a lot!</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=63#respond" onclick="return addComment.moveForm(&quot;comment-63&quot;, &quot;63&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-69">
+		<div id="comment-69">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ad6e5ebadf2f9f0c89528b32f1a9ba18" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-ad6e5ebadf2f9f0c89528b32f1a9ba18-0">			<cite class="fn">thịnh</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-69">April 27, 2011 at 3:04 PM</a></div>
+
+		<div class="comment-body"><p>thế này cứ mổi lần tạo project mới là phải config lại ak</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=69#respond" onclick="return addComment.moveForm(&quot;comment-69&quot;, &quot;69&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-78">
+		<div id="comment-78">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ff16e225247f44e6e00af95c1c4b8700" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-ff16e225247f44e6e00af95c1c4b8700-0">			<cite class="fn">My Na</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-78">February 10, 2012 at 9:18 PM</a></div>
+
+		<div class="comment-body"><p>Em đang học về cái này,em đọc bài của chị để cài trên visual 2010 ,win7 64bit nhưng khi debug thì không tạo được cái file như của chị mong chị hướng dẫn giúp em….Biên dịch chương trình, sau khi biên dịch, em không có các file OpenCV dll trong C:\OpenCV2.1\build\bin\Release và OpenCV lib trong C:\OpenCV2.1\build\lib\Release. Ngoài ra, các tập tin header .h nằm ở địa chỉ: C:\OpenCV2.1\include\opencv</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=78#respond" onclick="return addComment.moveForm(&quot;comment-78&quot;, &quot;78&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-86">
+		<div id="comment-86">
+		<div class="comment-author vcard">
+			<img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/c077f94e29af0b26f63d71b94e38610c" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-c077f94e29af0b26f63d71b94e38610c-0">			<cite class="fn"><a href="http://noneed/" rel="external nofollow" class="url">MrClickOnce</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-86">May 29, 2012 at 11:30 PM</a></div>
+
+		<div class="comment-body"><p>các bạn nữ mà giỏi nhỉ..</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/?replytocom=86#respond" onclick="return addComment.moveForm(&quot;comment-86&quot;, &quot;86&quot;, &quot;respond&quot;, &quot;180&quot;)">Reply</a>		</div>
+	</div>
+
+	</li><!-- #comment-## -->
+	</ol>
+
+
+								<div id="respond" class="comment-respond js">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://huongtrantt.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										
+
+
+												<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="6374f01696"><input type="hidden" name="_wp_http_referer" value="/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 36px; resize: none; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 608px; line-height: normal; text-decoration: none; letter-spacing: 0px;" tabindex="-1" aria-hidden="true"></textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 36px; resize: none; overflow-y: hidden;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/saved_resource(5).htm" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value="" x-webkit-speech="undefined"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value="" x-webkit-speech="undefined"></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/wplogo.png" alt="WordPress.com Logo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/ad516503a11cd5ca435acc9bb6523536" alt="Google+ photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'googleplus' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+	
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of follow-up comments via email.</label></p></div>
+
+												<p class="form-submit" style="display: none;">
+							<input name="submit" type="submit" id="comment-submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="180" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						
+<input type="hidden" name="genseq" value="1382599400">
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="948b57a499"></p><script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/form.js"></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="1382599401437"></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>
+</div><!-- #comments -->
+	</div>
+
+<div id="sidebar">
+
+	<div id="gravatar-5" class="widget widget_gravatar"><h4>Huong Tran</h4><p><a href="http://huongtrantt.wordpress.com/"><img alt="" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/63407362cd10d76ce4b5df03e356a32d(2)" class="avatar avatar-96 grav-widget-left grav-hashed" height="96" width="96" style="margin-top: 3px; padding: 0 0.5em 0 0; float: left" id="grav-63407362cd10d76ce4b5df03e356a32d-6"></a><br>
+</p><table>
+<tbody><tr>
+<td>
+<a href="http://huong-tran.blogspot.com/"><img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/blogger.png" width="25" height="25"></a>
+</td>
+<td>
+<a href="http://vn.linkedin.com/in/huongtrantt"><img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/linkedin2.png" width="25" height="25"></a>
+</td>
+<td>
+<a href="http://twitter.com/huong_tran"><img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/twitter.png" width="25" height="25"></a><p></p>
+</td></tr><tr>
+</tr>
+<tr>
+<td colspan="3">
+<a href="http://kontactr.com/user/huongtran"><img src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/small.gif" border="0" width="90px" height="16px"></a>
+</td>
+</tr>
+</tbody></table>
+</div><div id="twitter-3" class="widget widget_twitter"><h4><a href="http://twitter.com/huong_tran">Twitter Updates</a></h4><ul class="tweets">
+			<li>
+				Bài mới của Linh, thích đoạn điệp khúc :). Uyên Linh - Buồn - Official MV: <a href="http://youtu.be/Mywaj8XQ_ic"> youtu.be/Mywaj8XQ_ic</a> via @<a href="http://twitter.com/youtube">youtube</a> 				<a href="http://twitter.com/huong_tran/statuses/392653870905585664" class="timesince">1&nbsp;day&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				Kết hợp Đông Tây hài hòa, thiệt là hay.Cực kì thích cảnh quay Thái Cực đồ. Kung Fu Piano:Cello Ascends- ThePianoGuys: <a href="http://youtu.be/NCaH-qqTWpk"> youtu.be/NCaH-qqTWpk</a> 				<a href="http://twitter.com/huong_tran/statuses/389787226806046723" class="timesince">1&nbsp;week&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				@<a href="http://twitter.com/silverdoe_joker">silverdoe_joker</a> it's better :). Now it can compete with 4th &amp; mayor ;) 				<a href="http://twitter.com/huong_tran/statuses/389141527097659392" class="timesince">1&nbsp;week&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				What Makes Malcolm Gladwell Fascinating | LinkedIn <a href="http://www.linkedin.com/today/post/article/20131007120010-69244073-what-makes-malcolm-gladwell-fascinating"> linkedin.com/today/post/art…</a> 				<a href="http://twitter.com/huong_tran/statuses/388164228726538240" class="timesince">2&nbsp;weeks&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				Waterfalls -"We're the Millers" soundtrack - good part of movie :)TLC-Waterfalls Lyrics: <a href="http://youtu.be/HBG3hBBiYLk"> youtu.be/HBG3hBBiYLk</a> via @<a href="http://twitter.com/youtube">youtube</a> 				<a href="http://twitter.com/huong_tran/statuses/387627853036011520" class="timesince">2&nbsp;weeks&nbsp;ago</a>
+			</li>
+
+			</ul></div><div id="blog_subscription-3" class="widget widget_blog_subscription"><h4><label for="subscribe-field">Email Subscription</label></h4>
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="subscribe-blog">
+									<p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+<p>Join 1,167 other followers</p>
+					<p><input type="text" name="email" style="width: 95%; padding: 1px 2px" value="" id="subscribe-field" x-webkit-speech="undefined"></p>
+				
+				<p>
+					<input type="hidden" name="action" value="subscribe">
+					<input type="hidden" name="blog_id" value="16150844">
+					<input type="hidden" name="source" value="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/">
+					<input type="hidden" name="sub-type" value="widget">
+					<input type="hidden" name="redirect_fragment" value="blog_subscription-3">
+					<input type="hidden" id="_wpnonce" name="_wpnonce" value="ee2fe2debb">					<input type="submit" value="Sign me up!">
+				</p>
+			</form>
+			
+</div><div id="categories-3" class="widget widget_categories"><h4>Categories</h4><select name="cat" id="cat" class="postform">
+	<option value="-1">Select Category</option>
+	<option class="level-0" value="10392">Computers and Internet</option>
+	<option class="level-0" value="4259">CRM</option>
+	<option class="level-0" value="23527">Expression</option>
+	<option class="level-0" value="66980">Imagine Cup</option>
+	<option class="level-0" value="38314">Lan man</option>
+	<option class="level-0" value="43179347">Microsoft Student Partner (MSP)</option>
+	<option class="level-0" value="1">Uncategorized</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	var dropdown = document.getElementById("cat");
+	function onCatChange() {
+		if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+			location.href = "http://huongtrantt.wordpress.com/?cat="+dropdown.options[dropdown.selectedIndex].value;
+		}
+	}
+	dropdown.onchange = onCatChange;
+/* ]]> */
+</script>
+
+</div>		<div id="recent-posts-3" class="widget widget_recent_entries">		<h4>Recent Posts</h4>		<ul>
+					<li>
+				<a href="http://huongtrantt.wordpress.com/2013/10/06/xe-cu/">Xe&nbsp;cũ</a>
+						</li>
+					<li>
+				<a href="http://huongtrantt.wordpress.com/2013/09/12/pretend-youre-happy-when-youre-blue/">Pretend you’re happy when you’re&nbsp;blue</a>
+						</li>
+					<li>
+				<a href="http://huongtrantt.wordpress.com/2012/10/20/trch-doan-kich-da-co-hoi-lang/">Trích đoạn kịch Dạ Cổ Hoài&nbsp;Lang</a>
+						</li>
+					<li>
+				<a href="http://huongtrantt.wordpress.com/2012/08/12/b-mat-vuon-le-chivua-thnh-trieu-l/">Bí Mật Vườn Lệ Chi–Vua Thánh Triều&nbsp;Lê</a>
+						</li>
+					<li>
+				<a href="http://huongtrantt.wordpress.com/2012/05/12/5-dieu-cn-lai/">5 điều còn&nbsp;lại</a>
+						</li>
+				</ul>
+		</div><div id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h4></h4><div style="overflow:hidden"><a href="http://huongtrantt.wordpress.com/tag/barcamp-saigon/" class="tag-link-13110073" title="1 topic" style="font-size: 8pt;">BarCamp SaiGon</a>
+<a href="http://huongtrantt.wordpress.com/tag/bi-mat-vuon-le-chi/" class="tag-link-105946887" title="1 topic" style="font-size: 8pt;">Bi Mat Vuon Le Chi</a>
+<a href="http://huongtrantt.wordpress.com/tag/chi%e1%bb%81u-im-im/" class="tag-link-67851994" title="1 topic" style="font-size: 8pt;">Chiều im im</a>
+<a href="http://huongtrantt.wordpress.com/tag/cmake/" class="tag-link-546665" title="1 topic" style="font-size: 8pt;">CMake</a>
+<a href="http://huongtrantt.wordpress.com/tag/computers-and-internet/" class="tag-link-10392" title="3 topics" style="font-size: 16.75pt;">Computers and Internet</a>
+<a href="http://huongtrantt.wordpress.com/tag/crm/" class="tag-link-4259" title="2 topics" style="font-size: 13.25pt;">CRM</a>
+<a href="http://huongtrantt.wordpress.com/tag/cong-c%e1%bb%a5-tim-ki%e1%ba%bfm/" class="tag-link-2913129" title="1 topic" style="font-size: 8pt;">công cụ tìm kiếm</a>
+<a href="http://huongtrantt.wordpress.com/tag/da-co-hoai-lang/" class="tag-link-60086364" title="1 topic" style="font-size: 8pt;">Da co hoai lang</a>
+<a href="http://huongtrantt.wordpress.com/tag/du-an-ky-thuat-cong-nghe-pavegen/" class="tag-link-68617299" title="1 topic" style="font-size: 8pt;">du an ky thuat cong nghe Pavegen</a>
+<a href="http://huongtrantt.wordpress.com/tag/dynamics-crm/" class="tag-link-483838" title="1 topic" style="font-size: 8pt;">Dynamics CRM</a>
+<a href="http://huongtrantt.wordpress.com/tag/expression/" class="tag-link-23527" title="5 topics" style="font-size: 22pt;">Expression</a>
+<a href="http://huongtrantt.wordpress.com/tag/hanh-trinh-khong-ngung-buoc-toi/" class="tag-link-68163499" title="1 topic" style="font-size: 8pt;">hanh trinh khong ngung buoc toi</a>
+<a href="http://huongtrantt.wordpress.com/tag/ho-chi-minh-city/" class="tag-link-601310" title="1 topic" style="font-size: 8pt;">Ho Chi Minh City</a>
+<a href="http://huongtrantt.wordpress.com/tag/honda-dream-ii/" class="tag-link-196269094" title="1 topic" style="font-size: 8pt;">Honda Dream II</a>
+<a href="http://huongtrantt.wordpress.com/tag/huu-chau/" class="tag-link-45809345" title="1 topic" style="font-size: 8pt;">Huu Chau</a>
+<a href="http://huongtrantt.wordpress.com/tag/idecaf/" class="tag-link-8432579" title="2 topics" style="font-size: 13.25pt;">Idecaf</a>
+<a href="http://huongtrantt.wordpress.com/tag/imagine-cup/" class="tag-link-66980" title="2 topics" style="font-size: 13.25pt;">Imagine Cup</a>
+<a href="http://huongtrantt.wordpress.com/tag/iticlub/" class="tag-link-43478642" title="3 topics" style="font-size: 16.75pt;">ITIClub</a>
+<a href="http://huongtrantt.wordpress.com/tag/iticup/" class="tag-link-35318788" title="1 topic" style="font-size: 8pt;">ITICup</a>
+<a href="http://huongtrantt.wordpress.com/tag/kich/" class="tag-link-7005242" title="3 topics" style="font-size: 16.75pt;">Kich</a>
+<a href="http://huongtrantt.wordpress.com/tag/lan-man/" class="tag-link-38314" title="5 topics" style="font-size: 22pt;">Lan man</a>
+<a href="http://huongtrantt.wordpress.com/tag/ly-hoang-ly/" class="tag-link-23908259" title="1 topic" style="font-size: 8pt;">Ly Hoàng Ly</a>
+<a href="http://huongtrantt.wordpress.com/tag/lo-lo/" class="tag-link-1921339" title="1 topic" style="font-size: 8pt;">Lô Lô</a>
+<a href="http://huongtrantt.wordpress.com/tag/microsoft-office/" class="tag-link-55023" title="1 topic" style="font-size: 8pt;">Microsoft Office</a>
+<a href="http://huongtrantt.wordpress.com/tag/microsoft-research/" class="tag-link-94985" title="1 topic" style="font-size: 8pt;">Microsoft Research</a>
+<a href="http://huongtrantt.wordpress.com/tag/microsoft-student-partner-msp/" class="tag-link-43179347" title="5 topics" style="font-size: 22pt;">Microsoft Student Partner (MSP)</a>
+<a href="http://huongtrantt.wordpress.com/tag/mien-tay/" class="tag-link-14307214" title="1 topic" style="font-size: 8pt;">miền Tây</a>
+<a href="http://huongtrantt.wordpress.com/tag/nat-king-cole/" class="tag-link-714351" title="1 topic" style="font-size: 8pt;">Nat King Cole</a>
+<a href="http://huongtrantt.wordpress.com/tag/opencv/" class="tag-link-445048" title="1 topic" style="font-size: 8pt;">OpenCV</a>
+<a href="http://huongtrantt.wordpress.com/tag/ph%e1%ba%a1m-l%e1%bb%af-an/" class="tag-link-32685715" title="1 topic" style="font-size: 8pt;">Phạm Lữ Ân</a>
+<a href="http://huongtrantt.wordpress.com/tag/qwiki/" class="tag-link-43135954" title="1 topic" style="font-size: 8pt;">Qwiki</a>
+<a href="http://huongtrantt.wordpress.com/tag/thanh-loc/" class="tag-link-11983981" title="3 topics" style="font-size: 16.75pt;">Thanh Loc</a>
+<a href="http://huongtrantt.wordpress.com/tag/thu-duc/" class="tag-link-13498461" title="1 topic" style="font-size: 8pt;">Thu Duc</a>
+<a href="http://huongtrantt.wordpress.com/tag/tia-oi-ma-dia/" class="tag-link-89342236" title="1 topic" style="font-size: 8pt;">Tia oi ma dia</a>
+<a href="http://huongtrantt.wordpress.com/tag/tia-oi-ma-dzia/" class="tag-link-89342219" title="1 topic" style="font-size: 8pt;">Tia oi ma dzia</a>
+<a href="http://huongtrantt.wordpress.com/tag/twitter/" class="tag-link-599182" title="1 topic" style="font-size: 8pt;">twitter</a>
+<a href="http://huongtrantt.wordpress.com/tag/uit/" class="tag-link-21550" title="2 topics" style="font-size: 13.25pt;">UIT</a>
+<a href="http://huongtrantt.wordpress.com/tag/viet-anh/" class="tag-link-1762074" title="1 topic" style="font-size: 8pt;">Viet Anh</a>
+<a href="http://huongtrantt.wordpress.com/tag/visual-studio-2010/" class="tag-link-11664360" title="1 topic" style="font-size: 8pt;">Visual Studio 2010</a>
+<a href="http://huongtrantt.wordpress.com/tag/vua-thanh-trieu-le/" class="tag-link-105946888" title="1 topic" style="font-size: 8pt;">Vua Thanh Trieu Le</a>
+<a href="http://huongtrantt.wordpress.com/tag/web/" class="tag-link-151" title="2 topics" style="font-size: 13.25pt;">Web</a>
+<a href="http://huongtrantt.wordpress.com/tag/wikipedia/" class="tag-link-5547" title="1 topic" style="font-size: 8pt;">Wikipedia</a>
+<a href="http://huongtrantt.wordpress.com/tag/windows-7/" class="tag-link-729864" title="2 topics" style="font-size: 13.25pt;">Windows 7</a>
+<a href="http://huongtrantt.wordpress.com/tag/wpf/" class="tag-link-46652" title="2 topics" style="font-size: 13.25pt;">WPF</a>
+<a href="http://huongtrantt.wordpress.com/tag/xaml/" class="tag-link-103962" title="1 topic" style="font-size: 8pt;">XAML</a></div></div><div id="linkcat-2200" class="widget widget_links"><h4>Links</h4>
+	<ul class="xoxo blogroll">
+<li><a href="http://iticlub.org/" title="Information Technology Innovation Club – UIT">ITIClub</a></li>
+<li><a href="http://www.microsoft.com/vietnam/student/" title="Microsoft Student Partners Vietnam – chương trình SINH VIÊN ĐẠI SỨ CÔNG NGHỆ MICROSOFT">Microsoft Student Partner Vietnam</a></li>
+<li><a href="http://msdnvietnam.net/" title="Microsoft Developer Network Vietnam">MSDN Vietnam</a></li>
+<li><a href="http://technetvietnam.net/" title="TechNet Vietnam">TechNet Vietnam</a></li>
+
+	</ul>
+</div>
+
+</div>
+</div>
+
+<div id="footer-widgeted">
+    <div class="footer-widgeted-1">
+        <div id="blog-stats-2" class="widget widget_blog-stats"><h4>Blog Stats</h4>		<ul>
+			<li>25,639 hits</li>
+		</ul>
+		</div>    </div>
+    <div class="footer-widgeted-2">
+            </div>
+    <div class="footer-widgeted-3">
+            </div>
+</div>
+
+<div id="footer">
+	<div class="footerleft">
+		<p><a href="http://wordpress.com/?ref=footer" rel="generator">Blog at WordPress.com</a>.</p>
+    </div>
+    <div class="footerright">
+	    <a href="http://theme.wordpress.com/themes/enterprise/" title="Learn more about this theme">The Enterprise Theme</a>.     </div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+var _qevents = _qevents || [], wpcomQuantcastData = {"qacct":"p-18-mFEk4J448M","labels":",language.en,type.wpcom,posttag.cmake,posttag.opencv,posttag.visual-studio-2010,posttag.windows-7,as"};
+function wpcomQuantcastPixel( labels, options ) {
+	var i, defaults = wpcomQuantcastData, data = { event: 'ajax' };
+
+	labels  = labels  || '';
+	options = options || {};
+
+	if ( typeof labels != 'string' )
+		options = labels;
+
+	for ( i in defaults ) {
+		data[i] = defaults[i];
+	}
+
+	for ( i in options ) {
+		data[i] = options[i];
+	}
+
+	if ( data.labels ) {
+		data.labels += ',' + labels;
+	} else {
+		data.labels = labels;
+	}
+
+	_qevents.push( data );
+};
+(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);  })();
+_qevents.push( wpcomQuantcastData );
+</script>
+<noscript>&lt;div style="display: none;"&gt;&lt;img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=%2Clanguage.en%2Ctype.wpcom%2Cposttag.cmake%2Cposttag.opencv%2Cposttag.visual-studio-2010%2Cposttag.windows-7%2Cas" height="1" width="1" alt="" /&gt;&lt;/div&gt;</noscript>
+
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-63407362cd10d76ce4b5df03e356a32d">
+	</div>
+	<div class="grofile-hash-map-00c52d0582ccf294bf080e31668cdad3">
+	</div>
+	<div class="grofile-hash-map-b2e80405f81bd62a8ff9d9e2bc212d7f">
+	</div>
+	<div class="grofile-hash-map-f61e847174fe2e4b0e6697fd0ca1c071">
+	</div>
+	<div class="grofile-hash-map-63407362cd10d76ce4b5df03e356a32d">
+	</div>
+	<div class="grofile-hash-map-dece68210ddf9b40cf1d34f1a513b23b">
+	</div>
+	<div class="grofile-hash-map-fa9313db7703b4b9d8077e7d0b7ea3d8">
+	</div>
+	<div class="grofile-hash-map-0760319a81425c1c5d63838c08ffbf3e">
+	</div>
+	<div class="grofile-hash-map-0d75838d21e17b5ea1bbda7965c0352c">
+	</div>
+	<div class="grofile-hash-map-2f75f9ba49f401e7685e66a8ba7afb7f">
+	</div>
+	<div class="grofile-hash-map-edf9b90a5fccbcb5fbcd43d00d9d7241">
+	</div>
+	<div class="grofile-hash-map-e68f32b511b4ceadf76d0119a54ce934">
+	</div>
+	<div class="grofile-hash-map-402ae5e4d5c06ddd8b494f61ae1e31e2">
+	</div>
+	<div class="grofile-hash-map-ad6e5ebadf2f9f0c89528b32f1a9ba18">
+	</div>
+	<div class="grofile-hash-map-ff16e225247f44e6e00af95c1c4b8700">
+	</div>
+	<div class="grofile-hash-map-c077f94e29af0b26f63d71b94e38610c">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"http:\/\/huongtrantt.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"http:\/\/huongtrantt.wordpress.com\/wp-login.php?action=logout&_wpnonce=0c758745a9","homeURL":"http:\/\/huongtrantt.wordpress.com\/","postID":"180","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/saved_resource(2)"></script>
+
+	<div id="bit" class="loggedout-follow-typekit" style="bottom: -266px;">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “Huong Tran's blog”</label></h3>
+
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 1,167 other followers</p>
+			<p><input type="email" name="email" style="width: 95%; padding: 1px 2px" value="Enter your email address" onfocus="this.value=(this.value==&quot;Enter your email address&quot;) ? &quot;&quot; : this.value;" onblur="this.value=(this.value==&quot;&quot;) ? &quot;Enter email address&quot; : this.value;" id="loggedout-follow-field"></p>
+
+			<input type="hidden" name="action" value="subscribe">
+			<input type="hidden" name="blog_id" value="16150844">
+			<input type="hidden" name="source" value="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/">
+			<input type="hidden" name="sub-type" value="loggedout-follow">
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="ee2fe2debb"><input type="hidden" name="_wp_http_referer" value="/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/">
+			<p id="bsub-subscribe-button"><input type="submit" value="Sign me up"></p>
+			</form>
+					<div id="bsub-credit"><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+<script type="text/javascript" charset="UTF-8" id="polldaddyRatings"><!--//--><![CDATA[//><!--
+PDRTJS_settings_2833670_post_180={"id":2833670,"unique_id":"wp-post-180","title":"C%26agrave%3Bi%20%C4%91%E1%BA%B7t%20OpenCV%20tr%26ecirc%3Bn%20Visual%20Studio%202010%20%26ndash%3B%20Windows%207%26nbsp%3B%28x86-x64%29","permalink":"http:\/\/huongtrantt.wordpress.com\/2010\/11\/30\/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64\/","item_id":"_post_180"}; if ( typeof PDRTJS_RATING !== 'undefined' ){if ( typeof PDRTJS_2833670_post_180 == 'undefined' ){PDRTJS_2833670_post_180 = new PDRTJS_RATING( PDRTJS_settings_2833670_post_180 );}}
+//--><!]]></script><script type="text/javascript" charset="UTF-8" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/rating.js"></script>
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"http:\/\/huongtrantt.wordpress.com\/2010\/11\/30\/ci-d%e1%ba%b7t-opencv-trn-visual-studio-2010-windows-7-x86-x64\/":180}	</script>
+	<div id="sharing_email" style="display: none;">
+		<form action="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64).htm" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="text" name="target_email" id="target_email" value="" x-webkit-speech="undefined">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" x-webkit-speech="undefined">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="text" name="source_email" id="source_email" value="" x-webkit-speech="undefined">
+
+			
+			<div class="recaptcha" id="sharing_recaptcha"></div><input type="hidden" name="recaptcha_public_key" id="recaptcha_public_key" value="6LcYW8MSAAAAADBAuEH9yaPcF7lWh11Iq62ZKtoo">
+			<img style="float: right; display: none" class="loading" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a href="http://huongtrantt.wordpress.com/2010/11/30/ci-d%E1%BA%B7t-opencv-trn-visual-studio-2010-windows-7-x86-x64/#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<iframe src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/master.htm" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesWidgetBatch = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesBatchHandler() {
+				var requests = [];
+				jQuery( 'div.jetpack-likes-widget-unloaded' ).each( function( i ) {
+					if ( jetpackLikesWidgetBatch.indexOf( this.id ) > -1 )
+						return;
+					jetpackLikesWidgetBatch.push( this.id );
+					var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+					var match = regex.exec( this.id );
+					if ( ! match || match.length != 5 )
+						return;
+
+					var info = {
+						blog_id: match[2],
+						width:   this.width
+					};
+
+					if ( 'post' == match[1] ) {
+						info.post_id = match[3];
+					} else if ( 'comment' == match[1] ) {
+						info.comment_id = match[3];
+					}
+
+					info.obj_id = match[4];
+
+					requests.push( info );
+				});
+
+				if ( requests.length > 0 ) {
+					JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+				}
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						JetpackLikesBatchHandler();
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Grab any unloaded widgets for a batch request
+					JetpackLikesBatchHandler();
+
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				if ( 'undefined' === typeof wrapperID ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/widgets.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var recaptcha_options = {"lang":"en"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/saved_resource(3)"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'16150844','v':'wpcom','tz':'7','user_id':'0','post':'180','subd':'huongtrantt'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRWmVvejZZSHpITlNuel1mbGFTSFErb043UFYyeU1KNE0/NnZRNWhRRC9zSlhTfnh+c2VxeHZldGFkN1dbVXl0SHpdTnpbPThZW3R8Z3x6JW5Ua2dGTnlGU1ZiS1JUUT92TDEmL0Z6RkZKV19FRXQ1aUZLfHZIeDhyc3pRWHY5OXxXMmQ0bEE9U19LN3ZGa01GYVsrc1NnNE5aUit+M1t8SFJRMDUwekg9bSw9RXZTdF18am5qW2ZqVTQufCw2WWlCYTElP3h4cFE4OF1NT1EtcC4xUkdLblBNbSVSWE8meENHS1REK0I4eXdJaCtLfENTYkhGX3xUTDVPfGRDOC5fNzJzZmRkQVZTeXNiMDFEWlFEc34sd1ZPLDUtZWxtQiZXXVp+Wy9NenNIRA=='});
+addLoadEvent(function(){linktracker_init('16150844',180);});
+	</script><img id="wpstats" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/g.gif" alt=""><img id="wpstats2" src="./Install OpenCV on Visual Studio 2010 – Windows 7 (x86-x64)_files/g(1).gif" alt="" style="display:none">
+<noscript>&lt;img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//stats.wordpress.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<div><div id="SL_button" class="ImTranslatorLogo" style="display: none;"></div><div id="SL_shadow_translation_result2" style="display: none;"></div><div id="SL_shadow_translator" style="display: none;"><div id="SL_planshet"><div id="SL_TB"><div class="ImTranslatorLogo"></div><table cellspacing="1" id="SL_tables"><tbody><tr><td align="left" width="20%"><div id="SL_lng_from">English&nbsp;»</div></td><td align="left" width="20%"><select id="SL_lng_to"><option value="af">Afrikaans</option><option value="sq">Albanian</option><option value="ar">Arabic</option><option value="hy">Armenian</option><option value="az">Azerbaijani</option><option value="eu">Basque</option><option value="bn">Bengali</option><option value="be">Belarusian</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-CN">Chinese&nbsp;(Siml.)</option><option value="zh-TW">Chinese&nbsp;(Trad.)</option><option value="hr">Croatian</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en">English</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="tl">Filipino</option><option value="fi">Finnish</option><option value="fr">French</option><option value="gl">Galician</option><option value="ka">Georgian</option><option value="de">German</option><option value="el">Greek</option><option value="gu">Gujarati</option><option value="ht">Haitian&nbsp;Creole</option><option value="iw">Hebrew</option><option value="hi">Hindi</option><option value="hu">Hungarian</option><option value="is">Icelandic</option><option value="id">Indonesian</option><option value="ga">Irish</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="kn">Kannada</option><option value="ko">Korean</option><option value="lo">Lao</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="mk">Macedonian</option><option value="ms">Malay</option><option value="mt">Maltese</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sr">Serbian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option selected="" value="es">Spanish</option><option value="sw">Swahili</option><option value="sv">Swedish</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="vi">Vietnamese</option><option value="cy">Welsh</option><option value="yi">Yiddish</option></select></td><td width="13%" align="center">&nbsp;</td><td width="8%" align="center"><div id="SL_TTS_voice" title="Listen to the translation"></div></td><td width="8%" align="center"><div class="SL_copy_hand" id="SL_copy" title="Select text"></div></td><td width="8%" align="center"><div class="SL_font_off" id="SL_bbl_font" title="Font size"></div></td><td width="5%"></td><td width="8%" align="right"><div class="SL_pin_off" id="SL_pin" title="Pin pup-up bubble"></div></td></tr></tbody></table></div></div><div id="SL_shadow_translation_result"></div><div id="SL_bbl_donate" title="Make a small contribution"></div><div id="SL_Balloon_options"><a href="chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/options-bbl.html" target="_blank" class="SL_options" title="Show options">Options</a></div></div></div><a href="http://huongtrantt.wordpress.com/" style="position: absolute; top: 252px; left: 1110.5px; z-index: 15; border: none; text-decoration: none;"></a><a href="http://huongtrantt.wordpress.com/" style="position: absolute; top: 252px; left: 1110.5px; z-index: 15; border: none; text-decoration: none;"></a></body></html>

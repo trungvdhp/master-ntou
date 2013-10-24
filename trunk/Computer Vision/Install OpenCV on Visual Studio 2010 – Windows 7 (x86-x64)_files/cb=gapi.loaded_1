@@ -1,0 +1,5 @@
+/* JS */ gapi.loaded_1(function(_){var window=this;
+(0,_.Gk)("signin_annotation",function(a){var c=a.iframeNode;a=a.userParams||{};(0,_.yw)(a)&&(0,_.Jw)(a,c)});
+});
+
+// Copyright 2002-2013 Google Inc.
