@@ -1,4 +1,4 @@
-function y = Sine(n, p)
+function y = SinePlot(n, p)
 % Plot the function y = sin(x) for x = [-pi, pi] by using symmetry and Taylor polynomials.
 % Display the results in a table.
 % NOTE: (n-1) must be a multiple of 4 and (2*p+1) value is degree of Taylor polynomial.
@@ -7,9 +7,23 @@ x = linspace(-1,1,n);
 a = x(1:m+1)*pi;
 y = zeros(1, n);
 % Use Taylor polynomial to evaluate sin(x)
-for k=0:p 
-    y(1:m+1) = y(1:m+1) + ((-1)^k)*a.^(2*k+1)/factorial(2*k+1);
-end
+% #1: non rescursive
+% for k=0:p 
+%     y(1:m+1) = y(1:m+1) + ((-1)^k)*a.^(2*k+1)/factorial(2*k+1);
+% end
+% #2: rescursive 1
+% for k=1:m+1
+%     y(k) = SineTaylor(a(k),p);
+% end
+% #3: rescursive 2
+tn=a;
+y(1:m+1)=tn;
+b=a.*a;
+for k=1:p
+    c=2*k*(2*k+1);
+    tn = -tn.*b/c;
+    y(1:m+1) = y(1:m+1) + tn;
+end    
 y(2*m+1:-1:m+2) = y(1:m);
 y(n:-1:2*m+2) = -y(1:2*m);
 plot(x, y)
