@@ -1,0 +1,12 @@
+x = [-2 -1 0 1 2 3]';
+y = [35 5 1 1 11 30]';
+a = InterpV(x,y);
+c = InterpN(x,y);
+z = linspace(-3,5,65);
+pValV = HornerV(a,z);
+pValN = HornerN(c,x,z);
+plot(z,pValV,'--',z,pValN,'*');
+i4 = find(z==4);
+i5 = find(z==5);
+fprintf('p(4) = %.2f\n', pValV(i4));
+fprintf('p(5) = %.2f\n', pValV(i5));
