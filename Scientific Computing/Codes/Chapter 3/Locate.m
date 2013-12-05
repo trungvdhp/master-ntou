@@ -11,7 +11,7 @@
 
 if nargin==3
    % Try the initial guess.
-   if (x(g)<=z) & (z<=x(g+1))
+   if (x(g)<=z) && (z<=x(g+1))
       i = g;
       return
    end

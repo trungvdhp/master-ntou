@@ -10,14 +10,15 @@ disp('               pwL            pwC')
 disp(' delta       length(x)     length(x)')
 disp('--------------------------------------')
 for delta = [.1 .01 .001 .0001 .00001]
-  
    [xl,yl] = pwLAdapt('f',L,fL,R,fR,delta,hmin);
    nL = length(xl);
+   
    [xc,yc,sc] = pwCAdapt('f','dfdx',L,fL,sL,R,fR,sR,delta,hmin);
    nC = length(xc);
-   disp(sprintf(' %7.5f      %3.0f            %3.0f',delta,nL,nC))
-
-   plot(xl,yl,'o',xc,yc,'*')
-   legend('Lin.','Cub.',2)
+   
+   fprintf(' %7.5f      %3.0f            %3.0f\n',delta,nL,nC);
+   
+   plot(xl,yl,'ro',xc,yc,'*')
+   legend('Linear','Cubic',2)
    pause
 end
