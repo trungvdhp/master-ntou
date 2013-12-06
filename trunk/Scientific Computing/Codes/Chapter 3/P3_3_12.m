@@ -11,7 +11,7 @@ sval1 = spline(x,y1,z);
 sval2 = spline(x,y2,z);
 sval3 = spline(x,y3,z);
 sval4 = spline(x,y4,z);
-plot(z,sval1,'b*',z,sval2,'r-',z,sval3,'m.',z,sval4,'g-.');
+plot(z,sval1,'g',z,sval2,'b',z,sval3,'r',z,sval4,'m',x,y1,'go',x,y2,'bo',x,y3,'ro',x,y4,'mo');
 hleg = legend('S_1(x) = sin(x)','S_2(x) = e^x','S_3(x) = sin(x) + e^x','S_4(x) = 2sin(x) + 3e^x');
 set(hleg,'Location','Best');
 
