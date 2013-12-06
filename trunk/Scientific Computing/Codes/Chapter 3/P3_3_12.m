@@ -1,3 +1,6 @@
+% Problem P3_3_12
+% 
+% Illustrate not-a-knot spline interpolants using build-in function spline.
 z = linspace(0,2);
 x = linspace(0,2,21);
 y1 = sin(x);
