@@ -1,4 +1,4 @@
-﻿Build started 10/30/2013 1:17:34 PM.
+﻿Build started 12/9/2013 12:53:33 PM.
      1>Project "D:\Master\Computer Vision\Project\Stitcher\Stitcher.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\Stitcher.lastbuildstate".
@@ -27,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:12.48
+Time Elapsed 00:00:14.99
