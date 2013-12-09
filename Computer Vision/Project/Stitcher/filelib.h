@@ -25,7 +25,7 @@ vector<string> listdir (const char *path)
 	if (pdir == NULL)
 	{
 		// print an error message and exit the program
-		printf ("\nERROR! pdir could not be initialized correctly");
+		printf ("\nERROR! Directory path '%s' could not be initialized correctly.\n", path);
 		return result;
 	}
 
@@ -36,13 +36,16 @@ vector<string> listdir (const char *path)
 		if (pent == NULL)
 		{ 
 			// print an error message, and exit the program
-			printf ("\nERROR! pent could not be initialized correctly");
+			printf ("\nERROR! Directory '%s' could not be initialized correctly", path);
 			return result;
 		}
 		// otherwise, it was initialized correctly and if it's different '.' and '..'let's store it into vector
 		if (strcmp(pent->d_name, ".") != 0 && strcmp(pent->d_name, "..") != 0)
 		{
-			result.push_back(string(path) + string(pent->d_name));
+			int k = strlen(path);
+			string t="";
+			if (path[k-1] != '/') t = "/";
+			result.push_back(string(path) + t + string(pent->d_name));
 		}
 	}
 
