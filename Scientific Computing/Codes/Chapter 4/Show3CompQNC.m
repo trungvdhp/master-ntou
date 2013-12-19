@@ -15,6 +15,8 @@ while 1
     
     close all
     figure
+    mrk={'o','s','*','v','+','^'};
+    
     if ex == 1
         % Show QNC(m,n) errors for integral of sin from 0 to pi/2.
         fname = 'f1';
