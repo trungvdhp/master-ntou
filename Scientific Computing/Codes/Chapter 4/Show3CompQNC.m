@@ -1,72 +1,40 @@
-
-% Script File: Show3CompQNC
-% Illustrates composite Newton-Cotes rules on three different integrands.
-
-ex = 1;
-fname = '';
-a = 0;
-b = 0;
-while 1
-    ex = input('Select example (type 0 to exit) = ');
-
-    if ex == 0
-        break;
-    end
-    
-    close all
-    figure
-    mrk={'o','s','*','v','+','^'};
-    
-    if ex == 1
-        % Show QNC(m,n) errors for integral of sin from 0 to pi/2.
-        fname = 'f1';
-        a = 0;
-        b = pi;
+% Program Show3CompQNC.m  for Chapter 4
+% Giving the inputs.
+ex = input('Example = '); 
+if ex == 1
+    a = 0;  b = 1;  exactI = 0.9460830703671824;
+    for n = [1 2 4 8]
+        fprintf('n = %d\n',n);
+        disp('  m         QNC(m)	          Error')
+        disp(' ')
         for m = 2:7
-           % m-point rule used.
-           err = [];
-           % n = number of subintervals.
-           for n = [1 2 4 8]
-               err = [err  abs(CompQNCOpen(fname,a,b,m,n) -1)+eps];
-           end
-           semilogy([1 2 4 8], err) % plot the errors for each n 
-           %axis([0 10 10^(-17) 10^0])
-           hold on
+            numI = CompQNCOpen('f1',a,b,m,n);
+            err = abs((numI - exactI)/exactI);
+            s = sprintf('%20.16f  %10.3e',numI,err) ;
+            disp([ sprintf(' %2.0f  ' ,m) s]) 
         end
-        title('Example 1. QNC(m,n) error for integral of sin(x)/x from 0 to pi')
-    elseif ex == 2
-        fname = 'f2';
-        a = 0;
-        b = 2;
-        
-        for m = 2:11
-           % m-point rule used.
-           err = [];
-           for n = [1 2 4 8]
-               err = [err  abs(CompQNC(fname,a,b,m,n) -1)+eps];
-           end
-           plot([1 2 4 8], err)
-           hold on
-        end
-        title('Example 2. QNC(m,n) error for integral of x^3+3x^2+6x+9 from 0 to 2')
-    elseif ex == 3
-        fname = 'f3';
-        a = 0;
-        b = 1;
-        
-        for m = 2:11
-           % m-point rule used.
-           err = [];
-           for n = [1 2 4 8]
-               err = [err  abs(CompQNC(fname,a,b,m,n) -1)+eps];
-           end
-           plot([1 2 4 8], err)
-
-           hold on
-        end
-        title('Example 3. QNC(m,n) error for integral of exp(-2x)*cos(3x) from 0 to 1')
+        disp(' ')
+     end
+else
+    if ex == 2,
+       f = 'f2'; a = 0; b = 1;          exactI = 0.7468241328124270;
+    elseif ex == 3,
+       f = 'f3'; a = 0; b = 2*pi;       exactI = 0.1996265114536584;
+    elseif ex == 4,
+       f = 'f4';  a = -1;  b = 1;       exactI = 8.0;
     end
-    set(gca,'XTick',[1 2 4 8])
-    xlabel('n = number of subintervals')
-    ylabel('Error in QNC(m,n)')
+    
+    for n = [1 2 4 8]
+        fprintf('n = %d\n',n);
+        disp('  m         QNC(m)	          Error')
+        disp(' ')
+        for m = 2:11
+            numI = CompQNC(f,a,b,m,n);
+            err = abs((numI - exactI)/exactI);
+            s = sprintf('%20.16f  %10.3e',numI,err) ;
+            disp([ sprintf(' %2.0f  ' ,m) s]) 
+        end
+        disp(' ')
+     end
 end
+    
