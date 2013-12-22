@@ -7,10 +7,10 @@ function numI = CompQNCOpen(fname,a,b,m,n)
 % numI is the composite m-point Newton-Cotes approximation of the integral of f
 % from a to b with n equal length subintervals.
 
-Delta = (b-a)/(n+1);
-h = Delta/(m-1);
+Delta = (b-a)/n;
+h = (b-a)/(n*(m-1)+1);
 w = NCOpenWeights(m);
-x = linspace(a+h,b-h,n*(m-1)+1)';
+x = linspace(a+h,b,n*(m-1)+1)';
 f = feval(fname,x);
 numI = 0;
 first = 1;
