@@ -1,30 +1,31 @@
-﻿Build started 12/9/2013 12:53:33 PM.
-     1>Project "D:\Master\Computer Vision\Project\Stitcher\Stitcher.vcxproj" on node 2 (rebuild target(s)).
+﻿Build started 24/12/2013 13:25:25.
+     1>Project "D:\Document\Master\Computer Vision\Project\Stitcher\Stitcher.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\Stitcher.lastbuildstate".
        InitializeBuildStatus:
          Creating "Debug\Stitcher.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\opencv\build\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\opencv\build\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
+     1>d:\document\master\computer vision\project\stitcher\main.cpp(800): warning C4715: 'hough_transform' : not all control paths return a value
        ManifestResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\Stitcher.exe.embed.manifest.res" Debug\Stitcher_manifest.rc 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\opencv\build\x86\vc10\lib opencv_calib3d246d.lib opencv_contrib246d.lib opencv_core246d.lib opencv_features2d246.lib opencv_features2d246d.lib opencv_flann246d.lib opencv_gpu246d.lib opencv_haartraining_engined.lib opencv_highgui246d.lib opencv_imgproc246d.lib opencv_legacy246d.lib opencv_ml246d.lib opencv_nonfree246d.lib opencv_objdetect246d.lib opencv_photo246d.lib opencv_stitching246d.lib opencv_superres246d.lib opencv_ts246d.lib opencv_video246d.lib opencv_videostab246d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Stitcher.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.lib" /MACHINE:X86 Debug\Stitcher.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Document\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\opencv\build\x86\vc10\lib opencv_calib3d246d.lib opencv_contrib246d.lib opencv_core246d.lib opencv_features2d246.lib opencv_features2d246d.lib opencv_flann246d.lib opencv_gpu246d.lib opencv_haartraining_engined.lib opencv_highgui246d.lib opencv_imgproc246d.lib opencv_legacy246d.lib opencv_ml246d.lib opencv_nonfree246d.lib opencv_objdetect246d.lib opencv_photo246d.lib opencv_stitching246d.lib opencv_superres246d.lib opencv_ts246d.lib opencv_video246d.lib opencv_videostab246d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Stitcher.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Document\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Document\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.lib" /MACHINE:X86 Debug\Stitcher.exe.embed.manifest.res
          Debug\main.obj
        Manifest:
          Deleting file "Debug\Stitcher.exe.embed.manifest".
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Stitcher.exe.embed.manifest" /manifest Debug\Stitcher.exe.intermediate.manifest
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\Stitcher.exe.embed.manifest.res" Debug\Stitcher_manifest.rc 
        LinkEmbedManifest:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\opencv\build\x86\vc10\lib opencv_calib3d246d.lib opencv_contrib246d.lib opencv_core246d.lib opencv_features2d246.lib opencv_features2d246d.lib opencv_flann246d.lib opencv_gpu246d.lib opencv_haartraining_engined.lib opencv_highgui246d.lib opencv_imgproc246d.lib opencv_legacy246d.lib opencv_ml246d.lib opencv_nonfree246d.lib opencv_objdetect246d.lib opencv_photo246d.lib opencv_stitching246d.lib opencv_superres246d.lib opencv_ts246d.lib opencv_video246d.lib opencv_videostab246d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Stitcher.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.lib" /MACHINE:X86 Debug\Stitcher.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Document\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\opencv\build\x86\vc10\lib opencv_calib3d246d.lib opencv_contrib246d.lib opencv_core246d.lib opencv_features2d246.lib opencv_features2d246d.lib opencv_flann246d.lib opencv_gpu246d.lib opencv_haartraining_engined.lib opencv_highgui246d.lib opencv_imgproc246d.lib opencv_legacy246d.lib opencv_ml246d.lib opencv_nonfree246d.lib opencv_objdetect246d.lib opencv_photo246d.lib opencv_stitching246d.lib opencv_superres246d.lib opencv_ts246d.lib opencv_video246d.lib opencv_videostab246d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Stitcher.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Document\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Document\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.lib" /MACHINE:X86 Debug\Stitcher.exe.embed.manifest.res
          Debug\main.obj
-         Stitcher.vcxproj -> D:\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.exe
+         Stitcher.vcxproj -> D:\Document\Master\Computer Vision\Project\Stitcher\Debug\Stitcher.exe
        FinalizeBuildStatus:
          Deleting file "Debug\Stitcher.unsuccessfulbuild".
          Touching "Debug\Stitcher.lastbuildstate".
-     1>Done Building Project "D:\Master\Computer Vision\Project\Stitcher\Stitcher.vcxproj" (rebuild target(s)).
+     1>Done Building Project "D:\Document\Master\Computer Vision\Project\Stitcher\Stitcher.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:14.99
+Time Elapsed 00:00:02.17
