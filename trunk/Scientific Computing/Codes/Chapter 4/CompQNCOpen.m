@@ -8,17 +8,17 @@ function numI = CompQNCOpen(fname,a,b,m,n)
 % from a to b with n equal length subintervals.
 
 Delta = (b-a)/n;
-h = (b-a)/(n*(m-1)+1);
-w = NCOpenWeights(m);
-x = linspace(a+h,b,n*(m-1)+1)';
-f = feval(fname,x);
+h = Delta/(m+1);
+w = NCOpenWeights(m)';
 numI = 0;
-first = 1;
-last = m;
+first = a;
+last = a + Delta;
 for i=1:n
-   %Add in the inner product for the i-th subintegral.
-   numI = numI + w'*f(first:last);
+   % Add in the inner product for the i-th subintegral with Open Rules.
+   x = linspace(first+h,last-h,m)';
+   f = feval(fname,x);
+   numI = numI + w*f;
    first = last;
-   last = last+m-1; 
+   last = last+Delta; 
 end 
 numI = Delta*numI;

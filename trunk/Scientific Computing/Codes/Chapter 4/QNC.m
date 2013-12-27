@@ -6,7 +6,7 @@ function numI = QNC(fname,a,b,m)
 % m is an integer that satisfies 2 <= m <= 11.
 % numI is the m-point Newton-Cotes approximation of the integral of f from a to b. 
 
-w = NCweights(m);
+w = NCWeights(m);
 x = linspace(a,b,m)';
 f = feval(fname,x);
 numI = (b-a)*(w'*f);

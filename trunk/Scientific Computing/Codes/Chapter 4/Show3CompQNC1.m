@@ -2,8 +2,8 @@
 % Giving the inputs.
 ex = input('Example = '); 
 if ex == 1
-    disp('Integral from 0 to 1 of sin(x)/x')
-    a = 0;  b = 1;  exactI = 0.9460830703671824;
+    disp('Integral from 0 to pi of sin(x)/x use Open Rules')
+    a = 0;  b = pi;  exactI = 1.8519370519824661;
     for n = [1 2 4 8]
         fprintf('n = %d\n',n);
         disp('  m         QNC(m)	          Error')
@@ -21,11 +21,11 @@ else
        disp('Integral from 0 to 1 of exp(-x^2)')
        f = 'f2'; a = 0; b = 1;          exactI = 0.7468241328124270;
     elseif ex == 3,
-       disp('Integral from 0 to 2pi of cos(2*x)*exp(-x)')
-       f = 'f3'; a = 0; b = 2*pi;       exactI = 0.1996265114536584;
+       disp('Integral from 0 to 1 of exp(-2*x)*cos(3*x)')
+       f = 'f5'; a = 0; b = 1;       exactI = 0.1788659522032685;
     elseif ex == 4,
-       disp('Integral from -1 to 1 of x^3 + 3*x^2 - 10*x + 3')
-       f = 'f4';  a = -1;  b = 1;       exactI = 8.0;
+       disp('Integral from 0 to 2 of x^3 + 3*x^2 + 6*x + 9')
+       f = 'f6';  a = 0;  b = 2;       exactI = 42;
     end
     
     for n = [1 2 4 8]
