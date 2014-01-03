@@ -1,7 +1,22 @@
 % Program Show3CompQNC.m  for Chapter 4
 % Giving the inputs.
 ex = input('Example = '); 
-if ex == 1
+if ex == 0
+    disp('Integral from 0 to pi/2 of sin(x)/x use Open Rules')
+    a = 0;  b = pi/2;  exactI = 1.3707621681544884;
+    for n = [1 2 4 8]
+        fprintf('n = %d\n',n);
+        disp('  m         QNC(m)	          Error')
+        disp(' ')
+        for m = 2:7
+            numI = CompQNCOpen('f1',a,b,m,n);
+            err = abs((numI - exactI)/exactI);
+            s = sprintf('%20.16f  %10.3e',numI,err) ;
+            disp([ sprintf(' %2.0f  ' ,m) s]) 
+        end
+        disp(' ')
+     end
+elseif ex == 1
     disp('Integral from 0 to pi of sin(x)/x use Open Rules')
     a = 0;  b = pi;  exactI = 1.8519370519824661;
     for n = [1 2 4 8]
