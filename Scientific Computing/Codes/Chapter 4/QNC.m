@@ -1,4 +1,4 @@
-function numI = QNC(fname,a,b,m)
+  function numI = QNC(fname,a,b,m)
 % numI = QNC(fname,a,b,m)
 %
 % Integrates a function of the form f(x) named by the string fname from a to b. 
@@ -6,7 +6,7 @@ function numI = QNC(fname,a,b,m)
 % m is an integer that satisfies 2 <= m <= 11.
 % numI is the m-point Newton-Cotes approximation of the integral of f from a to b. 
 
-w = NCWeights(m);
+w = NCweights(m);
 x = linspace(a,b,m)';
 f = feval(fname,x);
 numI = (b-a)*(w'*f);

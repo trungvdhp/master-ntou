@@ -15,3 +15,6 @@ semilogy(nvals,fullA_flops,nvals,sparseA_flops)
 xlabel('n')
 title('(Tridiagonal A) \times (Vector)')
 legend('Flops with Full A','Flops with Sparse A',2)
+
+
+

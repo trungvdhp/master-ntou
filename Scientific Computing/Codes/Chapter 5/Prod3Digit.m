@@ -1,4 +1,4 @@
-function C = Prod3Digit(A,B)
+  function C = Prod3Digit(A,B)
 % C = Prod3Digit(A,B)
 % This computes the matrix product C = A*B in 3-digit floating point
 % arithmetic. A is m-by-p and B is p-by-n.

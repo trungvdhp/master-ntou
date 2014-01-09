@@ -1,4 +1,4 @@
-function GE2(A)
+  function GE2(A)
 % GE2(A)
 % 
 % Displays the results of 2-by-2 Gaussian elimination when it is applied to

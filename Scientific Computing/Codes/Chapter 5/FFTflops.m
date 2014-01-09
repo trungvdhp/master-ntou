@@ -11,4 +11,4 @@ for n = [2 4 8 16 32 64 128 256 512 1024]
    flops(0); y = FFTRecur(x(1:n));  F2 = flops;
    flops(0); y = fft(x(1:n));       F3 = flops;  
    disp(sprintf(' %4d %10d %10d  %10d', n,F1,F2,F3))
-end
+end

@@ -1,4 +1,4 @@
-function y = MatVecC0(A,x)
+  function y = MatVecC0(A,x)
 % y = MatVecCO(A,x)
 % This computes the matrix-vector product y = A*x (via saxpys) where
 % A is an m-by-n matrix and x is a columnn-vector.

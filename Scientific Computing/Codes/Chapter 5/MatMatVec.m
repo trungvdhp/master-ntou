@@ -1,4 +1,4 @@
-function C = MatMatVec(A,B)
+  function C = MatMatVec(A,B)
 % C = MatMatVec(A,B)
 % This computes the matrix-matrix product C = A*B (via matrix-vector products) 
 % where A is an m-by-p matrix, B is a p-by-n matrix. 

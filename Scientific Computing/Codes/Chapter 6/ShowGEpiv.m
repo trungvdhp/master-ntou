@@ -23,6 +23,7 @@ for k=1:n-1
    disp(sprintf('Interchange rows k = %1.0f and q = %1.0f',k,q))
    piv([k q]) = piv([q k]);
    A([k q],:) = A([q k],:);
+   L([k q],1:k-1) = L([q k],1:k-1);
    After = A
    disp(sprintf('piv = [ %1.0f  %1.0f  %1.0f  %1.0f  %1.0f]',piv(1),piv(2),piv(3),piv(4),piv(5)))
    disp(' ')

@@ -1,8 +1,8 @@
-function C = Strass(A,B,nmin)
+  function C = Strass(A,B,nmin)
 % C = Strass(A,B,nmin)
 % This computes the matrix-matrix product C = A*B (via the Strassen Method) where
 % A is an n-by-n matrix, B is a n-by-n matrix and n is a power of two. Conventional
-% matrix multiplication is used if n < nmin where nmin is a positive integer.
+% matrix multiplication is used if n<nmin where nmin is a positive integer.
 
 [n,n] = size(A);
 if n < nmin

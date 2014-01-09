@@ -1,4 +1,4 @@
-function x = UTriSol(U,b)
+  function x = UTriSol(U,b)
 % x = UTriSol(U,b)
 %
 % Solves the nonsingular upper triangular system  Ux = b.

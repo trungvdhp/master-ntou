@@ -1,4 +1,4 @@
-function y = DFT(x)
+  function y = DFT(x)
 % y = DFT(x)
 % y is the discrete Fourier transform of a column n-vector x.  
 

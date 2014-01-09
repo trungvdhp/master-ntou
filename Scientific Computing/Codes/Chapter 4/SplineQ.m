@@ -1,4 +1,4 @@
-function numI = SplineQ(x, y)
+  function numI = SplineQ(x,y)
 % numI = SplineQ(x,y)
 %
 % Integrates the spline interpolant of the data specified by the

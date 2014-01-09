@@ -1,4 +1,4 @@
-function x = LTriSol(L,b)
+  function x = LTriSol(L,b)
 % x = LTriSol(L,b)
 %
 % Solves the nonsingular lower triangular system  Lx = b 

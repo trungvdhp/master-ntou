@@ -1,6 +1,4 @@
-  
-function y = SpecHumps(x)
-
+  function y = SpecHumps(x)
 % y = SpecHumps(x)
 %   
 % Yields humps(x) where x is an n-vector.
@@ -10,7 +8,7 @@ function y = SpecHumps(x)
 global FunEvals VecFunEvals;
 y = 1 ./ ((x-.3).^2 + .01) + 1 ./ ((x-.9).^2 + .04) - 6;
 hold on
-plot(x, y,'*r')
+plot(x,y,'*')
 hold off
 FunEvals = FunEvals + length(x);
 VecFunEvals = VecFunEvals + 1;

@@ -1,4 +1,4 @@
-function F = SampleF(x,y)
+  function F = SampleF(x,y)
 % x is a column n-vector, y is a column m-vector and
 % F  is an m-by-n matrix with F(i,j) = exp(-(x(j)^2 + 3y(i)^2)).
 

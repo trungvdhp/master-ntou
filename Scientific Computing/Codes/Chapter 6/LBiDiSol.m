@@ -1,4 +1,4 @@
-function x = LBiDiSol(l,b)
+  function x = LBiDiSol(l,b)
 % x = LBiDiSol(l,b)
 %
 % Solves the n-by-n unit lower bidiagonal system  Lx = b
