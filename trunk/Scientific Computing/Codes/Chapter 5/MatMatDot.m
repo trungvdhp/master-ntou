@@ -1,4 +1,4 @@
-function C = MatMatDot(A,B)
+  function C = MatMatDot(A,B)
 % C = MatMatDot(A,B)
 % This computes the matrix-matrix product C =A*B (via dot products) where
 % A is an m-by-p matrix, B is a p-by-n matrix.

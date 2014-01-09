@@ -1,4 +1,4 @@
-function ShowNonZeros(A)
+  function ShowNonZeros(A)
 % Displays the sparsity structure of an n-by-n matrix A.
 % It is best that n<=30.
 
@@ -20,3 +20,4 @@ for i=1:n
       end
    end
 end
+

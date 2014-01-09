@@ -1,4 +1,4 @@
-function C = Circulant1(a)
+  function C = Circulant1(a)
 % C = Circulant1(a) is a circulant matrix with first row equal to a.
 
 n = length(a);

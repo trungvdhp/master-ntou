@@ -1,4 +1,4 @@
-function C = MatMatSax(A,B)
+  function C = MatMatSax(A,B)
 % C = MatMatSax(A,B)
 % This computes the matrix-matrix product C = A*B (via saxpys) where
 % A is an m-by-p matrix, B is a p-by-n matrix. 

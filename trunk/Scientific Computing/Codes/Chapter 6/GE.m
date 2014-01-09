@@ -1,4 +1,4 @@
-function [L,U] = GE(A)
+  function [L,U] = GE(A)
 % [L,U] = GE(A)
 %
 % The LU factorization without pivoting. If A is n-by-n and has an

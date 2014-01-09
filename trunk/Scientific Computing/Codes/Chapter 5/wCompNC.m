@@ -1,4 +1,4 @@
-function [omega,x] = wCompNC(a,b,m,n)
+  function [omega,x] = wCompNC(a,b,m,n)
 % [omega,x] = wCompNC(a,b,m,n)
 % 
 % m is an integer with 2<=m<=11 and n is a positive integer.

@@ -1,4 +1,4 @@
-function [L,U,piv] = GEpiv(A)
+  function [L,U,piv] = GEpiv(A)
 % [L,U,piv] = GE(A)
 %
 % The LU factorization with partial pivoting. If A is n-by-n, then

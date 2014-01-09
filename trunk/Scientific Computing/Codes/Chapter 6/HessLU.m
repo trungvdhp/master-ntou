@@ -1,4 +1,4 @@
-function [v,U] = HessLU(A)
+  function [v,U] = HessLU(A)
 % [v,U] = HessLU(A)
 %
 % Computes the factorization H = LU where H is an n-by-n upper Hessenberg 

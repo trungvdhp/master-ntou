@@ -1,6 +1,8 @@
-% Script File: ShowWQ  % ERROR % the same ShowCompQNC
+% Script File: ShowCompQ 
 % Illustrates composite Newton-Cotes rules on three different
 % integrands.
+
+
 % Show QNC(m,n) errors for integral of sin from 0 to pi/2.
 
 close all
@@ -10,7 +12,7 @@ for m = [1 2 3 4 5 6]
    err = [];
    for n = [1 2 4 8 16 32]
       % n = number of subintervals.
-      err = [err  abs(compQNC('sin',0,pi/2,m,n) -1)+eps];
+      err = [err  abs(compQ('sin',0,pi/2,m,n) -1)+eps];
    end
    semilogy([1 2 4 8 16 32],err)
    

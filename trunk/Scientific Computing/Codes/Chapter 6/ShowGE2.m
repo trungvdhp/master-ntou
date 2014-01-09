@@ -6,8 +6,7 @@ A = [.981  .726; .529 .394];
 ge2(A)
 disp('Strike any key for next example.')
 pause
-
-
+
 A = [.981  .726; .529 .384];
 ge2(A)
 disp('Strike any key for next example.')

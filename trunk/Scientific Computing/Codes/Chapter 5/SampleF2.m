@@ -1,4 +1,4 @@
-function F = SampleF2(x,y)
+  function F = SampleF2(x,y)
 % A function of 2 variables with strong local maxima at (.3,.4) and (.7,.3).
 
 F = zeros(length(y),length(x));

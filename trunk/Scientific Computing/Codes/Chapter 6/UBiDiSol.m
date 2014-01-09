@@ -1,4 +1,4 @@
-function x = UBiDiSol(u,f,b)
+  function x = UBiDiSol(u,f,b)
 % x = UBiDiSol(u,f,b) 
 %
 % Solves the n-by-n nonsingular upper bidiagonal system  Ux = b

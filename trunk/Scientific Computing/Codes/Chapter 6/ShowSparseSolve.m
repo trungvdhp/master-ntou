@@ -13,3 +13,7 @@ for n=[25 50 100 200 400 800]
    flops(0); x = T_sparse\b; sparseFlops = flops;
    disp(sprintf('%10d  %10d  %10d ',n,fullFlops,sparseFlops))
 end
+   
+
+   
+

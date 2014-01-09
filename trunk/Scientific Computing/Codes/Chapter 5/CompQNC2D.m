@@ -1,4 +1,4 @@
-function numI2D = CompQNC2D(fname,a,b,c,d,mx,nx,my,ny)
+  function numI2D = CompQNC2D(fname,a,b,c,d,mx,nx,my,ny)
 % numI2D = CompQNC2D(fname,a,b,c,d,mx,nx,my,ny)
 % 
 % fname is a string that names a function of the form f(x,y).

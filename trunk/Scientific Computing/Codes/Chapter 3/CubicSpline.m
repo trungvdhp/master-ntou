@@ -1,23 +1,25 @@
   function [a,b,c,d] = CubicSpline(x,y,derivative,muL,muR)
 % [a,b,c,d] = CubicSpline(x,y,derivative,muL,muR)
 % Cubic spline interpolation with prescribed end conditions.
-%
+% 
 % x,y are column n-vectors. It is assumed that n >= 4 and x(1) < ... x(n).
 % derivative is an integer (1 or 2) that specifies the order of the endpoint derivatives.
 % muL and muR are the endpoint values of this derivative.
 %
-% a,b,c, and d are column (n-1)-vectors that define the spline S(z). On [x(i),x(i+1)],
-% 
+% a,b,c, and d are column (n-1)-vectors that define the spline S(z). On [x(i),x(i+1)], 
+%  
 %          S(z) =  a(i) + b(i)(z-x(i)) + c(i)(z-x(i))^2 + d(i)(z-x(i))^2(z-x(i+1).
 %
 % Usage:
 %   [a,b,c,d] = CubicSpline(x,y,1,muL,muR)   S'(x(1))  = muL, S'(x(n))  = muR
 %   [a,b,c,d] = CubicSpline(x,y,2,muL,muR)   S''(x(1)) = muL, S''(x(n)) = muR
 %   [a,b,c,d] = CubicSpline(x,y)             S'''(z) continuous at x(2) and x(n-1)
-       % First, set up all but the first and last equations that
+       
+
+% First, set up all but the first and last equations that
 % define the vector of interior knot slopes s(2:n-1).
 
-n = length(x);
+n = length(x); 
 Dx = diff(x);
 yp = diff(y) ./ Dx;
 T = zeros(n-2,n-2);
@@ -35,7 +37,7 @@ end
 if nargin==5
    %Derivative information available.
    if derivative==1
-      % End values for S'(z) specified.        
+      % End values for S'(z) specified.         
       T(1,1) = 2*(Dx(1) + Dx(2));
       T(1,2) = Dx(1);
       r(1) = 3*(Dx(2)*yp(1)+Dx(1)*yp(2)) - Dx(2)*muL;
@@ -44,9 +46,9 @@ if nargin==5
       r(n-2) = 3*(Dx(n-1)*yp(n-2) + Dx(n-2)*yp(n-1)) -Dx(n-2)*muR;
       s = [muL; T\r; muR];
    end
-  
+   
    if derivative==2
-      % End values for S''(z) specified. 
+      % End values for S''(z) specified.  
       T(1,1) = 2*Dx(1) + 1.5*Dx(2);
       T(1,2) = Dx(1);
       r(1) = 1.5*Dx(2)*yp(1) + 3*Dx(1)*yp(2) + Dx(1)*Dx(2)*muL/4;
@@ -77,7 +79,7 @@ else
 end
 
 % Compute the a,b,c,d vectors.
-  
+   
 a = y(1:n-1);
 b = s(1:n-1);
 c = (yp - s(1:n-1)) ./ Dx;

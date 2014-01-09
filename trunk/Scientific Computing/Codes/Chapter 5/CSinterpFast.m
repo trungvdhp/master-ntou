@@ -1,0 +1,9 @@
+function F = CSinterpFast(f)
+y = fft(f);
+n = length(f);
+m = n/2;
+a = (2/n)*real(y(1:m+1));
+a(1) = a(1)/2;
+a(m+1) = a(m+1)/2;
+b = -(2/n)*imag(y(2:m));
+F = struct('a',a,'b',b);

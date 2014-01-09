@@ -1,4 +1,4 @@
-function y = FFTRecur(x)
+  function y = FFTRecur(x)
 % y = FFTRecur(x)
 % y is the discrete Fourier transform of a column n-vector x where 
 % n is a power of two. 
@@ -13,4 +13,4 @@ function y = FFTRecur(x)
      d = exp(-2*pi*sqrt(-1)/n).^(0:m-1)';
      z = d.*yB;
      y = [ yT+z ; yT-z ];
-  end
+  end

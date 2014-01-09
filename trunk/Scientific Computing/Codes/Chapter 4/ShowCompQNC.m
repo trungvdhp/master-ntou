@@ -1,9 +1,8 @@
-
 % Script File: ShowCompQNC
 % Illustrates composite Newton-Cotes rules on three different
 % integrands.
-% Show QNC(m,n) errors for integral of sin from 0 to pi/2.
 
+% Show QNC(m,n) errors for integral of sin from 0 to pi/2.
 close all
 figure
 for m = [3 5 7]
@@ -11,9 +10,9 @@ for m = [3 5 7]
    err = [];
    for n = [1 2 4 8 16 32]
       % n = number of subintervals.
-      err = [err  abs(CompQNC('sin',0,pi/2,m,n) -1)+eps];
+      err = [err  abs(compQNC('sin',0,pi/2,m,n) -1)+eps];
    end
-   semilogy([1 2 4 8 16 32], err) % plot the errors for each n 
+   semilogy([1 2 4 8 16 32],err)
    axis([0 40 10^(-17) 10^0])
    text(33,err(6),sprintf('m = %1.0f',m))
    hold on
@@ -29,7 +28,7 @@ for m = [3 5 7]
    err = [];
    for n = [1 2 4 8 16 32]
       % n = number of subintervals.
-      err = [err abs(CompQNC('sqrt',0,1,m,n) - (2/3))+eps];
+      err = [err abs(compQNC('sqrt',0,1,m,n) - (2/3))+eps];
    end
    semilogy([1 2 4 8 16 32],err)
    axis([0 40 10^(-5) 10^(-1)])
@@ -47,7 +46,7 @@ for m = [3 5 7]
    err = [];
    for n = [1 2 4 8 16 32]
       % n = number of subintervals.
-      err = [err  abs(CompQNC('Runge',0,1,m,n) - (atan(5)/5))+eps;];
+      err = [err  abs(compQNC('Runge',0,1,m,n) - (atan(5)/5))+eps;];
    end
    semilogy([1 2 4 8 16 32],err)
    axis([0 40 10^(-17) 10^0])

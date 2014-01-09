@@ -1,0 +1,1 @@
+randn('seed',1234)A = randn(30,2);b = randn(30,1);X = zeros(2,10);for k=1:10   cond(A(3*k-2:3*k,:))   X(:,k) = A(3*k-2:3*k,:)\b(3*k-2:3*k);end

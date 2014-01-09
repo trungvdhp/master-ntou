@@ -1,4 +1,4 @@
-function A = MakeBlock(A_scalar,p)
+  function A = MakeBlock(A_scalar,p)
 % A = MakeBlock(A_scalar,p)
 % A_scalar is an n-by-n matrix and p divides n. A is an (n/p)-by-(n/p) 
 % cell array that represents A_scalar as a block matrix with p-by-p blocks. 

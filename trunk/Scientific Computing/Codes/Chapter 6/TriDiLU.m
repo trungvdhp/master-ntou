@@ -1,4 +1,5 @@
-function [l,u] = TriDiLU(d,e,f)
+  function [l,u] = TriDiLU(d,e,f)
+% [l,u] = TriDiLU(d,e,f)
 %
 % Tridiagonal LU without pivoting. d,e,f are  n-vectors that define a tridiagonal matrix 
 % A = diag(e(2:n),-1) + diag(d) + diag(f(1:n-1),1). Assume that A has an LU factorization.
