@@ -23,7 +23,8 @@ for i=1:n
     end
     T=[T;B];
 end
+plot(X,Y,'*r');
 F=fxy(X,Y,w)';
-V=T\F;
+V=T\(h^2*F);
 
 
