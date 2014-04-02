@@ -11,7 +11,7 @@ while cont ~= 0
         Q=input('Input coupon frequency Q (in years, and will be a multiple of T) = ');%0.5;
     end
     r=GetInterestRate(V,F,T,C,Q);
-    fprintf('Constant risk-free interest rate r = %.4f\n', r);
+    fprintf('Constant risk-free interest rate r = %.4f%%\n', r);
     display('-------------------------------------------------');
     cont=input('Input anything to try again or intput 0 to exit:');
 end

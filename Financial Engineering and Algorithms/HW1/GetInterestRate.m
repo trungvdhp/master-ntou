@@ -1,5 +1,5 @@
 function r=GetInterestRate(V, F, T, C, Q)
-% Get interest rate
+% GetInterestRate(V, F, T, C, Q) returns a constant risk-free interest rate
 % V is bond price
 % F is bond face value
 % T is maturity

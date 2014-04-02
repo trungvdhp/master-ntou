@@ -10,5 +10,5 @@ plot(R,V(1,:),'r',R,V(2,:),'b',R,V(3,:),'m');
 legend('Coupon C = 0','Coupon C = 1','Coupon C = 2');
 % The interest rates and bond prices have what's called an "inverse relationship"
 % - meaning when one goes up, the other goes down
-% The coupon values and bond prices have what's called an "direct relationship" or "positive relationship"
+% The coupon values and bond prices have what's called a "direct relationship" or "positive relationship"
 % - meaning both increase or decrease together
