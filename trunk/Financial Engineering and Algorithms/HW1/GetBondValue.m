@@ -1,5 +1,7 @@
 function V=GetBondValue(F, T, C, Q, R)
-% Get bond value
+% GetBondValue(F, T, C, Q, R) returns a two-dimensional array of bond
+% values V with each row corresponds to a specified coupon and
+% each column corresponds to an interest rate
 % F is bond face value
 % T is maturity
 % C is a column vector of coupon values
