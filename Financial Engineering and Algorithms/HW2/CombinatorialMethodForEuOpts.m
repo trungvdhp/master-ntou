@@ -1,6 +1,6 @@
 function y = CombinatorialMethodForEuOpts(S, X, T, sigma, r, n, putCall)
-% Function y = CombinatorialMethodForEuOpts(S, X, T, sigma, r, n, style, putCall)
-% compute European-style call option and put option using CombinatorialMethod
+% Function y = CombinatorialMethodForEuOpts(S, X, T, sigma, r, n, putCall)
+% compute European-style call option and put option using the combinatorial method
 % S is stock price
 % X is the strike price
 % T is the expiration day
@@ -19,7 +19,7 @@ p = (a - d)/(u - d);
 q = 1 - p;
 
 % Generate the combinations of i from n, where i = 0..n
-C = 0:n;
+C = zeros(1, n+1);
 C(1) = 1;
 C(n+1) = 1;
 k = n/2 + 1;
@@ -30,7 +30,6 @@ for i = 1:k
     C(n-i+1) = C(i+1);
     m = m - 1;
 end
-
 switch putCall
     case 'C'
         z = 1;
@@ -40,10 +39,10 @@ switch putCall
         error('Check option type!');
 end
 
-% Compute European-style call option and put option using CombinatorialMethod
+% Compute European-style call option and put option using the combinatorial method
 y = 0;
 for i = 0:n
-    y = y + C(i+1)*p^(n-i)*q^i*max(z*(S*u^(n-i)*d^i-X),0);
+    y = y + C(i+1)*p^(n-i)*q^i*max(z*(S*u^(n-i)*d^i - X), 0);
 end
 y = b*y;
 end
