@@ -1,5 +1,5 @@
 function y = OptionPriceByCRR(S, X, T, sigma, r, n, style, putCall)
-% Function y = CRR_european_style(S, X, T, sigma, r, n, option)
+% Function y = OptionPriceByCRR(S, X, T, sigma, r, n, style, putCall)
 % compute European-style call option and put option
 % S is stock price
 % X is the strike price
