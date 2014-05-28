@@ -1,5 +1,5 @@
-  function numI = QGL(fname,a,b,m)
-% numI = QGL(fname,a,b,m,tol)
+  function numI = QGL(fname,a,b,d,m)
+% numI = QGL(fname,a,b,d,m)
 %
 % Integrates a function from a to b 
 % fname is a string that names an available function of the form f(x) that 
@@ -10,5 +10,5 @@
 % integral of f(x) from a to b. 
 
 [w,x] = GLWeights(m);
-fvals = feval(fname,((b-a)/2)*x + ((a+b)/2)*ones(m,1));
+fvals = feval(fname,((b-a)/2)*x + ((a+b)/2)*ones(m,1),d);
 numI = ((b-a)/2)*w'*fvals;
