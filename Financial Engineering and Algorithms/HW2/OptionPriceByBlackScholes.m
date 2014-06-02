@@ -22,22 +22,14 @@ Nd11 = CompQNCOpen('f', 0, 1, -d1, 7, n);
 Nd21 = CompQNCOpen('f', 0, 1, -d2, 7, n);
 
 % using Error Function
-display(erf2(d1/sqrt(2), 3000) - erf(d1/sqrt(2)));
-display(erf2(-d1/sqrt(2), 3000) - erf(-d1/sqrt(2)));
-display(erf2(d2/sqrt(2), 3000) - erf(d2/sqrt(2)));
-display(erf2(-d2/sqrt(2), 3000) - erf(-d2/sqrt(2)));
+Nd1e = (erf1(d1/sqrt(2)) + 1)/2;
+Nd2e = (erf1(d2/sqrt(2)) + 1)/2;
+Nd11e = (erf1(-d1/sqrt(2)) + 1)/2;
+Nd21e = (erf1(-d2/sqrt(2)) + 1)/2;
 
-display(erf1(d1/sqrt(2)) - erf(d1/sqrt(2)));
-display(erf1(-d1/sqrt(2)) - erf(-d1/sqrt(2)));
-display(erf1(d2/sqrt(2)) - erf(d2/sqrt(2)));
-display(erf1(-d2/sqrt(2)) - erf(-d2/sqrt(2)));
+callPrice = S*Nd1 - a*Nd2;
+putPrice = a*Nd21 - S*Nd11;
 
-
-Nd1e = (erf2(d1/sqrt(2), 3000) + 1)/2;
-Nd2e = (erf2(d2/sqrt(2), 3000) + 1)/2;
-Nd11e = (erf2(-d1/sqrt(2), 3000) + 1)/2;
-Nd21e = (erf2(-d2/sqrt(2), 3000) + 1)/2;
-
-callPrice = S*Nd1e - a*Nd2e;
-putPrice = a*Nd21e - S*Nd11e;
+% callPrice = S*Nd1e - a*Nd2e;
+% putPrice = a*Nd21e - S*Nd11e;
 end
