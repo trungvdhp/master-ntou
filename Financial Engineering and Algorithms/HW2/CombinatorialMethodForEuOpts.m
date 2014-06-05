@@ -41,8 +41,16 @@ end
 
 % Compute European-style call option and put option using the combinatorial method
 y = 0;
+p1 = p^n;
+q1 = 1;
+u1 = u^n;
+d1 = 1;
 for i = 0:n
-    y = y + C(i+1)*p^(n-i)*q^i*max(z*(S*u^(n-i)*d^i - X), 0);
+    y = y + C(i+1)*p1*q1*max(z*(S*u1*d1 - X), 0);
+    p1 = p1/p;
+    q1 = q1*q;
+    u1 = u1/u;
+    d1 = d1*d;
 end
 y = b*y;
 end
