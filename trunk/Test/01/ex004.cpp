@@ -6,10 +6,11 @@ int main()
     int b[10];
     int i,j;
     int m=9,n=9;
+    char check=1;
     for(i=0;i<9;i++)
     {
         scanf("%s",&a[i]);
-        printf("%s\n",a[i]);
+        //printf("%s\n",a[i]);
     }
     //kiem tra hang
     for(i=0;i<n;i++)
@@ -18,11 +19,15 @@ int main()
         
         for(j=0;j<m;j++)
         {
-            b[a[i][j]-48]++;
-            if(b[a[i][j]-48]>1)
+            if(a[i][j]!='0')
             {
-                printf("false");
-                return 0;
+                b[a[i][j]-48]++;
+                if(b[a[i][j]-48]>1)
+                {
+                    check=0;
+                    printf("row%d #%c\n",i+1,a[i][j]);
+                    break;
+                }
             }
         }
     }
@@ -33,12 +38,20 @@ int main()
         
         for(j=0;j<m;j++)
         {
-            b[a[j][i]-48]++;
-            if(b[a[j][i]-48]>1)
+            if(a[j][i]!='0')
             {
-                printf("false");
-                return 0;
+                b[a[j][i]-48]++;
+                if(b[a[j][i]-48]>1)
+                {
+                    check=0;
+                    printf("column%d #%c\n",i+1,a[j][i]);
+                    break;
+                }
             }
+        }
+        for(j=1;j<10;j++)
+        {
+            
         }
     }
     //kiem tra 3x3
@@ -48,17 +61,24 @@ int main()
         {
             for(n=0;n<10;n++) b[n]=0;
             for(n=0; n<3; n++)
+            {
                 for(m=0;m<3;m++)
                 {
-                    b[a[n+3*i][m+3*j]-48]++;
-                    if(b[a[n+3*i][m+3*j]-48]>1)
+                    if(a[n+3*i][m+3*j]!='0')
                     {
-                        printf("false");
-                        return 0;
-                    }
+                        b[a[n+3*i][m+3*j]-48]++;
+                        if(b[a[n+3*i][m+3*j]-48]>1)
+                        {
+                            check=0;
+                            printf("block%d #%c\n",3*i+j+1,a[n+3*i][m+3*j]);
+                            break;
+                        }
+                    } 
                 }
+            }
         }
-    } 
-    printf("true");
+    }
+    if(check)
+        printf("true");
     return 0;
 }
