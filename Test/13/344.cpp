@@ -3,22 +3,17 @@
 
 int main()
 {
-	char s[100][256];
+	char s[256];
 	char q[256];
-	int m=0;
 	int count=0;
-	freopen("s.txt","r",stdin);
-	while(scanf("%s",&s[m])>0)
-	{
-		m++;
-	}
 	freopen("q.txt","r",stdin);
 	scanf("%s",&q);
-	for(int i=0;i<m;i++)
+	freopen("s.txt","r",stdin);
+	while(scanf("%s",&s)>0)
 	{
-		if(strstr(s[i],q)!=NULL)
+		if(strstr(s,q)!=NULL)
 		{
-			printf("The sequence is %s\n",s[i]);
+			printf("The sequence is %s\n",s);
 			count++;
 		}
 	}
