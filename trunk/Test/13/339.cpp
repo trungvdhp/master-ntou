@@ -33,11 +33,11 @@ int main()
         int i;
         printf("%c",s[0]);
     	int start=1;
-    	int end=l;
-    	int n=end-start+1;
+    	int end=l-1;
     	int *a=random(start,end);
-    	for(int i=0;i<n;i++)
-    		printf("%d ",a[i]);
+    	for(int i=0;i<end;i++)
+    		printf("%c",s[a[i]]);
+    	printf("\n");
     }
 	return 0;
 }
