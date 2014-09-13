@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 char X1[20];
 char X2[20];
 int B1,B2;
@@ -46,7 +47,11 @@ int main()
 {
     scanf("%s",&X1);
     scanf("%d",&B1);
-    n = strlen(X1);
+    char * p;
+  	long int a;
+  	//Convert string X1 in base B1 to long int value
+  	a = strtol(X1,&p,B1);
+    /*n = strlen(X1);
     
     for(int i=0;i<n;i++)
     {
@@ -55,14 +60,18 @@ int main()
         else
             X1[i]=X1[i]-'0';
     }
-    unsigned long long X = ctodec();
+    unsigned long long X = ctodec();*/
     
     while(1)
     {
         scanf("%d",&B2);
+        
         if(B2>1)
         {
-            dectob(X);
+        	//convert a int value #a to base #B2 and store in string #X1
+        	itoa(a,X1,B2);
+        	printf("%s\n",X1);
+            //dectob(X);
             print();
         }
         else break;
