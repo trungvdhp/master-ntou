@@ -17,6 +17,7 @@ int main()
                 scanf("%d",&a[i][j]);
             }
         }
+        //here, k is size of window
         for(int i=0;i<n+1-k;i++)
         {
             for(int j=0;j<m+1-k;j++)
