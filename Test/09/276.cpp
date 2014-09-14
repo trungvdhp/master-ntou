@@ -11,6 +11,8 @@ int main()
 		rs+=d/m;
 		m+=2;
 		d=-d;
+		printf("%d ",i);
+		printf("%.16f ",rs);
 	}
 	printf("%.16f",rs);
 	return 0;
