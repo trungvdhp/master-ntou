@@ -11,7 +11,7 @@ int main()
         scanf("%d",&k);
         a[k]++;
         
-        if(a[k]==2)
+        if(k>n||a[k]==2)
         {
             printf("0");
             return 0;
