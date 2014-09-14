@@ -16,9 +16,11 @@ int main()
     for(int j=k-1;j>=0;j--)
     {
         if(a[j]>9)
+        {
             printf("%c",a[j]-10+'A');
+        }
         else
             printf("%d",a[j]);
     }
-    
+    return 0;
 }
