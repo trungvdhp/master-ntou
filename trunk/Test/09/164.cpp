@@ -36,48 +36,42 @@ void sieve(int n)
     }
 }
 
-int largestprime(int n)
+bool isprime(int n)
 {
-	int i,j;
+	int i;
 	int k;
-	for(i=n-1;i>=2;i--)
+	int x = (int)sqrt(n) + 1;
+	
+	for(i=0;primes[i]<x;i++)
 	{
-		int x = (int)sqrt(i) + 1;
-		//printf("sqrt(%d)+1 = %d\n",i,x);
-		//k=0;
-		
-		for(j=0;primes[j]<x;j++)
+		if(n%primes[i]==0)
+			break;
+		else
 		{
-			if(i%primes[j]==0)
-				break;
-			else
-			{
-				//printf("%d ",primes[j]);
-				//k++;
-			}
-		}
-		//printf("\nk=%d\n",k);
-		if(primes[j]>=x)
-		{
-			return i;
+			//printf("%d ",primes[i]);
+			//k++;
 		}
 	}
-	return -1;
+	//printf("\nk=%d\n",k);
+	if(primes[i]>=x)
+	{
+		return true;
+	}
+	
+	return false;
 }
 
 int main()
 {
-	int n,a;
+	int n;
 	sieve(50000);
 	
 	while(scanf("%d",&n))
 	{
-		a=largestprime(n);
-		
-		if(a==-1)
-			printf("No largest prime less than %d found\n",n);
+		if(isprime(n))
+			printf("YES\n");
 		else
-			printf("%d\n",a);
+			printf("NO\n");
 	}
 	return 0;
 }
