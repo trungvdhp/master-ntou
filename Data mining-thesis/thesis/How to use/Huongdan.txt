@@ -1,0 +1,11 @@
+﻿_ Du lieu  bao gom T10I4D100K va Retail dataset co duoc tu trang:
+http://fimi.ua.ac.be/data/
+- Sau khi lay ve may tinh, tien hanh chay chuong trinh TGA va STRN duoc viet san de tao ra co so du lieu giao dich,
+day la dau vao input cho thuat toan METISP, MFSPUTC, va thuat toan de xuat tiep theo.
+- Yeu cau: thuat toan de xuat can tang duoc toc do so voi thuat toan METISP, duoc phep toi uu chuong trinh MFSUTC
+ Cac buoc thuc hien:
+Doc file DetailedMETISP.docx de hieu ve thuat toan METISP, va chay chuong trinh METISP
+Doc file MFSUTC.docx de thay duoc cach labmate toi uu thuat toan METISP va chay chuong trinh
+Chuong trinh viet cho thuat toan de xuat cung ke thua cac lop nhu cac chuong trinh viet truoc do
+
+
