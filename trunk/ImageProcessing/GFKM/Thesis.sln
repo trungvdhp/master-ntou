@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GFKM", "CUDATuto13.vcxproj", "{44CBD887-1E3D-43CA-81F3-7C42AEE9B649}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GFKM", "GFKM.vcxproj", "{44CBD887-1E3D-43CA-81F3-7C42AEE9B649}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -58,11 +58,12 @@ public:
 			exit(1);
 		}
 		file << N << " " << D << endl;
-		file << std::fixed << std::setprecision(12);
+		file << std::fixed << std::setprecision(9);
 
 		for(int i=0; i<N; i++){
 			for(int j=0; j<D; j++){
-				file << a[index++] << " ";
+				file.width(15); 
+				file << std::right << a[index++] << " ";
 			}
 			file << endl;
 		}

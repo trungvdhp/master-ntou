@@ -1,8 +1,8 @@
 #include "GFKM.cuh"
-#define DIM_MAX 64
-#define K_MAX 32
-#define M_MAX 2
+#define DIM_MAX 36
+#define NSTREAM 12
 #define PRN 9
+#define BLOCK_MAX 1024
 
 __global__ void initialize_NNT_kernel
 	(double* points, double* centroids, int* NNT, double* DNNT,
@@ -32,55 +32,6 @@ __global__ void initialize_NNT_kernel
 			temp = X[j] - pCentroids[j];
 			diff = diff + temp*temp;
 		}
-		idx = 0;
-
-		for(; idx < M; idx++)
-			if(pDNNT[idx] > diff) break;
-
-		for(j=M-1; j>idx; j--){
-			pDNNT[j] = pDNNT[j-1];
-			pNNT[j] = pNNT[j-1];
-		}
-
-		if(idx < M){
-			pDNNT[idx] = diff;
-			pNNT[idx] = i;
-		}
-	}
-}
-
-__global__ void update_NNT_kernel
-	(double* points, double* centroids, int* NNT, double* DNNT, double* tempU, double* D_ALG,
-	 int N, int D, int K, int M)
-{
-	int idx = blockIdx.x * blockDim.x + threadIdx.x;
-
-	if(idx >= N) return;
-	int i, j;
-	i = idx*M;
-	int* pNNT = NNT + i;
-	double* pDNNT = DNNT + i;
-	i = idx*K;
-	double* pTempU = tempU + i;
-	double* pD_ALG = D_ALG + i;
-	double* pCentroids = centroids;
-	
-	double X[DIM_MAX];
-	double diff, temp;
-	
-	j= idx*D;
-	for(i=0; i<D; i++) X[i] = points[j++];
-
-	for(i=0; i<M; i++) pDNNT[i] = DBL_MAX;
-
-	for(i=0; i<K; i++,pCentroids+=D){
-		diff = 0.0;
-
-		for(j=0; j<D; j++){
-			temp = X[j] - pCentroids[j];
-			diff = diff + temp*temp;
-		}
-		pD_ALG[i] = pTempU[i]*diff;
 		idx = 0;
 
 		for(; idx < M; idx++)
@@ -142,60 +93,6 @@ __global__ void update_memberships_kernel
 	}
 }
 
-__global__ void update_memberships_kernel
-	(double* points, int* NNT, double* DNNT, double* U_ALG, double* tempU, double* tempC,
-	 int N, int D, int K, int M, double fuzzifier)
-{
-	int idx = blockIdx.x * blockDim.x + threadIdx.x;
-
-	if(idx >= N) return;
-	int i, j;
-	i = idx*M;
-	int* pNNT = NNT + i;
-	double* pDNNT = DNNT + i;
-	i = idx*K;
-	double* pU = U_ALG + i;
-	double* pTempU = tempU + i;
-	i *= D;
-	double* pTempC = tempC + i;
-	double f = 1.0 / (fuzzifier-1.0);
-	double diff, sum = 0.0;
-	double X[DIM_MAX];
-
-	idx *= D;
-	for(i=0; i<D; i++) X[i] = points[idx++];
-
-	for(i=0; i<K; i++){
-		pU[i] = 0.0;
-		pTempU[i] = 0.0;
-	}
-
-	for(i=0; i<M; i++){
-		idx = pNNT[i];
-		diff = pDNNT[i];
-
-		if(diff == 0.0){ 
-			pU[idx] = 1.0;
-			pTempU[idx] = 1.0;
-			return;
-		}
-		diff = pow(diff, f);
-		pU[idx] = diff;
-		sum = sum + 1.0 / diff;
-	}
-
-	for(i=0; i<M; i++, tempC+=D){
-		idx = pNNT[i];
-		diff =  1.0 / (pU[idx]*sum);
-		pU[idx] = diff;
-		pTempU[idx] = pow(diff, fuzzifier);
-		diff = pTempU[idx];
-
-		for(j=0; j<D; j++)
-			pTempC[j] = X[j]*diff;
-	}
-}
-
 __host__ void update_centroids
 	(double* points, double* centroids, int* NNT, double* tempU,
 	 int N, int D, int K, int M)
@@ -225,39 +122,54 @@ __host__ void update_centroids
 			pCentroids[j] = pCentroids[j] / sum[i];
 }
 
-__host__ double reduce_J(double* D_ALG, int N, int K)
+__global__ void histogram_kernel(int* NNT, int* histo, int size)
 {
-	int i, NK = N*K;;
-	double JK = 0.0;
-	
-	for(i=0; i<NK; i++)
-		JK = JK + D_ALG[i];
-	return JK;
+	int i = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if(i < size)
+		atomicAdd(&(histo[NNT[i]+1]), 1);
 }
 
-__global__ void reduce_J_kernel(double* idata, double* odata, int n)
+__global__ void scan_kernel(int* histo, int K)
+{
+	for(int i=1; i<K; i++)
+		histo[i] += histo[i-1];
+}
+
+__global__ void counting_sort_kernel(int* NNT, int* histo, int* odata, int size, int M)
+{
+	int i = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if(i < size){
+		int idx = atomicAdd(&(histo[NNT[i]]), 1);
+		odata[idx] = i/M;
+	}
+}
+
+__global__ void reduce_memberships_kernel
+	(int* NNT, double* tempU, double* odata, int N, int K, int cid)
 {
 	extern __shared__ double sdata[];
 
 	int tid = threadIdx.x;
-	int i = blockIdx.x*(blockDim.x*2) + tid;
-	int gridSize = blockDim.x*2*gridDim.x;
-	sdata[tid] = 0;
+	int i = blockIdx.x*(blockDim.x<<1) + tid;
+	int gridSize = (blockDim.x<<1)*gridDim.x;
+	sdata[tid] = 0.0;
 
-	while(i < n){
-		sdata[tid] = sdata[tid] + idata[i];
+	while(i < N){
+		sdata[tid] = sdata[tid] + tempU[NNT[i]*K+cid];
 
-		if(i+blockDim.x < n) 
-			sdata[tid] = sdata[tid] + idata[i+blockDim.x];
+		if(i+blockDim.x < N)
+			sdata[tid] = sdata[tid] + tempU[NNT[i+blockDim.x]*K+cid];
 		i += gridSize;
 	}
 	__syncthreads();
 
-	if(blockDim.x > 511){
+	/*if(blockDim.x > 511){
 		if(tid < 256)
 			sdata[tid] = sdata[tid] + sdata[tid+256];
 		__syncthreads();
-	}
+	}*/
 
 	if(blockDim.x > 255){
 		if(tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
@@ -284,147 +196,223 @@ __global__ void reduce_J_kernel(double* idata, double* odata, int n)
 
 __global__ void reduce_centroids_kernel
 	(double* points, int* NNT, double* tempU, double* odata,
-	 int N, int D, int K, int M)
+	 int N, int D, int K, int pid, int cid)
 {
 	extern __shared__ double sdata[];
 
 	int tid = threadIdx.x;
-	int i = blockIdx.x*(blockDim.x*2) + tid;
-	int gridSize = blockDim.x*2*gridDim.x;
-	int csize = K*D;
-	int usize = N*M;
-	int id = tid*csize;
-	int j, t;
-	int cid, pid;
+	int i = blockIdx.x*(blockDim.x<<1) + tid;
+	int gridSize = (blockDim.x<<1)*gridDim.x;
+	int t;
 	double u;
+	sdata[tid] = 0.0;
 
-	for(j=0; j<csize; j++)
-		sdata[id+j] = 0.0;
-
-	while(i < usize){
-		cid = NNT[i];
-		t = i/M;
+	while(i < N){
+		t = NNT[i];
 		u = tempU[t*K+cid];
-		cid = id + cid*D;
-		pid = t*D;
-
-		for(j=0; j<D; j++)
-			sdata[cid++] += points[pid++]*u;
+		t = t*D + pid;
+		sdata[tid] = sdata[tid] + points[t]*u;
 		t = i+blockDim.x;
 
-		if(t < usize){
-			cid = NNT[t];
-			t /= M;
+		if(t < N){
+			t = NNT[t];
 			u = tempU[t*K+cid];
-			cid = id + cid*D;
-			pid = t*D;
-
-			for(j=0; j<D; j++)
-				sdata[cid++] += points[pid++]*u;
+			t = t*D + pid;
+			sdata[tid] = sdata[tid] + points[t]*u;
 		}
 		i += gridSize;
 	}
 	__syncthreads();
 
-	if(blockDim.x > 511){
-		if(tid < 256){
-			t = (tid+256)*csize;
-
-			for(j=0; j<csize; j++)
-				sdata[id+j] += sdata[t++];
-		}
+	/*if(blockDim.x > 511){
+		if(tid < 256)
+			sdata[tid] = sdata[tid] + sdata[tid+256];
 		__syncthreads();
-	}
+	}*/
 
 	if(blockDim.x > 255){
-		if(tid < 128){
-			t = (tid+128)*csize;
-
-			for(j=0; j<csize; j++)
-				sdata[id+j] += sdata[t++];
-		}
+		if(tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
 		__syncthreads();
 	}
 
 	if(blockDim.x > 127){
-		if(tid < 64){
-			t = (tid+64)*csize;
-
-			for(j=0; j<csize; j++)
-				sdata[id+j] += sdata[t++];
-		}
+		if(tid < 64)
+			sdata[tid] = sdata[tid] + sdata[tid+64];
 		__syncthreads();
 	}
 
-	if(tid < 32 && blockDim.x > 63){
-		t = (tid+32)*csize;
-
-		for(j=0; j<csize; j++)
-			sdata[id+j] += sdata[t++];
+	if(tid < 32){
+		if(blockDim.x > 63) sdata[tid] = sdata[tid] + sdata[tid + 32];
+		if(blockDim.x > 31) sdata[tid] = sdata[tid] + sdata[tid + 16];
+		if(blockDim.x > 15) sdata[tid] = sdata[tid] + sdata[tid + 8];
+		if(blockDim.x > 7) sdata[tid] = sdata[tid] + sdata[tid + 4];
+		if(blockDim.x > 3) sdata[tid] = sdata[tid] + sdata[tid + 2];
+		if(blockDim.x > 1) sdata[tid] = sdata[tid] + sdata[tid + 1];
 	}
 
-	if(tid < 16 && blockDim.x > 31){
-		t = (tid+16)*csize;
+	if(tid == 0) odata[blockIdx.x] = sdata[0];
+}
 
-		for(j=0; j<csize; j++)
-			sdata[id+j] += sdata[t++];
-	}
+__global__ void reduce_centroids_kernel
+	(double* centroids, double* memberships, double* tempC, int* histo,  int D, int K)
+{
+	int tid = threadIdx.x;
 
-	if(tid < 8 && blockDim.x > 15){
-		t = (tid+8)*csize;
+	if(tid >= K) return;
+	double* C = centroids + tid*D;
+	int size = histo[tid];
+	double a = 0.0;
 
-		for(j=0; j<csize; j++)
-			sdata[id+j] += sdata[t++];
-	}
+	if(tid>0) tid = histo[tid-1];
+	int i;
+	double* tempU = memberships + tid;
+	double* temp = tempC + tid*D;
+	size -= tid;
+	
+	for(i=0; i<size; i++)
+		a = a + tempU[i];
 
-	if(tid < 4 && blockDim.x > 7){
-		t = (tid+4)*csize;
+	for(i=0; i<D; i++,temp+=size){
+		C[i] = 0.0;
 
-		for(j=0; j<csize; j++)
-			sdata[id+j] += sdata[t++];
-	}
-	if(tid < 2 && blockDim.x > 3){
-		t = (tid+2)*csize;
-
-		for(j=0; j<csize; j++)
-			sdata[id+j] += sdata[t++];
-	}
-
-	if(tid < 1 && blockDim.x > 1){
-		t = (tid+1)*csize;
-
-		for(j=0; j<csize; j++)
-			sdata[id+j] += sdata[t++];
-	}
-
-	if(tid == 0){
-		t = blockIdx.x*csize;
-
-		for(j=0; j<csize; j++)
-			odata[t++] = sdata[j];
+		for(tid=0; tid<size; tid++)
+			C[i] = C[i] + temp[tid];
+		C[i] = C[i]/a;
 	}
 }
 
-__host__ void reduce
-	(double* data, int num_blocks, int stride)
+__host__ void reduce_centroids
+	(double* centroids, double* u, double* tempC, int* histo, int D, int K)
 {
-	if(stride==1){
-		for(int i=1; i<num_blocks; i++)
-				data[0] += data[i];
-	}
-	else if(stride > 1){
-		double * tmp = data+stride;
+	int i, j, t, x=0, y=0, cid=0;
+	double a;
 
-		for(int i=1; i<num_blocks; i++, tmp+=stride)
-			for(int j=0; j<stride; j++)
-				data[j] += tmp[j];
+	for(i=0; i<K; i++){
+		a = 0.0;
+
+		for(j=0; j<histo[i]; j++,x++)
+			a = a + (u + x)[0];
+
+		for(j=0; j<D; j++,cid++){
+			centroids[cid] = 0.0;
+
+			for(t=0; t<histo[i]; t++,y++)
+				centroids[cid] = centroids[cid] + (tempC+y)[0];
+			centroids[cid] = centroids[cid]/a;
+		}
 	}
+}
+
+__global__ void update_NNT_kernel
+	(double* points, double* centroids, int* NNT, double* DNNT, double* tempU, double* D_ALG,
+	 int N, int D, int K, int M)
+{
+	int idx = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if(idx >= N) return;
+	int i, j;
+	i = idx*M;
+	int* pNNT = NNT + i;
+	double* pDNNT = DNNT + i;
+	i = idx*K;
+	double* pTempU = tempU + i;
+	double* pD_ALG = D_ALG + i;
+	double* pCentroids = centroids;
+	
+	double X[DIM_MAX];
+	double diff, temp;
+	
+	j= idx*D;
+	for(i=0; i<D; i++) X[i] = points[j++];
+
+	for(i=0; i<M; i++) pDNNT[i] = DBL_MAX;
+
+	for(i=0; i<K; i++,pCentroids+=D){
+		diff = 0.0;
+
+		for(j=0; j<D; j++){
+			temp = X[j] - pCentroids[j];
+			diff = diff + temp*temp;
+		}
+		pD_ALG[i] = pTempU[i]*diff;
+		idx = 0;
+
+		for(; idx < M; idx++)
+			if(pDNNT[idx] > diff) break;
+
+		for(j=M-1; j>idx; j--){
+			pDNNT[j] = pDNNT[j-1];
+			pNNT[j] = pNNT[j-1];
+		}
+
+		if(idx < M){
+			pDNNT[idx] = diff;
+			pNNT[idx] = i;
+		}
+	}
+}
+
+__host__ double reduce_J(double* D_ALG, int N, int K)
+{
+	int i, NK = N*K;;
+	double JK = 0.0;
+	
+	for(i=0; i<NK; i++)
+		JK = JK + D_ALG[i];
+	return JK;
+}
+
+__global__ void reduce_J_kernel(double* idata, double* odata, int n)
+{
+	extern __shared__ double sdata[];
+
+	int tid = threadIdx.x;
+	int i = blockIdx.x*(blockDim.x<<1) + tid;
+	int gridSize = (blockDim.x<<1)*gridDim.x;
+	sdata[tid] = 0.0;
+
+	while(i < n){
+		sdata[tid] = sdata[tid] + idata[i];
+
+		if(i+blockDim.x < n) 
+			sdata[tid] = sdata[tid] + idata[i+blockDim.x];
+		i += gridSize;
+	}
+	__syncthreads();
+
+	//if(blockDim.x > 511){
+	//	if(tid < 256)
+	//		sdata[tid] = sdata[tid] + sdata[tid+256];
+	//	__syncthreads();
+	//}
+
+	if(blockDim.x > 255){
+		if(tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
+		__syncthreads();
+	}
+
+	if(blockDim.x > 127){
+		if(tid < 64)
+			sdata[tid] = sdata[tid] + sdata[tid+64];
+		__syncthreads();
+	}
+
+	if(tid < 32){
+		if(blockDim.x > 63) sdata[tid] = sdata[tid] + sdata[tid + 32];
+		if(blockDim.x > 31) sdata[tid] = sdata[tid] + sdata[tid + 16];
+		if(blockDim.x > 15) sdata[tid] = sdata[tid] + sdata[tid + 8];
+		if(blockDim.x > 7) sdata[tid] = sdata[tid] + sdata[tid + 4];
+		if(blockDim.x > 3) sdata[tid] = sdata[tid] + sdata[tid + 2];
+		if(blockDim.x > 1) sdata[tid] = sdata[tid] + sdata[tid + 1];
+	}
+
+	if(tid == 0) odata[blockIdx.x] = sdata[0];
 }
 
 __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 {
 #pragma region Declare common variables
-	int i, j;
+	int i, j, x, y, z, q;
 	int DBL_SIZE = sizeof(double);
 	int INT_SIZE = sizeof(int);
 	
@@ -434,18 +422,14 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	int uk_size = G.N*G.K;
 
 	int num_blocks = (int)(ceil((double)(G.N*1.0f/block_size)));
-	int nblocks1, nblocks2;
-	nblocks1 = (int)(ceil((double)(uk_size*1.0/(block_size*2))));
-	nblocks2 =  (int)(ceil((double)(nblocks1*1.0/(block_size*2))));
+	int num_Jblocks1 = (int)(ceil((double)(uk_size*1.0/(block_size<<1))));
+	int num_Jblocks2 =  (int)(ceil((double)(num_Jblocks1*1.0/(block_size<<1))));
+	int num_cblocks = (int)(ceil((double)(um_size*1.0/(block_size<<1)))) + G.K;
 
-	int cbsize = 6144/centroids_size;
-	int ncblocks = (int)(ceil((double)(um_size*1.0/cbsize)));
-	//int smsize = 6144;
-
-	double t;
-	double total_time = 0;
 	double a, newJ;
-
+	double t, tt;
+	double total_time = 0.0;
+	
 	TimingGPU tmr_GPU;
 	TimingCPU tmr_CPU;
 #pragma endregion
@@ -455,12 +439,15 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	double* d_centroids;
 	double* d_DNNT;
 	int* d_NNT;
+	int* d_histo;
+	int* d_sp;
 	double* d_DALG;
 	double* d_u;
 	double* d_tempU;
 	double* d_JB;
 	double* d_J;
 	double* d_tempC;
+	double* d_m;
 #pragma endregion
 
 #pragma region Declare host pinned memories
@@ -468,11 +455,13 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	double* p_centroids;
 	double* p_DNNT;
 	int* p_NNT;
+	int* p_histo;
 	double* p_DALG;
 	double* p_u;
 	double* p_tempU;
 	double* p_J;
 	double* p_tempC;
+	double* p_m;
 #pragma endregion
 
 #pragma region Malloc device
@@ -480,12 +469,15 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	CudaSafeCall(cudaMalloc(&d_centroids, centroids_size*DBL_SIZE));
 	CudaSafeCall(cudaMalloc(&d_DNNT, um_size*DBL_SIZE));
 	CudaSafeCall(cudaMalloc(&d_NNT, um_size*INT_SIZE));
+	CudaSafeCall(cudaMalloc(&d_sp, um_size*INT_SIZE));
+	CudaSafeCall(cudaMalloc(&d_histo, (G.K+1)*INT_SIZE));
 	CudaSafeCall(cudaMalloc(&d_DALG, uk_size*DBL_SIZE));
 	CudaSafeCall(cudaMalloc(&d_u, uk_size*DBL_SIZE));
 	CudaSafeCall(cudaMalloc(&d_tempU, uk_size*DBL_SIZE));
-	CudaSafeCall(cudaMalloc(&d_JB, nblocks1*DBL_SIZE));
-	CudaSafeCall(cudaMalloc(&d_J, nblocks2*DBL_SIZE));
-	CudaSafeCall(cudaMalloc(&d_tempC, ncblocks*centroids_size*DBL_SIZE));
+	CudaSafeCall(cudaMalloc(&d_JB, num_Jblocks1*DBL_SIZE));
+	CudaSafeCall(cudaMalloc(&d_J, num_Jblocks2*DBL_SIZE));
+	CudaSafeCall(cudaMalloc(&d_tempC, num_cblocks*centroids_size*DBL_SIZE));
+	CudaSafeCall(cudaMalloc(&d_m, num_cblocks*DBL_SIZE));
 	//thrust::device_ptr<double> cptr = thrust::device_pointer_cast(d_DALG);
 #pragma endregion
 
@@ -494,15 +486,17 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	CudaSafeCall(cudaMallocHost(&p_centroids, centroids_size*DBL_SIZE));
 	CudaSafeCall(cudaMallocHost(&p_DNNT, um_size*DBL_SIZE));
 	CudaSafeCall(cudaMallocHost(&p_NNT, um_size*INT_SIZE));
+	CudaSafeCall(cudaMallocHost(&p_histo, (G.K+1)*INT_SIZE));
 	CudaSafeCall(cudaMallocHost(&p_DALG, uk_size*DBL_SIZE));
 	CudaSafeCall(cudaMallocHost(&p_u, uk_size*DBL_SIZE));
 	CudaSafeCall(cudaMallocHost(&p_tempU, uk_size*DBL_SIZE));
-	CudaSafeCall(cudaMallocHost(&p_tempC, ncblocks*centroids_size*DBL_SIZE));
+	CudaSafeCall(cudaMallocHost(&p_tempC, num_cblocks*centroids_size*DBL_SIZE));
+	CudaSafeCall(cudaMallocHost(&p_m, num_cblocks*DBL_SIZE));
 
-	if(nblocks1 < block_size)
-		CudaSafeCall(cudaMallocHost(&p_J, nblocks1*DBL_SIZE));
+	if(num_Jblocks1 < BLOCK_MAX)
+		CudaSafeCall(cudaMallocHost(&p_J, num_Jblocks1*DBL_SIZE));
 	else
-		CudaSafeCall(cudaMallocHost(&p_J, nblocks2*DBL_SIZE));
+		CudaSafeCall(cudaMallocHost(&p_J, num_Jblocks2*DBL_SIZE));
 #pragma endregion
 
 #pragma region Memories copy
@@ -512,15 +506,23 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	CudaSafeCall(cudaMemcpy(d_centroids, p_centroids, centroids_size*DBL_SIZE, cudaMemcpyHostToDevice));  
 #pragma endregion
 
+#pragma region Cuda stream create
+	cudaStream_t streams[NSTREAM];
+	for(i = 0; i<NSTREAM; i++)
+		cudaStreamCreate(&streams[i]);  
+#pragma endregion
+
 #pragma region Initializing NNT by GPU
 	tmr_GPU.StartCounter();
 	initialize_NNT_kernel<<<num_blocks, block_size>>>
 		(d_points, d_centroids, d_NNT, d_DNNT, G.N, G.D, G.K, G.M);
+	CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, um_size*INT_SIZE, cudaMemcpyDeviceToHost));
+	G.write<int>(p_NNT, G.N, G.M, G.path +"NNT.txt");
 	//CudaCheckError();
 	t = tmr_GPU.GetCounter();
 	total_time = total_time + t;
 	cout << std::fixed << std::setprecision(PRN);
-	std::cout << " Initializing NNT by GPU time: " << t << endl;  
+	std::cout << " Initializing NNT by GPU: " << t << endl;  
 #pragma endregion
 
 #pragma region Main loop
@@ -536,56 +538,113 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 		//CudaCheckError();
 		t = tmr_GPU.GetCounter();
 		total_time = total_time + t;
-		std::cout << " Updating memberships by GPU time: " << t << endl;  
+		std::cout << " Updating memberships by GPU: " << t << endl;  
 #pragma endregion
 
-#pragma region Updating centroids by GPU reduction
-		/*tmr_GPU.StartCounter();
-		reduce_centroids_kernel<<<ncblocks, cbsize, smsize*DBL_SIZE>>>
-			(d_points, d_NNT, d_tempU, d_tempC, G.N, G.D, G.K, G.M);
-		CudaSafeCall(cudaMemcpyAsync(p_tempC, d_tempC, 
-			ncblocks*centroids_size*DBL_SIZE, cudaMemcpyDeviceToHost));
+#pragma region Updating centroids
+		std::cout << " Updating centroids:"<< endl;
+		tt = 0;
+#pragma region Counting sort by GPU
+		tmr_GPU.StartCounter();
+		cudaMemset(d_histo, 0, (G.K+1)*INT_SIZE);
+		// Calculate the histogram of cluster index frequencies from NNT
+		histogram_kernel<<<num_blocks*G.M, block_size>>>(d_NNT, d_histo, um_size);
+		CudaSafeCall(cudaMemcpyAsync(p_histo, d_histo, (G.K+1)*INT_SIZE, cudaMemcpyDeviceToHost));
+		// Calculate the starting index for each cluster
+		scan_kernel<<<1, 1>>>(d_histo, G.K);
+		// Copy corresponding point indices to output array, 
+		// preserving order of inputs (array NNT) with equal cluster indices
+		counting_sort_kernel<<<num_blocks*G.M, block_size>>>(d_NNT, d_histo, d_sp, um_size, G.M);
 		t = tmr_GPU.GetCounter();
 		total_time = total_time + t;
-		std::cout << " Updating centroids by GPU time: " << t << endl;
+		std::cout << "  + Counting sort by GPU: " << t << endl;
+		tt = tt + t;
+#pragma endregion
+
+#pragma region Reducing centroids by GPU
+		//First reducing centroids
+		tmr_GPU.StartCounter();
+		y = 0; z = 0; q = 0;
+
+		for(j=0; j<G.K; j++){
+			p_histo[j] = (int)(ceil((double)(p_histo[j+1]*1.0/(block_size<<1))));
+			reduce_memberships_kernel<<<p_histo[j], block_size, block_size*DBL_SIZE, streams[j%NSTREAM]>>>
+				(d_sp+q, d_tempU, d_m+y, p_histo[j+1], G.K, j);
+
+			for(x=0; x<G.D; x++){
+				reduce_centroids_kernel<<<p_histo[j], block_size, block_size*DBL_SIZE, streams[x%NSTREAM]>>>
+					(d_points, d_sp+q, d_tempU, d_tempC+z, p_histo[j+1], G.D, G.K, x, j);
+				z += p_histo[j];
+			}
+			y += p_histo[j];
+			//p_histo[j] = y;
+			q += p_histo[j+1];
+		}
+		CudaSafeCall(cudaMemcpyAsync(p_m, d_m, y*DBL_SIZE, cudaMemcpyDeviceToHost));
+		CudaSafeCall(cudaMemcpyAsync(p_tempC, d_tempC, z*DBL_SIZE, cudaMemcpyDeviceToHost));
+		//CudaSafeCall(cudaMemcpyAsync(d_histo, p_histo, G.K*INT_SIZE, cudaMemcpyHostToDevice));
+		t = tmr_GPU.GetCounter();
+		total_time = total_time + t; 
+		std::cout << "  + Reducing centroids by GPU: " << t << endl;
+		tt = tt + t;
+		/*//Second reducing centroids
+		tmr_GPU.StartCounter();
+		reduce_centroids_kernel<<<1, G.K>>>(d_centroids, d_m, d_tempC, d_histo, G.D, G.K);
+		t = tmr_GPU.GetCounter();
+		total_time = total_time + t; 
+		std::cout << "  + Second reducing centroids by GPU: " << t << endl;*/
+#pragma endregion
+
+#pragma region Reducing centroids by CPU
 		tmr_CPU.start();
-		reduce(p_tempC, ncblocks, centroids_size);
+		reduce_centroids(p_centroids, p_m, p_tempC, p_histo, G.D, G.K);
 		tmr_CPU.stop();
 		t = tmr_CPU.elapsed();
-
-		if(t > 0){
-			total_time = total_time + t;
-			std::cout << " Reduce centroids by CPU  time: " << t << endl;
-		}*/
+		total_time = total_time + t; 
+		std::cout << "  + Reducing centroids by CPU: " << t << endl;
+		tt = tt + t;
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(d_centroids, p_centroids, centroids_size*DBL_SIZE, cudaMemcpyHostToDevice));
+		t = tmr_GPU.GetCounter();
+		total_time = total_time + t;
+		std::cout << "  + Memcpy host centroids to device: " << t << endl;
+		tt = tt + t;
+		std::cout << " Total updating centroids time: " << tt << endl;  
 #pragma endregion
 
 #pragma region Updating centroids by CPU
-		tmr_GPU.StartCounter();
+		/*tmr_GPU.StartCounter();
 		CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, um_size*INT_SIZE, cudaMemcpyDeviceToHost));
 		CudaSafeCall(cudaMemcpyAsync(p_tempU, d_tempU, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
 		t = tmr_GPU.GetCounter();
-		std::cout << " Memcpy Device NNT and TempU to Host  time: " << t << endl;
+		std::cout << " Memcpy device NNT and TempU to host : " << t << endl;
 		total_time = total_time + t;
 		tmr_CPU.start();
 		update_centroids(p_points, p_centroids, p_NNT, p_tempU, G.N, G.D, G.K, G.M);
 		tmr_CPU.stop();
 		t = tmr_CPU.elapsed();
-		std::cout << " Calculating new centroids by CPU time: " << t << endl;
-		total_time = total_time + t;  
+		total_time = total_time + t;
+		std::cout << " Calculating new centroids by CPU: " << t << endl;
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(d_centroids, p_centroids, centroids_size*DBL_SIZE, cudaMemcpyHostToDevice));
+		t = tmr_GPU.GetCounter();
+		total_time = total_time + t;
+		std::cout << " Memcpy host centroids to device: " << t << endl; */
+#pragma endregion  
 #pragma endregion
 
 #pragma region Updating NNT by GPU
 		tmr_GPU.StartCounter();
-		CudaSafeCall(cudaMemcpyAsync(d_centroids, p_centroids, centroids_size*DBL_SIZE, cudaMemcpyHostToDevice));
-		//CudaSafeCall(cudaMemcpyAsync(d_centroids, p_tempC, centroids_size*DBL_SIZE, cudaMemcpyHostToDevice));
 		update_NNT_kernel<<<num_blocks, block_size>>>
 			(d_points, d_centroids, d_NNT, d_DNNT, d_tempU, d_DALG, G.N, G.D, G.K, G.M);
 		//CudaCheckError();
 		t = tmr_GPU.GetCounter();
 		total_time = total_time + t;
-		std::cout << " Updating NNT by GPU time: " << t << endl;  
+		std::cout << " Updating NNT by GPU: " << t << endl;  
 #pragma endregion
 
+#pragma region Calculating distortion value J
+		std::cout << " Calculating distortion value J:" << endl;
 #pragma region Calculating J by CPU
 		/*tmr_GPU.StartCounter();
 		CudaSafeCall(cudaMemcpyAsync(p_DALG, d_DALG, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
@@ -595,115 +654,134 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 #pragma endregion
 
 #pragma region Calculating J by thrust::reduce
-		// 
 		/*tmr_CPU.start();
 		newJ = thrust::reduce(cptr, cptr + uk_size);*/  
 #pragma endregion
 
 #pragma region Calculating J by GPU reduction
+		tt = 0.0;
 		// Reduction J #1
 		tmr_GPU.StartCounter();
-		//reduce_J_kernel<<<nblocks1, block_size, block_size*DBL_SIZE>>>(d_DALG, d_JB, uk_size);
-		reduce_J_kernel1<256><<<nblocks1, block_size, block_size*DBL_SIZE>>>(d_DALG, d_JB, uk_size);
+		reduce_J_kernel<<<num_Jblocks1, block_size, block_size*DBL_SIZE>>>(d_DALG, d_JB, uk_size);
+		//reduce_J_kernel1<256, 512><<<num_Jblocks1, block_size, block_size*DBL_SIZE>>>(d_DALG, d_JB, uk_size);
 		//CudaCheckError();
 
-		if(nblocks1 < block_size){
-			CudaSafeCall(cudaMemcpyAsync(p_J, d_JB, nblocks1*DBL_SIZE, cudaMemcpyDeviceToHost));
+		if(num_Jblocks1 < BLOCK_MAX){
+			CudaSafeCall(cudaMemcpyAsync(p_J, d_JB, num_Jblocks1*DBL_SIZE, cudaMemcpyDeviceToHost));
 			t = tmr_GPU.GetCounter();
-			total_time = total_time + t;
-			std::cout << " Calculating J by GPU reduction time: " << t << endl;
+			//total_time = total_time + t;
+			tt = tt + t;
+			std::cout << "  + Reducing J by GPU one time: " << t << endl;
 			// Reduction J blocksums by CPU
 			newJ = 0.0;
 			tmr_CPU.start();
 
-			for(j=0; j<nblocks1; j++)
+			for(j=0; j<num_Jblocks1; j++)
 				newJ = newJ + p_J[j];
 		}  
 		else{
 			// Reduction J #2
-			//reduce_J_kernel<<<nblocks2, block_size,  block_size*DBL_SIZE>>>(d_JB, d_J, nblocks1);
-			reduce_J_kernel1<256><<<nblocks2, block_size,  block_size*DBL_SIZE>>>(d_JB, d_J, nblocks1);
+			reduce_J_kernel<<<num_Jblocks2, block_size,  block_size*DBL_SIZE>>>(d_JB, d_J, num_Jblocks1);
+			//reduce_J_kernel1<256, 512><<<num_Jblocks2, block_size,  block_size*DBL_SIZE>>>(d_JB, d_J, num_Jblocks1);
 			//CudaCheckError();
-			CudaSafeCall(cudaMemcpyAsync(p_J, d_J, nblocks2*DBL_SIZE, cudaMemcpyDeviceToHost));
+			CudaSafeCall(cudaMemcpyAsync(p_J, d_J, num_Jblocks2*DBL_SIZE, cudaMemcpyDeviceToHost));
 			t = tmr_GPU.GetCounter();
-			total_time = total_time + t;
-			std::cout << " Calculate J by GPU reduction time: " << t << endl;
+			//total_time = total_time + t;
+			tt = tt + t;
+			std::cout << "  + Reducing J by GPU two times: " << t << endl;
+			
 			// Reduction J blocksums by CPU
 			newJ = 0.0;
 			tmr_CPU.start();
 
-			for(j=0; j<nblocks2; j++)
+			for(j=0; j<num_Jblocks2; j++)
 				newJ = newJ + p_J[j];
 		}  
+#pragma endregion 
 #pragma endregion
 
-#pragma region Getting time and checking stop-condition
+#pragma region Getting and checking stop-condition
 		tmr_CPU.stop();
 		t = tmr_CPU.elapsed();
 
 		if(t > 0){
-			total_time = total_time + t;
-			std::cout << " Reduce J by CPU  time: " << t << endl;
+			//total_time = total_time + t;
+			tt = tt + t;
+			std::cout << "  + Reducing J by CPU : " << t << endl;
 		}
+		total_time = total_time + tt;
+		std::cout << " Total calculating J time: " << tt << endl;
 		a = fabs(newJ - G.J);
-		std::cout << " Diff = " << a << endl;
+		std::cout << " Difference: " << a << endl;
 
 		if((a < G.epsilon && (stop_iter == INT_MAX || i==stop_iter)) || i==stop_iter)
 			break;
-		G.J = newJ;  
+		G.J = newJ;
 #pragma endregion
 	}
 	if(i == G.max_iter) i--;
 #pragma endregion
 
 #pragma region Copying device back to host
-		tmr_GPU.StartCounter();
+	tmr_GPU.StartCounter();
 	CudaSafeCall(cudaMemcpyAsync(p_centroids, d_centroids, centroids_size*DBL_SIZE, cudaMemcpyDeviceToHost));
 	CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, um_size*INT_SIZE, cudaMemcpyDeviceToHost));
-	CudaSafeCall(cudaMemcpyAsync(p_DNNT, d_DNNT, um_size*DBL_SIZE, cudaMemcpyDeviceToHost));
-	CudaSafeCall(cudaMemcpyAsync(p_u, d_u, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
+	//CudaSafeCall(cudaMemcpyAsync(p_DNNT, d_DNNT, um_size*DBL_SIZE, cudaMemcpyDeviceToHost));
+	//CudaSafeCall(cudaMemcpyAsync(p_u, d_u, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
+	//CudaSafeCall(cudaMemcpyAsync(p_tempU, d_tempU, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
 	t = tmr_GPU.GetCounter();
-	total_time += t;
-	std::cout << "Device to host time: " << t << endl;
+	total_time = total_time + t;
+	std::cout << " Device to host: " << t << endl;
 #pragma endregion
 
 #pragma region Writing results to files
 	G.write<double>(p_centroids, G.K, G.D, G.path + "centroids.GPU.txt");
 	G.write<int>(p_NNT, G.N, G.M, G.path + "NNT.GPU.txt");
-	G.write<double>(p_DNNT, G.N, G.M, G.path + "DNNT.GPU.txt");
-	G.write<double>(p_u, G.N, G.K, G.path + "u.GPU.txt");
-	G.write<double>(p_tempU, G.N, G.K, G.path + "tempU.GPU.txt");  
+	//G.write<double>(p_DNNT, G.N, G.M, G.path + "DNNT.GPU.txt");
+	//G.write<double>(p_u, G.N, G.K, G.path + "u.GPU.txt");
+	//G.write<double>(p_tempU, G.N, G.K, G.path + "tempU.GPU.txt");  
 #pragma endregion
 
 #pragma region Cuda free device memories
 	cudaFree(d_points);
 	cudaFree(d_centroids);
+	cudaFree(d_tempC);
 	cudaFree(d_NNT);
+	cudaFree(d_m);
+	cudaFree(d_histo);
 	cudaFree(d_DNNT);
 	cudaFree(d_DALG);
 	cudaFree(d_u);
 	cudaFree(d_tempU);
 	cudaFree(d_J);
-	cudaFree(d_JB);  
+	cudaFree(d_JB);
+	cudaFree(d_sp);
 #pragma endregion
 
 #pragma region Cuda free host pinned memories
 	cudaFreeHost(p_points);
 	cudaFreeHost(p_centroids);
+	cudaFreeHost(p_tempC);
 	cudaFreeHost(p_NNT);
+	cudaFreeHost(p_histo);
 	cudaFreeHost(p_DNNT);
 	cudaFreeHost(p_DALG);
 	cudaFreeHost(p_u);
+	cudaFreeHost(p_m);
 	cudaFreeHost(p_tempU);
-	cudaFreeHost(p_J);  
+	cudaFreeHost(p_J);
 #pragma endregion
 
-#pragma region Returning last iteration index and total running time
-	double * rs = new double[2];
+#pragma region Get total time and last iteration index
+	double *rs = new double[2];
 	rs[0] = total_time;
-	rs[1] = (double)i;  
+	rs[1] = (double)i;
 #pragma endregion
 
+#pragma region CudaStreamDestroy and DeviceReset
+	for(i = 0; i<NSTREAM; i++)
+		cudaStreamDestroy(streams[i]);  
 	cudaDeviceReset();
-	return rs;
+#pragma endregion
+	return rs;  
 }
