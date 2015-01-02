@@ -239,6 +239,7 @@ double* GFKM::run(int stop_iter)
 {
 	double t;
 	double total_time = 0.0;
+	double newJ;
 	TimingCPU tmr;
 	// initialize and update NNT
 	tmr.start();
@@ -246,7 +247,7 @@ double* GFKM::run(int stop_iter)
 	tmr.stop();
 	t = tmr.elapsed();
 	total_time = total_time + t;
-	cout << " Initializing NNT by CPU time: " << t << endl;
+	cout << " Initializing NNT by CPU: " << t << endl;
 	cout << std::fixed << std::setprecision(PRN);
 	int i;
 
@@ -261,7 +262,7 @@ double* GFKM::run(int stop_iter)
 		tmr.stop();
 		t = tmr.elapsed();
 		total_time = total_time + t;
-		cout << " Updating memberships by CPU time: " << t << endl;
+		cout << " Updating memberships by CPU: " << t << endl;
 		
 		// Update centroids
 		tmr.start();
@@ -269,15 +270,15 @@ double* GFKM::run(int stop_iter)
 		tmr.stop();
 		t = tmr.elapsed();
 		total_time = total_time + t;
-		cout << " Calculating new centroids by CPU time: " << t << endl;
+		cout << " Updating centroids by CPU: " << t << endl;
 		
 		// Update NNT
 		tmr.start();
-		double newJ = update_NNT();
+		newJ = update_NNT();
 		tmr.stop();
 		t = tmr.elapsed();
 		total_time = total_time + t;
-		cout << " Updating NNT by CPU time: " << t << endl;
+		cout << " Updating NNT by CPU: " << t << endl;
 
 		// Check if stop
 		double a = fabs(newJ - J);
@@ -291,11 +292,11 @@ double* GFKM::run(int stop_iter)
 	if(i==max_iter) i--;
 	write<double>(centroids, K, D, path + "centroids.txt");
 	write<int>(NNT, N, M, path + "NNT.txt");
-	write<double>(DNNT, N, M, path + "DNNT.txt");
-	write<double>(U_ALG, N, K, path + "u.txt");
-	write<double>(tempU, N, K, path + "tempU.txt");
+	//write<double>(DNNT, N, M, path + "DNNT.txt");
+	//write<double>(U_ALG, N, K, path + "u.txt");
+	//write<double>(tempU, N, K, path + "tempU.txt");
 
-	double * rs = new double[2];
+	double *rs = new double[2];
 	rs[0] = total_time;
 	rs[1] = (double)i;
 

@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[])
 {
-	string path = "D:\\Projects\\CUDA\\GFKM\\Data\\sat\\";//LenaPeppersBaboon\\";
+	string path = "D:\\Projects\\master-ntou\\ImageProcessing\\GFKM\\Data\\sat\\";//LenaPeppersBaboon\\";
 	string fname = "sat.data";//"LenaPeppersBaboon.txt";
 	int M = 2;
 	int max_iter = 1;
@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	if(argc > 2){
 		path = string(argv[1]);
 		fname = string(argv[2]);
-
+		cout << path << endl;
 		if(argc > 3){
 			M = atoi(argv[3]);
 
