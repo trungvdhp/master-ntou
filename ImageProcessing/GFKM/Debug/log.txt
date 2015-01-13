@@ -2,2913 +2,2315 @@ D:\Projects\master-ntou\ImageProcessing\GFKM\Data\LenaPeppersBaboon\
 -------------------------------------------------------
 GPU running
 -------------------------------------------------------
- Initializing NNT by GPU: 1.169504046
+ Initializing NNT by GPU: 1.138048053
 -------------------------------------------------------
 Iteration #1
 -------------------------------------------------------
- Updating memberships by GPU: 1.470880032
+ Updating memberships by GPU: 1.475232005
  Updating centroids:
-  + Counting sort by GPU: 0.119007997
-  + Reducing centroids by GPU: 2.450272083
-  + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.007680000
- Total updating centroids time: 2.587199993
- Updating NNT by GPU: 1.341760039
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.100224003
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.101979417
- Difference: 21381.195375182
--------------------------------------------------------
-Iteration #2
--------------------------------------------------------
- Updating memberships by GPU: 1.463071942
- Updating centroids:
-  + Counting sort by GPU: 0.117951997
-  + Reducing centroids by GPU: 2.278847933
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.412955273
- Updating NNT by GPU: 1.386335969
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.104255997
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.106303979
- Difference: 3737.512527921
--------------------------------------------------------
-Iteration #3
--------------------------------------------------------
- Updating memberships by GPU: 1.484544039
- Updating centroids:
-  + Counting sort by GPU: 0.115263999
-  + Reducing centroids by GPU: 2.290783882
-  + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.006688000
- Total updating centroids time: 2.422975793
- Updating NNT by GPU: 1.336735964
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099455997
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101503980
- Difference: 1366.933586961
--------------------------------------------------------
-Iteration #4
--------------------------------------------------------
- Updating memberships by GPU: 1.463711977
- Updating centroids:
-  + Counting sort by GPU: 0.121951997
-  + Reducing centroids by GPU: 2.284224033
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.422038805
- Updating NNT by GPU: 1.332864046
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099104002
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.100859416
- Difference: 435.345371914
--------------------------------------------------------
-Iteration #5
--------------------------------------------------------
- Updating memberships by GPU: 1.463520050
- Updating centroids:
-  + Counting sort by GPU: 0.114592001
-  + Reducing centroids by GPU: 2.545504093
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.004064000
- Total updating centroids time: 2.674107438
- Updating NNT by GPU: 1.427680016
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.102623999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.104671982
- Difference: 146.276359159
--------------------------------------------------------
-Iteration #6
--------------------------------------------------------
- Updating memberships by GPU: 1.466367960
- Updating centroids:
-  + Counting sort by GPU: 0.114367999
-  + Reducing centroids by GPU: 2.308928013
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.005120000
- Total updating centroids time: 2.438070786
- Updating NNT by GPU: 1.368512034
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.105599999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.107647982
- Difference: 63.126850223
--------------------------------------------------------
-Iteration #7
--------------------------------------------------------
- Updating memberships by GPU: 1.459007978
- Updating centroids:
-  + Counting sort by GPU: 0.114399999
-  + Reducing centroids by GPU: 2.297440052
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003776000
- Total updating centroids time: 2.425270826
- Updating NNT by GPU: 1.398432016
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099040002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101087984
- Difference: 50.764903310
--------------------------------------------------------
-Iteration #8
--------------------------------------------------------
- Updating memberships by GPU: 1.460319996
- Updating centroids:
-  + Counting sort by GPU: 0.120159999
-  + Reducing centroids by GPU: 2.315936089
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006272000
- Total updating centroids time: 2.452315430
- Updating NNT by GPU: 1.351904035
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099168003
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.100923416
- Difference: 115.472417651
--------------------------------------------------------
-Iteration #9
--------------------------------------------------------
- Updating memberships by GPU: 1.451871991
- Updating centroids:
-  + Counting sort by GPU: 0.117183998
-  + Reducing centroids by GPU: 2.297888041
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006784000
- Total updating centroids time: 2.431803382
- Updating NNT by GPU: 1.367519975
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.098816000
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.100571413
- Difference: 224.404227083
--------------------------------------------------------
-Iteration #10
--------------------------------------------------------
- Updating memberships by GPU: 1.462015986
- Updating centroids:
-  + Counting sort by GPU: 0.118047997
-  + Reducing centroids by GPU: 2.286272049
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.420182821
- Updating NNT by GPU: 1.335775971
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.098559998
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.100607980
- Difference: 182.372409675
--------------------------------------------------------
-Iteration #11
--------------------------------------------------------
- Updating memberships by GPU: 1.460479975
- Updating centroids:
-  + Counting sort by GPU: 0.116736002
-  + Reducing centroids by GPU: 2.573375940
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.706267286
- Updating NNT by GPU: 1.330432057
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099391997
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101439979
- Difference: 101.950363070
--------------------------------------------------------
-Iteration #12
--------------------------------------------------------
- Updating memberships by GPU: 1.461920023
- Updating centroids:
-  + Counting sort by GPU: 0.118975997
-  + Reducing centroids by GPU: 2.285952091
+  + Counting sort by GPU: 0.105760001
+  + Reducing centroids by GPU: 2.926496029
   + Reducing centroids by CPU: 0.009654775
   + Memcpy host centroids to device: 0.006592000
- Total updating centroids time: 2.421174863
- Updating NNT by GPU: 1.343520045
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.100383997
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.102431979
- Difference: 52.854237126
--------------------------------------------------------
-Iteration #13
--------------------------------------------------------
- Updating memberships by GPU: 1.460736036
- Updating centroids:
-  + Counting sort by GPU: 0.116800003
-  + Reducing centroids by GPU: 2.287391901
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006176000
- Total updating centroids time: 2.420022678
- Updating NNT by GPU: 1.346176028
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.098976001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101023984
- Difference: 29.543466628
--------------------------------------------------------
-Iteration #14
--------------------------------------------------------
- Updating memberships by GPU: 1.460991979
- Updating centroids:
-  + Counting sort by GPU: 0.116672002
-  + Reducing centroids by GPU: 2.304991961
-  + Reducing centroids by CPU: 0.024283221
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.452155183
- Updating NNT by GPU: 1.387168050
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.098976001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101023984
- Difference: 19.242276818
--------------------------------------------------------
-Iteration #15
--------------------------------------------------------
- Updating memberships by GPU: 1.466879964
- Updating centroids:
-  + Counting sort by GPU: 0.116927996
-  + Reducing centroids by GPU: 2.289887905
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.005120000
- Total updating centroids time: 2.421590676
- Updating NNT by GPU: 1.384320021
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099008001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101055984
- Difference: 14.043586954
--------------------------------------------------------
-Iteration #16
--------------------------------------------------------
- Updating memberships by GPU: 1.461024046
- Updating centroids:
-  + Counting sort by GPU: 0.118336000
-  + Reducing centroids by GPU: 2.287136078
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.421627421
- Updating NNT by GPU: 1.376575947
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.100064002
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.101819416
- Difference: 10.713724635
--------------------------------------------------------
-Iteration #17
--------------------------------------------------------
- Updating memberships by GPU: 1.527328014
- Updating centroids:
-  + Counting sort by GPU: 0.116480000
-  + Reducing centroids by GPU: 2.318592072
-  + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.451519984
- Updating NNT by GPU: 1.341536045
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099359997
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101407979
- Difference: 8.766160024
--------------------------------------------------------
-Iteration #18
--------------------------------------------------------
- Updating memberships by GPU: 1.462175965
- Updating centroids:
-  + Counting sort by GPU: 0.116800003
-  + Reducing centroids by GPU: 2.305344105
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.438299451
- Updating NNT by GPU: 1.333951950
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099744000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101791982
- Difference: 7.367223140
--------------------------------------------------------
-Iteration #19
--------------------------------------------------------
- Updating memberships by GPU: 1.468639970
- Updating centroids:
-  + Counting sort by GPU: 0.120608002
-  + Reducing centroids by GPU: 2.310656071
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.447419416
- Updating NNT by GPU: 1.405151963
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099711999
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.101467413
- Difference: 6.842906734
--------------------------------------------------------
-Iteration #20
--------------------------------------------------------
- Updating memberships by GPU: 1.463487983
- Updating centroids:
-  + Counting sort by GPU: 0.116640002
-  + Reducing centroids by GPU: 2.324575901
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.457078677
- Updating NNT by GPU: 1.382751942
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.098976001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101023984
- Difference: 6.319110603
--------------------------------------------------------
-Iteration #21
--------------------------------------------------------
- Updating memberships by GPU: 1.461055994
- Updating centroids:
-  + Counting sort by GPU: 0.120544001
-  + Reducing centroids by GPU: 2.327487946
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.464187290
- Updating NNT by GPU: 1.376127958
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.105503999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.107551981
- Difference: 5.926541834
--------------------------------------------------------
-Iteration #22
--------------------------------------------------------
- Updating memberships by GPU: 1.469151974
- Updating centroids:
-  + Counting sort by GPU: 0.117792003
-  + Reducing centroids by GPU: 2.324223995
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006176000
- Total updating centroids time: 2.458139342
- Updating NNT by GPU: 1.355103970
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.098880000
-  + Reducing J by CPU : 0.010532481
- Total calculating J time: 0.109412482
- Difference: 5.564653435
--------------------------------------------------------
-Iteration #23
--------------------------------------------------------
- Updating memberships by GPU: 1.462816000
- Updating centroids:
-  + Counting sort by GPU: 0.117343999
-  + Reducing centroids by GPU: 2.336416006
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.469915349
- Updating NNT by GPU: 1.347231984
+ Total updating centroids time: 3.048502804
+ Updating NNT by GPU: 1.370303988
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.099264003
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.101311986
- Difference: 5.089136232
+ Difference: 25372.340498014
 -------------------------------------------------------
-Iteration #24
+Iteration #2
 -------------------------------------------------------
- Updating memberships by GPU: 1.460639954
+ Updating memberships by GPU: 1.463680029
  Updating centroids:
-  + Counting sort by GPU: 0.117760003
-  + Reducing centroids by GPU: 2.306495905
+  + Counting sort by GPU: 0.106335998
+  + Reducing centroids by GPU: 2.565056086
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006592000
+ Total updating centroids time: 2.687931427
+ Updating NNT by GPU: 1.352767944
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099232003
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100987417
+ Difference: 9091.062538521
+-------------------------------------------------------
+Iteration #3
+-------------------------------------------------------
+ Updating memberships by GPU: 1.551455975
+ Updating centroids:
+  + Counting sort by GPU: 0.108191997
+  + Reducing centroids by GPU: 2.539007902
   + Reducing centroids by CPU: 0.009947343
   + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.440411251
- Updating NNT by GPU: 1.320767999
+ Total updating centroids time: 2.663355242
+ Updating NNT by GPU: 1.361439943
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099136002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101183985
+ Difference: 577.587026801
+-------------------------------------------------------
+Iteration #4
+-------------------------------------------------------
+ Updating memberships by GPU: 1.463456035
+ Updating centroids:
+  + Counting sort by GPU: 0.108159997
+  + Reducing centroids by GPU: 2.528800011
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006208000
+ Total updating centroids time: 2.653115350
+ Updating NNT by GPU: 1.339679956
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.098559998
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.100607980
+ Difference: 242.401287841
+-------------------------------------------------------
+Iteration #5
+-------------------------------------------------------
+ Updating memberships by GPU: 1.458400011
+ Updating centroids:
+  + Counting sort by GPU: 0.108000003
+  + Reducing centroids by GPU: 2.524447918
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.006208000
+ Total updating centroids time: 2.648310695
+ Updating NNT by GPU: 1.419391990
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099168003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101215985
+ Difference: 159.612007399
+-------------------------------------------------------
+Iteration #6
+-------------------------------------------------------
+ Updating memberships by GPU: 1.494560003
+ Updating centroids:
+  + Counting sort by GPU: 0.108223997
+  + Reducing centroids by GPU: 2.537823915
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006240000
+ Total updating centroids time: 2.662235256
+ Updating NNT by GPU: 1.355679989
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099296004
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101343986
+ Difference: 116.254060675
+-------------------------------------------------------
+Iteration #7
+-------------------------------------------------------
+ Updating memberships by GPU: 1.455072045
+ Updating centroids:
+  + Counting sort by GPU: 0.108191997
+  + Reducing centroids by GPU: 2.539167881
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.006240000
+ Total updating centroids time: 2.663254652
+ Updating NNT by GPU: 1.361119986
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.098880000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100635414
+ Difference: 88.493469354
+-------------------------------------------------------
+Iteration #8
+-------------------------------------------------------
+ Updating memberships by GPU: 1.463039994
+ Updating centroids:
+  + Counting sort by GPU: 0.108255997
+  + Reducing centroids by GPU: 2.539200068
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006208000
+ Total updating centroids time: 2.663611408
+ Updating NNT by GPU: 1.385535955
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.098816000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100571413
+ Difference: 63.835398988
+-------------------------------------------------------
+Iteration #9
+-------------------------------------------------------
+ Updating memberships by GPU: 1.460448027
+ Updating centroids:
+  + Counting sort by GPU: 0.108832002
+  + Reducing centroids by GPU: 2.539839983
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006240000
+ Total updating centroids time: 2.664859328
+ Updating NNT by GPU: 1.332159996
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099391997
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101439979
+ Difference: 39.666176096
+-------------------------------------------------------
+Iteration #10
+-------------------------------------------------------
+ Updating memberships by GPU: 1.469599962
+ Updating centroids:
+  + Counting sort by GPU: 0.108415999
+  + Reducing centroids by GPU: 2.816960096
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006464000
+ Total updating centroids time: 2.941787438
+ Updating NNT by GPU: 1.386495948
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.098880000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100635414
+ Difference: 23.203591858
+-------------------------------------------------------
+Iteration #11
+-------------------------------------------------------
+ Updating memberships by GPU: 1.457919955
+ Updating centroids:
+  + Counting sort by GPU: 0.109824002
+  + Reducing centroids by GPU: 2.550368071
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.003840000
+ Total updating centroids time: 2.673686847
+ Updating NNT by GPU: 1.354015946
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.098848000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.100895983
+ Difference: 14.680409265
+-------------------------------------------------------
+Iteration #12
+-------------------------------------------------------
+ Updating memberships by GPU: 1.466815948
+ Updating centroids:
+  + Counting sort by GPU: 0.107712001
+  + Reducing centroids by GPU: 2.855072021
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.003776000
+ Total updating centroids time: 2.976214797
+ Updating NNT by GPU: 1.346400023
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099040002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101087984
+ Difference: 10.488881522
+-------------------------------------------------------
+Iteration #13
+-------------------------------------------------------
+ Updating memberships by GPU: 1.472831964
+ Updating centroids:
+  + Counting sort by GPU: 0.108032003
+  + Reducing centroids by GPU: 2.588799953
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006848000
+ Total updating centroids time: 2.713627300
+ Updating NNT by GPU: 1.373952031
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099008001
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100763415
+ Difference: 8.188321009
+-------------------------------------------------------
+Iteration #14
+-------------------------------------------------------
+ Updating memberships by GPU: 1.459936023
+ Updating centroids:
+  + Counting sort by GPU: 0.108287998
+  + Reducing centroids by GPU: 2.559520006
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006560000
+ Total updating centroids time: 2.684315347
+ Updating NNT by GPU: 1.351711988
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099072002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101119984
+ Difference: 6.806376387
+-------------------------------------------------------
+Iteration #15
+-------------------------------------------------------
+ Updating memberships by GPU: 1.472864032
+ Updating centroids:
+  + Counting sort by GPU: 0.108032003
+  + Reducing centroids by GPU: 2.575680017
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.005024000
+ Total updating centroids time: 2.698390795
+ Updating NNT by GPU: 1.381024003
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099072002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101119984
+ Difference: 5.890194551
+-------------------------------------------------------
+Iteration #16
+-------------------------------------------------------
+ Updating memberships by GPU: 1.468384027
+ Updating centroids:
+  + Counting sort by GPU: 0.107776001
+  + Reducing centroids by GPU: 2.546335936
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.005088000
+ Total updating centroids time: 2.669147280
+ Updating NNT by GPU: 1.368064046
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.098976001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101023984
- Difference: 4.343351647
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100731415
+ Difference: 5.187135857
 -------------------------------------------------------
-Iteration #25
+Iteration #17
 -------------------------------------------------------
- Updating memberships by GPU: 1.467775941
+ Updating memberships by GPU: 1.464704037
  Updating centroids:
-  + Counting sort by GPU: 0.121183999
-  + Reducing centroids by GPU: 2.315776110
+  + Counting sort by GPU: 0.107519999
+  + Reducing centroids by GPU: 2.558016062
   + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.453115452
- Updating NNT by GPU: 1.371392012
+  + Memcpy host centroids to device: 0.005024000
+ Total updating centroids time: 2.680507404
+ Updating NNT by GPU: 1.392896056
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.102655999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.104703982
- Difference: 3.413717696
+  + Reducing J by GPU one time: 0.098719999
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100475413
+ Difference: 4.701989779
 -------------------------------------------------------
-Iteration #26
+Iteration #18
 -------------------------------------------------------
- Updating memberships by GPU: 1.466431975
+ Updating memberships by GPU: 1.455744028
  Updating centroids:
-  + Counting sort by GPU: 0.119071998
-  + Reducing centroids by GPU: 2.305088043
+  + Counting sort by GPU: 0.115359999
+  + Reducing centroids by GPU: 2.571424007
   + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006176000
- Total updating centroids time: 2.440283384
- Updating NNT by GPU: 1.329439998
+  + Memcpy host centroids to device: 0.005024000
+ Total updating centroids time: 2.701755350
+ Updating NNT by GPU: 1.351487994
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.099072002
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100827415
+ Difference: 4.315459516
+-------------------------------------------------------
+Iteration #19
+-------------------------------------------------------
+ Updating memberships by GPU: 1.463263988
+ Updating centroids:
+  + Counting sort by GPU: 0.107872002
+  + Reducing centroids by GPU: 2.555327892
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.006208000
+ Total updating centroids time: 2.679062668
+ Updating NNT by GPU: 1.340672016
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.098655999
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.100411412
+ Difference: 4.065190167
+-------------------------------------------------------
+Iteration #20
+-------------------------------------------------------
+ Updating memberships by GPU: 1.462015986
+ Updating centroids:
+  + Counting sort by GPU: 0.108543999
+  + Reducing centroids by GPU: 2.557823896
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.005312000
+ Total updating centroids time: 2.681334670
+ Updating NNT by GPU: 1.364896059
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.098687999
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.100735981
- Difference: 2.409975211
+ Difference: 3.911622738
 -------------------------------------------------------
-Iteration #27
+Iteration #21
 -------------------------------------------------------
- Updating memberships by GPU: 1.463039994
- Updating centroids:
-  + Counting sort by GPU: 0.111295998
-  + Reducing centroids by GPU: 2.253823996
-  + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.007552000
- Total updating centroids time: 2.382911906
- Updating NNT by GPU: 1.392639995
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.092032000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.094079983
- Difference: 1.640115141
--------------------------------------------------------
-Iteration #28
--------------------------------------------------------
- Updating memberships by GPU: 1.342048049
- Updating centroids:
-  + Counting sort by GPU: 0.107808001
-  + Reducing centroids by GPU: 2.257375956
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.380854732
- Updating NNT by GPU: 1.353440046
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091136001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093183984
- Difference: 1.295228522
--------------------------------------------------------
-Iteration #29
--------------------------------------------------------
- Updating memberships by GPU: 1.333663940
- Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.259200096
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006112000
- Total updating centroids time: 2.382582871
- Updating NNT by GPU: 1.361984015
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091743998
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093499412
- Difference: 0.963127355
--------------------------------------------------------
-Iteration #30
--------------------------------------------------------
- Updating memberships by GPU: 1.344383955
- Updating centroids:
-  + Counting sort by GPU: 0.107519999
-  + Reducing centroids by GPU: 2.252831936
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006048000
- Total updating centroids time: 2.376054710
- Updating NNT by GPU: 1.411455989
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.094912000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.096959982
- Difference: 0.743521488
--------------------------------------------------------
-Iteration #31
--------------------------------------------------------
- Updating memberships by GPU: 1.344671965
+ Updating memberships by GPU: 1.462784052
  Updating centroids:
   + Counting sort by GPU: 0.107776001
-  + Reducing centroids by GPU: 2.234879971
+  + Reducing centroids by GPU: 2.545504093
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006368000
- Total updating centroids time: 2.358678746
- Updating NNT by GPU: 1.411424041
+  + Memcpy host centroids to device: 0.005152000
+ Total updating centroids time: 2.668086869
+ Updating NNT by GPU: 1.385504007
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.097631998
+  + Reducing J by GPU one time: 0.099391997
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.099679981
- Difference: 0.595543459
+ Total calculating J time: 0.101439979
+ Difference: 3.774554399
 -------------------------------------------------------
-Iteration #32
+Iteration #22
 -------------------------------------------------------
- Updating memberships by GPU: 1.361951947
+ Updating memberships by GPU: 1.460639954
  Updating centroids:
-  + Counting sort by GPU: 0.107487999
-  + Reducing centroids by GPU: 2.252095938
+  + Counting sort by GPU: 0.106816001
+  + Reducing centroids by GPU: 2.540735960
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.375254711
- Updating NNT by GPU: 1.384063959
+  + Memcpy host centroids to device: 0.006208000
+ Total updating centroids time: 2.663414736
+ Updating NNT by GPU: 1.346719980
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091328003
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093083416
- Difference: 0.478134930
+  + Reducing J by GPU one time: 0.099200003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.101247985
+ Difference: 3.718056154
 -------------------------------------------------------
-Iteration #33
+Iteration #23
 -------------------------------------------------------
- Updating memberships by GPU: 1.339295983
+ Updating memberships by GPU: 1.529440045
  Updating centroids:
-  + Counting sort by GPU: 0.108255997
-  + Reducing centroids by GPU: 2.265984058
-  + Reducing centroids by CPU: 0.019894687
-  + Memcpy host centroids to device: 0.006112000
- Total updating centroids time: 2.400246743
- Updating NNT by GPU: 1.368543983
+  + Counting sort by GPU: 0.111295998
+  + Reducing centroids by GPU: 2.695839882
+  + Reducing centroids by CPU: 0.009362206
+  + Memcpy host centroids to device: 0.007776000
+ Total updating centroids time: 2.824274086
+ Updating NNT by GPU: 1.377439976
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.091487996
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.093535979
- Difference: 0.379552640
+ Difference: 3.766366945
 -------------------------------------------------------
-Iteration #34
+Iteration #24
 -------------------------------------------------------
- Updating memberships by GPU: 1.344192028
+ Updating memberships by GPU: 1.341343999
  Updating centroids:
-  + Counting sort by GPU: 0.107487999
-  + Reducing centroids by GPU: 2.247008085
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006368000
- Total updating centroids time: 2.370811428
- Updating NNT by GPU: 1.344895959
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091232002
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092987415
- Difference: 0.292957951
--------------------------------------------------------
-Iteration #35
--------------------------------------------------------
- Updating memberships by GPU: 1.358271956
- Updating centroids:
-  + Counting sort by GPU: 0.108415999
-  + Reducing centroids by GPU: 2.252896070
+  + Counting sort by GPU: 0.104800001
+  + Reducing centroids by GPU: 2.462048054
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006304000
- Total updating centroids time: 2.377270844
- Updating NNT by GPU: 1.368831992
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.581334829
+ Updating NNT by GPU: 1.382815957
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.096864000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.098619414
+ Difference: 3.828509747
+-------------------------------------------------------
+Iteration #25
+-------------------------------------------------------
+ Updating memberships by GPU: 1.338783979
+ Updating centroids:
+  + Counting sort by GPU: 0.098048002
+  + Reducing centroids by GPU: 2.445024014
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.559035359
+ Updating NNT by GPU: 1.364223957
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.091456003
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093211417
- Difference: 0.248260640
--------------------------------------------------------
-Iteration #36
--------------------------------------------------------
- Updating memberships by GPU: 2.907968044
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.268640041
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003584000
- Total updating centroids time: 2.389526816
- Updating NNT by GPU: 1.360224009
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090815999
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092863981
- Difference: 0.207944942
+ Total calculating J time: 0.093503986
+ Difference: 3.961625348
 -------------------------------------------------------
-Iteration #37
+Iteration #26
 -------------------------------------------------------
- Updating memberships by GPU: 1.347136021
+ Updating memberships by GPU: 1.408895969
  Updating centroids:
-  + Counting sort by GPU: 0.108127996
-  + Reducing centroids by GPU: 2.248447895
+  + Counting sort by GPU: 0.098367997
+  + Reducing centroids by GPU: 2.461312056
   + Reducing centroids by CPU: 0.009654775
   + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.372246666
- Updating NNT by GPU: 1.379840016
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091072001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093119983
- Difference: 0.172120329
--------------------------------------------------------
-Iteration #38
--------------------------------------------------------
- Updating memberships by GPU: 1.352064013
- Updating centroids:
-  + Counting sort by GPU: 0.110944003
-  + Reducing centroids by GPU: 2.263008118
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.389915464
- Updating NNT by GPU: 1.376672029
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091743998
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093791981
- Difference: 0.160226535
--------------------------------------------------------
-Iteration #39
--------------------------------------------------------
- Updating memberships by GPU: 1.348384023
- Updating centroids:
-  + Counting sort by GPU: 0.110111997
-  + Reducing centroids by GPU: 2.227679968
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.353755308
- Updating NNT by GPU: 1.389503956
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090687998
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092735980
- Difference: 0.145946942
--------------------------------------------------------
-Iteration #40
--------------------------------------------------------
- Updating memberships by GPU: 1.338047981
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.236831903
-  + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.007680000
- Total updating centroids time: 2.362399816
- Updating NNT by GPU: 1.387199998
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091168001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093215984
- Difference: 0.142509022
--------------------------------------------------------
-Iteration #41
--------------------------------------------------------
- Updating memberships by GPU: 1.342847943
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.244384050
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.367702825
- Updating NNT by GPU: 1.369632006
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090687998
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092735980
- Difference: 0.130448684
--------------------------------------------------------
-Iteration #42
--------------------------------------------------------
- Updating memberships by GPU: 1.431136012
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.244287968
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.367899311
- Updating NNT by GPU: 1.377279997
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091871999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093919982
- Difference: 0.105404591
--------------------------------------------------------
-Iteration #43
--------------------------------------------------------
- Updating memberships by GPU: 1.343296051
- Updating centroids:
-  + Counting sort by GPU: 0.108064003
-  + Reducing centroids by GPU: 2.247839928
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.371867275
- Updating NNT by GPU: 1.373247981
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090976000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093023982
- Difference: 0.085031894
--------------------------------------------------------
-Iteration #44
--------------------------------------------------------
- Updating memberships by GPU: 1.355679989
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.250207901
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.004832000
- Total updating centroids time: 2.372635245
- Updating NNT by GPU: 1.337311983
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091104001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093151983
- Difference: 0.070868579
--------------------------------------------------------
-Iteration #45
--------------------------------------------------------
- Updating memberships by GPU: 1.447999954
- Updating centroids:
-  + Counting sort by GPU: 0.114752002
-  + Reducing centroids by GPU: 2.259135962
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006304000
- Total updating centroids time: 2.389846738
- Updating NNT by GPU: 1.343520045
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091136001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093183984
- Difference: 0.058655583
--------------------------------------------------------
-Iteration #46
--------------------------------------------------------
- Updating memberships by GPU: 1.356480002
- Updating centroids:
-  + Counting sort by GPU: 0.107584000
-  + Reducing centroids by GPU: 2.254208088
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.377755431
- Updating NNT by GPU: 1.370527983
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.093312003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.095359985
- Difference: 0.051436358
--------------------------------------------------------
-Iteration #47
--------------------------------------------------------
- Updating memberships by GPU: 1.344576001
- Updating centroids:
-  + Counting sort by GPU: 0.109728001
-  + Reducing centroids by GPU: 2.234080076
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006048000
- Total updating centroids time: 2.359803421
- Updating NNT by GPU: 1.381376028
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090847999
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092603412
- Difference: 0.043184538
--------------------------------------------------------
-Iteration #48
--------------------------------------------------------
- Updating memberships by GPU: 1.391296029
- Updating centroids:
-  + Counting sort by GPU: 0.107968003
-  + Reducing centroids by GPU: 2.237407923
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.012672000
- Total updating centroids time: 2.367702699
- Updating NNT by GPU: 1.395135999
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091487996
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093535979
- Difference: 0.035789229
--------------------------------------------------------
-Iteration #49
--------------------------------------------------------
- Updating memberships by GPU: 1.352895975
- Updating centroids:
-  + Counting sort by GPU: 0.107744001
-  + Reducing centroids by GPU: 2.257855892
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.380347237
- Updating NNT by GPU: 1.344159961
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090944000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092991982
- Difference: 0.030080995
--------------------------------------------------------
-Iteration #50
--------------------------------------------------------
- Updating memberships by GPU: 1.340960026
- Updating centroids:
-  + Counting sort by GPU: 0.110399999
-  + Reducing centroids by GPU: 2.223808050
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006048000
- Total updating centroids time: 2.349910823
- Updating NNT by GPU: 1.414463997
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090815999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092863981
- Difference: 0.025600310
--------------------------------------------------------
-Iteration #51
--------------------------------------------------------
- Updating memberships by GPU: 1.340543985
- Updating centroids:
-  + Counting sort by GPU: 0.111135997
-  + Reducing centroids by GPU: 2.243743896
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.370811237
- Updating NNT by GPU: 1.349663973
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.096128002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.098175984
- Difference: 0.021366586
--------------------------------------------------------
-Iteration #52
--------------------------------------------------------
- Updating memberships by GPU: 1.339552045
- Updating centroids:
-  + Counting sort by GPU: 0.108159997
-  + Reducing centroids by GPU: 2.234208107
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.358299447
- Updating NNT by GPU: 1.416192055
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.095072001
-  + Reducing J by CPU : 0.010825050
- Total calculating J time: 0.105897051
- Difference: 0.017594153
--------------------------------------------------------
-Iteration #53
--------------------------------------------------------
- Updating memberships by GPU: 1.343263984
- Updating centroids:
-  + Counting sort by GPU: 0.109503999
-  + Reducing centroids by GPU: 2.234783888
-  + Reducing centroids by CPU: 0.019602118
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.369906005
- Updating NNT by GPU: 1.423583984
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.092416003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.094463986
- Difference: 0.014675068
--------------------------------------------------------
-Iteration #54
--------------------------------------------------------
- Updating memberships by GPU: 1.353567958
- Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.256864071
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.380150845
- Updating NNT by GPU: 1.374367952
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.093216002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.095263984
- Difference: 0.012289994
--------------------------------------------------------
-Iteration #55
--------------------------------------------------------
- Updating memberships by GPU: 1.349535942
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.235712051
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.359323395
- Updating NNT by GPU: 1.388416052
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090783998
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092539412
- Difference: 0.010352551
--------------------------------------------------------
-Iteration #56
--------------------------------------------------------
- Updating memberships by GPU: 1.344447970
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.250335932
-  + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.374239844
- Updating NNT by GPU: 1.417536020
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091424003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093471986
- Difference: 0.008614995
--------------------------------------------------------
-Iteration #57
--------------------------------------------------------
- Updating memberships by GPU: 1.347327948
- Updating centroids:
-  + Counting sort by GPU: 0.107584000
-  + Reducing centroids by GPU: 2.238208055
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.361462830
- Updating NNT by GPU: 1.404703975
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091903999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093951982
- Difference: 0.007197528
--------------------------------------------------------
-Iteration #58
--------------------------------------------------------
- Updating memberships by GPU: 1.345535994
- Updating centroids:
-  + Counting sort by GPU: 0.110976003
-  + Reducing centroids by GPU: 2.256704092
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006048000
- Total updating centroids time: 2.383382870
- Updating NNT by GPU: 1.380735993
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091615997
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093371411
- Difference: 0.006077895
--------------------------------------------------------
-Iteration #59
--------------------------------------------------------
- Updating memberships by GPU: 1.341536045
- Updating centroids:
-  + Counting sort by GPU: 0.107680000
-  + Reducing centroids by GPU: 4.242432117
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 4.365782893
- Updating NNT by GPU: 1.394655943
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091360003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093407985
- Difference: 0.005200987
--------------------------------------------------------
-Iteration #60
--------------------------------------------------------
- Updating memberships by GPU: 1.343711972
- Updating centroids:
-  + Counting sort by GPU: 0.108704001
-  + Reducing centroids by GPU: 2.254431963
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.007744000
- Total updating centroids time: 2.380534738
- Updating NNT by GPU: 1.406816006
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091008000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093055983
- Difference: 0.004505757
--------------------------------------------------------
-Iteration #61
--------------------------------------------------------
- Updating memberships by GPU: 1.349663973
- Updating centroids:
-  + Counting sort by GPU: 0.112992004
-  + Reducing centroids by GPU: 2.239200115
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006112000
- Total updating centroids time: 2.367958893
- Updating NNT by GPU: 1.339840055
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091232002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093279984
- Difference: 0.004184020
--------------------------------------------------------
-Iteration #62
--------------------------------------------------------
- Updating memberships by GPU: 1.346304059
- Updating centroids:
-  + Counting sort by GPU: 0.108608000
-  + Reducing centroids by GPU: 2.236191988
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.360731331
- Updating NNT by GPU: 1.355360031
+ Total updating centroids time: 2.575350827
+ Updating NNT by GPU: 1.373888016
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.091615997
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.093663980
- Difference: 0.003485745
+ Difference: 4.173604158
 -------------------------------------------------------
-Iteration #63
+Iteration #27
 -------------------------------------------------------
- Updating memberships by GPU: 1.345056057
+ Updating memberships by GPU: 1.341663957
  Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.257888079
-  + Reducing centroids by CPU: 0.009362206
-  + Memcpy host centroids to device: 0.004832000
- Total updating centroids time: 2.379698284
- Updating NNT by GPU: 1.369760036
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090944000
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092699413
- Difference: 0.002779841
--------------------------------------------------------
-Iteration #64
--------------------------------------------------------
- Updating memberships by GPU: 1.337120056
- Updating centroids:
-  + Counting sort by GPU: 0.111423999
-  + Reducing centroids by GPU: 2.247296095
-  + Reducing centroids by CPU: 0.010532481
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.375268575
- Updating NNT by GPU: 1.397279978
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091328003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093375985
- Difference: 0.002239216
--------------------------------------------------------
-Iteration #65
--------------------------------------------------------
- Updating memberships by GPU: 1.401119947
- Updating centroids:
-  + Counting sort by GPU: 0.111359999
-  + Reducing centroids by GPU: 2.265759945
-  + Reducing centroids by CPU: 0.010532481
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.393668425
- Updating NNT by GPU: 1.356703997
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091871999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093919982
- Difference: 0.001814438
--------------------------------------------------------
-Iteration #66
--------------------------------------------------------
- Updating memberships by GPU: 1.340319991
- Updating centroids:
-  + Counting sort by GPU: 0.109183997
-  + Reducing centroids by GPU: 2.237184048
+  + Counting sort by GPU: 0.097695999
+  + Reducing centroids by GPU: 2.475392103
   + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.015584000
- Total updating centroids time: 2.371899388
- Updating NNT by GPU: 1.396095991
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.589051446
+ Updating NNT by GPU: 1.365247965
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.097088002
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.098843415
- Difference: 0.001476964
+  + Reducing J by GPU one time: 0.091487996
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093535979
+ Difference: 4.440772155
 -------------------------------------------------------
-Iteration #67
+Iteration #28
 -------------------------------------------------------
- Updating memberships by GPU: 1.341567993
+ Updating memberships by GPU: 1.341375947
  Updating centroids:
-  + Counting sort by GPU: 0.107455999
-  + Reducing centroids by GPU: 2.484447956
+  + Counting sort by GPU: 0.097920001
+  + Reducing centroids by GPU: 2.462975979
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.575675323
+ Updating NNT by GPU: 1.374271989
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.092224002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.094271984
+ Difference: 4.760887906
+-------------------------------------------------------
+Iteration #29
+-------------------------------------------------------
+ Updating memberships by GPU: 1.373664021
+ Updating centroids:
+  + Counting sort by GPU: 0.098144002
+  + Reducing centroids by GPU: 2.467456102
   + Reducing centroids by CPU: 0.009654775
   + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.607574729
- Updating NNT by GPU: 1.387007952
+ Total updating centroids time: 2.581270879
+ Updating NNT by GPU: 1.373088002
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.093440004
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.095195417
+ Difference: 5.130935078
+-------------------------------------------------------
+Iteration #30
+-------------------------------------------------------
+ Updating memberships by GPU: 1.338783979
+ Updating centroids:
+  + Counting sort by GPU: 0.097695999
+  + Reducing centroids by GPU: 2.455391884
+  + Reducing centroids by CPU: 0.018431842
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.577535725
+ Updating NNT by GPU: 1.365344048
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090976000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093023982
+ Difference: 5.413708620
+-------------------------------------------------------
+Iteration #31
+-------------------------------------------------------
+ Updating memberships by GPU: 1.349503994
+ Updating centroids:
+  + Counting sort by GPU: 0.097567998
+  + Reducing centroids by GPU: 2.456383944
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.568731285
+ Updating NNT by GPU: 1.361472011
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.091519997
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.093567979
- Difference: 0.001235015
+ Difference: 5.549066658
 -------------------------------------------------------
-Iteration #68
+Iteration #32
 -------------------------------------------------------
- Updating memberships by GPU: 1.369279981
+ Updating memberships by GPU: 1.340960026
  Updating centroids:
-  + Counting sort by GPU: 0.107551999
-  + Reducing centroids by GPU: 2.236864090
-  + Reducing centroids by CPU: 0.009362206
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.359762295
- Updating NNT by GPU: 1.358368039
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091136001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093183984
- Difference: 0.001015328
--------------------------------------------------------
-Iteration #69
--------------------------------------------------------
- Updating memberships by GPU: 1.340543985
- Updating centroids:
-  + Counting sort by GPU: 0.115424000
-  + Reducing centroids by GPU: 2.233855963
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006112000
- Total updating centroids time: 2.365046737
- Updating NNT by GPU: 1.392896056
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091008000
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092763414
- Difference: 0.000837277
--------------------------------------------------------
-Iteration #70
--------------------------------------------------------
- Updating memberships by GPU: 1.336127996
- Updating centroids:
-  + Counting sort by GPU: 0.107808001
-  + Reducing centroids by GPU: 2.247744083
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.371222859
- Updating NNT by GPU: 1.363232017
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090751998
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092507412
- Difference: 0.000685636
--------------------------------------------------------
-Iteration #71
--------------------------------------------------------
- Updating memberships by GPU: 1.340160012
- Updating centroids:
-  + Counting sort by GPU: 0.109824002
-  + Reducing centroids by GPU: 2.229856014
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004832000
- Total updating centroids time: 2.354166791
- Updating NNT by GPU: 1.393632054
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091360003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093407985
- Difference: 0.000560780
--------------------------------------------------------
-Iteration #72
--------------------------------------------------------
- Updating memberships by GPU: 1.342815995
- Updating centroids:
-  + Counting sort by GPU: 0.108000003
-  + Reducing centroids by GPU: 2.241535902
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.365206680
- Updating NNT by GPU: 1.389215946
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091232002
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092987415
- Difference: 0.000458654
--------------------------------------------------------
-Iteration #73
--------------------------------------------------------
- Updating memberships by GPU: 1.339167953
- Updating centroids:
-  + Counting sort by GPU: 0.107551999
-  + Reducing centroids by GPU: 2.249088049
-  + Reducing centroids by CPU: 0.019016980
-  + Memcpy host centroids to device: 0.006464000
- Total updating centroids time: 2.382121028
- Updating NNT by GPU: 1.466176033
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091104001
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092859414
- Difference: 0.000388974
--------------------------------------------------------
-Iteration #74
--------------------------------------------------------
- Updating memberships by GPU: 1.346240044
- Updating centroids:
-  + Counting sort by GPU: 0.107487999
-  + Reducing centroids by GPU: 2.253151894
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.376310667
- Updating NNT by GPU: 1.348896027
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091040000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093087983
- Difference: 0.000321248
--------------------------------------------------------
-Iteration #75
--------------------------------------------------------
- Updating memberships by GPU: 1.346207976
- Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.254688025
+  + Counting sort by GPU: 0.097375996
+  + Reducing centroids by GPU: 2.468640089
   + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006048000
- Total updating centroids time: 2.378299368
- Updating NNT by GPU: 1.389696002
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091615997
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093371411
- Difference: 0.000262954
--------------------------------------------------------
-Iteration #76
--------------------------------------------------------
- Updating memberships by GPU: 1.360416055
- Updating centroids:
-  + Counting sort by GPU: 0.107487999
-  + Reducing centroids by GPU: 2.252288103
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.375446877
- Updating NNT by GPU: 1.411488056
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091487996
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093243410
- Difference: 0.000216894
--------------------------------------------------------
-Iteration #77
--------------------------------------------------------
- Updating memberships by GPU: 1.345247984
- Updating centroids:
-  + Counting sort by GPU: 0.107808001
-  + Reducing centroids by GPU: 2.248608112
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.372086888
- Updating NNT by GPU: 1.374016047
+  + Memcpy host centroids to device: 0.004800000
+ Total updating centroids time: 2.580763429
+ Updating NNT by GPU: 1.370272040
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.091072001
   + Reducing J by CPU : 0.001755414
  Total calculating J time: 0.092827414
- Difference: 0.000177838
+ Difference: 5.653264589
 -------------------------------------------------------
-Iteration #78
+Iteration #33
 -------------------------------------------------------
- Updating memberships by GPU: 1.342399955
+ Updating memberships by GPU: 1.346207976
  Updating centroids:
-  + Counting sort by GPU: 0.116959997
-  + Reducing centroids by GPU: 2.248895884
+  + Counting sort by GPU: 0.098048002
+  + Reducing centroids by GPU: 2.449055910
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006240000
- Total updating centroids time: 2.381750655
- Updating NNT by GPU: 1.366271973
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.562774686
+ Updating NNT by GPU: 1.359647989
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091583997
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093339411
- Difference: 0.000145382
--------------------------------------------------------
-Iteration #79
--------------------------------------------------------
- Updating memberships by GPU: 1.331455946
- Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.230207920
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.353462694
- Updating NNT by GPU: 1.400063992
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091200002
+  + Reducing J by GPU one time: 0.091232002
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093247984
- Difference: 0.000122339
+ Total calculating J time: 0.093279984
+ Difference: 5.582914080
 -------------------------------------------------------
-Iteration #80
+Iteration #34
 -------------------------------------------------------
- Updating memberships by GPU: 1.343104005
+ Updating memberships by GPU: 1.337888002
  Updating centroids:
-  + Counting sort by GPU: 0.108768001
-  + Reducing centroids by GPU: 2.231935978
+  + Counting sort by GPU: 0.097759999
+  + Reducing centroids by GPU: 2.498464108
   + Reducing centroids by CPU: 0.009654775
   + Memcpy host centroids to device: 0.004832000
- Total updating centroids time: 2.355190754
- Updating NNT by GPU: 1.385280013
+ Total updating centroids time: 2.610710881
+ Updating NNT by GPU: 1.368160009
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091392003
+  + Reducing J by GPU one time: 0.092607997
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093439985
- Difference: 0.000100330
+ Total calculating J time: 0.094655980
+ Difference: 5.419812658
 -------------------------------------------------------
-Iteration #81
+Iteration #35
 -------------------------------------------------------
- Updating memberships by GPU: 1.349184036
+ Updating memberships by GPU: 1.344799995
  Updating centroids:
-  + Counting sort by GPU: 0.107391998
-  + Reducing centroids by GPU: 2.254080057
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.377142830
- Updating NNT by GPU: 1.398079991
+  + Counting sort by GPU: 0.097280003
+  + Reducing centroids by GPU: 2.478559971
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.005088000
+ Total updating centroids time: 2.590875318
+ Updating NNT by GPU: 1.384960055
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091519997
+  + Reducing J by GPU one time: 0.091168001
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093567979
- Difference: 0.000082230
+ Total calculating J time: 0.093215984
+ Difference: 5.241375634
 -------------------------------------------------------
-Iteration #82
+Iteration #36
 -------------------------------------------------------
- Updating memberships by GPU: 1.341536045
+ Updating memberships by GPU: 1.342944026
  Updating centroids:
-  + Counting sort by GPU: 0.108127996
-  + Reducing centroids by GPU: 2.235039949
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004608000
- Total updating centroids time: 2.357430720
- Updating NNT by GPU: 1.360640049
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.099551998
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.101599981
- Difference: 0.000067543
--------------------------------------------------------
-Iteration #83
--------------------------------------------------------
- Updating memberships by GPU: 1.345983982
- Updating centroids:
-  + Counting sort by GPU: 0.107519999
-  + Reducing centroids by GPU: 2.223232031
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.346390804
- Updating NNT by GPU: 1.384224057
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091296002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093343985
- Difference: 0.000055377
--------------------------------------------------------
-Iteration #84
--------------------------------------------------------
- Updating memberships by GPU: 1.342751980
- Updating centroids:
-  + Counting sort by GPU: 0.114303999
-  + Reducing centroids by GPU: 2.245151997
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.375126770
- Updating NNT by GPU: 1.368639946
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091200002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093247984
- Difference: 0.000045220
--------------------------------------------------------
-Iteration #85
--------------------------------------------------------
- Updating memberships by GPU: 1.336799979
- Updating centroids:
-  + Counting sort by GPU: 0.107680000
-  + Reducing centroids by GPU: 2.267103910
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.390422685
- Updating NNT by GPU: 1.355391979
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.093280002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.095327985
- Difference: 0.000036950
--------------------------------------------------------
-Iteration #86
--------------------------------------------------------
- Updating memberships by GPU: 1.341599941
- Updating centroids:
-  + Counting sort by GPU: 0.107487999
-  + Reducing centroids by GPU: 2.249504089
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003616000
- Total updating centroids time: 2.370262863
- Updating NNT by GPU: 1.344544053
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.094527997
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.096283411
- Difference: 0.000030191
--------------------------------------------------------
-Iteration #87
--------------------------------------------------------
- Updating memberships by GPU: 1.347136021
- Updating centroids:
-  + Counting sort by GPU: 0.107808001
-  + Reducing centroids by GPU: 2.260799885
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.384278661
- Updating NNT by GPU: 1.385504007
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091072001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093119983
- Difference: 0.000024665
--------------------------------------------------------
-Iteration #88
--------------------------------------------------------
- Updating memberships by GPU: 1.342496037
- Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.257472038
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.380726813
- Updating NNT by GPU: 1.366847992
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091392003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093439985
- Difference: 0.000020152
--------------------------------------------------------
-Iteration #89
--------------------------------------------------------
- Updating memberships by GPU: 1.345567942
- Updating centroids:
-  + Counting sort by GPU: 0.107936002
-  + Reducing centroids by GPU: 2.250368118
-  + Reducing centroids by CPU: 0.009362206
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.373682326
- Updating NNT by GPU: 1.358304024
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091487996
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093243410
- Difference: 0.000016464
--------------------------------------------------------
-Iteration #90
--------------------------------------------------------
- Updating memberships by GPU: 1.341760039
- Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.253664017
+  + Counting sort by GPU: 0.097471997
+  + Reducing centroids by GPU: 2.470144033
   + Reducing centroids by CPU: 0.009947343
   + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.377243360
- Updating NNT by GPU: 1.380864024
+ Total updating centroids time: 2.583579374
+ Updating NNT by GPU: 1.382591963
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091807999
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093563412
- Difference: 0.000013451
+  + Reducing J by GPU one time: 0.090783998
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092831981
+ Difference: 4.975837812
 -------------------------------------------------------
-Iteration #91
+Iteration #37
 -------------------------------------------------------
- Updating memberships by GPU: 1.339167953
+ Updating memberships by GPU: 1.343008041
  Updating centroids:
-  + Counting sort by GPU: 0.107776001
-  + Reducing centroids by GPU: 2.275583982
-  + Reducing centroids by CPU: 0.009654775
+  + Counting sort by GPU: 0.097375996
+  + Reducing centroids by GPU: 2.461215973
+  + Reducing centroids by CPU: 0.009947343
   + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.397814758
- Updating NNT by GPU: 1.375007987
+ Total updating centroids time: 2.573339313
+ Updating NNT by GPU: 1.413599968
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091104001
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092859414
- Difference: 0.000010989
--------------------------------------------------------
-Iteration #92
--------------------------------------------------------
- Updating memberships by GPU: 1.343744040
- Updating centroids:
-  + Counting sort by GPU: 0.108704001
-  + Reducing centroids by GPU: 2.246464014
-  + Reducing centroids by CPU: 0.009362206
-  + Memcpy host centroids to device: 0.004992000
- Total updating centroids time: 2.369522220
- Updating NNT by GPU: 1.382015944
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091424003
+  + Reducing J by GPU one time: 0.090591997
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093471986
- Difference: 0.000008978
+ Total calculating J time: 0.092639979
+ Difference: 4.684125490
 -------------------------------------------------------
-Iteration #93
+Iteration #38
 -------------------------------------------------------
- Updating memberships by GPU: 1.342175961
+ Updating memberships by GPU: 1.351232052
  Updating centroids:
-  + Counting sort by GPU: 0.111231998
-  + Reducing centroids by GPU: 2.244384050
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.370070823
- Updating NNT by GPU: 1.369343996
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091040000
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092795414
- Difference: 0.000007436
--------------------------------------------------------
-Iteration #94
--------------------------------------------------------
- Updating memberships by GPU: 1.346464038
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.263168097
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003776000
- Total updating centroids time: 2.384246871
- Updating NNT by GPU: 1.377984047
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091200002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093247984
- Difference: 0.000006083
--------------------------------------------------------
-Iteration #95
--------------------------------------------------------
- Updating memberships by GPU: 1.341120005
- Updating centroids:
-  + Counting sort by GPU: 0.108800001
-  + Reducing centroids by GPU: 2.258368015
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003616000
- Total updating centroids time: 2.380438791
- Updating NNT by GPU: 1.389727950
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091296002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093343985
- Difference: 0.000004969
--------------------------------------------------------
-Iteration #96
--------------------------------------------------------
- Updating memberships by GPU: 1.348927975
- Updating centroids:
-  + Counting sort by GPU: 0.107776001
-  + Reducing centroids by GPU: 2.239327908
+  + Counting sort by GPU: 0.097375996
+  + Reducing centroids by GPU: 2.468480110
   + Reducing centroids by CPU: 0.009654775
   + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.362774683
- Updating NNT by GPU: 1.383872032
+ Total updating centroids time: 2.581526881
+ Updating NNT by GPU: 1.363168001
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091296002
+  + Reducing J by GPU one time: 0.091743998
   + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093051416
- Difference: 0.000004059
+ Total calculating J time: 0.093499412
+ Difference: 4.346837364
 -------------------------------------------------------
-Iteration #97
+Iteration #39
 -------------------------------------------------------
- Updating memberships by GPU: 1.339776039
+ Updating memberships by GPU: 1.332064033
  Updating centroids:
-  + Counting sort by GPU: 0.107840002
-  + Reducing centroids by GPU: 2.240511894
+  + Counting sort by GPU: 0.097535998
+  + Reducing centroids by GPU: 2.489952087
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.362806671
- Updating NNT by GPU: 1.345855951
+  + Memcpy host centroids to device: 0.006176000
+ Total updating centroids time: 2.603318860
+ Updating NNT by GPU: 1.347519994
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091296002
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093051416
- Difference: 0.000003316
--------------------------------------------------------
-Iteration #98
--------------------------------------------------------
- Updating memberships by GPU: 1.355808020
- Updating centroids:
-  + Counting sort by GPU: 0.107680000
-  + Reducing centroids by GPU: 2.254208088
-  + Reducing centroids by CPU: 0.009362206
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.377266294
- Updating NNT by GPU: 1.384896040
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091456003
+  + Reducing J by GPU one time: 0.091360003
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093503986
- Difference: 0.000002709
+ Total calculating J time: 0.093407985
+ Difference: 4.016549351
 -------------------------------------------------------
-Iteration #99
+Iteration #40
 -------------------------------------------------------
- Updating memberships by GPU: 1.346848011
+ Updating memberships by GPU: 1.342847943
  Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.247231960
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003616000
- Total updating centroids time: 2.368118735
- Updating NNT by GPU: 1.403200030
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091328003
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093083416
- Difference: 0.000002213
--------------------------------------------------------
-Iteration #100
--------------------------------------------------------
- Updating memberships by GPU: 1.344159961
- Updating centroids:
-  + Counting sort by GPU: 0.107680000
-  + Reducing centroids by GPU: 2.253087997
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.375222773
- Updating NNT by GPU: 1.364896059
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091104001
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092859414
- Difference: 0.000001807
--------------------------------------------------------
-Iteration #101
--------------------------------------------------------
- Updating memberships by GPU: 1.353024006
- Updating centroids:
-  + Counting sort by GPU: 0.107840002
-  + Reducing centroids by GPU: 2.237312078
+  + Counting sort by GPU: 0.097567998
+  + Reducing centroids by GPU: 2.442847967
   + Reducing centroids by CPU: 0.009654775
   + Memcpy host centroids to device: 0.004832000
- Total updating centroids time: 2.359638855
- Updating NNT by GPU: 1.369824052
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091328003
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093083416
- Difference: 0.000001476
--------------------------------------------------------
-Iteration #102
--------------------------------------------------------
- Updating memberships by GPU: 1.343744040
- Updating centroids:
-  + Counting sort by GPU: 0.107776001
-  + Reducing centroids by GPU: 2.246272087
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.008416000
- Total updating centroids time: 2.372118863
- Updating NNT by GPU: 1.389888048
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091296002
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.093051416
- Difference: 0.000001206
--------------------------------------------------------
-Iteration #103
--------------------------------------------------------
- Updating memberships by GPU: 1.353055954
- Updating centroids:
-  + Counting sort by GPU: 0.107551999
-  + Reducing centroids by GPU: 2.262016058
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004992000
- Total updating centroids time: 2.384214832
- Updating NNT by GPU: 1.366528034
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.092543997
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.094591979
- Difference: 0.000000985
--------------------------------------------------------
-Iteration #104
--------------------------------------------------------
- Updating memberships by GPU: 1.335487962
- Updating centroids:
-  + Counting sort by GPU: 0.110816002
-  + Reducing centroids by GPU: 2.245728016
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.003616000
- Total updating centroids time: 2.370107361
- Updating NNT by GPU: 1.377248049
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.094527997
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.096283411
- Difference: 0.000000805
--------------------------------------------------------
-Iteration #105
--------------------------------------------------------
- Updating memberships by GPU: 1.354015946
- Updating centroids:
-  + Counting sort by GPU: 0.107391998
-  + Reducing centroids by GPU: 2.237152100
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.360214872
- Updating NNT by GPU: 1.368927956
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090815999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092863981
- Difference: 0.000000658
--------------------------------------------------------
-Iteration #106
--------------------------------------------------------
- Updating memberships by GPU: 1.343104005
- Updating centroids:
-  + Counting sort by GPU: 0.109407999
-  + Reducing centroids by GPU: 2.286495924
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006112000
- Total updating centroids time: 2.411670697
- Updating NNT by GPU: 1.393856049
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091296002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093343985
- Difference: 0.000000537
--------------------------------------------------------
-Iteration #107
--------------------------------------------------------
- Updating memberships by GPU: 1.343520045
- Updating centroids:
-  + Counting sort by GPU: 0.107648000
-  + Reducing centroids by GPU: 2.246912003
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.006656000
- Total updating centroids time: 2.371163346
- Updating NNT by GPU: 1.376351953
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091200002
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093247984
- Difference: 0.000000439
--------------------------------------------------------
-Iteration #108
--------------------------------------------------------
- Updating memberships by GPU: 1.336799979
- Updating centroids:
-  + Counting sort by GPU: 0.107551999
-  + Reducing centroids by GPU: 2.260096073
-  + Reducing centroids by CPU: 0.019016980
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.392681053
- Updating NNT by GPU: 1.382272005
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090944000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092991982
- Difference: 0.000000358
--------------------------------------------------------
-Iteration #109
--------------------------------------------------------
- Updating memberships by GPU: 1.335168004
- Updating centroids:
-  + Counting sort by GPU: 0.109984003
-  + Reducing centroids by GPU: 2.242399931
-  + Reducing centroids by CPU: 0.009947343
-  + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.367131278
- Updating NNT by GPU: 1.385887980
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091456003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093503986
- Difference: 0.000000293
--------------------------------------------------------
-Iteration #110
--------------------------------------------------------
- Updating memberships by GPU: 1.330719948
- Updating centroids:
-  + Counting sort by GPU: 0.108127996
-  + Reducing centroids by GPU: 2.248543978
-  + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.372927887
- Updating NNT by GPU: 1.373280048
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091519997
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093567979
- Difference: 0.000000239
--------------------------------------------------------
-Iteration #111
--------------------------------------------------------
- Updating memberships by GPU: 1.336159945
- Updating centroids:
-  + Counting sort by GPU: 0.109088004
-  + Reducing centroids by GPU: 2.251807928
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006208000
- Total updating centroids time: 2.376758706
- Updating NNT by GPU: 1.397696018
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091008000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093055983
- Difference: 0.000000195
--------------------------------------------------------
-Iteration #112
--------------------------------------------------------
- Updating memberships by GPU: 1.346176028
- Updating centroids:
-  + Counting sort by GPU: 0.115007997
-  + Reducing centroids by GPU: 2.237823963
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.368502734
- Updating NNT by GPU: 1.395295978
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090623997
-  + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092379411
- Difference: 0.000000160
--------------------------------------------------------
-Iteration #113
--------------------------------------------------------
- Updating memberships by GPU: 1.345440030
- Updating centroids:
-  + Counting sort by GPU: 0.108096004
-  + Reducing centroids by GPU: 2.247296095
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003616000
- Total updating centroids time: 2.368662873
- Updating NNT by GPU: 1.384992003
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091968000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.094015982
- Difference: 0.000000130
--------------------------------------------------------
-Iteration #114
--------------------------------------------------------
- Updating memberships by GPU: 1.343232036
- Updating centroids:
-  + Counting sort by GPU: 0.107744001
-  + Reducing centroids by GPU: 2.243135929
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.003616000
- Total updating centroids time: 2.364150705
- Updating NNT by GPU: 1.387135983
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090815999
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092863981
- Difference: 0.000000106
--------------------------------------------------------
-Iteration #115
--------------------------------------------------------
- Updating memberships by GPU: 1.398336053
- Updating centroids:
-  + Counting sort by GPU: 0.112992004
-  + Reducing centroids by GPU: 2.229055882
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.357718660
- Updating NNT by GPU: 1.403072000
+ Total updating centroids time: 2.554902740
+ Updating NNT by GPU: 1.415456057
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.091328003
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.093375985
- Difference: 0.000000087
+ Difference: 3.694203052
 -------------------------------------------------------
-Iteration #116
+Iteration #41
 -------------------------------------------------------
- Updating memberships by GPU: 1.351935983
+ Updating memberships by GPU: 1.336384058
  Updating centroids:
-  + Counting sort by GPU: 0.108255997
-  + Reducing centroids by GPU: 2.261055946
+  + Counting sort by GPU: 0.097792000
+  + Reducing centroids by GPU: 2.457407951
   + Reducing centroids by CPU: 0.009947343
   + Memcpy host centroids to device: 0.006016000
- Total updating centroids time: 2.385275287
- Updating NNT by GPU: 1.389888048
+ Total updating centroids time: 2.571163295
+ Updating NNT by GPU: 1.373888016
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.090719998
+  + Reducing J by GPU one time: 0.091168001
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.092767980
- Difference: 0.000000071
+ Total calculating J time: 0.093215984
+ Difference: 3.378477245
 -------------------------------------------------------
-Iteration #117
+Iteration #42
 -------------------------------------------------------
- Updating memberships by GPU: 1.339071989
+ Updating memberships by GPU: 1.353824019
  Updating centroids:
-  + Counting sort by GPU: 0.107519999
-  + Reducing centroids by GPU: 2.247936010
+  + Counting sort by GPU: 0.097248003
+  + Reducing centroids by GPU: 2.460927963
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006144000
- Total updating centroids time: 2.371254784
- Updating NNT by GPU: 1.364832044
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.573846741
+ Updating NNT by GPU: 1.350783944
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091456003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093503986
- Difference: 0.000000058
--------------------------------------------------------
-Iteration #118
--------------------------------------------------------
- Updating memberships by GPU: 1.386304021
- Updating centroids:
-  + Counting sort by GPU: 0.108383998
-  + Reducing centroids by GPU: 2.254208088
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.377046861
- Updating NNT by GPU: 1.407328010
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091424003
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093471986
- Difference: 0.000000047
--------------------------------------------------------
-Iteration #119
--------------------------------------------------------
- Updating memberships by GPU: 1.339776039
- Updating centroids:
-  + Counting sort by GPU: 0.107487999
-  + Reducing centroids by GPU: 2.253664017
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.004800000
- Total updating centroids time: 2.375606790
- Updating NNT by GPU: 1.376384020
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091104001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093151983
- Difference: 0.000000039
--------------------------------------------------------
-Iteration #120
--------------------------------------------------------
- Updating memberships by GPU: 1.348096013
- Updating centroids:
-  + Counting sort by GPU: 0.108287998
-  + Reducing centroids by GPU: 2.235775948
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006112000
- Total updating centroids time: 2.359830720
- Updating NNT by GPU: 1.386592031
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091136001
+  + Reducing J by GPU one time: 0.091775998
   + Reducing J by CPU : 0.001755414
- Total calculating J time: 0.092891415
- Difference: 0.000000032
+ Total calculating J time: 0.093531412
+ Difference: 3.083395941
 -------------------------------------------------------
-Iteration #121
+Iteration #43
 -------------------------------------------------------
- Updating memberships by GPU: 1.410336018
+ Updating memberships by GPU: 1.342079997
  Updating centroids:
-  + Counting sort by GPU: 0.111103997
-  + Reducing centroids by GPU: 2.247328043
+  + Counting sort by GPU: 0.097216003
+  + Reducing centroids by GPU: 2.453952074
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006304000
- Total updating centroids time: 2.374390814
- Updating NNT by GPU: 1.358016014
+  + Memcpy host centroids to device: 0.006080000
+ Total updating centroids time: 2.566902851
+ Updating NNT by GPU: 1.433696032
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091200002
-  + Reducing J by CPU : 0.002340551
- Total calculating J time: 0.093540553
- Difference: 0.000000026
+  + Reducing J by GPU one time: 0.092416003
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.094171417
+ Difference: 2.773040631
 -------------------------------------------------------
-Iteration #122
+Iteration #44
 -------------------------------------------------------
- Updating memberships by GPU: 1.344480038
+ Updating memberships by GPU: 1.350239992
  Updating centroids:
-  + Counting sort by GPU: 0.107616000
-  + Reducing centroids by GPU: 2.252608061
-  + Reducing centroids by CPU: 0.021064963
-  + Memcpy host centroids to device: 0.005984000
- Total updating centroids time: 2.387273023
- Updating NNT by GPU: 1.356351972
+  + Counting sort by GPU: 0.098016001
+  + Reducing centroids by GPU: 2.475455999
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.588251344
+ Updating NNT by GPU: 1.353600025
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.091008000
+  + Reducing J by GPU one time: 0.091296002
   + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.093055983
- Difference: 0.000000021
+ Total calculating J time: 0.093343985
+ Difference: 2.481824507
 -------------------------------------------------------
-Iteration #123
+Iteration #45
 -------------------------------------------------------
- Updating memberships by GPU: 1.339840055
+ Updating memberships by GPU: 1.343232036
  Updating centroids:
-  + Counting sort by GPU: 0.107744001
-  + Reducing centroids by GPU: 2.243040085
+  + Counting sort by GPU: 0.097439997
+  + Reducing centroids by GPU: 2.464992046
+  + Reducing centroids by CPU: 0.028379186
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.596859229
+ Updating NNT by GPU: 1.353024006
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091487996
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093243410
+ Difference: 2.229148170
+-------------------------------------------------------
+Iteration #46
+-------------------------------------------------------
+ Updating memberships by GPU: 1.340000033
+ Updating centroids:
+  + Counting sort by GPU: 0.097567998
+  + Reducing centroids by GPU: 2.463232040
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.577055951
+ Updating NNT by GPU: 1.434048057
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090976000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093023982
+ Difference: 2.031847082
+-------------------------------------------------------
+Iteration #47
+-------------------------------------------------------
+ Updating memberships by GPU: 1.342303991
+ Updating centroids:
+  + Counting sort by GPU: 0.097567998
+  + Reducing centroids by GPU: 2.516511917
+  + Reducing centroids by CPU: 0.019309549
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.639405464
+ Updating NNT by GPU: 1.353471994
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091232002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093279984
+ Difference: 1.884951516
+-------------------------------------------------------
+Iteration #48
+-------------------------------------------------------
+ Updating memberships by GPU: 1.348512053
+ Updating centroids:
+  + Counting sort by GPU: 0.097471997
+  + Reducing centroids by GPU: 2.462431908
+  + Reducing centroids by CPU: 0.018431842
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.584351747
+ Updating NNT by GPU: 1.354400039
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091392003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093439985
+ Difference: 1.708534471
+-------------------------------------------------------
+Iteration #49
+-------------------------------------------------------
+ Updating memberships by GPU: 1.349951982
+ Updating centroids:
+  + Counting sort by GPU: 0.097280003
+  + Reducing centroids by GPU: 2.469952106
   + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.006752000
- Total updating centroids time: 2.367190860
- Updating NNT by GPU: 1.373056054
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.581718884
+ Updating NNT by GPU: 1.411296010
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090879999
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092927982
+ Difference: 1.550681025
+-------------------------------------------------------
+Iteration #50
+-------------------------------------------------------
+ Updating memberships by GPU: 1.327936053
+ Updating centroids:
+  + Counting sort by GPU: 0.097535998
+  + Reducing centroids by GPU: 2.464895964
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.577211305
+ Updating NNT by GPU: 1.375903964
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.091200002
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.093247984
- Difference: 0.000000017
+ Difference: 1.424317525
 -------------------------------------------------------
-Iteration #124
+Iteration #51
 -------------------------------------------------------
- Updating memberships by GPU: 1.409759998
+ Updating memberships by GPU: 1.338335991
  Updating centroids:
-  + Counting sort by GPU: 0.107904002
-  + Reducing centroids by GPU: 2.251039982
-  + Reducing centroids by CPU: 0.019016980
-  + Memcpy host centroids to device: 0.006048000
- Total updating centroids time: 2.384008964
- Updating NNT by GPU: 1.401471972
+  + Counting sort by GPU: 0.097952001
+  + Reducing centroids by GPU: 2.463583946
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.576022722
+ Updating NNT by GPU: 1.382879972
  Calculating distortion value J:
-  + Reducing J by GPU one time: 0.097792000
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.099839982
- Difference: 0.000000014
+  + Reducing J by GPU one time: 0.091296002
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093051416
+ Difference: 1.288360329
 -------------------------------------------------------
-Iteration #125
+Iteration #52
 -------------------------------------------------------
- Updating memberships by GPU: 1.351168036
+ Updating memberships by GPU: 1.340736032
  Updating centroids:
-  + Counting sort by GPU: 0.108960003
-  + Reducing centroids by GPU: 2.243743896
+  + Counting sort by GPU: 0.098016001
+  + Reducing centroids by GPU: 2.478719950
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.592406726
+ Updating NNT by GPU: 1.444800019
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091360003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093407985
+ Difference: 1.165041551
+-------------------------------------------------------
+Iteration #53
+-------------------------------------------------------
+ Updating memberships by GPU: 1.343008041
+ Updating centroids:
+  + Counting sort by GPU: 0.097631998
+  + Reducing centroids by GPU: 2.482208014
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.595835355
+ Updating NNT by GPU: 1.361376047
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091040000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093087983
+ Difference: 1.065259634
+-------------------------------------------------------
+Iteration #54
+-------------------------------------------------------
+ Updating memberships by GPU: 1.344928026
+ Updating centroids:
+  + Counting sort by GPU: 0.097535998
+  + Reducing centroids by GPU: 2.457727909
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004800000
+ Total updating centroids time: 2.569718681
+ Updating NNT by GPU: 1.359392047
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091040000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.092795414
+ Difference: 0.974821315
+-------------------------------------------------------
+Iteration #55
+-------------------------------------------------------
+ Updating memberships by GPU: 1.346848011
+ Updating centroids:
+  + Counting sort by GPU: 0.097888000
+  + Reducing centroids by GPU: 2.449055910
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.561723254
+ Updating NNT by GPU: 1.439039946
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090911999
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092959982
+ Difference: 0.901489733
+-------------------------------------------------------
+Iteration #56
+-------------------------------------------------------
+ Updating memberships by GPU: 1.340479970
+ Updating centroids:
+  + Counting sort by GPU: 0.097727999
+  + Reducing centroids by GPU: 2.450911999
   + Reducing centroids by CPU: 0.010239912
-  + Memcpy host centroids to device: 0.006272000
- Total updating centroids time: 2.369215811
- Updating NNT by GPU: 1.367807984
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.564895910
+ Updating NNT by GPU: 1.383231997
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091264002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093311984
+ Difference: 0.844085603
+-------------------------------------------------------
+Iteration #57
+-------------------------------------------------------
+ Updating memberships by GPU: 1.343072057
+ Updating centroids:
+  + Counting sort by GPU: 0.105120003
+  + Reducing centroids by GPU: 2.494112015
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.614902793
+ Updating NNT by GPU: 1.338655949
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091040000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093087983
+ Difference: 0.780980609
+-------------------------------------------------------
+Iteration #58
+-------------------------------------------------------
+ Updating memberships by GPU: 1.337888002
+ Updating centroids:
+  + Counting sort by GPU: 0.097824000
+  + Reducing centroids by GPU: 2.511071920
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.624891264
+ Updating NNT by GPU: 1.414911985
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091040000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093087983
+ Difference: 0.737190341
+-------------------------------------------------------
+Iteration #59
+-------------------------------------------------------
+ Updating memberships by GPU: 1.342432022
+ Updating centroids:
+  + Counting sort by GPU: 0.097535998
+  + Reducing centroids by GPU: 2.488543987
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.602075328
+ Updating NNT by GPU: 1.365407944
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091679998
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093727980
+ Difference: 0.691792686
+-------------------------------------------------------
+Iteration #60
+-------------------------------------------------------
+ Updating memberships by GPU: 1.336928010
+ Updating centroids:
+  + Counting sort by GPU: 0.098144002
+  + Reducing centroids by GPU: 2.499327898
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.613467244
+ Updating NNT by GPU: 1.370751977
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091040000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093087983
+ Difference: 0.653598153
+-------------------------------------------------------
+Iteration #61
+-------------------------------------------------------
+ Updating memberships by GPU: 1.340191960
+ Updating centroids:
+  + Counting sort by GPU: 0.097984001
+  + Reducing centroids by GPU: 2.490080118
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.604320032
+ Updating NNT by GPU: 1.375584006
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090879999
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092927982
+ Difference: 0.633894934
+-------------------------------------------------------
+Iteration #62
+-------------------------------------------------------
+ Updating memberships by GPU: 1.334911942
+ Updating centroids:
+  + Counting sort by GPU: 0.097856000
+  + Reducing centroids by GPU: 2.509727955
+  + Reducing centroids by CPU: 0.010532481
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.624132436
+ Updating NNT by GPU: 1.347455978
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091392003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093439985
+ Difference: 0.613754099
+-------------------------------------------------------
+Iteration #63
+-------------------------------------------------------
+ Updating memberships by GPU: 1.343263984
+ Updating centroids:
+  + Counting sort by GPU: 0.097888000
+  + Reducing centroids by GPU: 2.489023924
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.603199837
+ Updating NNT by GPU: 1.377215981
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091040000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093087983
+ Difference: 0.588877505
+-------------------------------------------------------
+Iteration #64
+-------------------------------------------------------
+ Updating memberships by GPU: 1.342560053
+ Updating centroids:
+  + Counting sort by GPU: 0.097663999
+  + Reducing centroids by GPU: 2.513472080
+  + Reducing centroids by CPU: 0.010532481
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.627684560
+ Updating NNT by GPU: 1.378175974
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091168001
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093215984
+ Difference: 0.563677381
+-------------------------------------------------------
+Iteration #65
+-------------------------------------------------------
+ Updating memberships by GPU: 1.342208028
+ Updating centroids:
+  + Counting sort by GPU: 0.098080002
+  + Reducing centroids by GPU: 2.464319944
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.578655859
+ Updating NNT by GPU: 1.348927975
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091456003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093503986
+ Difference: 0.539699849
+-------------------------------------------------------
+Iteration #66
+-------------------------------------------------------
+ Updating memberships by GPU: 1.337471962
+ Updating centroids:
+  + Counting sort by GPU: 0.098176003
+  + Reducing centroids by GPU: 2.463711977
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.577851323
+ Updating NNT by GPU: 1.359007955
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090976000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093023982
+ Difference: 0.522373218
+-------------------------------------------------------
+Iteration #67
+-------------------------------------------------------
+ Updating memberships by GPU: 1.342272043
+ Updating centroids:
+  + Counting sort by GPU: 0.097888000
+  + Reducing centroids by GPU: 2.525023937
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.638582712
+ Updating NNT by GPU: 1.418079972
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091615997
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093371411
+ Difference: 0.501288596
+-------------------------------------------------------
+Iteration #68
+-------------------------------------------------------
+ Updating memberships by GPU: 1.339807987
+ Updating centroids:
+  + Counting sort by GPU: 0.097792000
+  + Reducing centroids by GPU: 2.528000116
+  + Reducing centroids by CPU: 0.019016980
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.650825096
+ Updating NNT by GPU: 1.396767974
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091008000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093055983
+ Difference: 0.484087371
+-------------------------------------------------------
+Iteration #69
+-------------------------------------------------------
+ Updating memberships by GPU: 1.348512053
+ Updating centroids:
+  + Counting sort by GPU: 0.097824000
+  + Reducing centroids by GPU: 2.528415918
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.642495831
+ Updating NNT by GPU: 1.362527966
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090911999
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.092667413
+ Difference: 0.467816872
+-------------------------------------------------------
+Iteration #70
+-------------------------------------------------------
+ Updating memberships by GPU: 1.346207976
+ Updating centroids:
+  + Counting sort by GPU: 0.097759999
+  + Reducing centroids by GPU: 2.553728104
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006144000
+ Total updating centroids time: 2.667579447
+ Updating NNT by GPU: 1.374879956
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091360003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093407985
+ Difference: 0.452765668
+-------------------------------------------------------
+Iteration #71
+-------------------------------------------------------
+ Updating memberships by GPU: 1.339424014
+ Updating centroids:
+  + Counting sort by GPU: 0.098048002
+  + Reducing centroids by GPU: 2.500895977
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.614907322
+ Updating NNT by GPU: 1.372447968
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091328003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093375985
+ Difference: 0.437707789
+-------------------------------------------------------
+Iteration #72
+-------------------------------------------------------
+ Updating memberships by GPU: 1.347040057
+ Updating centroids:
+  + Counting sort by GPU: 0.097952001
+  + Reducing centroids by GPU: 2.523839951
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.638079864
+ Updating NNT by GPU: 1.360736012
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090815999
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092863981
+ Difference: 0.428988856
+-------------------------------------------------------
+Iteration #73
+-------------------------------------------------------
+ Updating memberships by GPU: 1.428256035
+ Updating centroids:
+  + Counting sort by GPU: 0.103391998
+  + Reducing centroids by GPU: 2.534176111
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.653531452
+ Updating NNT by GPU: 1.381695986
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091136001
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093183984
+ Difference: 0.412360263
+-------------------------------------------------------
+Iteration #74
+-------------------------------------------------------
+ Updating memberships by GPU: 1.342303991
+ Updating centroids:
+  + Counting sort by GPU: 0.097888000
+  + Reducing centroids by GPU: 2.521888018
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.006048000
+ Total updating centroids time: 2.635771361
+ Updating NNT by GPU: 1.329856038
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091328003
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093375985
+ Difference: 0.393770679
+-------------------------------------------------------
+Iteration #75
+-------------------------------------------------------
+ Updating memberships by GPU: 1.350623965
+ Updating centroids:
+  + Counting sort by GPU: 0.098527998
+  + Reducing centroids by GPU: 2.502975941
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.617759851
+ Updating NNT by GPU: 1.356832027
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091296002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093343985
+ Difference: 0.375505813
+-------------------------------------------------------
+Iteration #76
+-------------------------------------------------------
+ Updating memberships by GPU: 1.401664019
+ Updating centroids:
+  + Counting sort by GPU: 0.098176003
+  + Reducing centroids by GPU: 2.518496037
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.632927952
+ Updating NNT by GPU: 1.369343996
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091264002
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093019416
+ Difference: 0.359421501
+-------------------------------------------------------
+Iteration #77
+-------------------------------------------------------
+ Updating memberships by GPU: 1.341312051
+ Updating centroids:
+  + Counting sort by GPU: 0.098304003
+  + Reducing centroids by GPU: 2.519392014
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.632182792
+ Updating NNT by GPU: 1.384703994
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090976000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.092731413
+ Difference: 0.342947058
+-------------------------------------------------------
+Iteration #78
+-------------------------------------------------------
+ Updating memberships by GPU: 1.338047981
+ Updating centroids:
+  + Counting sort by GPU: 0.097920001
+  + Reducing centroids by GPU: 2.483007908
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.597183821
+ Updating NNT by GPU: 1.353536010
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091519997
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093275410
+ Difference: 0.321949620
+-------------------------------------------------------
+Iteration #79
+-------------------------------------------------------
+ Updating memberships by GPU: 1.375455976
+ Updating centroids:
+  + Counting sort by GPU: 0.098080002
+  + Reducing centroids by GPU: 2.507584095
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.620443440
+ Updating NNT by GPU: 1.356832027
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090976000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093023982
+ Difference: 0.303053030
+-------------------------------------------------------
+Iteration #80
+-------------------------------------------------------
+ Updating memberships by GPU: 1.333888054
+ Updating centroids:
+  + Counting sort by GPU: 0.098304003
+  + Reducing centroids by GPU: 2.510015965
+  + Reducing centroids by CPU: 0.021942669
+  + Memcpy host centroids to device: 0.012320000
+ Total updating centroids time: 2.642582637
+ Updating NNT by GPU: 1.385247946
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091551997
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093307410
+ Difference: 0.285910848
+-------------------------------------------------------
+Iteration #81
+-------------------------------------------------------
+ Updating memberships by GPU: 1.335680008
+ Updating centroids:
+  + Counting sort by GPU: 0.098048002
+  + Reducing centroids by GPU: 2.481408119
+  + Reducing centroids by CPU: 0.010239912
+  + Memcpy host centroids to device: 0.004992000
+ Total updating centroids time: 2.594688033
+ Updating NNT by GPU: 1.402271986
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091200002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093247984
+ Difference: 0.266259047
+-------------------------------------------------------
+Iteration #82
+-------------------------------------------------------
+ Updating memberships by GPU: 1.344447970
+ Updating centroids:
+  + Counting sort by GPU: 0.098719999
+  + Reducing centroids by GPU: 2.486272097
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.599771439
+ Updating NNT by GPU: 1.350720048
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091136001
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093183984
+ Difference: 0.248363868
+-------------------------------------------------------
+Iteration #83
+-------------------------------------------------------
+ Updating memberships by GPU: 1.332767963
+ Updating centroids:
+  + Counting sort by GPU: 0.096352004
+  + Reducing centroids by GPU: 2.523551941
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.003712000
+ Total updating centroids time: 2.633563288
+ Updating NNT by GPU: 1.362560034
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091936000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093983982
+ Difference: 0.231326709
+-------------------------------------------------------
+Iteration #84
+-------------------------------------------------------
+ Updating memberships by GPU: 1.341248035
+ Updating centroids:
+  + Counting sort by GPU: 0.098304003
+  + Reducing centroids by GPU: 2.474976063
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.012384000
+ Total updating centroids time: 2.595611410
+ Updating NNT by GPU: 1.436511993
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090719998
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092767980
+ Difference: 0.216726640
+-------------------------------------------------------
+Iteration #85
+-------------------------------------------------------
+ Updating memberships by GPU: 1.351199985
+ Updating centroids:
+  + Counting sort by GPU: 0.098367997
+  + Reducing centroids by GPU: 2.512864113
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004800000
+ Total updating centroids time: 2.625686884
+ Updating NNT by GPU: 1.380416036
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091296002
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093051416
+ Difference: 0.200925714
+-------------------------------------------------------
+Iteration #86
+-------------------------------------------------------
+ Updating memberships by GPU: 1.342496037
+ Updating centroids:
+  + Counting sort by GPU: 0.098623998
+  + Reducing centroids by GPU: 2.488575935
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.006176000
+ Total updating centroids time: 2.603030708
+ Updating NNT by GPU: 1.392608047
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091519997
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093567979
+ Difference: 0.186453301
+-------------------------------------------------------
+Iteration #87
+-------------------------------------------------------
+ Updating memberships by GPU: 1.337504029
+ Updating centroids:
+  + Counting sort by GPU: 0.098272003
+  + Reducing centroids by GPU: 2.484479904
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004800000
+ Total updating centroids time: 2.597206682
+ Updating NNT by GPU: 1.436959982
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091232002
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.092987415
+ Difference: 0.169965230
+-------------------------------------------------------
+Iteration #88
+-------------------------------------------------------
+ Updating memberships by GPU: 1.345792055
+ Updating centroids:
+  + Counting sort by GPU: 0.098367997
+  + Reducing centroids by GPU: 2.489631891
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004800000
+ Total updating centroids time: 2.602747231
+ Updating NNT by GPU: 1.347584009
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091807999
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093855981
+ Difference: 0.154853042
+-------------------------------------------------------
+Iteration #89
+-------------------------------------------------------
+ Updating memberships by GPU: 1.345119953
+ Updating centroids:
+  + Counting sort by GPU: 0.098272003
+  + Reducing centroids by GPU: 2.475903988
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.588955335
+ Updating NNT by GPU: 1.345471978
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091040000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.092795414
+ Difference: 0.140066008
+-------------------------------------------------------
+Iteration #90
+-------------------------------------------------------
+ Updating memberships by GPU: 1.347360015
+ Updating centroids:
+  + Counting sort by GPU: 0.098495997
+  + Reducing centroids by GPU: 2.488831997
+  + Reducing centroids by CPU: 0.019016980
+  + Memcpy host centroids to device: 0.006016000
+ Total updating centroids time: 2.612360975
+ Updating NNT by GPU: 1.435583949
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091008000
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093055983
+ Difference: 0.128712340
+-------------------------------------------------------
+Iteration #91
+-------------------------------------------------------
+ Updating memberships by GPU: 1.338528037
+ Updating centroids:
+  + Counting sort by GPU: 0.098431997
+  + Reducing centroids by GPU: 2.526463985
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.639675326
+ Updating NNT by GPU: 1.365375996
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091168001
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093215984
+ Difference: 0.116136320
+-------------------------------------------------------
+Iteration #92
+-------------------------------------------------------
+ Updating memberships by GPU: 1.337440014
+ Updating centroids:
+  + Counting sort by GPU: 0.098687999
+  + Reducing centroids by GPU: 2.483072042
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.003776000
+ Total updating centroids time: 2.595190816
+ Updating NNT by GPU: 1.366688013
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091424003
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.093179417
+ Difference: 0.102703299
+-------------------------------------------------------
+Iteration #93
+-------------------------------------------------------
+ Updating memberships by GPU: 1.338431954
+ Updating centroids:
+  + Counting sort by GPU: 0.098367997
+  + Reducing centroids by GPU: 2.488960028
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.601814799
+ Updating NNT by GPU: 1.432000041
  Calculating distortion value J:
   + Reducing J by GPU one time: 0.090944000
   + Reducing J by CPU : 0.002047982
  Total calculating J time: 0.092991982
- Difference: 0.000000011
--------------------------------------------------------
-Iteration #126
--------------------------------------------------------
- Updating memberships by GPU: 1.340800047
- Updating centroids:
-  + Counting sort by GPU: 0.107391998
-  + Reducing centroids by GPU: 2.224256039
-  + Reducing centroids by CPU: 0.009654775
-  + Memcpy host centroids to device: 0.007840000
- Total updating centroids time: 2.349142811
- Updating NNT by GPU: 1.358528018
- Calculating distortion value J:
-  + Reducing J by GPU one time: 0.095072001
-  + Reducing J by CPU : 0.002047982
- Total calculating J time: 0.097119984
- Difference: 0.000000009
- Device to host: 0.044544000
--------------------------------------------------------
-CPU running
--------------------------------------------------------
- Initializing NNT by CPU: 20.531316870
--------------------------------------------------------
-Iteration #1
--------------------------------------------------------
- Updating memberships by CPU: 10.582803150
- Updating centroids by CPU: 4.321828158
- Updating NNT by CPU: 22.375086235
- Diff = 21381.195375182
--------------------------------------------------------
-Iteration #2
--------------------------------------------------------
- Updating memberships by CPU: 10.706559805
- Updating centroids by CPU: 4.392922407
- Updating NNT by CPU: 22.544776211
- Diff = 3737.512527921
--------------------------------------------------------
-Iteration #3
--------------------------------------------------------
- Updating memberships by CPU: 10.510538625
- Updating centroids by CPU: 4.332068070
- Updating NNT by CPU: 22.519615284
- Diff = 1366.933586961
--------------------------------------------------------
-Iteration #4
--------------------------------------------------------
- Updating memberships by CPU: 10.647168313
- Updating centroids by CPU: 4.379756805
- Updating NNT by CPU: 22.807210537
- Diff = 435.345371914
--------------------------------------------------------
-Iteration #5
--------------------------------------------------------
- Updating memberships by CPU: 10.495910179
- Updating centroids by CPU: 4.507316856
- Updating NNT by CPU: 22.639568543
- Diff = 146.276359159
--------------------------------------------------------
-Iteration #6
--------------------------------------------------------
- Updating memberships by CPU: 10.595968751
- Updating centroids by CPU: 4.297544937
- Updating NNT by CPU: 22.569644570
- Diff = 63.126850223
--------------------------------------------------------
-Iteration #7
--------------------------------------------------------
- Updating memberships by CPU: 10.448806582
- Updating centroids by CPU: 4.380049374
- Updating NNT by CPU: 22.862506063
- Diff = 50.764903310
--------------------------------------------------------
-Iteration #8
--------------------------------------------------------
- Updating memberships by CPU: 10.925986499
- Updating centroids by CPU: 4.332068070
- Updating NNT by CPU: 22.707151964
- Diff = 115.472417651
--------------------------------------------------------
-Iteration #9
--------------------------------------------------------
- Updating memberships by CPU: 10.462849890
- Updating centroids by CPU: 4.500295202
- Updating NNT by CPU: 22.920434711
- Diff = 224.404227083
--------------------------------------------------------
-Iteration #10
--------------------------------------------------------
- Updating memberships by CPU: 10.676425206
- Updating centroids by CPU: 4.502050616
- Updating NNT by CPU: 23.014641904
- Diff = 182.372409675
--------------------------------------------------------
-Iteration #11
--------------------------------------------------------
- Updating memberships by CPU: 10.667648138
- Updating centroids by CPU: 4.345233672
- Updating NNT by CPU: 22.935648295
- Diff = 101.950363070
--------------------------------------------------------
-Iteration #12
--------------------------------------------------------
- Updating memberships by CPU: 11.112938042
- Updating centroids by CPU: 4.448803071
- Updating NNT by CPU: 23.100364599
- Diff = 52.854237126
--------------------------------------------------------
-Iteration #13
--------------------------------------------------------
- Updating memberships by CPU: 10.712411183
- Updating centroids by CPU: 4.325924123
- Updating NNT by CPU: 22.947643621
- Diff = 29.543466627
--------------------------------------------------------
-Iteration #14
--------------------------------------------------------
- Updating memberships by CPU: 10.662674466
- Updating centroids by CPU: 4.393507544
- Updating NNT by CPU: 22.882108181
- Diff = 19.242276818
--------------------------------------------------------
-Iteration #15
--------------------------------------------------------
- Updating memberships by CPU: 10.913406035
- Updating centroids by CPU: 4.318317331
- Updating NNT by CPU: 22.892933232
- Diff = 14.043586954
--------------------------------------------------------
-Iteration #16
--------------------------------------------------------
- Updating memberships by CPU: 11.154190260
- Updating centroids by CPU: 4.435344901
- Updating NNT by CPU: 22.865431753
- Diff = 10.713724635
--------------------------------------------------------
-Iteration #17
--------------------------------------------------------
- Updating memberships by CPU: 10.611474904
- Updating centroids by CPU: 4.394970389
- Updating NNT by CPU: 23.200130603
- Diff = 8.766160024
--------------------------------------------------------
-Iteration #18
--------------------------------------------------------
- Updating memberships by CPU: 10.689883376
- Updating centroids by CPU: 4.375953409
- Updating NNT by CPU: 23.034536591
- Diff = 7.367223140
--------------------------------------------------------
-Iteration #19
--------------------------------------------------------
- Updating memberships by CPU: 10.704219253
- Updating centroids by CPU: 4.370102030
- Updating NNT by CPU: 22.913705625
- Diff = 6.842906734
--------------------------------------------------------
-Iteration #20
--------------------------------------------------------
- Updating memberships by CPU: 10.979234043
- Updating centroids by CPU: 4.342893120
- Updating NNT by CPU: 22.964320049
- Diff = 6.319110603
--------------------------------------------------------
-Iteration #21
--------------------------------------------------------
- Updating memberships by CPU: 10.874786937
- Updating centroids by CPU: 4.390581855
- Updating NNT by CPU: 22.709492516
- Diff = 5.926541834
--------------------------------------------------------
-Iteration #22
--------------------------------------------------------
- Updating memberships by CPU: 10.571100393
- Updating centroids by CPU: 4.348451930
- Updating NNT by CPU: 22.918971866
- Diff = 5.564653435
--------------------------------------------------------
-Iteration #23
--------------------------------------------------------
- Updating memberships by CPU: 10.973967802
- Updating centroids by CPU: 4.357521567
- Updating NNT by CPU: 22.825057241
- Diff = 5.089136232
--------------------------------------------------------
-Iteration #24
--------------------------------------------------------
- Updating memberships by CPU: 10.678180619
- Updating centroids by CPU: 4.327972105
- Updating NNT by CPU: 22.779123920
- Diff = 4.343351647
--------------------------------------------------------
-Iteration #25
--------------------------------------------------------
- Updating memberships by CPU: 11.032189018
- Updating centroids by CPU: 4.385900752
- Updating NNT by CPU: 23.119089011
- Diff = 3.413717695
--------------------------------------------------------
-Iteration #26
--------------------------------------------------------
- Updating memberships by CPU: 11.299011878
- Updating centroids by CPU: 4.363665514
- Updating NNT by CPU: 22.844659359
- Diff = 2.409975211
--------------------------------------------------------
-Iteration #27
--------------------------------------------------------
- Updating memberships by CPU: 11.430667894
- Updating centroids by CPU: 4.468990327
- Updating NNT by CPU: 23.305747985
- Diff = 1.640115141
--------------------------------------------------------
-Iteration #28
--------------------------------------------------------
- Updating memberships by CPU: 11.143365210
- Updating centroids by CPU: 4.453484174
- Updating NNT by CPU: 23.185502157
- Diff = 1.295228522
--------------------------------------------------------
-Iteration #29
--------------------------------------------------------
- Updating memberships by CPU: 11.246349471
- Updating centroids by CPU: 4.362495238
- Updating NNT by CPU: 22.761862353
- Diff = 0.963127355
--------------------------------------------------------
-Iteration #30
--------------------------------------------------------
- Updating memberships by CPU: 11.118496851
- Updating centroids by CPU: 4.360739825
- Updating NNT by CPU: 22.924823244
- Diff = 0.743521488
--------------------------------------------------------
-Iteration #31
--------------------------------------------------------
- Updating memberships by CPU: 11.109427214
- Updating centroids by CPU: 4.396140665
- Updating NNT by CPU: 23.251037596
- Diff = 0.595543459
--------------------------------------------------------
-Iteration #32
--------------------------------------------------------
- Updating memberships by CPU: 11.336753269
- Updating centroids by CPU: 4.435052332
- Updating NNT by CPU: 22.752500148
- Diff = 0.478134930
--------------------------------------------------------
-Iteration #33
--------------------------------------------------------
- Updating memberships by CPU: 11.250445436
- Updating centroids by CPU: 4.351670188
- Updating NNT by CPU: 23.076666516
- Diff = 0.379552639
--------------------------------------------------------
-Iteration #34
--------------------------------------------------------
- Updating memberships by CPU: 11.275898933
- Updating centroids by CPU: 4.390874424
- Updating NNT by CPU: 23.180821054
- Diff = 0.292957952
--------------------------------------------------------
-Iteration #35
--------------------------------------------------------
- Updating memberships by CPU: 11.186957979
- Updating centroids by CPU: 4.383560201
- Updating NNT by CPU: 23.134302595
- Diff = 0.248260640
--------------------------------------------------------
-Iteration #36
--------------------------------------------------------
- Updating memberships by CPU: 11.283505725
- Updating centroids by CPU: 4.394385251
- Updating NNT by CPU: 23.038339987
- Diff = 0.207944942
--------------------------------------------------------
-Iteration #37
--------------------------------------------------------
- Updating memberships by CPU: 11.126103643
- Updating centroids by CPU: 4.340552569
- Updating NNT by CPU: 22.740212253
- Diff = 0.172120329
--------------------------------------------------------
-Iteration #38
--------------------------------------------------------
- Updating memberships by CPU: 11.013464607
- Updating centroids by CPU: 4.376245978
- Updating NNT by CPU: 23.043313659
- Diff = 0.160226535
--------------------------------------------------------
-Iteration #39
--------------------------------------------------------
- Updating memberships by CPU: 11.221773682
- Updating centroids by CPU: 4.348159361
- Updating NNT by CPU: 22.880645337
- Diff = 0.145946941
--------------------------------------------------------
-Iteration #40
--------------------------------------------------------
- Updating memberships by CPU: 11.107379232
- Updating centroids by CPU: 4.415742783
- Updating NNT by CPU: 22.961394360
- Diff = 0.142509022
--------------------------------------------------------
-Iteration #41
--------------------------------------------------------
- Updating memberships by CPU: 11.012586900
- Updating centroids by CPU: 4.322413296
- Updating NNT by CPU: 22.921312417
- Diff = 0.130448684
--------------------------------------------------------
-Iteration #42
--------------------------------------------------------
- Updating memberships by CPU: 10.969286699
- Updating centroids by CPU: 4.362202670
- Updating NNT by CPU: 22.734653443
- Diff = 0.105404590
--------------------------------------------------------
-Iteration #43
--------------------------------------------------------
- Updating memberships by CPU: 11.291697655
- Updating centroids by CPU: 4.357814136
- Updating NNT by CPU: 22.983629598
- Diff = 0.085031895
--------------------------------------------------------
-Iteration #44
--------------------------------------------------------
- Updating memberships by CPU: 10.956121098
- Updating centroids by CPU: 4.402577181
- Updating NNT by CPU: 23.112067356
- Diff = 0.070868579
--------------------------------------------------------
-Iteration #45
--------------------------------------------------------
- Updating memberships by CPU: 10.815688014
- Updating centroids by CPU: 4.399651492
- Updating NNT by CPU: 22.948813896
- Diff = 0.058655583
--------------------------------------------------------
-Iteration #46
--------------------------------------------------------
- Updating memberships by CPU: 10.777068916
- Updating centroids by CPU: 4.421886730
- Updating NNT by CPU: 23.138983697
- Diff = 0.051436358
--------------------------------------------------------
-Iteration #47
--------------------------------------------------------
- Updating memberships by CPU: 11.240205524
- Updating centroids by CPU: 4.393800113
- Updating NNT by CPU: 22.774442817
- Diff = 0.043184538
--------------------------------------------------------
-Iteration #48
--------------------------------------------------------
- Updating memberships by CPU: 10.949684581
- Updating centroids by CPU: 4.354888446
- Updating NNT by CPU: 23.100072030
- Diff = 0.035789230
--------------------------------------------------------
-Iteration #49
--------------------------------------------------------
- Updating memberships by CPU: 10.798719016
- Updating centroids by CPU: 4.398773785
- Updating NNT by CPU: 22.764495474
- Diff = 0.030080995
--------------------------------------------------------
-Iteration #50
--------------------------------------------------------
- Updating memberships by CPU: 10.562615894
- Updating centroids by CPU: 4.349037068
- Updating NNT by CPU: 22.819498432
- Diff = 0.025600310
--------------------------------------------------------
-Iteration #51
--------------------------------------------------------
- Updating memberships by CPU: 10.696612461
- Updating centroids by CPU: 4.360447256
- Updating NNT by CPU: 22.990358684
- Diff = 0.021366586
--------------------------------------------------------
-Iteration #52
--------------------------------------------------------
- Updating memberships by CPU: 11.051498567
- Updating centroids by CPU: 4.243419686
- Updating NNT by CPU: 22.844366790
- Diff = 0.017594153
--------------------------------------------------------
-Iteration #53
--------------------------------------------------------
- Updating memberships by CPU: 11.114400886
- Updating centroids by CPU: 4.334116053
- Updating NNT by CPU: 22.651856438
- Diff = 0.014675067
--------------------------------------------------------
-Iteration #54
--------------------------------------------------------
- Updating memberships by CPU: 11.003517264
- Updating centroids by CPU: 4.373027720
- Updating NNT by CPU: 23.026637230
- Diff = 0.012289994
--------------------------------------------------------
-Iteration #55
--------------------------------------------------------
- Updating memberships by CPU: 11.244301489
- Updating centroids by CPU: 4.391459562
- Updating NNT by CPU: 22.809551088
- Diff = 0.010352551
--------------------------------------------------------
-Iteration #56
--------------------------------------------------------
- Updating memberships by CPU: 11.256589384
- Updating centroids by CPU: 4.328557243
- Updating NNT by CPU: 22.978070789
- Diff = 0.008614995
--------------------------------------------------------
-Iteration #57
--------------------------------------------------------
- Updating memberships by CPU: 11.267707003
- Updating centroids by CPU: 4.468405189
- Updating NNT by CPU: 23.047702193
- Diff = 0.007197528
--------------------------------------------------------
-Iteration #58
--------------------------------------------------------
- Updating memberships by CPU: 11.033359294
- Updating centroids by CPU: 4.391459562
- Updating NNT by CPU: 22.777075937
- Diff = 0.006077896
--------------------------------------------------------
-Iteration #59
--------------------------------------------------------
- Updating memberships by CPU: 11.034529570
- Updating centroids by CPU: 4.399066354
- Updating NNT by CPU: 22.942084811
- Diff = 0.005200987
--------------------------------------------------------
-Iteration #60
--------------------------------------------------------
- Updating memberships by CPU: 11.897607898
- Updating centroids by CPU: 4.454361881
- Updating NNT by CPU: 22.994747218
- Diff = 0.004505757
--------------------------------------------------------
-Iteration #61
--------------------------------------------------------
- Updating memberships by CPU: 11.191931651
- Updating centroids by CPU: 4.327386967
- Updating NNT by CPU: 22.941499673
- Diff = 0.004184020
--------------------------------------------------------
-Iteration #62
--------------------------------------------------------
- Updating memberships by CPU: 11.158578794
- Updating centroids by CPU: 4.394970389
- Updating NNT by CPU: 23.184624450
- Diff = 0.003485745
--------------------------------------------------------
-Iteration #63
--------------------------------------------------------
- Updating memberships by CPU: 11.278824622
- Updating centroids by CPU: 4.561149538
- Updating NNT by CPU: 22.947643621
- Diff = 0.002779841
--------------------------------------------------------
-Iteration #64
--------------------------------------------------------
- Updating memberships by CPU: 11.354892542
- Updating centroids by CPU: 4.329142381
- Updating NNT by CPU: 22.930674623
- Diff = 0.002239216
--------------------------------------------------------
-Iteration #65
--------------------------------------------------------
- Updating memberships by CPU: 11.359573645
- Updating centroids by CPU: 4.385608184
- Updating NNT by CPU: 22.897029197
- Diff = 0.001814438
--------------------------------------------------------
-Iteration #66
--------------------------------------------------------
- Updating memberships by CPU: 11.132540159
- Updating centroids by CPU: 4.370394599
- Updating NNT by CPU: 22.927163796
- Diff = 0.001476964
--------------------------------------------------------
-Iteration #67
--------------------------------------------------------
- Updating memberships by CPU: 11.279702329
- Updating centroids by CPU: 4.409891404
- Updating NNT by CPU: 22.814232191
- Diff = 0.001235015
--------------------------------------------------------
-Iteration #68
--------------------------------------------------------
- Updating memberships by CPU: 11.363377041
- Updating centroids by CPU: 4.402577181
- Updating NNT by CPU: 23.377134802
- Diff = 0.001015328
--------------------------------------------------------
-Iteration #69
--------------------------------------------------------
- Updating memberships by CPU: 11.577244925
- Updating centroids by CPU: 4.519604751
- Updating NNT by CPU: 22.941499673
- Diff = 0.000837277
--------------------------------------------------------
-Iteration #70
--------------------------------------------------------
- Updating memberships by CPU: 11.262148193
- Updating centroids by CPU: 4.574900278
- Updating NNT by CPU: 22.757473819
- Diff = 0.000685636
--------------------------------------------------------
-Iteration #71
--------------------------------------------------------
- Updating memberships by CPU: 11.083096011
- Updating centroids by CPU: 4.384437908
- Updating NNT by CPU: 23.000598596
- Diff = 0.000560780
--------------------------------------------------------
-Iteration #72
--------------------------------------------------------
- Updating memberships by CPU: 11.320661978
- Updating centroids by CPU: 4.458457846
- Updating NNT by CPU: 22.893225801
- Diff = 0.000458654
--------------------------------------------------------
-Iteration #73
--------------------------------------------------------
- Updating memberships by CPU: 11.256004246
- Updating centroids by CPU: 4.283501629
- Updating NNT by CPU: 22.500598303
- Diff = 0.000388974
--------------------------------------------------------
-Iteration #74
--------------------------------------------------------
- Updating memberships by CPU: 11.079585184
- Updating centroids by CPU: 4.441781417
- Updating NNT by CPU: 22.749281890
- Diff = 0.000321248
--------------------------------------------------------
-Iteration #75
--------------------------------------------------------
- Updating memberships by CPU: 11.109134645
- Updating centroids by CPU: 4.372735151
- Updating NNT by CPU: 22.847292479
- Diff = 0.000262954
--------------------------------------------------------
-Iteration #76
--------------------------------------------------------
- Updating memberships by CPU: 11.209193218
- Updating centroids by CPU: 4.274431992
- Updating NNT by CPU: 22.446473052
- Diff = 0.000216894
--------------------------------------------------------
-Iteration #77
--------------------------------------------------------
- Updating memberships by CPU: 11.089825096
- Updating centroids by CPU: 4.311880814
- Updating NNT by CPU: 22.865431753
- Diff = 0.000177838
--------------------------------------------------------
-Iteration #78
--------------------------------------------------------
- Updating memberships by CPU: 10.957583942
- Updating centroids by CPU: 4.331482932
- Updating NNT by CPU: 22.727046651
- Diff = 0.000145382
--------------------------------------------------------
-Iteration #79
--------------------------------------------------------
- Updating memberships by CPU: 10.571100393
- Updating centroids by CPU: 4.299885489
- Updating NNT by CPU: 22.648053042
- Diff = 0.000122340
--------------------------------------------------------
-Iteration #80
--------------------------------------------------------
- Updating memberships by CPU: 11.054716825
- Updating centroids by CPU: 4.359862118
- Updating NNT by CPU: 22.775613093
- Diff = 0.000100330
--------------------------------------------------------
-Iteration #81
--------------------------------------------------------
- Updating memberships by CPU: 10.873909230
- Updating centroids by CPU: 4.329727519
- Updating NNT by CPU: 22.843489083
- Diff = 0.000082230
--------------------------------------------------------
-Iteration #82
--------------------------------------------------------
- Updating memberships by CPU: 10.993277351
- Updating centroids by CPU: 4.443536831
- Updating NNT by CPU: 23.160048660
- Diff = 0.000067543
--------------------------------------------------------
-Iteration #83
--------------------------------------------------------
- Updating memberships by CPU: 11.039503241
- Updating centroids by CPU: 4.370687168
- Updating NNT by CPU: 23.397029489
- Diff = 0.000055377
--------------------------------------------------------
-Iteration #84
--------------------------------------------------------
- Updating memberships by CPU: 11.037162690
- Updating centroids by CPU: 4.325631554
- Updating NNT by CPU: 22.786730712
- Diff = 0.000045220
--------------------------------------------------------
-Iteration #85
--------------------------------------------------------
- Updating memberships by CPU: 11.126981350
- Updating centroids by CPU: 4.365420928
- Updating NNT by CPU: 23.009083095
- Diff = 0.000036950
--------------------------------------------------------
-Iteration #86
--------------------------------------------------------
- Updating memberships by CPU: 10.689883376
- Updating centroids by CPU: 4.389119011
- Updating NNT by CPU: 22.795215211
- Diff = 0.000030190
--------------------------------------------------------
-Iteration #87
--------------------------------------------------------
- Updating memberships by CPU: 10.633710143
- Updating centroids by CPU: 4.365420928
- Updating NNT by CPU: 22.891470387
- Diff = 0.000024665
--------------------------------------------------------
-Iteration #88
--------------------------------------------------------
- Updating memberships by CPU: 10.683154291
- Updating centroids by CPU: 4.356351291
- Updating NNT by CPU: 23.230557771
- Diff = 0.000020152
--------------------------------------------------------
-Iteration #89
--------------------------------------------------------
- Updating memberships by CPU: 10.836752976
- Updating centroids by CPU: 4.328264674
- Updating NNT by CPU: 22.758351526
- Diff = 0.000016464
--------------------------------------------------------
-Iteration #90
--------------------------------------------------------
- Updating memberships by CPU: 11.046524896
- Updating centroids by CPU: 4.329142381
- Updating NNT by CPU: 22.961394360
- Diff = 0.000013451
--------------------------------------------------------
-Iteration #91
--------------------------------------------------------
- Updating memberships by CPU: 10.575781495
- Updating centroids by CPU: 4.346111379
- Updating NNT by CPU: 23.013179060
- Diff = 0.000010989
--------------------------------------------------------
-Iteration #92
--------------------------------------------------------
- Updating memberships by CPU: 10.698367875
- Updating centroids by CPU: 4.373320289
- Updating NNT by CPU: 22.875086527
- Diff = 0.000008978
--------------------------------------------------------
-Iteration #93
--------------------------------------------------------
- Updating memberships by CPU: 10.768584417
- Updating centroids by CPU: 4.440611141
- Updating NNT by CPU: 23.016982456
- Diff = 0.000007436
+ Difference: 0.089747569
 -------------------------------------------------------
 Iteration #94
 -------------------------------------------------------
- Updating memberships by CPU: 10.680228602
- Updating centroids by CPU: 4.386193321
- Updating NNT by CPU: 22.630206337
- Diff = 0.000006082
+ Updating memberships by GPU: 1.362848043
+ Updating centroids:
+  + Counting sort by GPU: 0.098272003
+  + Reducing centroids by GPU: 2.517440081
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004896000
+ Total updating centroids time: 2.630555427
+ Updating NNT by GPU: 1.361855984
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090783998
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092831981
+ Difference: 0.078654360
 -------------------------------------------------------
 Iteration #95
 -------------------------------------------------------
- Updating memberships by CPU: 10.537454966
- Updating centroids by CPU: 4.241956841
- Updating NNT by CPU: 22.935355726
- Diff = 0.000004969
+ Updating memberships by GPU: 1.343327999
+ Updating centroids:
+  + Counting sort by GPU: 0.098687999
+  + Reducing centroids by GPU: 2.487135887
+  + Reducing centroids by CPU: 0.009947343
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.600603230
+ Updating NNT by GPU: 1.388543963
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090815999
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.092863981
+ Difference: 0.069685920
 -------------------------------------------------------
 Iteration #96
 -------------------------------------------------------
- Updating memberships by CPU: 10.701000995
- Updating centroids by CPU: 4.473963999
- Updating NNT by CPU: 23.120551855
- Diff = 0.000004059
+ Updating memberships by GPU: 1.356384039
+ Updating centroids:
+  + Counting sort by GPU: 0.098367997
+  + Reducing centroids by GPU: 2.495455980
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.005184000
+ Total updating centroids time: 2.608662751
+ Updating NNT by GPU: 1.438848019
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091168001
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093215984
+ Difference: 0.060513799
 -------------------------------------------------------
 Iteration #97
 -------------------------------------------------------
- Updating memberships by CPU: 10.828268478
- Updating centroids by CPU: 4.390874424
- Updating NNT by CPU: 22.850803306
- Diff = 0.000003316
+ Updating memberships by GPU: 1.345535994
+ Updating centroids:
+  + Counting sort by GPU: 0.098784000
+  + Reducing centroids by GPU: 2.494560003
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.607830777
+ Updating NNT by GPU: 1.392032027
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091487996
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093535979
+ Difference: 0.052844380
 -------------------------------------------------------
 Iteration #98
 -------------------------------------------------------
- Updating memberships by CPU: 11.092165648
- Updating centroids by CPU: 4.420131317
- Updating NNT by CPU: 22.978070789
- Diff = 0.000002708
+ Updating memberships by GPU: 1.340672016
+ Updating centroids:
+  + Counting sort by GPU: 0.098463997
+  + Reducing centroids by GPU: 2.473088026
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004832000
+ Total updating centroids time: 2.586038798
+ Updating NNT by GPU: 1.360095978
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.091200002
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.093247984
+ Difference: 0.045549554
 -------------------------------------------------------
 Iteration #99
 -------------------------------------------------------
- Updating memberships by CPU: 11.004687539
- Updating centroids by CPU: 4.426567833
- Updating NNT by CPU: 22.815109898
- Diff = 0.000002212
+ Updating memberships by GPU: 1.341632009
+ Updating centroids:
+  + Counting sort by GPU: 0.098559998
+  + Reducing centroids by GPU: 2.510303974
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004928000
+ Total updating centroids time: 2.623446746
+ Updating NNT by GPU: 1.358495951
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.097984001
+  + Reducing J by CPU : 0.002047982
+ Total calculating J time: 0.100031984
+ Difference: 0.038780709
 -------------------------------------------------------
 Iteration #100
 -------------------------------------------------------
- Updating memberships by CPU: 10.555009102
- Updating centroids by CPU: 4.370979737
- Updating NNT by CPU: 23.043898797
- Diff = 0.000001808
+ Updating memberships by GPU: 1.339519978
+ Updating centroids:
+  + Counting sort by GPU: 0.098336004
+  + Reducing centroids by GPU: 2.486527920
+  + Reducing centroids by CPU: 0.009654775
+  + Memcpy host centroids to device: 0.004800000
+ Total updating centroids time: 2.599318698
+ Updating NNT by GPU: 1.379680037
+ Calculating distortion value J:
+  + Reducing J by GPU one time: 0.090976000
+  + Reducing J by CPU : 0.001755414
+ Total calculating J time: 0.092731413
+ Difference: 0.033107460
+ Device to host: 0.037792001
 -------------------------------------------------------
-Iteration #101
+CPU running
 -------------------------------------------------------
- Updating memberships by CPU: 10.697782737
- Updating centroids by CPU: 4.382682494
- Updating NNT by CPU: 22.691353242
- Diff = 0.000001476
+ Initializing NNT by CPU: 20.453493536
 -------------------------------------------------------
-Iteration #102
+Iteration #1
 -------------------------------------------------------
- Updating memberships by CPU: 10.701878702
- Updating centroids by CPU: 4.327094399
- Updating NNT by CPU: 22.843489083
- Diff = 0.000001206
+ Updating memberships by CPU: 10.677595481
+ Updating centroids by CPU: 4.415742783
+ Updating NNT by CPU: 22.080176758
+ Diff = 25372.340498014
 -------------------------------------------------------
-Iteration #103
+Iteration #2
 -------------------------------------------------------
- Updating memberships by CPU: 10.469286407
- Updating centroids by CPU: 4.368639186
- Updating NNT by CPU: 22.906391402
- Diff = 0.000000985
+ Updating memberships by CPU: 10.722943665
+ Updating centroids by CPU: 4.336456604
+ Updating NNT by CPU: 22.091001809
+ Diff = 9091.062538521
 -------------------------------------------------------
-Iteration #104
+Iteration #3
 -------------------------------------------------------
- Updating memberships by CPU: 10.755711384
+ Updating memberships by CPU: 10.606208664
+ Updating centroids by CPU: 4.244297393
+ Updating NNT by CPU: 21.695448622
+ Diff = 577.587026801
+-------------------------------------------------------
+Iteration #4
+-------------------------------------------------------
+ Updating memberships by CPU: 10.571392962
+ Updating centroids by CPU: 4.366006066
+ Updating NNT by CPU: 22.550042452
+ Diff = 242.401287841
+-------------------------------------------------------
+Iteration #5
+-------------------------------------------------------
+ Updating memberships by CPU: 10.494154765
+ Updating centroids by CPU: 4.399066354
+ Updating NNT by CPU: 21.858994651
+ Diff = 159.612007399
+-------------------------------------------------------
+Iteration #6
+-------------------------------------------------------
+ Updating memberships by CPU: 10.762733038
+ Updating centroids by CPU: 4.253367029
+ Updating NNT by CPU: 22.103582272
+ Diff = 116.254060675
+-------------------------------------------------------
+Iteration #7
+-------------------------------------------------------
+ Updating memberships by CPU: 10.559397636
+ Updating centroids by CPU: 4.256585288
+ Updating NNT by CPU: 22.126402649
+ Diff = 88.493469354
+-------------------------------------------------------
+Iteration #8
+-------------------------------------------------------
+ Updating memberships by CPU: 10.650386571
+ Updating centroids by CPU: 4.379464236
+ Updating NNT by CPU: 21.657999800
+ Diff = 63.835398988
+-------------------------------------------------------
+Iteration #9
+-------------------------------------------------------
+ Updating memberships by CPU: 10.338508097
+ Updating centroids by CPU: 4.369224324
+ Updating NNT by CPU: 22.023710956
+ Diff = 39.666176096
+-------------------------------------------------------
+Iteration #10
+-------------------------------------------------------
+ Updating memberships by CPU: 10.410772622
+ Updating centroids by CPU: 4.339674862
+ Updating NNT by CPU: 22.081347034
+ Diff = 23.203591858
+-------------------------------------------------------
+Iteration #11
+-------------------------------------------------------
+ Updating memberships by CPU: 10.531896157
+ Updating centroids by CPU: 4.276187406
+ Updating NNT by CPU: 21.920434125
+ Diff = 14.680409265
+-------------------------------------------------------
+Iteration #12
+-------------------------------------------------------
+ Updating memberships by CPU: 10.635465556
+ Updating centroids by CPU: 4.421301592
+ Updating NNT by CPU: 22.093927498
+ Diff = 10.488881522
+-------------------------------------------------------
+Iteration #13
+-------------------------------------------------------
+ Updating memberships by CPU: 10.356062233
+ Updating centroids by CPU: 4.568463762
+ Updating NNT by CPU: 22.367186874
+ Diff = 8.188321009
+-------------------------------------------------------
+Iteration #14
+-------------------------------------------------------
+ Updating memberships by CPU: 10.575488927
+ Updating centroids by CPU: 4.369809462
+ Updating NNT by CPU: 21.940036243
+ Diff = 6.806376387
+-------------------------------------------------------
+Iteration #15
+-------------------------------------------------------
+ Updating memberships by CPU: 10.496202748
+ Updating centroids by CPU: 4.356351291
+ Updating NNT by CPU: 22.001183149
+ Diff = 5.890194551
+-------------------------------------------------------
+Iteration #16
+-------------------------------------------------------
+ Updating memberships by CPU: 10.684324567
+ Updating centroids by CPU: 4.349914775
+ Updating NNT by CPU: 22.041850229
+ Diff = 5.187135857
+-------------------------------------------------------
+Iteration #17
+-------------------------------------------------------
+ Updating memberships by CPU: 10.454072823
+ Updating centroids by CPU: 4.267117769
+ Updating NNT by CPU: 22.059404365
+ Diff = 4.701989779
+-------------------------------------------------------
+Iteration #18
+-------------------------------------------------------
+ Updating memberships by CPU: 10.430082171
+ Updating centroids by CPU: 4.338504587
+ Updating NNT by CPU: 22.111481633
+ Diff = 4.315459516
+-------------------------------------------------------
+Iteration #19
+-------------------------------------------------------
+ Updating memberships by CPU: 10.790819655
+ Updating centroids by CPU: 4.372442582
+ Updating NNT by CPU: 22.062037485
+ Diff = 4.065190167
+-------------------------------------------------------
+Iteration #20
+-------------------------------------------------------
+ Updating memberships by CPU: 10.524581934
+ Updating centroids by CPU: 4.376538547
+ Updating NNT by CPU: 22.155952110
+ Diff = 3.911622738
+-------------------------------------------------------
+Iteration #21
+-------------------------------------------------------
+ Updating memberships by CPU: 10.492691921
+ Updating centroids by CPU: 4.457580139
+ Updating NNT by CPU: 22.034243437
+ Diff = 3.774554398
+-------------------------------------------------------
+Iteration #22
+-------------------------------------------------------
+ Updating memberships by CPU: 10.471919527
+ Updating centroids by CPU: 4.402284612
+ Updating NNT by CPU: 22.044190781
+ Diff = 3.718056154
+-------------------------------------------------------
+Iteration #23
+-------------------------------------------------------
+ Updating memberships by CPU: 10.585436270
+ Updating centroids by CPU: 4.430956367
+ Updating NNT by CPU: 22.161218351
+ Diff = 3.766366945
+-------------------------------------------------------
+Iteration #24
+-------------------------------------------------------
+ Updating memberships by CPU: 10.560860480
+ Updating centroids by CPU: 4.364835790
+ Updating NNT by CPU: 22.336174568
+ Diff = 3.828509747
+-------------------------------------------------------
+Iteration #25
+-------------------------------------------------------
+ Updating memberships by CPU: 10.470164114
+ Updating centroids by CPU: 4.346111379
+ Updating NNT by CPU: 22.097145756
+ Diff = 3.961625348
+-------------------------------------------------------
+Iteration #26
+-------------------------------------------------------
+ Updating memberships by CPU: 10.457291081
+ Updating centroids by CPU: 4.534233197
+ Updating NNT by CPU: 22.301944003
+ Diff = 4.173604158
+-------------------------------------------------------
+Iteration #27
+-------------------------------------------------------
+ Updating memberships by CPU: 10.638391245
+ Updating centroids by CPU: 4.366883772
+ Updating NNT by CPU: 22.076080793
+ Diff = 4.440772155
+-------------------------------------------------------
+Iteration #28
+-------------------------------------------------------
+ Updating memberships by CPU: 10.644535193
+ Updating centroids by CPU: 4.348744499
+ Updating NNT by CPU: 22.339977964
+ Diff = 4.760887906
+-------------------------------------------------------
+Iteration #29
+-------------------------------------------------------
+ Updating memberships by CPU: 10.443832910
+ Updating centroids by CPU: 4.415742783
+ Updating NNT by CPU: 22.100364014
+ Diff = 5.130935078
+-------------------------------------------------------
+Iteration #30
+-------------------------------------------------------
+ Updating memberships by CPU: 10.358987922
+ Updating centroids by CPU: 4.342307983
+ Updating NNT by CPU: 21.639860527
+ Diff = 5.413708620
+-------------------------------------------------------
+Iteration #31
+-------------------------------------------------------
+ Updating memberships by CPU: 10.473674941
+ Updating centroids by CPU: 4.329434950
+ Updating NNT by CPU: 22.101826859
+ Diff = 5.549066658
+-------------------------------------------------------
+Iteration #32
+-------------------------------------------------------
+ Updating memberships by CPU: 10.594505907
+ Updating centroids by CPU: 4.384437908
+ Updating NNT by CPU: 21.903757697
+ Diff = 5.653264590
+-------------------------------------------------------
+Iteration #33
+-------------------------------------------------------
+ Updating memberships by CPU: 10.777068916
+ Updating centroids by CPU: 4.389119011
+ Updating NNT by CPU: 22.235823426
+ Diff = 5.582914080
+-------------------------------------------------------
+Iteration #34
+-------------------------------------------------------
+ Updating memberships by CPU: 10.550035430
+ Updating centroids by CPU: 4.755707873
+ Updating NNT by CPU: 22.319498139
+ Diff = 5.419812658
+-------------------------------------------------------
+Iteration #35
+-------------------------------------------------------
+ Updating memberships by CPU: 11.070808116
+ Updating centroids by CPU: 4.471916016
+ Updating NNT by CPU: 22.037754264
+ Diff = 5.241375634
+-------------------------------------------------------
+Iteration #36
+-------------------------------------------------------
+ Updating memberships by CPU: 10.857525370
+ Updating centroids by CPU: 4.352255326
+ Updating NNT by CPU: 22.076958500
+ Diff = 4.975837812
+-------------------------------------------------------
+Iteration #37
+-------------------------------------------------------
+ Updating memberships by CPU: 11.052668843
+ Updating centroids by CPU: 4.436222608
+ Updating NNT by CPU: 21.966660016
+ Diff = 4.684125490
+-------------------------------------------------------
+Iteration #38
+-------------------------------------------------------
+ Updating memberships by CPU: 10.457291081
+ Updating centroids by CPU: 4.355473584
+ Updating NNT by CPU: 21.922774677
+ Diff = 4.346837364
+-------------------------------------------------------
+Iteration #39
+-------------------------------------------------------
+ Updating memberships by CPU: 10.598016734
+ Updating centroids by CPU: 4.535988611
+ Updating NNT by CPU: 22.008204803
+ Diff = 4.016549351
+-------------------------------------------------------
+Iteration #40
+-------------------------------------------------------
+ Updating memberships by CPU: 11.012586900
+ Updating centroids by CPU: 4.453776743
+ Updating NNT by CPU: 22.291704091
+ Diff = 3.694203052
+-------------------------------------------------------
+Iteration #41
+-------------------------------------------------------
+ Updating memberships by CPU: 10.851088854
+ Updating centroids by CPU: 4.320657882
+ Updating NNT by CPU: 21.989187823
+ Diff = 3.378477245
+-------------------------------------------------------
+Iteration #42
+-------------------------------------------------------
+ Updating memberships by CPU: 10.736401835
+ Updating centroids by CPU: 4.336456604
+ Updating NNT by CPU: 22.124647235
+ Diff = 3.083395941
+-------------------------------------------------------
+Iteration #43
+-------------------------------------------------------
+ Updating memberships by CPU: 10.565834152
+ Updating centroids by CPU: 4.351377619
+ Updating NNT by CPU: 21.700129725
+ Diff = 2.773040630
+-------------------------------------------------------
+Iteration #44
+-------------------------------------------------------
+ Updating memberships by CPU: 10.305155240
+ Updating centroids by CPU: 4.371272306
+ Updating NNT by CPU: 22.127572924
+ Diff = 2.481824507
+-------------------------------------------------------
+Iteration #45
+-------------------------------------------------------
+ Updating memberships by CPU: 10.512586608
+ Updating centroids by CPU: 4.416620490
+ Updating NNT by CPU: 22.062622623
+ Diff = 2.229148170
+-------------------------------------------------------
+Iteration #46
+-------------------------------------------------------
+ Updating memberships by CPU: 10.409894915
+ Updating centroids by CPU: 4.316269348
+ Updating NNT by CPU: 21.752792132
+ Diff = 2.031847082
+-------------------------------------------------------
+Iteration #47
+-------------------------------------------------------
+ Updating memberships by CPU: 10.447343737
+ Updating centroids by CPU: 4.376245978
+ Updating NNT by CPU: 22.227338928
+ Diff = 1.884951516
+-------------------------------------------------------
+Iteration #48
+-------------------------------------------------------
+ Updating memberships by CPU: 10.761855332
+ Updating centroids by CPU: 4.493273548
+ Updating NNT by CPU: 22.306039968
+ Diff = 1.708534471
+-------------------------------------------------------
+Iteration #49
+-------------------------------------------------------
+ Updating memberships by CPU: 10.577536909
+ Updating centroids by CPU: 4.339967431
+ Updating NNT by CPU: 22.195741484
+ Diff = 1.550681025
+-------------------------------------------------------
+Iteration #50
+-------------------------------------------------------
+ Updating memberships by CPU: 10.413113173
+ Updating centroids by CPU: 4.330897795
+ Updating NNT by CPU: 22.111774202
+ Diff = 1.424317525
+-------------------------------------------------------
+Iteration #51
+-------------------------------------------------------
+ Updating memberships by CPU: 10.548572585
  Updating centroids by CPU: 4.334116053
- Updating NNT by CPU: 22.777075937
- Diff = 0.000000805
+ Updating NNT by CPU: 21.944132208
+ Diff = 1.288360329
 -------------------------------------------------------
-Iteration #105
+Iteration #52
 -------------------------------------------------------
- Updating memberships by CPU: 10.689883376
- Updating centroids by CPU: 4.367468910
- Updating NNT by CPU: 22.849925600
- Diff = 0.000000657
+ Updating memberships by CPU: 10.555301671
+ Updating centroids by CPU: 4.354888446
+ Updating NNT by CPU: 22.130791182
+ Diff = 1.165041551
 -------------------------------------------------------
-Iteration #106
+Iteration #53
+-------------------------------------------------------
+ Updating memberships by CPU: 10.815980583
+ Updating centroids by CPU: 4.355766153
+ Updating NNT by CPU: 22.248111321
+ Diff = 1.065259634
+-------------------------------------------------------
+Iteration #54
+-------------------------------------------------------
+ Updating memberships by CPU: 10.445588324
+ Updating centroids by CPU: 4.423057006
+ Updating NNT by CPU: 21.938280830
+ Diff = 0.974821315
+-------------------------------------------------------
+Iteration #55
+-------------------------------------------------------
+ Updating memberships by CPU: 10.490936507
+ Updating centroids by CPU: 4.405795439
+ Updating NNT by CPU: 22.252792424
+ Diff = 0.901489733
+-------------------------------------------------------
+Iteration #56
+-------------------------------------------------------
+ Updating memberships by CPU: 11.100650147
+ Updating centroids by CPU: 4.475134275
+ Updating NNT by CPU: 22.328567776
+ Diff = 0.844085603
+-------------------------------------------------------
+Iteration #57
+-------------------------------------------------------
+ Updating memberships by CPU: 10.504394678
+ Updating centroids by CPU: 4.242249410
+ Updating NNT by CPU: 21.719731843
+ Diff = 0.780980609
+-------------------------------------------------------
+Iteration #58
+-------------------------------------------------------
+ Updating memberships by CPU: 10.483914853
+ Updating centroids by CPU: 4.404332595
+ Updating NNT by CPU: 22.079591621
+ Diff = 0.737190341
+-------------------------------------------------------
+Iteration #59
+-------------------------------------------------------
+ Updating memberships by CPU: 10.552961119
+ Updating centroids by CPU: 4.360154687
+ Updating NNT by CPU: 22.004986545
+ Diff = 0.691792686
+-------------------------------------------------------
+Iteration #60
+-------------------------------------------------------
+ Updating memberships by CPU: 10.483037146
+ Updating centroids by CPU: 4.363372945
+ Updating NNT by CPU: 22.150100731
+ Diff = 0.653598153
+-------------------------------------------------------
+Iteration #61
+-------------------------------------------------------
+ Updating memberships by CPU: 10.534821846
+ Updating centroids by CPU: 4.399944061
+ Updating NNT by CPU: 22.421897263
+ Diff = 0.633894934
+-------------------------------------------------------
+Iteration #62
+-------------------------------------------------------
+ Updating memberships by CPU: 10.467238424
+ Updating centroids by CPU: 4.327094399
+ Updating NNT by CPU: 21.704518259
+ Diff = 0.613754099
+-------------------------------------------------------
+Iteration #63
+-------------------------------------------------------
+ Updating memberships by CPU: 10.485085129
+ Updating centroids by CPU: 4.451143623
+ Updating NNT by CPU: 22.094805205
+ Diff = 0.588877505
+-------------------------------------------------------
+Iteration #64
+-------------------------------------------------------
+ Updating memberships by CPU: 10.548572585
+ Updating centroids by CPU: 4.327679536
+ Updating NNT by CPU: 21.934184865
+ Diff = 0.563677381
+-------------------------------------------------------
+Iteration #65
+-------------------------------------------------------
+ Updating memberships by CPU: 10.295500465
+ Updating centroids by CPU: 4.368054048
+ Updating NNT by CPU: 22.004108838
+ Diff = 0.539699849
+-------------------------------------------------------
+Iteration #66
+-------------------------------------------------------
+ Updating memberships by CPU: 10.451147133
+ Updating centroids by CPU: 4.339382293
+ Updating NNT by CPU: 22.184331296
+ Diff = 0.522373218
+-------------------------------------------------------
+Iteration #67
+-------------------------------------------------------
+ Updating memberships by CPU: 10.933300722
+ Updating centroids by CPU: 4.571682020
+ Updating NNT by CPU: 22.085735568
+ Diff = 0.501288596
+-------------------------------------------------------
+Iteration #68
+-------------------------------------------------------
+ Updating memberships by CPU: 10.837923252
+ Updating centroids by CPU: 4.369516893
+ Updating NNT by CPU: 22.068474001
+ Diff = 0.484087371
+-------------------------------------------------------
+Iteration #69
+-------------------------------------------------------
+ Updating memberships by CPU: 10.722651096
+ Updating centroids by CPU: 4.420716454
+ Updating NNT by CPU: 22.702178293
+ Diff = 0.467816872
+-------------------------------------------------------
+Iteration #70
+-------------------------------------------------------
+ Updating memberships by CPU: 10.609134353
+ Updating centroids by CPU: 4.382682494
+ Updating NNT by CPU: 21.969878274
+ Diff = 0.452765668
+-------------------------------------------------------
+Iteration #71
+-------------------------------------------------------
+ Updating memberships by CPU: 10.514634590
+ Updating centroids by CPU: 4.412524525
+ Updating NNT by CPU: 22.168532574
+ Diff = 0.437707789
+-------------------------------------------------------
+Iteration #72
+-------------------------------------------------------
+ Updating memberships by CPU: 10.537162397
+ Updating centroids by CPU: 4.357521567
+ Updating NNT by CPU: 22.063500330
+ Diff = 0.428988856
+-------------------------------------------------------
+Iteration #73
+-------------------------------------------------------
+ Updating memberships by CPU: 10.502346695
+ Updating centroids by CPU: 4.308662556
+ Updating NNT by CPU: 21.915167885
+ Diff = 0.412360263
+-------------------------------------------------------
+Iteration #74
+-------------------------------------------------------
+ Updating memberships by CPU: 10.445880893
+ Updating centroids by CPU: 4.379464236
+ Updating NNT by CPU: 22.050919866
+ Diff = 0.393770679
+-------------------------------------------------------
+Iteration #75
+-------------------------------------------------------
+ Updating memberships by CPU: 10.521656244
+ Updating centroids by CPU: 4.409598835
+ Updating NNT by CPU: 22.444717639
+ Diff = 0.375505814
+-------------------------------------------------------
+Iteration #76
+-------------------------------------------------------
+ Updating memberships by CPU: 10.426863913
+ Updating centroids by CPU: 4.610886256
+ Updating NNT by CPU: 22.059404365
+ Diff = 0.359421501
+-------------------------------------------------------
+Iteration #77
+-------------------------------------------------------
+ Updating memberships by CPU: 10.614985731
+ Updating centroids by CPU: 4.391459562
+ Updating NNT by CPU: 22.305454831
+ Diff = 0.342947058
+-------------------------------------------------------
+Iteration #78
+-------------------------------------------------------
+ Updating memberships by CPU: 10.456413374
+ Updating centroids by CPU: 4.402577181
+ Updating NNT by CPU: 21.775027370
+ Diff = 0.321949619
+-------------------------------------------------------
+Iteration #79
+-------------------------------------------------------
+ Updating memberships by CPU: 10.500298713
+ Updating centroids by CPU: 4.339967431
+ Updating NNT by CPU: 22.010545354
+ Diff = 0.303053030
+-------------------------------------------------------
+Iteration #80
+-------------------------------------------------------
+ Updating memberships by CPU: 10.623177661
+ Updating centroids by CPU: 4.370394599
+ Updating NNT by CPU: 22.305747400
+ Diff = 0.285910848
+-------------------------------------------------------
+Iteration #81
+-------------------------------------------------------
+ Updating memberships by CPU: 10.650386571
+ Updating centroids by CPU: 4.462261242
+ Updating NNT by CPU: 22.115285029
+ Diff = 0.266259047
+-------------------------------------------------------
+Iteration #82
+-------------------------------------------------------
+ Updating memberships by CPU: 10.511123763
+ Updating centroids by CPU: 4.387948735
+ Updating NNT by CPU: 22.033658299
+ Diff = 0.248363868
+-------------------------------------------------------
+Iteration #83
+-------------------------------------------------------
+ Updating memberships by CPU: 10.609719491
+ Updating centroids by CPU: 4.469868034
+ Updating NNT by CPU: 22.031610317
+ Diff = 0.231326709
+-------------------------------------------------------
+Iteration #84
+-------------------------------------------------------
+ Updating memberships by CPU: 10.507320367
+ Updating centroids by CPU: 4.241371704
+ Updating NNT by CPU: 21.909316506
+ Diff = 0.216726640
+-------------------------------------------------------
+Iteration #85
+-------------------------------------------------------
+ Updating memberships by CPU: 10.677595481
+ Updating centroids by CPU: 4.370687168
+ Updating NNT by CPU: 22.141031095
+ Diff = 0.200925714
+-------------------------------------------------------
+Iteration #86
+-------------------------------------------------------
+ Updating memberships by CPU: 10.581340305
+ Updating centroids by CPU: 4.308077418
+ Updating NNT by CPU: 21.957882948
+ Diff = 0.186453301
+-------------------------------------------------------
+Iteration #87
+-------------------------------------------------------
+ Updating memberships by CPU: 10.453195116
+ Updating centroids by CPU: 4.328264674
+ Updating NNT by CPU: 21.996209477
+ Diff = 0.169965230
+-------------------------------------------------------
+Iteration #88
+-------------------------------------------------------
+ Updating memberships by CPU: 10.572270668
+ Updating centroids by CPU: 4.329142381
+ Updating NNT by CPU: 22.204811120
+ Diff = 0.154853042
+-------------------------------------------------------
+Iteration #89
+-------------------------------------------------------
+ Updating memberships by CPU: 10.461094477
+ Updating centroids by CPU: 4.263314373
+ Updating NNT by CPU: 21.722364963
+ Diff = 0.140066008
+-------------------------------------------------------
+Iteration #90
+-------------------------------------------------------
+ Updating memberships by CPU: 10.602405268
+ Updating centroids by CPU: 4.379464236
+ Updating NNT by CPU: 22.080761896
+ Diff = 0.128712340
+-------------------------------------------------------
+Iteration #91
+-------------------------------------------------------
+ Updating memberships by CPU: 10.500591282
+ Updating centroids by CPU: 4.407258284
+ Updating NNT by CPU: 22.106215393
+ Diff = 0.116136320
+-------------------------------------------------------
+Iteration #92
+-------------------------------------------------------
+ Updating memberships by CPU: 10.306032947
+ Updating centroids by CPU: 4.410476542
+ Updating NNT by CPU: 22.108848513
+ Diff = 0.102703299
+-------------------------------------------------------
+Iteration #93
+-------------------------------------------------------
+ Updating memberships by CPU: 10.673499516
+ Updating centroids by CPU: 4.354303309
+ Updating NNT by CPU: 22.211540206
+ Diff = 0.089747569
+-------------------------------------------------------
+Iteration #94
+-------------------------------------------------------
+ Updating memberships by CPU: 10.954073115
+ Updating centroids by CPU: 4.478352533
+ Updating NNT by CPU: 22.015519026
+ Diff = 0.078654360
+-------------------------------------------------------
+Iteration #95
 -------------------------------------------------------
  Updating memberships by CPU: 10.672329241
- Updating centroids by CPU: 4.366591203
- Updating NNT by CPU: 22.959931515
- Diff = 0.000000537
+ Updating centroids by CPU: 4.319780175
+ Updating NNT by CPU: 22.162388626
+ Diff = 0.069685920
 -------------------------------------------------------
-Iteration #107
+Iteration #96
 -------------------------------------------------------
- Updating memberships by CPU: 10.492399352
- Updating centroids by CPU: 4.421301592
- Updating NNT by CPU: 22.849925600
- Diff = 0.000000439
+ Updating memberships by CPU: 10.582510581
+ Updating centroids by CPU: 4.356351291
+ Updating NNT by CPU: 22.124354666
+ Diff = 0.060513799
 -------------------------------------------------------
-Iteration #108
+Iteration #97
 -------------------------------------------------------
- Updating memberships by CPU: 10.755711384
- Updating centroids by CPU: 4.388826442
- Updating NNT by CPU: 22.933015174
- Diff = 0.000000358
+ Updating memberships by CPU: 10.411065191
+ Updating centroids by CPU: 4.245467669
+ Updating NNT by CPU: 21.527514059
+ Diff = 0.052844380
 -------------------------------------------------------
-Iteration #109
+Iteration #98
 -------------------------------------------------------
- Updating memberships by CPU: 10.747519454
- Updating centroids by CPU: 4.392922407
- Updating NNT by CPU: 23.171458848
- Diff = 0.000000293
+ Updating memberships by CPU: 10.516975142
+ Updating centroids by CPU: 4.407258284
+ Updating NNT by CPU: 22.146297335
+ Diff = 0.045549554
 -------------------------------------------------------
-Iteration #110
+Iteration #99
 -------------------------------------------------------
- Updating memberships by CPU: 10.761270194
- Updating centroids by CPU: 4.428323247
- Updating NNT by CPU: 22.789948970
- Diff = 0.000000239
+ Updating memberships by CPU: 10.549742861
+ Updating centroids by CPU: 4.416913058
+ Updating NNT by CPU: 22.175261659
+ Diff = 0.038780709
 -------------------------------------------------------
-Iteration #111
+Iteration #100
 -------------------------------------------------------
- Updating memberships by CPU: 10.666185293
- Updating centroids by CPU: 4.426860402
- Updating NNT by CPU: 23.023711541
- Diff = 0.000000196
+ Updating memberships by CPU: 10.488303387
+ Updating centroids by CPU: 4.406673146
+ Updating NNT by CPU: 21.545653333
+ Diff = 0.033107460
 -------------------------------------------------------
-Iteration #112
+Total CPU time: 3723.352968609
+Total GPU time: 548.609132147
 -------------------------------------------------------
- Updating memberships by CPU: 10.757466798
- Updating centroids by CPU: 4.330020088
- Updating NNT by CPU: 22.883278457
- Diff = 0.000000159
--------------------------------------------------------
-Iteration #113
--------------------------------------------------------
- Updating memberships by CPU: 11.049743154
- Updating centroids by CPU: 4.242249410
- Updating NNT by CPU: 22.992114097
- Diff = 0.000000130
--------------------------------------------------------
-Iteration #114
--------------------------------------------------------
- Updating memberships by CPU: 10.875957212
- Updating centroids by CPU: 4.515508786
- Updating NNT by CPU: 22.981581616
- Diff = 0.000000106
--------------------------------------------------------
-Iteration #115
--------------------------------------------------------
- Updating memberships by CPU: 10.520485969
- Updating centroids by CPU: 4.388533873
- Updating NNT by CPU: 22.668825435
- Diff = 0.000000087
--------------------------------------------------------
-Iteration #116
--------------------------------------------------------
- Updating memberships by CPU: 10.669110983
- Updating centroids by CPU: 4.390874424
- Updating NNT by CPU: 23.058527243
- Diff = 0.000000071
--------------------------------------------------------
-Iteration #117
--------------------------------------------------------
- Updating memberships by CPU: 10.765951297
- Updating centroids by CPU: 4.387071028
- Updating NNT by CPU: 22.907269109
- Diff = 0.000000058
--------------------------------------------------------
-Iteration #118
--------------------------------------------------------
- Updating memberships by CPU: 10.742838352
- Updating centroids by CPU: 4.397603509
- Updating NNT by CPU: 22.894103507
- Diff = 0.000000048
--------------------------------------------------------
-Iteration #119
--------------------------------------------------------
- Updating memberships by CPU: 10.619666834
- Updating centroids by CPU: 4.428615815
- Updating NNT by CPU: 22.991528959
- Diff = 0.000000039
--------------------------------------------------------
-Iteration #120
--------------------------------------------------------
- Updating memberships by CPU: 10.681106308
- Updating centroids by CPU: 4.363958083
- Updating NNT by CPU: 22.879182492
- Diff = 0.000000032
--------------------------------------------------------
-Iteration #121
--------------------------------------------------------
- Updating memberships by CPU: 10.621129679
- Updating centroids by CPU: 4.345526241
- Updating NNT by CPU: 22.814232191
- Diff = 0.000000026
--------------------------------------------------------
-Iteration #122
--------------------------------------------------------
- Updating memberships by CPU: 10.825927926
- Updating centroids by CPU: 4.302811178
- Updating NNT by CPU: 23.125818096
- Diff = 0.000000021
--------------------------------------------------------
-Iteration #123
--------------------------------------------------------
- Updating memberships by CPU: 10.626103351
- Updating centroids by CPU: 4.323876140
- Updating NNT by CPU: 22.951447017
- Diff = 0.000000017
--------------------------------------------------------
-Iteration #124
--------------------------------------------------------
- Updating memberships by CPU: 10.628736471
- Updating centroids by CPU: 4.404040026
- Updating NNT by CPU: 22.977193082
- Diff = 0.000000014
--------------------------------------------------------
-Iteration #125
--------------------------------------------------------
- Updating memberships by CPU: 11.169988982
- Updating centroids by CPU: 4.404332595
- Updating NNT by CPU: 22.963734911
- Diff = 0.000000012
--------------------------------------------------------
-Iteration #126
--------------------------------------------------------
- Updating memberships by CPU: 10.681106308
- Updating centroids by CPU: 4.371564875
- Updating NNT by CPU: 22.755425837
- Diff = 0.000000009
--------------------------------------------------------
-Total CPU time: 4835.126585797
-Total GPU time: 664.967439264
--------------------------------------------------------
-Total CPU time / Total GPU time: 7.271223071
+Total CPU time / Total GPU time: 6.786895716
 -------------------------------------------------------
