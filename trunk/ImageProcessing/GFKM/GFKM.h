@@ -62,7 +62,8 @@ public:
 
 		for(int i=0; i<N; i++){
 			for(int j=0; j<D; j++){
-				file.width(15); 
+				if(sizeof(T) != sizeof(int)) file.width(15);
+				else file.width(2);
 				file << std::right << a[index++] << " ";
 			}
 			file << endl;

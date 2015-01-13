@@ -1,0 +1,755 @@
+﻿<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Version>15.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>13725</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Worksheet1">
+  <Names>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Worksheet1!R1C1:R1C3"
+    ss:Hidden="1"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="139" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="146.25"/>
+   <Column ss:Width="80.25"/>
+   <Column ss:Width="75"/>
+   <Row>
+    <Cell><Data ss:Type="String">Function Name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Start Time (μs)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">End Time (μs)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74508.558000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">74553.998000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74509.278000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">74571.422000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74509.763000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">74615.267999999996</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74548.857999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">74630.745999999999</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74562.929999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">74656.593999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74607.12</Data></Cell>
+    <Cell><Data ss:Type="Number">74688.145000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74622.606</Data></Cell>
+    <Cell><Data ss:Type="Number">74703.534</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74635.92</Data></Cell>
+    <Cell><Data ss:Type="Number">74748.111999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74681.683000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">74762.195999999996</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74696.784</Data></Cell>
+    <Cell><Data ss:Type="Number">74796.944000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74738.573999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">74825.039000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74757.514999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">74842.347999999998</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74781.039999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">74884.369000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74817.423999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">74897.456000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74833.936000000002</Data></Cell>
+    <Cell><Data ss:Type="Number">74934.576000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74875.823000000004</Data></Cell>
+    <Cell><Data ss:Type="Number">74960.304000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74892.366999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">74969.263999999996</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74920.913</Data></Cell>
+    <Cell><Data ss:Type="Number">74961.585000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74927.937000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">74970.752999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74946.373999999996</Data></Cell>
+    <Cell><Data ss:Type="Number">74977.221999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74979.133000000002</Data></Cell>
+    <Cell><Data ss:Type="Number">75028.414000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74979.828999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">75030.293000000005</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74980.562999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">75029.235000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74981.263999999996</Data></Cell>
+    <Cell><Data ss:Type="Number">75029.489000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74982.001999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">75030.322</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74982.773000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">75050.165999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74983.505999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">75040.05</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">74984.176000000007</Data></Cell>
+    <Cell><Data ss:Type="Number">75050.960000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75009.548999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">75057.614000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75013.778000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">75056.433999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75016.273000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">75060.305999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75019.345000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">75063.153999999995</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75023.343999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">75063.376000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75025.2</Data></Cell>
+    <Cell><Data ss:Type="Number">75073.52</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75029.106</Data></Cell>
+    <Cell><Data ss:Type="Number">75095.153999999995</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75055.297999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">75132.673999999999</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75062.054999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">75168.679999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75118.686000000002</Data></Cell>
+    <Cell><Data ss:Type="Number">75204.031000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75132.725999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">75234.422999999995</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75187.411999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">75254.036999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75255.922000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">75318.002999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75256.66</Data></Cell>
+    <Cell><Data ss:Type="Number">75363.445000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75313.656000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">75380.823999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75316.149000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">75412.277000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75374.035000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">75439.346999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75377.456000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">75490.993000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75431.701000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">75501.525999999998</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75437.043999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">75547.476999999999</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75494.773000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">75569.653999999995</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75500.755999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">75605.076000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75562.100000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">75643.701000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75570.741999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">75615.445999999996</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75571.429999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">75642.534</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75573.290999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">75658.092000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75597.793999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">75665.379000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75611.322</Data></Cell>
+    <Cell><Data ss:Type="Number">75660.186000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75626.744000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">75663.8</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75631.701000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">75664.854000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75632.726999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">75666.551000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75634.266000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">75671.161999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75673.111999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">75719.703999999998</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75673.781000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">75719.03</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75674.578999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">75721.010999999999</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75675.222999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">75720.982999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75675.990000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">75728.023000000001</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75676.725999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">75729.910999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75677.429000000004</Data></Cell>
+    <Cell><Data ss:Type="Number">75737.334000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75678.164999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">75739.285000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75707.510999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">75750.294999999998</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75718.375</Data></Cell>
+    <Cell><Data ss:Type="Number">75790.92</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75723.915999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">75802.861000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75746.915999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">75853.028000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75783.739000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">75862.3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75789.849000000002</Data></Cell>
+    <Cell><Data ss:Type="Number">75880.570000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75815.447</Data></Cell>
+    <Cell><Data ss:Type="Number">75922.392000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75853.047999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">75932.633000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75863.707999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">75956.635999999999</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75902.009999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">75992.122000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75927.062999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">76001.656000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">75940.853000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">76016.532999999996</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76018.361999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">76081.785999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76019.096999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">76082.297000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76019.896999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">76132.122000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76076.28</Data></Cell>
+    <Cell><Data ss:Type="Number">76136.888000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76080.216</Data></Cell>
+    <Cell><Data ss:Type="Number">76136.248000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76080.842000000004</Data></Cell>
+    <Cell><Data ss:Type="Number">76118.793999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76080.975000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">76120.430999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76081.017999999996</Data></Cell>
+    <Cell><Data ss:Type="Number">76113.69</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76081.19</Data></Cell>
+    <Cell><Data ss:Type="Number">76123.077999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76082.269</Data></Cell>
+    <Cell><Data ss:Type="Number">76130.462</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76084.282999999996</Data></Cell>
+    <Cell><Data ss:Type="Number">76120.7</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76113.625</Data></Cell>
+    <Cell><Data ss:Type="Number">76138.328999999998</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76118.745999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">76138.554999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76118.877999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">76137.31</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76120.442999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">76137.820000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76122.967999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">76135.993000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76123.157999999996</Data></Cell>
+    <Cell><Data ss:Type="Number">76138.933999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76123.194000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">76139.962</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76127.642000000007</Data></Cell>
+    <Cell><Data ss:Type="Number">76138.073999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76133.593999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">76143.161999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76144.983999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">76184.569000000003</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76145.751999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">76182.361000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76146.714000000007</Data></Cell>
+    <Cell><Data ss:Type="Number">76193.274000000005</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76147.210000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">76199.403000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76147.952000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">76201.327999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76148.710999999996</Data></Cell>
+    <Cell><Data ss:Type="Number">76227.047000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76179.87</Data></Cell>
+    <Cell><Data ss:Type="Number">76248.285999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76188.956000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">76253.179999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76194.906000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">76258.490000000005</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76198.362999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">76275.835999999996</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76228.317999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">76305.695000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76245.02</Data></Cell>
+    <Cell><Data ss:Type="Number">76310.365000000005</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76251.385999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">76320.377999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76255.319000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">76328.024000000005</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76286.971999999994</Data></Cell>
+    <Cell><Data ss:Type="Number">76363.804000000004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76298.714999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">76368.028000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76307.514999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">76371.323999999993</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76315.066000000006</Data></Cell>
+    <Cell><Data ss:Type="Number">76375.577999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76347.418000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">76403.258000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_memberships_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76359.195999999996</Data></Cell>
+    <Cell><Data ss:Type="Number">76401.724000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76405.804000000004</Data></Cell>
+    <Cell><Data ss:Type="Number">76463.373000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76406.546000000002</Data></Cell>
+    <Cell><Data ss:Type="Number">76463.953999999998</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76407.304999999993</Data></Cell>
+    <Cell><Data ss:Type="Number">76469.608999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76408</Data></Cell>
+    <Cell><Data ss:Type="Number">76472.543999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76459.87</Data></Cell>
+    <Cell><Data ss:Type="Number">76515.101999999999</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76461.915999999997</Data></Cell>
+    <Cell><Data ss:Type="Number">76515.868000000002</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76462.429000000004</Data></Cell>
+    <Cell><Data ss:Type="Number">76528.926000000007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76463.392000000007</Data></Cell>
+    <Cell><Data ss:Type="Number">76535.392999999996</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76509.822</Data></Cell>
+    <Cell><Data ss:Type="Number">76569.119000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76512.827000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">76569.755999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76514.745999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">76571.706000000006</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76516.028999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">76592.221999999994</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76561.149000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">76618.172999999995</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76565.213000000003</Data></Cell>
+    <Cell><Data ss:Type="Number">76620.19</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76567.644</Data></Cell>
+    <Cell><Data ss:Type="Number">76622.843999999997</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_centroids_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">76570.428</Data></Cell>
+    <Cell><Data ss:Type="Number">76624.572</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">update_NNT_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">80725.596000000005</Data></Cell>
+    <Cell><Data ss:Type="Number">82072.39</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">reduce_J_kernel</Data></Cell>
+    <Cell><Data ss:Type="Number">83779.539000000004</Data></Cell>
+    <Cell><Data ss:Type="Number">83834.451000000001</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1C1:R11C3</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <AutoFilter x:Range="R1C1:R1C3" xmlns="urn:schemas-microsoft-com:office:excel">
+  </AutoFilter>
+ </Worksheet>
+</Workbook>

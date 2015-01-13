@@ -5,8 +5,8 @@
 
 int main(int argc, char* argv[])
 {
-	string path = "D:\\Projects\\master-ntou\\ImageProcessing\\GFKM\\Data\\sat\\";//LenaPeppersBaboon\\";
-	string fname = "sat.data";//"LenaPeppersBaboon.txt";
+	string path = "D:\\Projects\\master-ntou\\ImageProcessing\\GFKM\\Data\\LenaPeppersBaboon\\";//sat\\";
+	string fname = "LenaPeppersBaboon.txt";//"sat.data";
 	int M = 2;
 	int max_iter = 1;
 	double epsilon = numeric_limits<double>::epsilon();
