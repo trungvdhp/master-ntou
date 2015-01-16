@@ -13,7 +13,8 @@ public:
 		QueryPerformanceCounter(&m_stop);
 	}
 
-	double elapsed() {
+	double elapsed() 
+	{
 		return (m_stop.QuadPart - m_start.QuadPart - m_overhead) * 1000.0 / m_freg.QuadPart;
 	}
 private:

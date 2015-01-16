@@ -10,6 +10,8 @@ int main(int argc, char* argv[])
 	int M = 2;
 	int max_iter = 1;
 	double epsilon = numeric_limits<double>::epsilon();
+	int mode = 1;
+	int stop_iter = INT_MAX;
 
 	if(argc > 2){
 		path = string(argv[1]);
@@ -23,6 +25,12 @@ int main(int argc, char* argv[])
 
 				if(argc > 5){
 					epsilon = atof(argv[5]);
+					if(argc > 6){
+						mode = atoi(argv[6]);
+						if(argc > 7){
+							stop_iter = atoi(argv[7]) - 1;
+						}
+					}
 				}
 			}
 		}
@@ -35,7 +43,7 @@ int main(int argc, char* argv[])
 	cout << "-------------------------------------------------------" << endl;
 	cout << "GPU running" << endl;
 	cout << "-------------------------------------------------------" << endl;
-	double* gpu_rs = GFKM_GPU(G, 256, INT_MAX);
+	double* gpu_rs = GFKM_GPU(G, 256, stop_iter, mode);
 	G.J = 0.0;
 	cout << "-------------------------------------------------------" << endl;
 	cout << "CPU running" << endl;

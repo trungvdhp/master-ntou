@@ -169,10 +169,12 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="GFKM.h" />
     <ClInclude Include="TimingCPU.h" />
     <ClInclude Include="TimingGPU.cuh" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GFKM.cpp" />
     <ClCompile Include="TimingCPU.cpp" />
+    <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,23 @@
+D:\Projects\master-ntou\ImageProcessing\GFKM\Data\segmentation\
+-------------------------------------------------------
+GPU running
+-------------------------------------------------------
+ Number of iterations: 50
+ Initializing NNT    :     0.138144001
+ Updating memberships:     0.173119359     8.655967951
+ Updating centroids  :     0.250498076    12.524903816
+ Updating NNT and J  :     0.164465553     8.223277653
+-------------------------------------------------------
+CPU running
+-------------------------------------------------------
+ Number of iterations: 50
+ Initializing NNT    :     0.999708016
+ Updating memberships:     0.584020236    29.201011820
+ Updating centroids  :     0.237677143    11.883857158
+ Updating NNT and J  :     0.981791095    49.089554763
+-------------------------------------------------------
+Total CPU time: 91.174131758
+Total GPU time: 29.547573422
+-------------------------------------------------------
+Total CPU time / Total GPU time: 3.085672399
+-------------------------------------------------------
