@@ -1,0 +1,23 @@
+D:\Projects\master-ntou\ImageProcessing\GFKM\Data\sat\
+-------------------------------------------------------
+GPU running
+-------------------------------------------------------
+ Number of iterations: 100
+ Initializing NNT    :     0.384447992
+ Updating memberships:     0.216466560    21.646656007
+ Updating centroids  :     1.237080938   123.708093753
+ Updating NNT and J  :     0.406297646    40.629764648
+-------------------------------------------------------
+CPU running
+-------------------------------------------------------
+ Number of iterations: 100
+ Initializing NNT    :     4.832068363
+ Updating memberships:     1.407376482   140.737648179
+ Updating centroids  :     1.209632071   120.963207117
+ Updating NNT and J  :     4.070610925   407.061092487
+-------------------------------------------------------
+Total CPU time: 673.594016146
+Total GPU time: 186.376834400
+-------------------------------------------------------
+Total CPU time / Total GPU time: 3.614150966
+-------------------------------------------------------

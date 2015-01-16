@@ -1,7 +1,12 @@
 #include "GFKM.cuh"
+#include "Util.h"
 #define DIM_MAX 36
-#define PRN 9
 #define BLOCK_MAX 1024
+
+inline __host__ int roundup(int x, int y)
+{
+	return 1 + (x-1)/y;
+}
 
 __global__ void initialize_NNT_kernel
 	(double* points, double* centroids, int* NNT, double* DNNT,
@@ -371,12 +376,9 @@ __global__ void reduce_J_kernel(double* idata, double* odata, int n)
 	if(tid == 0) odata[blockIdx.x] = sdata[0] + sdata[1];
 }
 
-inline __host__ int roundup(int x, int y)
-{
-	return 1 + (x-1)/y;
-}
 
-__host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
+
+__host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 {
 #pragma region Declare common variables
 	int i, j, x, y, z, q;
@@ -385,9 +387,11 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	
 	int points_size = G.N*G.D;
 	int centroids_size = G.K*G.D;
-	int centroids_dbl_size = centroids_size*DBL_SIZE;
+	int centroids_bsize = centroids_size*DBL_SIZE;
 	int um_size = G.N*G.M;
+	int um_bsize = um_size*INT_SIZE;
 	int uk_size = G.N*G.K;
+	int uk_bsize = uk_size*DBL_SIZE;
 	int sm_size = block_size*DBL_SIZE;
 	int block_dsize = block_size<<2;
 	int histo_size = (G.K+1)*INT_SIZE;
@@ -402,8 +406,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	int Jblock2_size = num_Jblocks2 * DBL_SIZE;
 
 	double a, newJ;
-	double t, tt;
-	double total_time = 0.0;
+	double t0, t1 = 0.0, t2 = 0.0, t3 = 0.0, t4;
 	
 	TimingGPU tmr_GPU;
 	TimingCPU tmr_CPU;
@@ -493,87 +496,82 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	initialize_NNT_kernel<<<num_blocks, block_size>>>
 		(d_points, d_centroids, d_NNT, d_DNNT, G.N, G.D, G.K, G.M);
 	//CudaCheckError();
-	t = tmr_GPU.GetCounter();
-	total_time = total_time + t;
-	cout << std::fixed << std::setprecision(PRN);
-	std::cout << " Initializing NNT by GPU: " << t << endl;  
+	t0 = tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Main loop
 	for(i=0; i<G.max_iter; i++){
-		std::cout << "-------------------------------------------------------" << endl;
-		std::cout << "Iteration #" << i+1 << endl;
-		std::cout << "-------------------------------------------------------" << endl;
-
 #pragma region  Updating memberships by GPU
 		tmr_GPU.StartCounter();
 		update_memberships_kernel<<<num_blocks, block_size>>>
 			(d_NNT, d_DNNT, d_u, d_tempU, G.N, G.K, G.M, G.fuzzifier);
 		//CudaCheckError();
-		t = tmr_GPU.GetCounter();
-		total_time = total_time + t;
-		std::cout << " Updating memberships by GPU: " << t << endl;  
+		t1 = t1 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Updating centroids
-		std::cout << " Updating centroids:"<< endl;
-		tt = 0.0;
+		if(mode){
 #pragma region Counting sort by GPU
-		tmr_GPU.StartCounter();
-		cudaMemset(d_histo, 0, histo_size);
-		// Calculate the histogram of cluster index frequencies from NNT
-		histogram_kernel<<<num_hblocks, block_size>>>(d_NNT, d_histo, um_size);
-		CudaSafeCall(cudaMemcpyAsync(p_histo, d_histo, histo_size, cudaMemcpyDeviceToHost));
-		// Calculate the starting index for each cluster
-		scan_kernel<<<1, 1>>>(d_histo, G.K);
-		// Copy corresponding point indices to output array, 
-		// preserving order of inputs (array NNT) with equal cluster indices
-		counting_sort_kernel<<<num_hblocks, block_size>>>(d_NNT, d_histo, d_sp, um_size, G.M);
-		t = tmr_GPU.GetCounter();
-		tt = tt + t;
-		std::cout << "  + Counting sort by GPU: " << t << endl;
+			tmr_GPU.StartCounter();
+			cudaMemset(d_histo, 0, histo_size);
+			// Calculate the histogram of cluster index frequencies from NNT
+			histogram_kernel<<<num_hblocks, block_size>>>(d_NNT, d_histo, um_size);
+			CudaSafeCall(cudaMemcpyAsync(p_histo, d_histo, histo_size, cudaMemcpyDeviceToHost));
+			// Calculate the starting index for each cluster
+			scan_kernel<<<1, 1>>>(d_histo, G.K);
+			// Copy corresponding point indices to output array, 
+			// preserving order of inputs (array NNT) with equal cluster indices
+			counting_sort_kernel<<<num_hblocks, block_size>>>(d_NNT, d_histo, d_sp, um_size, G.M);
+			t2 = t2 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Reducing centroids by GPU
-		y = 0; z = 0; q = 0;
-		tmr_GPU.StartCounter();
-		for(j=0; j<G.K; j++){
-			p_histo[j] = roundup(p_histo[j+1], block_dsize);
-			reduce_memberships_kernel<<<p_histo[j], block_size, sm_size, streams[0]>>>
-				(d_sp+q, d_tempU, d_m+y, p_histo[j+1], G.K, j);
+			y = 0; z = 0; q = 0;
+			tmr_GPU.StartCounter();
+			for(j=0; j<G.K; j++){
+				p_histo[j] = roundup(p_histo[j+1], block_dsize);
+				reduce_memberships_kernel<<<p_histo[j], block_size, sm_size, streams[0]>>>
+					(d_sp+q, d_tempU, d_m+y, p_histo[j+1], G.K, j);
 
-			for(x=0; x<G.D; x++){
-				reduce_centroids_kernel<<<p_histo[j], block_size, sm_size, streams[x+1]>>>
-					(d_points, d_sp+q, d_tempU, d_tempC+z, p_histo[j+1], G.D, G.K, x, j);
-				z += p_histo[j];
+				for(x=0; x<G.D; x++){
+					reduce_centroids_kernel<<<p_histo[j], block_size, sm_size, streams[x+1]>>>
+						(d_points, d_sp+q, d_tempU, d_tempC+z, p_histo[j+1], G.D, G.K, x, j);
+					z += p_histo[j];
+				}
+				y += p_histo[j];
+				//p_histo[j] = y;
+				q += p_histo[j+1];
 			}
-			y += p_histo[j];
-			//p_histo[j] = y;
-			q += p_histo[j+1];
-		}
-		CudaSafeCall(cudaMemcpyAsync(p_m, d_m, y*DBL_SIZE, cudaMemcpyDeviceToHost));
-		CudaSafeCall(cudaMemcpyAsync(p_tempC, d_tempC, z*DBL_SIZE, cudaMemcpyDeviceToHost));
-		t = tmr_GPU.GetCounter();
-		tt = tt + t;
-		std::cout << "  + Reducing centroids by GPU: " << t << endl;
+			CudaSafeCall(cudaMemcpyAsync(p_m, d_m, y*DBL_SIZE, cudaMemcpyDeviceToHost));
+			CudaSafeCall(cudaMemcpyAsync(p_tempC, d_tempC, z*DBL_SIZE, cudaMemcpyDeviceToHost));
+			t2 = t2 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Reducing centroids by CPU
-		tmr_CPU.start();
-		reduce_centroids(p_centroids, p_m, p_tempC, p_histo, G.D, G.K);
-		tmr_CPU.stop();
-		t = tmr_CPU.elapsed();
-		tt = tt + t;
-		std::cout << "  + Reducing centroids by CPU: " << t << endl;
-		tmr_GPU.StartCounter();
-		CudaSafeCall(cudaMemcpyAsync(d_centroids, p_centroids, centroids_dbl_size, cudaMemcpyHostToDevice));
-		t = tmr_GPU.GetCounter();
-		tt = tt + t;
-		total_time = total_time + tt;
-		std::cout << "  + Host to device: " << t << endl;
-		std::cout << " Total updating centroids time: " << tt << endl;
+			tmr_CPU.start();
+			reduce_centroids(p_centroids, p_m, p_tempC, p_histo, G.D, G.K);
+			tmr_CPU.stop();
+			t2 = t2 + tmr_CPU.elapsed();
+			tmr_GPU.StartCounter();
+			CudaSafeCall(cudaMemcpyAsync(d_centroids, p_centroids, centroids_bsize, cudaMemcpyHostToDevice));
+			t2 = t2 + tmr_GPU.GetCounter();
 #pragma endregion
-
+		}
+		else{
+#pragma region Updating centroids by CPU
+			tmr_GPU.StartCounter();
+			CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, um_bsize, cudaMemcpyDeviceToHost));
+			CudaSafeCall(cudaMemcpyAsync(p_tempU, d_tempU, uk_bsize, cudaMemcpyDeviceToHost));
+			t2 = t2 + tmr_GPU.GetCounter();
+			tmr_CPU.start();
+			update_centroids(p_points, p_centroids, p_NNT, p_tempU, G.N, G.D, G.K, G.M);
+			tmr_CPU.stop();
+			t2 = t2 + tmr_CPU.elapsed();
+			tmr_GPU.StartCounter();
+			CudaSafeCall(cudaMemcpyAsync(d_centroids, p_centroids, centroids_bsize, cudaMemcpyHostToDevice));
+			t2 = t2 + tmr_GPU.GetCounter();
+#pragma endregion
+		}
 #pragma endregion
 
 #pragma region Updating NNT by GPU
@@ -581,13 +579,10 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 		update_NNT_kernel<<<num_blocks, block_size>>>
 			(d_points, d_centroids, d_NNT, d_DNNT, d_tempU, d_DALG, G.N, G.D, G.K, G.M);
 		//CudaCheckError();
-		t = tmr_GPU.GetCounter();
-		total_time = total_time + t;
-		std::cout << " Updating NNT by GPU: " << t << endl;  
+		t3 = t3 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Calculating distortion value J
-		std::cout << " Calculating distortion value J:" << endl;
 #pragma region Calculating J by CPU
 		/*tmr_GPU.StartCounter();
 		CudaSafeCall(cudaMemcpyAsync(p_DALG, d_DALG, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
@@ -597,7 +592,6 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 #pragma endregion
 
 #pragma region Calculating J by GPU reduction
-		tt = 0.0;
 		// Reduction J #1
 		tmr_GPU.StartCounter();
 		reduce_J_kernel<<<num_Jblocks1, block_size, sm_size>>>(d_DALG, d_JB, uk_size);
@@ -605,9 +599,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 
 		if(num_Jblocks1 < BLOCK_MAX){
 			CudaSafeCall(cudaMemcpyAsync(p_J, d_JB, Jblock1_size, cudaMemcpyDeviceToHost));
-			t = tmr_GPU.GetCounter();
-			tt = tt + t;
-			std::cout << "  + Reducing J by GPU: " << t << endl;
+			t3 = t3 + tmr_GPU.GetCounter();
 			// Reduction J blocksums by CPU
 			tmr_CPU.start();
 			newJ = 0.0;
@@ -620,9 +612,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 			reduce_J_kernel<<<num_Jblocks2, block_size,  sm_size>>>(d_JB, d_J, num_Jblocks1);
 			//CudaCheckError();
 			CudaSafeCall(cudaMemcpyAsync(p_J, d_J, Jblock2_size, cudaMemcpyDeviceToHost));
-			t = tmr_GPU.GetCounter();
-			tt = tt + t;
-			std::cout << "  + Reducing J by GPU: " << t << endl;
+			t3 = t3 + tmr_GPU.GetCounter();
 			// Reduction J blocksums by CPU
 			tmr_CPU.start();
 			newJ = 0.0;
@@ -635,14 +625,11 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 
 #pragma region Getting and checking stop-condition
 		tmr_CPU.stop();
-		t = tmr_CPU.elapsed();
-		if(t < 0) t = 0;
-		tt = tt + t;
-		std::cout << "  + Reducing J by CPU : " << t << endl;
-		total_time = total_time + tt;
-		std::cout << " Total calculating J time: " << tt << endl;
+		t4 = tmr_CPU.elapsed();
+
+		if(t0 < 0) t0 = 0;
+		t3 = t3 + t4;
 		a = fabs(newJ - G.J);
-		std::cout << " Difference: " << a << endl;
 
 		if((a < G.epsilon && (stop_iter == INT_MAX || i==stop_iter)) || i==stop_iter)
 			break;
@@ -658,17 +645,16 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 	//CudaSafeCall(cudaMemcpyAsync(p_DNNT, d_DNNT, um_size*DBL_SIZE, cudaMemcpyDeviceToHost));
 	//CudaSafeCall(cudaMemcpyAsync(p_u, d_u, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
 	//CudaSafeCall(cudaMemcpyAsync(p_tempU, d_tempU, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
-	t = tmr_GPU.GetCounter();
-	total_time = total_time + t;
-	std::cout << " Device to host: " << t << endl;
+	t4 = tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Writing results to files
-	G.write<double>(p_centroids, G.K, G.D, G.path + "centroids.GPU.txt");
-	G.write<int>(p_NNT, G.N, G.M, G.path + "NNT.GPU.txt");
-	//G.write<double>(p_DNNT, G.N, G.M, G.path + "DNNT.GPU.txt");
-	//G.write<double>(p_u, G.N, G.K, G.path + "u.GPU.txt");
-	//G.write<double>(p_tempU, G.N, G.K, G.path + "tempU.GPU.txt");  
+	Util::write<double>(p_centroids, G.K, G.D, G.path + "centroids.GPU.txt");
+	Util::write<int>(p_NNT, G.N, G.M, G.path + "NNT.GPU.txt");
+	//Util::write<double>(p_DNNT, G.N, G.M, G.path + "DNNT.GPU.txt");
+	//Util::write<double>(p_u, G.N, G.K, G.path + "u.GPU.txt");
+	//Util::write<double>(p_tempU, G.N, G.K, G.path + "tempU.GPU.txt");
+	Util::print_times(t0, t1, t2, t3, i+1);
 #pragma endregion
 
 #pragma region Cuda free device memories
@@ -703,7 +689,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter)
 
 #pragma region Get total time and last iteration index
 	double *rs = new double[2];
-	rs[0] = total_time;
+	rs[0] = t0 + t1 + t2 + t3 + t4;
 	rs[1] = (double)i;
 #pragma endregion
 

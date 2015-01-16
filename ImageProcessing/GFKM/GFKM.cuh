@@ -15,6 +15,8 @@
 #include "GFKM.h"
 #include <malloc.h>
 
+inline __host__ int roundup(int x, int y);
+
 __global__ void initialize_NNT_kernel
 	(double* points, double* centroids, int* NNT, double* DNNT,
 	 int N, int D, int K, int M);
@@ -43,7 +45,7 @@ __global__ void reduce_centroids_kernel
 __global__ void reduce_centroids_kernel
 	(double* centroids, double* memberships, double* tempC, int* histo,  int D, int K);
 
-__host__ void reduce_centroids
+inline __host__ void reduce_centroids
 	(double* centroids, double* u, double* tempC, int* histo, int D, int K);
 
 __global__ void update_NNT_kernel
@@ -54,4 +56,4 @@ __host__ double reduce_J(double* D_ALG, int N, int K);
 
 __global__ void reduce_J_kernel(double* idata, double* odata, unsigned int n);
 
-__host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter);
+__host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode = 1);

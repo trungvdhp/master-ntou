@@ -1,0 +1,23 @@
+D:\Projects\master-ntou\ImageProcessing\GFKM\Data\yeast\
+-------------------------------------------------------
+GPU running
+-------------------------------------------------------
+ Number of iterations: 86
+ Initializing NNT    :     0.086176001
+ Updating memberships:     0.179246513    15.415200084
+ Updating centroids  :     0.098598366     8.479459445
+ Updating NNT and J  :     0.111252518     9.567716559
+-------------------------------------------------------
+CPU running
+-------------------------------------------------------
+ Number of iterations: 86
+ Initializing NNT    :     0.516969290
+ Updating memberships:     0.327823480    28.192819305
+ Updating centroids  :     0.073853242     6.351378790
+ Updating NNT and J  :     0.486399240    41.830334599
+-------------------------------------------------------
+Total CPU time: 76.891501984
+Total GPU time: 33.553256089
+-------------------------------------------------------
+Total CPU time / Total GPU time: 2.291625641
+-------------------------------------------------------

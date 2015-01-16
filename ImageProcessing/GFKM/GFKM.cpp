@@ -1,5 +1,5 @@
 #include "GFKM.h"
-#define  PRN 9
+#include "Util.h"
 
 GFKM::GFKM(void)
 {
@@ -237,52 +237,37 @@ double GFKM::update_NNT()
 
 double* GFKM::run(int stop_iter)
 {
-	double t;
-	double total_time = 0.0;
-	double newJ;
+	int i;
+	double t0, t1 = 0.0, t2 = 0.0, t3 = 0.0;
+	double a, newJ;
 	TimingCPU tmr;
 	// initialize and update NNT
 	tmr.start();
 	initialize_NNT();
 	tmr.stop();
-	t = tmr.elapsed();
-	total_time = total_time + t;
-	cout << " Initializing NNT by CPU: " << t << endl;
-	cout << std::fixed << std::setprecision(PRN);
-	int i;
+	t0 = tmr.elapsed();
 
 	for(i=0; i<max_iter && i<=stop_iter; i++){
-		cout << "-------------------------------------------------------" << endl;
-		cout << "Iteration #" << i+1 << endl;
-		cout << "-------------------------------------------------------" << endl;
-		
 		// Update membership by CPU
 		tmr.start();
 		update_memberships();
 		tmr.stop();
-		t = tmr.elapsed();
-		total_time = total_time + t;
-		cout << " Updating memberships by CPU: " << t << endl;
+		t1 = t1 + tmr.elapsed();
 		
 		// Update centroids
 		tmr.start();
 		update_centroids();
 		tmr.stop();
-		t = tmr.elapsed();
-		total_time = total_time + t;
-		cout << " Updating centroids by CPU: " << t << endl;
+		t2 = t2 + tmr.elapsed();
 		
 		// Update NNT
 		tmr.start();
 		newJ = update_NNT();
 		tmr.stop();
-		t = tmr.elapsed();
-		total_time = total_time + t;
-		cout << " Updating NNT by CPU: " << t << endl;
+		t3 = t3 + tmr.elapsed();
 
 		// Check if stop
-		double a = fabs(newJ - J);
-		cout << " Diff = " << a << endl;
+		a = fabs(newJ - J);
 
 		if((a < epsilon && (stop_iter == INT_MAX || i==stop_iter)) || i == stop_iter)
 			break;
@@ -290,14 +275,14 @@ double* GFKM::run(int stop_iter)
 	}
 
 	if(i==max_iter) i--;
-	write<double>(centroids, K, D, path + "centroids.txt");
-	write<int>(NNT, N, M, path + "NNT.txt");
-	//write<double>(DNNT, N, M, path + "DNNT.txt");
-	//write<double>(U_ALG, N, K, path + "u.txt");
-	//write<double>(tempU, N, K, path + "tempU.txt");
-
+	Util::write<double>(centroids, K, D, path + "centroids.txt");
+	Util::write<int>(NNT, N, M, path + "NNT.txt");
+	//Util::write<double>(DNNT, N, M, path + "DNNT.txt");
+	//Util::write<double>(U_ALG, N, K, path + "u.txt");
+	//Util::write<double>(tempU, N, K, path + "tempU.txt");
+	Util::print_times(t0, t1, t2, t3, i+1);
 	double *rs = new double[2];
-	rs[0] = total_time;
+	rs[0] = t0 + t1 + t2 + t3;
 	rs[1] = (double)i;
 
 	return rs;
