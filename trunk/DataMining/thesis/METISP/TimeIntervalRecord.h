@@ -14,9 +14,10 @@
 class TimeIntervalRecord  
 {
 public:
-	void setValue(const int laststarttime = 0,const int lastendtime = 0);
+	void setValue(const int initialtime = 0, const int laststarttime = 0, const int lastendtime = 0);
 	TimeIntervalRecord();
 	virtual ~TimeIntervalRecord();
+	int initialTime;
     int lastEndTime;
 	int lastStartTime;
 };

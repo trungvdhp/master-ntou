@@ -199,7 +199,7 @@ void SequentialDatabase::generateSequentialPattern()
 			freItem.item.push_back(i) ;
 			freItem.frequency = frequency[i];
 			constructPTidx(freItem);
-			mineDB(freItem, 0);
+			mineDB(freItem, 1);
 			freItem.item.clear();
 		}
 	}
@@ -220,7 +220,7 @@ void SequentialDatabase::constructPTidx(frequencyItem & p)
 			iter = find(seq[sid].trans[tid].t.begin(),seq[sid].trans[tid].t.end(),pStartItem);
 			if (iter != seq[sid].trans[tid].t.end())
 			{
-				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid]);
+				p.insertTir(sid, seq[sid].timeOcc[tid], seq[sid].timeOcc[tid], seq[sid].timeOcc[tid]);
 			}
 		}
 	}
@@ -252,7 +252,7 @@ void SequentialDatabase::generateStempType2(frequencyItem p, vector<int> svttype
 {
 	frequencyItem temp;
 	vector<frequencyItem>::iterator iter;
-	for (int j = 0; j < svttype2.size();j++)
+	for (int j = 0; j < svttype2.size(); j++)
 	{
 		if (p.item[p.item.size() - 1] < svttype2[j])
 		{
@@ -303,25 +303,19 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> * Stemp1, ve
 
 void SequentialDatabase::mineDB(frequencyItem p, int count)
 {
-	int i , j;
-	vector<int> svttype1,svttype2;
-	frequencyItem temp;
+	int i;
 	vector<frequencyItem> Stemp1,Stemp2;
 	frequencyItem p_;
 	if (FEP(p, &Stemp1, &Stemp2))
 	{
 		if (BEP(p))
 		{
-			if (freSeqSet.size() == count)
+			while (freSeqSet.size() < count)
 			{
 				frequentSequence Sp;
-				Sp.freSeq.push_back(p);
 				freSeqSet.push_back(Sp);
 			}
-			else
-			{
-				freSeqSet[count].freSeq.push_back(p);
-			}
+			freSeqSet[count-1].freSeq.push_back(p);
 		}
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
@@ -432,7 +426,7 @@ frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyIt
 					{
 						if (seq[p.pTir[i].sId].trans[k].t[l] == x.item[0])
 						{
-							p_.insertTir(p.pTir[i].sId,seq[p.pTir[i].sId].timeOcc[k],seq[p.pTir[i].sId].timeOcc[k]);
+							p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]);
 						}
 					}
 				}
@@ -453,7 +447,7 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 			(*count)++;
 		p_.item.push_back(p.item[i]);
 	}
-	for (i = 0; i < x.item.size();i++)
+	for (i = 0; i < x.item.size(); i++)
 		p_.item.push_back(x.item[i]);
 	p_.frequency = x.frequency;
 
@@ -472,7 +466,10 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 					{
 						if (seq[p.pTir[i].sId].trans[k].t[l] == x.item[0])
 						{
-							p_.insertTir(p.pTir[i].sId,seq[p.pTir[i].sId].timeOcc[k],seq[p.pTir[i].sId].timeOcc[k]);
+							if (p.pTir[i].sId, p.pTir[i].tir[j].initialTime < seq[p.pTir[i].sId].timeOcc[k])
+								p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]);
+							else
+								p_.insertTir(p.pTir[i].sId, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k], p.pTir[i].tir[j].lastEndTime);
 						}
 					}
 				}
@@ -482,26 +479,54 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 	return p_;
 }
 
+bool SequentialDatabase::BEP(frequencyItem p)
+{
+	int i;
+	vector<int> svttype1, svttype2;
+	vector<frequencyItem> Stemp1, Stemp2;
+
+	for (i = 0; i < p.pTir.size(); i++)
+	{
+		//use the corresponding time index to determine the VTPs for type-1 patterns.
+		svttype1 = generateBEPType1(p.pTir[i], seq[p.pTir[i].sId].timeOcc);
+		//for each item in the VTPs of type-1 pattern, add one to its support.
+		generateStempType1(svttype1, &Stemp1);
+		svttype1.clear();
+		//use the corresponding time index to determine the VTPs for type-2 patterns.
+		svttype2 = generateBEPType2(p.pTir[i], seq[p.pTir[i].sId].timeOcc);
+		//for each item in the VTPs of type-2 pattern, add one to its support.
+		generateStempType2(p, svttype2, &Stemp2);
+		svttype2.clear();
+	}
+	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
+	for (i = 0; i < Stemp1.size(); i++)
+		if (Stemp1[i].frequency == p.frequency)
+			return false;
+	//for each item x found in VTPs of type-2 pattern with support >= minsup X |D|
+	for (i = 0; i < Stemp2.size(); i++)
+		if (Stemp2[i].frequency == p.frequency)
+			return false;
+	return true;
+}
+
 vector<int> SequentialDatabase::generateBEPType1(TimeIntervalRecord1 tir1,vector<int> ot)
 {
 	vector<int> temp;
 	vector<int>::iterator iter;
-	int i,j,k,ub,lb;
-	for (i = 0; i < tir1.tir.size(); i++)
+	int i,k,ub,lb;
+	lb = tir1.tir[0].lastEndTime - maxgap;
+	ub = tir1.tir[0].initialTime - mingap;
+
+	for (i = 0; i < ot.size() ; i++)
 	{
-		lb = tir1.tir[i].lastEndTime - maxgap;
-		ub = tir1.tir[i].lastStartTime - mingap;
-		for (j = 0; j < ot.size() ; j++)
+		if (lb <= ot[i] && ot[i] <= ub )
 		{
-			if (lb <= ot[j] && ot[j] <= ub )
+			for (k = 0; k < seq[tir1.sId].trans[i].t.size(); k++)
 			{
-				for (k = 0; k < seq[tir1.sId].trans[j].t.size(); k++)
+				iter = find(temp.begin(),temp.end(),seq[tir1.sId].trans[i].t[k]);
+				if (iter == temp.end())
 				{
-					iter = find(temp.begin(),temp.end(),seq[tir1.sId].trans[j].t[k]);
-					if (iter == temp.end())
-					{
-						temp.push_back(seq[tir1.sId].trans[j].t[k]);
-					}
+					temp.push_back(seq[tir1.sId].trans[i].t[k]);
 				}
 			}
 		}
@@ -518,9 +543,9 @@ vector<int> SequentialDatabase::generateBEPType2(TimeIntervalRecord1 tir1,vector
 	for (i = 0; i < tir1.tir.size(); i++)
 	{
 		lb1 = tir1.tir[i].lastEndTime - swin;
-		ub1 = tir1.tir[i].lastStartTime;
+		ub1 = tir1.tir[i].initialTime;
 		lb2 = tir1.tir[i].lastEndTime;
-		ub2 = tir1.tir[i].lastStartTime + swin;
+		ub2 = tir1.tir[i].initialTime + swin;
 
 		for (j = 0; j < ot.size() ; j++)
 		{
@@ -538,34 +563,4 @@ vector<int> SequentialDatabase::generateBEPType2(TimeIntervalRecord1 tir1,vector
 		}
 	}
 	return temp;
-}
-
-bool SequentialDatabase::BEP(frequencyItem p)
-{
-	int i;
-	vector<int> svttype1,svttype2;
-	vector<frequencyItem> Stemp1, Stemp2;
-
-	for (i = 0; i < p.pTir.size(); i++)
-	{
-		//use the corresponding time index to determine the VTPs for type-1 patterns.
-		svttype1 = generateBEPType1(p.pTir[i],seq[p.pTir[i].sId].timeOcc);
-		//for each item in the VTPs of type-1 pattern, add one to its support.
-		generateStempType1(svttype1, &Stemp1);
-		svttype1.clear();
-		//use the corresponding time index to determine the VTPs for type-2 patterns.
-		svttype2 = generateBEPType2(p.pTir[i],seq[p.pTir[i].sId].timeOcc);
-		//for each item in the VTPs of type-2 pattern, add one to its support.
-		generateStempType2(p, svttype2, &Stemp2);
-		svttype2.clear();
-	}
-	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
-	for (i = 0; i < Stemp1.size(); i++)
-		if (Stemp1[i].frequency == p.frequency)
-			return false;
-	//for each item x found in VTPs of type-2 pattern with support >= minsup X |D|
-	for (i = 0; i < Stemp2.size(); i++)
-		if (Stemp2[i].frequency == p.frequency)
-			return false;
-	return true;
 }

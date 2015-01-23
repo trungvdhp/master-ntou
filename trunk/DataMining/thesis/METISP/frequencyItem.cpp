@@ -36,7 +36,7 @@ bool frequencyItem::operator==(const frequencyItem &y)
 	return true;
 }
 
-void frequencyItem::insertTir(int sid, int lst,int let)
+void frequencyItem::insertTir(int sid, int iniTime, int lst, int let)
 {
 	vector<TimeIntervalRecord1>::iterator iter;
 	iter = find(pTir.begin(),pTir.end(),sid);
@@ -45,14 +45,14 @@ void frequencyItem::insertTir(int sid, int lst,int let)
 		TimeIntervalRecord1 tir1;
 		TimeIntervalRecord temp;
 		tir1.setValue(sid);
-		temp.setValue(lst,let);
+		temp.setValue(iniTime, lst,let);
 		tir1.tir.push_back(temp);
 		pTir.push_back(tir1);
 	}
 	else
 	{
 		TimeIntervalRecord temp;
-		temp.setValue(lst,let);
+		temp.setValue(iniTime, lst, let);
 		(*iter).tir.push_back(temp);
 	}
 }

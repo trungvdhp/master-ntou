@@ -14,7 +14,7 @@ class frequencyItem
 {
 public:
 
-	void insertTir(int sid, int lst,int let);
+	void insertTir(int sid, int iniTime, int lst, int let);
 	frequencyItem();
 	virtual ~frequencyItem();
 	vector<int> item;
