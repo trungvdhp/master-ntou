@@ -1,1 +1,7 @@
 計算過程花費的時間大約0秒
+metisp (null) 0.500000 3 15 2
+ Duration 0.047000
+metisp (null) 0.500000 3 15 2
+ Duration 0.093000
+metisp (null) 0.500000 3 15 2
+ Duration 0.094000

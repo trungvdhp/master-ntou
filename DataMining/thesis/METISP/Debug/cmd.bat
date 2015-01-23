@@ -1,1 +1,1 @@
-cmd.exe
+METISP dss.txt
