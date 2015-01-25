@@ -39,11 +39,11 @@ void SequentialDatabase::scanDB()
 	}
 	getSequential();
 
-	for (i = 0; i < seq.size(); i++)
+	for (i = 0 ; i < seq.size() ;i++)
 	{
-		for (j = 0; j<seq[i].trans.size(); j++)
+		for (j = 0; j < seq[i].trans.size(); j++)
 		{
-			for (k = 0; k < seq[i].trans[j].t.size(); k++)
+			for (k = 0;k < seq[i].trans[j].t.size(); k++)
 			{
 				it = find(frequencySet.begin(), frequencySet.end(), seq[i].trans[j].t[k]);
 				if(it == frequencySet.end())
@@ -53,7 +53,7 @@ void SequentialDatabase::scanDB()
 			}
 		}
 
-		for (j = 0; j < frequencySet.size(); j++)
+		for (j = 0; j < frequencySet.size();j++)
 		{
 			if (frequencySet[j] >= ITEM_NO)
 			{
@@ -157,12 +157,14 @@ void SequentialDatabase::outputFrequentPattern(char * filename)
 	fstream fout;
 	//fout.open("out.txt",ios::out);
 	fout.open(filename,fstream::out);
+	char buf[2];
 	for (i = 0; i < freSeqSet.size(); i++)
 	{
 		for (j = 0 ;j < freSeqSet[i].freSeq.size(); j++)
 		{
 			fout << "{";
-			fout << "{" << freSeqSet[i].freSeq[j].item[0];
+			sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[0]);
+			fout << "{" << buf;
 			for (k = 1 ;k < freSeqSet[i].freSeq[j].item.size(); k++)
 			{
 				if (freSeqSet[i].freSeq[j].item[k] == -1)
@@ -171,11 +173,13 @@ void SequentialDatabase::outputFrequentPattern(char * filename)
 				}
 				else if (freSeqSet[i].freSeq[j].item[k-1] == -1)
 				{
-					fout << freSeqSet[i].freSeq[j].item[k];
+					sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
+					fout << buf;
 				}
 				else
 				{
-					fout << " " << freSeqSet[i].freSeq[j].item[k];
+					sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
+					fout << " " << buf;
 				}
 			}
 			fout << "}" ;
@@ -187,10 +191,11 @@ void SequentialDatabase::outputFrequentPattern(char * filename)
 
 void SequentialDatabase::generateSequentialPattern()
 {
-
-	int i;
 	THRESHOLD = min_sup * seq.size();
+
+	frequentSequence frequentSet; 
 	frequencyItem freItem;
+	int i;
 
 	for (i = 0; i < ITEM_NO; i++)
 	{
@@ -198,19 +203,22 @@ void SequentialDatabase::generateSequentialPattern()
 		{
 			freItem.item.push_back(i) ;
 			freItem.frequency = frequency[i];
-			constructPTidx(freItem);
-			mineDB(freItem, 1);
+			frequentSet.freSeq.push_back(freItem);
 			freItem.item.clear();
 		}
 	}
+	for (i = 0; i < frequentSet.freSeq.size(); i++)
+	{
+		constructPTidx(frequentSet.freSeq[i]);
+		//printFrequencyItem(frequentSet.freSeq[i]);
+		mineDB(frequentSet.freSeq[i], 1);
+	}
 }
-//Scan the transactional database D to construct p-Tidx, where p-Tidx is the time index of p
+
 void SequentialDatabase::constructPTidx(frequencyItem & p)
 {
 	int sid,tid;
 	int pStartItem = p.item[0];
-	int plastItem = p.item[p.item.size()-1];
-	bool pair = false;	
 	vector<int>::iterator iter;
 
 	for (sid = 0; sid < seq.size(); sid++)
@@ -220,7 +228,7 @@ void SequentialDatabase::constructPTidx(frequencyItem & p)
 			iter = find(seq[sid].trans[tid].t.begin(),seq[sid].trans[tid].t.end(),pStartItem);
 			if (iter != seq[sid].trans[tid].t.end())
 			{
-				p.insertTir(sid, seq[sid].timeOcc[tid], seq[sid].timeOcc[tid], seq[sid].timeOcc[tid]);
+				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid],seq[sid].timeOcc[tid]);
 			}
 		}
 	}
@@ -308,7 +316,9 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	frequencyItem p_;
 	if (FEP(p, &Stemp1, &Stemp2))
 	{
-		if (BEP(p))
+		printFrequencyItem(p);
+
+		/*if (BEP(p))
 		{
 			while (freSeqSet.size() < count)
 			{
@@ -316,7 +326,7 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 				freSeqSet.push_back(Sp);
 			}
 			freSeqSet[count-1].freSeq.push_back(p);
-		}
+		}*/
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
 	for (i = 0; i < Stemp1.size(); i++)
@@ -426,7 +436,8 @@ frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyIt
 					{
 						if (seq[p.pTir[i].sId].trans[k].t[l] == x.item[0])
 						{
-							p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]);
+							p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]
+							, p.pTir[i].til);
 						}
 					}
 				}
@@ -451,9 +462,12 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 		p_.item.push_back(x.item[i]);
 	p_.frequency = x.frequency;
 
+	vector<TimeIntervalRecord2*> pre;
 
 	for (i = 0; i < p.pTir.size(); i++)
 	{
+		if(p.pTir[i].til.size() > 0) 
+			for(j = 0; j < p.pTir[i].til[0]->prevTirs.size(); j++) pre.push_back(p.pTir[i].til[0] -> prevTirs[j]);
 		for (j = 0; j < p.pTir[i].tir.size() ; j++)
 		{
 			lb =  p.pTir[i].tir[j].lastEndTime - swin;
@@ -467,9 +481,11 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 						if (seq[p.pTir[i].sId].trans[k].t[l] == x.item[0])
 						{
 							if (p.pTir[i].sId, p.pTir[i].tir[j].initialTime < seq[p.pTir[i].sId].timeOcc[k])
-								p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]);
+								p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]
+								, pre);
 							else
-								p_.insertTir(p.pTir[i].sId, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k], p.pTir[i].tir[j].lastEndTime);
+								p_.insertTir(p.pTir[i].sId, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k], p.pTir[i].tir[j].lastEndTime
+								, pre);
 						}
 					}
 				}
@@ -477,6 +493,54 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 		}
 	}
 	return p_;
+}
+
+void SequentialDatabase::printFrequencyItem(frequencyItem p)
+{
+	int i,j,k;
+	printf("Frequent pattern: ");
+	printf("{");
+	printf("{%c", p.item[0]+'a');
+	for (k = 1 ;k < p.item.size(); k++)
+	{
+		if (p.item[k] == -1)
+		{
+			printf("} {");
+		}
+		else if (p.item[k-1] == -1)
+		{
+			printf("%c", p.item[k]+'a');
+		}
+		else
+		{
+			printf(" %c",p.item[k]+'a');
+		}
+	}
+	printf("}");
+	printf("} : %d\n", p.frequency);
+	for (i = 0; i < p.pTir.size(); i++)
+	{
+		printf("Time intervals %d: ", p.pTir[i].sId);
+		for (j = 0; j <p.pTir[i].tir.size(); j++)
+		{
+			printf("{%d:%d} ; ", p.pTir[i].tir[j].lastStartTime,  
+				p.pTir[i].tir[j].lastEndTime);
+		}
+		printf("\n");
+		printf("Timeline records:\n");
+		printTimeline(p.pTir[i].til);
+	}
+	
+}
+
+void SequentialDatabase::printTimeline(vector<TimeIntervalRecord2*> til)
+{
+	for (int i = 0; i <til.size(); i++)
+	{
+		printf("{%d:%d} ; ", til[i]->tir.lastStartTime, til[i]->tir.lastEndTime);
+		printTimeline(til[i]->prevTirs);
+		printf("\n");
+	}
 }
 
 bool SequentialDatabase::BEP(frequencyItem p)
