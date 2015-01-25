@@ -32,3 +32,79 @@ metisp dss.txt 0.500000 3 15 2
  Duration 0.031000
 metisp dss1.txt 0.500000 3 15 2
  Duration 0.062000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.028000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.047000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.028000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.027000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.028000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.028000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.028000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.028000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.002000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.003000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.003000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.008000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.002000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.012000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.012000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.012000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.012000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.015000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.013000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.017000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.021000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.016000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.002000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.003000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.003000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.002000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.002000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.003000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.002000
+metisp (null) 0.500000 3 15 2
+ Duration 0.010000

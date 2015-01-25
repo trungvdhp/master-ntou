@@ -11,7 +11,6 @@
 
 #include "Sequential.h"
 #include "frequentSequence.h"
-
 class SequentialDatabase  
 {
 public:
@@ -28,7 +27,8 @@ public:
 	void mineDB(frequencyItem p, int count);
 	void constructPTidx(frequencyItem & p);
 	void generateSequentialPattern();
-
+	void printFrequencyItem(frequencyItem p);
+	void printTimeline(vector<TimeIntervalRecord2*> til);
 
 	void outputFrequentPattern(char * filename);
 
