@@ -36,49 +36,42 @@ bool frequencyItem::operator==(const frequencyItem &y)
 	return true;
 }
 
-void frequencyItem::insertTir(int sid, int iniTime, int lst, int let)
+TimeIntervalRecord1 * frequencyItem::binarySearch (int sId)
 {
-	vector<TimeIntervalRecord1>::iterator iter;
-	iter = find(pTir.begin(),pTir.end(),sid);
-	TimeIntervalRecord temp;
-	temp.setValue(iniTime, lst,let);
-	TimeIntervalRecord2 * tir2 = new TimeIntervalRecord2();
-	tir2->tir.setValue(iniTime, lst, let);
-	if (iter == pTir.end())
+	int left = 0;
+	int right = pTir.size()-1;
+	int mid = (right+left)/2;
+	TimeIntervalRecord1 * it;
+
+	while(left <= right)
 	{
-		TimeIntervalRecord1 tir1;
-		tir1.setValue(sid);
-		tir1.tir.push_back(temp);
-		tir1.til.push_back(tir2);
-		pTir.push_back(tir1);
+		mid = (right+left)/2;
+		it = pTir[mid];
+		if (it->sId == sId)
+			return it;
+		if (it->sId < sId)
+			left = mid + 1;
+		else if (it->sId > sId)
+			right = mid - 1;
 	}
-	else
-	{
-		(*iter).tir.push_back(temp);
-		(*iter).til.push_back(tir2);
-	}
+	return NULL;
 }
 
-void frequencyItem::insertTir(int sid, int iniTime, int lst, int let, vector<TimeIntervalRecord2*> pre)
+void frequencyItem::insertTir(int sid, int iniTime, int lst, int let, TimeIntervalRecord1 * pre, int id, bool isInit)
 {
-	vector<TimeIntervalRecord1>::iterator iter;
-	iter = find(pTir.begin(),pTir.end(),sid);
 	TimeIntervalRecord temp;
 	temp.setValue(iniTime, lst,let);
-	TimeIntervalRecord2 * tir2 = new TimeIntervalRecord2();
-	tir2->tir.setValue(iniTime, lst, let);
-	tir2->prevTirs = pre;
-	if (iter == pTir.end())
+	if (!isInit)
 	{
-		TimeIntervalRecord1 tir1;
-		tir1.setValue(sid);
-		tir1.tir.push_back(temp);
-		tir1.til.push_back(tir2);
+		TimeIntervalRecord1 * tir1 = new TimeIntervalRecord1();
+		tir1->setValue(sid);
+		tir1->tir.push_back(temp);
+		tir1->prev = pre;
 		pTir.push_back(tir1);
 	}
 	else
 	{
-		(*iter).tir.push_back(temp);
-		(*iter).til.push_back(tir2);
+		pTir[id]->tir.push_back(temp);
 	}
+	//printf("\n");
 }

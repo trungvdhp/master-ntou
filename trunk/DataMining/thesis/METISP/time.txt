@@ -29,3 +29,41 @@ metisp (null) 0.500000 3 15 2
  Duration 0.017000
 metisp (null) 0.500000 3 15 2
  Duration 0.024000
+metisp (null) 0.500000 3 15 2
+ Duration 0.014000
+metisp (null) 0.500000 3 15 2
+ Duration 0.031000
+metisp (null) 0.500000 3 15 2
+ Duration 0.018000
+metisp (null) 0.500000 3 15 2
+ Duration 0.007000
+metisp (null) 0.500000 3 15 2
+ Duration 0.007000
+metisp (null) 0.500000 3 15 2
+ Duration 0.034000
+metisp (null) 0.500000 3 15 2
+ Duration 0.053000
+metisp (null) 0.500000 3 15 2
+ Duration 0.011000
+metisp (null) 0.500000 3 15 2
+ Duration 0.002000
+metisp (null) 0.500000 3 15 2
+ Duration 0.007000
+metisp (null) 0.500000 3 15 2
+ Duration 8.619000
+metisp (null) 0.500000 3 15 2
+ Duration 49.275000
+metisp (null) 0.500000 3 15 2
+ Duration 0.012000
+metisp (null) 0.500000 3 15 2
+ Duration 0.017000
+metisp (null) 0.500000 3 15 2
+ Duration 0.013000
+metisp (null) 0.500000 3 15 2
+ Duration 0.013000
+metisp (null) 0.500000 3 15 2
+ Duration 54.035000
+metisp (null) 0.500000 3 15 2
+ Duration 53.083000
+metisp (null) 0.500000 3 15 2
+ Duration 0.013000

@@ -217,18 +217,22 @@ void SequentialDatabase::generateSequentialPattern()
 
 void SequentialDatabase::constructPTidx(frequencyItem & p)
 {
+	int lastId=-1;
 	int sid,tid;
 	int pStartItem = p.item[0];
 	vector<int>::iterator iter;
-
+	bool isInit;
 	for (sid = 0; sid < seq.size(); sid++)
 	{
+		isInit = false;
 		for (tid = 0 ; tid < seq[sid].trans.size() ; tid++)
 		{
-			iter = find(seq[sid].trans[tid].t.begin(),seq[sid].trans[tid].t.end(),pStartItem);
+			iter = find(seq[sid].trans[tid].t.begin(), seq[sid].trans[tid].t.end(), pStartItem);
 			if (iter != seq[sid].trans[tid].t.end())
 			{
-				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid],seq[sid].timeOcc[tid]);
+				if(!isInit) lastId++;
+				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid],seq[sid].timeOcc[tid], NULL, lastId, isInit);
+				isInit = true;
 			}
 		}
 	}
@@ -288,12 +292,12 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> * Stemp1, ve
 	for (i = 0; i < p.pTir.size(); i++)
 	{
 		//use the corresponding time index to determine the VTPs for type-1 patterns.
-		svttype1 = generateFEPType1(p.pTir[i],seq[p.pTir[i].sId].timeOcc);
+		svttype1 = generateFEPType1(p.pTir[i],seq[p.pTir[i]->sId].timeOcc);
 		//for each item in the VTPs of type-1 pattern, add one to its support.
 		generateStempType1(svttype1, Stemp1);
 		svttype1.clear();
 		//use the corresponding time index to determine the VTPs for type-2 patterns.
-		svttype2 = generateFEPType2(p.pTir[i],seq[p.pTir[i].sId].timeOcc);
+		svttype2 = generateFEPType2(p.pTir[i],seq[p.pTir[i]->sId].timeOcc);
 		//for each item in the VTPs of type-2 pattern, add one to its support.
 		generateStempType2(p, svttype2, Stemp2);
 		svttype2.clear();
@@ -316,17 +320,17 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	frequencyItem p_;
 	if (FEP(p, &Stemp1, &Stemp2))
 	{
-		printFrequencyItem(p);
-
-		/*if (BEP(p))
+		bool f = BEP(p);
+		if (f)
 		{
+			printFrequencyItem(p);
 			while (freSeqSet.size() < count)
 			{
 				frequentSequence Sp;
 				freSeqSet.push_back(Sp);
 			}
 			freSeqSet[count-1].freSeq.push_back(p);
-		}*/
+		}
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
 	for (i = 0; i < Stemp1.size(); i++)
@@ -351,25 +355,25 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	}
 }
 
-vector<int> SequentialDatabase::generateFEPType1(TimeIntervalRecord1 tir1,vector<int> ot)
+vector<int> SequentialDatabase::generateFEPType1(TimeIntervalRecord1 * tir1, vector<int> ot)
 {
 	vector<int> temp;
 	vector<int>::iterator iter;
 	int i,j,k,ub,lb;
-	for (i = 0; i < tir1.tir.size(); i++)
+	for (i = 0; i < tir1->tir.size(); i++)
 	{
-		lb = tir1.tir[i].lastEndTime + mingap;
-		ub = tir1.tir[i].lastStartTime + maxgap;
+		lb = tir1->tir[i].lastEndTime + mingap;
+		ub = tir1->tir[i].lastStartTime + maxgap;
 		for (j = 0; j < ot.size() ; j++)
 		{
 			if (lb <= ot[j] && ot[j] <= ub )
 			{
-				for (k = 0; k < seq[tir1.sId].trans[j].t.size(); k++)
+				for (k = 0; k < seq[tir1->sId].trans[j].t.size(); k++)
 				{
-					iter = find(temp.begin(),temp.end(),seq[tir1.sId].trans[j].t[k]);
+					iter = find(temp.begin(),temp.end(),seq[tir1->sId].trans[j].t[k]);
 					if (iter == temp.end())
 					{
-						temp.push_back(seq[tir1.sId].trans[j].t[k]);
+						temp.push_back(seq[tir1->sId].trans[j].t[k]);
 					}
 				}
 			}
@@ -378,26 +382,26 @@ vector<int> SequentialDatabase::generateFEPType1(TimeIntervalRecord1 tir1,vector
 	return temp;
 }
 
-vector<int> SequentialDatabase::generateFEPType2(TimeIntervalRecord1 tir1,vector<int> ot)
+vector<int> SequentialDatabase::generateFEPType2(TimeIntervalRecord1 * tir1, vector<int> ot)
 {
 
 	vector<int> temp;
 	vector<int>::iterator iter;
 	int i,j,k,ub,lb;
-	for (i = 0; i < tir1.tir.size(); i++)
+	for (i = 0; i < tir1->tir.size(); i++)
 	{
-		lb = tir1.tir[i].lastEndTime - swin;
-		ub = tir1.tir[i].lastStartTime + swin;
+		lb = tir1->tir[i].lastEndTime - swin;
+		ub = tir1->tir[i].lastStartTime + swin;
 		for (j = 0; j < ot.size() ; j++)
 		{
 			if (lb <= ot[j] && ot[j] <= ub )
 			{
-				for (k = 0; k < seq[tir1.sId].trans[j].t.size(); k++)
+				for (k = 0; k < seq[tir1->sId].trans[j].t.size(); k++)
 				{
-					iter = find(temp.begin(),temp.end(),seq[tir1.sId].trans[j].t[k]);
+					iter = find(temp.begin(),temp.end(),seq[tir1->sId].trans[j].t[k]);
 					if (iter == temp.end())
 					{
-						temp.push_back(seq[tir1.sId].trans[j].t[k]);
+						temp.push_back(seq[tir1->sId].trans[j].t[k]);
 					}
 				}
 			}
@@ -408,6 +412,8 @@ vector<int> SequentialDatabase::generateFEPType2(TimeIntervalRecord1 tir1,vector
 
 frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyItem x, int * count)
 {
+	int lastId = -1;
+	bool isInit;
 	frequencyItem p_;
 	int i , j,k = 0,l,ub,lb;
 	*count = 0;
@@ -424,20 +430,23 @@ frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyIt
 
 	for (i = 0; i < p.pTir.size(); i++)
 	{
-		for (j = 0; j < p.pTir[i].tir.size() ; j++)
+		isInit = false;
+		for (j = 0; j < p.pTir[i]->tir.size() ; j++)
 		{
-			lb =  p.pTir[i].tir[j].lastEndTime + mingap;
-			ub = p.pTir[i].tir[j].lastStartTime + maxgap;
-			for (k = 0; k < seq[p.pTir[i].sId].timeOcc.size() ; k++)
+			lb =  p.pTir[i]->tir[j].lastEndTime + mingap;
+			ub = p.pTir[i]->tir[j].lastStartTime + maxgap;
+			for (k = 0; k < seq[p.pTir[i]->sId].timeOcc.size() ; k++)
 			{
-				if (lb <= seq[p.pTir[i].sId].timeOcc[k] && seq[p.pTir[i].sId].timeOcc[k] <= ub )
+				if (lb <= seq[p.pTir[i]->sId].timeOcc[k] && seq[p.pTir[i]->sId].timeOcc[k] <= ub )
 				{
-					for (l = 0; l < seq[p.pTir[i].sId].trans[k].t.size(); l++)
+					for (l = 0; l < seq[p.pTir[i]->sId].trans[k].t.size(); l++)
 					{
-						if (seq[p.pTir[i].sId].trans[k].t[l] == x.item[0])
+						if (seq[p.pTir[i]->sId].trans[k].t[l] == x.item[0])
 						{
-							p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]
-							, p.pTir[i].til);
+							if(!isInit) lastId++;
+							p_.insertTir(p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k]
+							, p.pTir[i], lastId, isInit);
+							isInit = true;
 						}
 					}
 				}
@@ -449,6 +458,8 @@ frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyIt
 
 frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyItem x, int * count)
 {
+	int lastId = -1;
+	bool isInit;
 	frequencyItem p_;
 	int i , j, k = 0, l, ub ,lb;
 	*count = 0;
@@ -462,30 +473,29 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 		p_.item.push_back(x.item[i]);
 	p_.frequency = x.frequency;
 
-	vector<TimeIntervalRecord2*> pre;
-
 	for (i = 0; i < p.pTir.size(); i++)
 	{
-		if(p.pTir[i].til.size() > 0) 
-			for(j = 0; j < p.pTir[i].til[0]->prevTirs.size(); j++) pre.push_back(p.pTir[i].til[0] -> prevTirs[j]);
-		for (j = 0; j < p.pTir[i].tir.size() ; j++)
+		isInit = false;
+		for (j = 0; j < p.pTir[i]->tir.size() ; j++)
 		{
-			lb =  p.pTir[i].tir[j].lastEndTime - swin;
-			ub = p.pTir[i].tir[j].lastStartTime + swin;
-			for (k = 0; k < seq[p.pTir[i].sId].timeOcc.size() ; k++)
+			lb =  p.pTir[i]->tir[j].lastEndTime - swin;
+			ub = p.pTir[i]->tir[j].lastStartTime + swin;
+			for (k = 0; k < seq[p.pTir[i]->sId].timeOcc.size() ; k++)
 			{
-				if (lb <= seq[p.pTir[i].sId].timeOcc[k] && seq[p.pTir[i].sId].timeOcc[k] <= ub )
+				if (lb <= seq[p.pTir[i]->sId].timeOcc[k] && seq[p.pTir[i]->sId].timeOcc[k] <= ub )
 				{
-					for (l = 0; l < seq[p.pTir[i].sId].trans[k].t.size(); l++)
+					for (l = 0; l < seq[p.pTir[i]->sId].trans[k].t.size(); l++)
 					{
-						if (seq[p.pTir[i].sId].trans[k].t[l] == x.item[0])
+						if (seq[p.pTir[i]->sId].trans[k].t[l] == x.item[0])
 						{
-							if (p.pTir[i].sId, p.pTir[i].tir[j].initialTime < seq[p.pTir[i].sId].timeOcc[k])
-								p_.insertTir(p.pTir[i].sId, p.pTir[i].tir[j].initialTime, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k]
-								, pre);
+							if(!isInit) lastId++;
+							if (p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime < seq[p.pTir[i]->sId].timeOcc[k])
+								p_.insertTir(p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k]
+								, p.pTir[i]->prev, lastId, isInit);
 							else
-								p_.insertTir(p.pTir[i].sId, seq[p.pTir[i].sId].timeOcc[k], seq[p.pTir[i].sId].timeOcc[k], p.pTir[i].tir[j].lastEndTime
-								, pre);
+								p_.insertTir(p.pTir[i]->sId, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k], p.pTir[i]->tir[j].lastEndTime
+								, p.pTir[i]->prev, lastId, isInit);
+							isInit = true;
 						}
 					}
 				}
@@ -518,79 +528,96 @@ void SequentialDatabase::printFrequencyItem(frequencyItem p)
 	}
 	printf("}");
 	printf("} : %d\n", p.frequency);
-	for (i = 0; i < p.pTir.size(); i++)
+	/*for (i = 0; i < p.pTir.size(); i++)
 	{
-		printf("Time intervals %d: ", p.pTir[i].sId);
-		for (j = 0; j <p.pTir[i].tir.size(); j++)
+		printf("Time intervals %d: ", p.pTir[i]->sId);
+		for (j = 0; j <p.pTir[i]->tir.size(); j++)
 		{
-			printf("{%d:%d} ; ", p.pTir[i].tir[j].lastStartTime,  
-				p.pTir[i].tir[j].lastEndTime);
+			printf("{%d:%d} ; ", p.pTir[i]->tir[j].lastStartTime,  
+				p.pTir[i]->tir[j].lastEndTime);
 		}
 		printf("\n");
-		printf("Timeline records:\n");
-		printTimeline(p.pTir[i].til);
-	}
+		printf("Timeline records:");
+		printTimeline(p.pTir[i]);
+	}*/
 	
 }
 
-void SequentialDatabase::printTimeline(vector<TimeIntervalRecord2*> til)
+void SequentialDatabase::printTimeline(TimeIntervalRecord1 * tir1)
 {
-	for (int i = 0; i <til.size(); i++)
+	printf("\n");
+	if(tir1 != NULL)
 	{
-		printf("{%d:%d} ; ", til[i]->tir.lastStartTime, til[i]->tir.lastEndTime);
-		printTimeline(til[i]->prevTirs);
-		printf("\n");
+		int k = tir1->tir.size();
+		for (int i = 0; i < k; i++)
+		{
+			printf("{%d:%d} ; ", tir1->tir[i].lastStartTime, tir1->tir[i].lastEndTime);
+		}
+		printTimeline(tir1->prev);
 	}
 }
 
 bool SequentialDatabase::BEP(frequencyItem p)
 {
+	int size;
 	int i;
+	int count=0;
+	int icount = 0;
 	vector<int> svttype1, svttype2;
-	vector<frequencyItem> Stemp1, Stemp2;
-
-	for (i = 0; i < p.pTir.size(); i++)
+	vector<TimeIntervalRecord1 *> temp;
+	size = p.pTir.size();
+	for(i=0; i<size; i++) temp.push_back(p.pTir[i]);
+	while(true)
 	{
-		//use the corresponding time index to determine the VTPs for type-1 patterns.
-		svttype1 = generateBEPType1(p.pTir[i], seq[p.pTir[i].sId].timeOcc);
-		//for each item in the VTPs of type-1 pattern, add one to its support.
-		generateStempType1(svttype1, &Stemp1);
-		svttype1.clear();
-		//use the corresponding time index to determine the VTPs for type-2 patterns.
-		svttype2 = generateBEPType2(p.pTir[i], seq[p.pTir[i].sId].timeOcc);
-		//for each item in the VTPs of type-2 pattern, add one to its support.
-		generateStempType2(p, svttype2, &Stemp2);
-		svttype2.clear();
+		if(count==size) break;
+		printf("icount # %d\n", ++icount);
+		vector<frequencyItem> Stemp1, Stemp2;
+		for (i = 0; i < size; i++)
+		{
+			//use the corresponding time index to determine the VTPs for type-1 patterns.
+			svttype1 = generateBEPType1(temp[i], seq[temp[i]->sId].timeOcc);
+			//for each item in the VTPs of type-1 pattern, add one to its support.
+			generateStempType1(svttype1, &Stemp1);
+			svttype1.clear();
+			//use the corresponding time index to determine the VTPs for type-2 patterns.
+			svttype2 = generateBEPType2(temp[i], seq[temp[i]->sId].timeOcc);
+			//for each item in the VTPs of type-2 pattern, add one to its support.
+			generateStempType2(p, svttype2, &Stemp2);
+			svttype2.clear();
+			temp[i] = temp[i]->prev;
+			if(temp[i] == NULL) count++;
+		}
+		//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
+		for (i = 0; i < Stemp1.size(); i++)
+			if (Stemp1[i].frequency == p.frequency)
+				return false;
+		//for each item x found in VTPs of type-2 pattern with support >= minsup X |D|
+		for (i = 0; i < Stemp2.size(); i++)
+			if (Stemp2[i].frequency == p.frequency)
+				return false;
+		
 	}
-	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
-	for (i = 0; i < Stemp1.size(); i++)
-		if (Stemp1[i].frequency == p.frequency)
-			return false;
-	//for each item x found in VTPs of type-2 pattern with support >= minsup X |D|
-	for (i = 0; i < Stemp2.size(); i++)
-		if (Stemp2[i].frequency == p.frequency)
-			return false;
 	return true;
 }
 
-vector<int> SequentialDatabase::generateBEPType1(TimeIntervalRecord1 tir1,vector<int> ot)
+vector<int> SequentialDatabase::generateBEPType1(TimeIntervalRecord1 * tir1,vector<int> ot)
 {
 	vector<int> temp;
 	vector<int>::iterator iter;
 	int i,k,ub,lb;
-	lb = tir1.tir[0].lastEndTime - maxgap;
-	ub = tir1.tir[0].initialTime - mingap;
+	lb = tir1->tir[0].lastEndTime - maxgap;
+	ub = tir1->tir[0].lastStartTime - mingap;
 
 	for (i = 0; i < ot.size() ; i++)
 	{
 		if (lb <= ot[i] && ot[i] <= ub )
 		{
-			for (k = 0; k < seq[tir1.sId].trans[i].t.size(); k++)
+			for (k = 0; k < seq[tir1->sId].trans[i].t.size(); k++)
 			{
-				iter = find(temp.begin(),temp.end(),seq[tir1.sId].trans[i].t[k]);
+				iter = find(temp.begin(),temp.end(),seq[tir1->sId].trans[i].t[k]);
 				if (iter == temp.end())
 				{
-					temp.push_back(seq[tir1.sId].trans[i].t[k]);
+					temp.push_back(seq[tir1->sId].trans[i].t[k]);
 				}
 			}
 		}
@@ -598,29 +625,29 @@ vector<int> SequentialDatabase::generateBEPType1(TimeIntervalRecord1 tir1,vector
 	return temp;
 }
 
-vector<int> SequentialDatabase::generateBEPType2(TimeIntervalRecord1 tir1,vector<int> ot)
+vector<int> SequentialDatabase::generateBEPType2(TimeIntervalRecord1 * tir1,vector<int> ot)
 {
 
 	vector<int> temp;
 	vector<int>::iterator iter;
 	int i,j,k,ub1,lb1, ub2, lb2;
-	for (i = 0; i < tir1.tir.size(); i++)
+	for (i = 0; i < tir1->tir.size(); i++)
 	{
-		lb1 = tir1.tir[i].lastEndTime - swin;
-		ub1 = tir1.tir[i].initialTime;
-		lb2 = tir1.tir[i].lastEndTime;
-		ub2 = tir1.tir[i].initialTime + swin;
+		lb1 = tir1->tir[i].lastEndTime - swin;
+		ub1 = tir1->tir[i].lastStartTime;
+		lb2 = tir1->tir[i].lastEndTime;
+		ub2 = tir1->tir[i].lastStartTime + swin;
 
 		for (j = 0; j < ot.size() ; j++)
 		{
 			if ((lb1 <= ot[j] && ot[j] <= ub1) || (lb2 <= ot[j] && ot[j] <= ub2))
 			{
-				for (k = 0; k < seq[tir1.sId].trans[j].t.size(); k++)
+				for (k = 0; k < seq[tir1->sId].trans[j].t.size(); k++)
 				{
-					iter = find(temp.begin(),temp.end(),seq[tir1.sId].trans[j].t[k]);
+					iter = find(temp.begin(),temp.end(),seq[tir1->sId].trans[j].t[k]);
 					if (iter == temp.end())
 					{
-						temp.push_back(seq[tir1.sId].trans[j].t[k]);
+						temp.push_back(seq[tir1->sId].trans[j].t[k]);
 					}
 				}
 			}

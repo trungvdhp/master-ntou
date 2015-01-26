@@ -13,15 +13,16 @@
 class frequencyItem  
 {
 public:
-	void insertTir(int sid, int iniTime, int lst, int let);
-	void insertTir(int sid, int iniTime, int lst, int let, vector<TimeIntervalRecord2*> prev);
+	void insertTir(int sid, int iniTime, int lst, int let, TimeIntervalRecord1 * prev = NULL, int id = 0, bool isInit = false);
 	frequencyItem();
 	virtual ~frequencyItem();
 	vector<int> item;
 	int frequency;
-	vector<TimeIntervalRecord1> pTir;
+	vector<TimeIntervalRecord1*> pTir;
 	bool operator==(const frequencyItem &y);
 	bool operator<(const frequencyItem &y);
+private:
+	TimeIntervalRecord1 * binarySearch (int sId);
 };
 
 #endif // !defined(AFX_FREQUENCYITEM_H__27684FC1_3447_405B_87C6_BE9E83D486BE__INCLUDED_)
