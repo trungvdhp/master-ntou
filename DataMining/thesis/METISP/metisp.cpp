@@ -64,7 +64,7 @@ int main(int argc, char * argv[])
 	{
 		seqDB->outputFrequentPattern("out.txt");
 	}*/
-	
+	seqDB->outputFrequentPattern("out.txt");
 	//finish = time(NULL);
 	finish = clock();
 	//duration = difftime(finish,start);
@@ -76,6 +76,6 @@ int main(int argc, char * argv[])
 	fclose(fp);
 	//fout.close();
 	delete seqDB;
-	system("pause");
+	//system("pause");
 	return 0;
 }

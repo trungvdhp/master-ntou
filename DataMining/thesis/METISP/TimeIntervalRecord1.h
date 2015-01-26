@@ -10,7 +10,6 @@
 #endif // _MSC_VER > 1000
 
 #include "TimeIntervalRecord.h"
-#include "TimeIntervalRecord2.h"
 #include "metisp.h"
 
 class TimeIntervalRecord1  
@@ -19,8 +18,8 @@ public:
 	void setValue(const int sid = 0);
 	TimeIntervalRecord1();
 	virtual ~TimeIntervalRecord1();
+	TimeIntervalRecord1 * prev;
 	vector<TimeIntervalRecord> tir;
-	vector<TimeIntervalRecord2*> til;
 	int sId;
 	bool operator==(const TimeIntervalRecord1 &y);
 	bool operator==(const int sid);
