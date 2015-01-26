@@ -321,9 +321,9 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	if (FEP(p, &Stemp1, &Stemp2))
 	{
 		bool f = BEP(p);
+		printFrequencyItem(p);
 		if (f)
 		{
-			printFrequencyItem(p);
 			while (freSeqSet.size() < count)
 			{
 				frequentSequence Sp;
@@ -508,6 +508,7 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 void SequentialDatabase::printFrequencyItem(frequencyItem p)
 {
 	int i,j,k;
+	printf("---------------------------------------------------\n");
 	printf("Frequent pattern: ");
 	printf("{");
 	printf("{%c", p.item[0]+'a');
@@ -528,18 +529,18 @@ void SequentialDatabase::printFrequencyItem(frequencyItem p)
 	}
 	printf("}");
 	printf("} : %d\n", p.frequency);
-	/*for (i = 0; i < p.pTir.size(); i++)
+	for (i = 0; i < p.pTir.size(); i++)
 	{
-		printf("Time intervals %d: ", p.pTir[i]->sId);
+	/*	printf("Time intervals %d: ", p.pTir[i]->sId);
 		for (j = 0; j <p.pTir[i]->tir.size(); j++)
 		{
 			printf("{%d:%d} ; ", p.pTir[i]->tir[j].lastStartTime,  
 				p.pTir[i]->tir[j].lastEndTime);
 		}
-		printf("\n");
-		printf("Timeline records:");
+		printf("\n");*/
+		printf(" + Timeline records:");
 		printTimeline(p.pTir[i]);
-	}*/
+	}
 	
 }
 
@@ -570,7 +571,7 @@ bool SequentialDatabase::BEP(frequencyItem p)
 	while(true)
 	{
 		if(count==size) break;
-		printf("icount # %d\n", ++icount);
+		//printf("icount # %d\n", ++icount);
 		vector<frequencyItem> Stemp1, Stemp2;
 		for (i = 0; i < size; i++)
 		{

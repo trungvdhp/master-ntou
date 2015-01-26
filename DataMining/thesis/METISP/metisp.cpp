@@ -52,8 +52,8 @@ int main(int argc, char * argv[])
 	//char filename[] = "dss.txt";
 	//start = time(NULL);
 	start = clock();
-	/*SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);*/
-	SequentialDatabase * seqDB = new SequentialDatabase("D:\\Document\\master-ntou\\DataMining\\thesis\\METISP\\Debug\\dss.txt");
+	//SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);
+	SequentialDatabase * seqDB = new SequentialDatabase("D:\\master\\DataMining\\thesis\\METISP\\Debug\\dss.txt");
 	seqDB->execute();
 
 	/*if (argc >= 8)
