@@ -1,8 +1,111 @@
-{{a}} : 3
-{{a c} {b}} : 2
-{{b}} : 3
-{{b} {e} {d}} : 2
-{{c}} : 3
-{{c d}} : 2
-{{d}} : 3
- ­Duration 0.0100000000
+---------------------------------------------------------------------
+Frequent pattern: {{a}} : 3
+Time intervals 0: {5:5} ; {31:31} ; 
+Timeline records: | {5:5} ; {31:31} ; 
+Time intervals 1: {6:6} ; {18:18} ; 
+Timeline records: | {6:6} ; {18:18} ; 
+Time intervals 3: {5:5} ; 
+Timeline records: | {5:5} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{a} {b} {a}} : 2
+Time intervals 0: {31:31} ; 
+Timeline records: | {31:31} ;  | {18:18} ;  | {5:5} ; {31:31} ; 
+Time intervals 1: {18:18} ; 
+Timeline records: | {18:18} ;  | {10:10} ;  | {6:6} ; {18:18} ; 
+---------------------------------------------------------------------
+Frequent pattern: {{a} {d}} : 2
+Time intervals 1: {24:24} ; 
+Timeline records: | {24:24} ;  | {6:6} ; {18:18} ; 
+Time intervals 3: {10:10} ; 
+Timeline records: | {10:10} ;  | {5:5} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{a c} {b} {a}} : 2
+Time intervals 0: {31:31} ; 
+Timeline records: | {31:31} ;  | {18:18} ;  | {3:5} ; 
+Time intervals 1: {18:18} ; 
+Timeline records: | {18:18} ;  | {10:10} ;  | {6:6} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{b}} : 3
+Time intervals 0: {18:18} ; 
+Timeline records: | {18:18} ; 
+Time intervals 1: {10:10} ; 
+Timeline records: | {10:10} ; 
+Time intervals 2: {1:1} ; {20:20} ; 
+Timeline records: | {1:1} ; {20:20} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{b} {a}} : 2
+Time intervals 0: {31:31} ; 
+Timeline records: | {31:31} ;  | {18:18} ; 
+Time intervals 1: {18:18} ; 
+Timeline records: | {18:18} ;  | {10:10} ; 
+---------------------------------------------------------------------
+Frequent pattern: {{b} {e} {d}} : 2
+Time intervals 1: {24:24} ; 
+Timeline records: | {24:24} ;  | {17:17} ;  | {10:10} ; 
+Time intervals 2: {34:34} ; 
+Timeline records: | {34:34} ;  | {27:27} ;  | {1:1} ; {20:20} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{b} {d}} : 2
+Time intervals 1: {24:24} ; 
+Timeline records: | {24:24} ;  | {10:10} ; 
+Time intervals 2: {34:34} ; 
+Timeline records: | {34:34} ;  | {1:1} ; {20:20} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{c}} : 3
+Time intervals 0: {3:3} ; 
+Timeline records: | {3:3} ; 
+Time intervals 1: {6:6} ; {24:24} ; 
+Timeline records: | {6:6} ; {24:24} ; 
+Time intervals 3: {21:21} ; 
+Timeline records: | {21:21} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{c} {b} {a}} : 2
+Time intervals 0: {31:31} ; 
+Timeline records: | {31:31} ;  | {18:18} ;  | {3:3} ; 
+Time intervals 1: {18:18} ; 
+Timeline records: | {18:18} ;  | {10:10} ;  | {6:6} ; {24:24} ; 
+---------------------------------------------------------------------
+Frequent pattern: {{c} {e}} : 2
+Time intervals 1: {17:17} ; 
+Timeline records: | {17:17} ;  | {6:6} ; {24:24} ; 
+Time intervals 3: {26:26} ; 
+Timeline records: | {26:26} ;  | {21:21} ; 
+---------------------------------------------------------------------
+Frequent pattern: {{c d}} : 2
+Time intervals 1: {24:24} ; 
+Timeline records: | {24:24} ; 
+Time intervals 3: {21:21} ; 
+Timeline records: | {21:21} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{d}} : 3
+Time intervals 1: {24:24} ; 
+Timeline records: | {24:24} ; 
+Time intervals 2: {34:34} ; 
+Timeline records: | {34:34} ; 
+Time intervals 3: {10:10} ; {21:21} ; 
+Timeline records: | {10:10} ; {21:21} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{e}} : 3
+Time intervals 1: {17:17} ; 
+Timeline records: | {17:17} ; 
+Time intervals 2: {27:27} ; 
+Timeline records: | {27:27} ; 
+Time intervals 3: {26:26} ; 
+Timeline records: | {26:26} ; 
+ok
+---------------------------------------------------------------------
+Frequent pattern: {{e} {d}} : 2
+Time intervals 1: {24:24} ; 
+Timeline records: | {24:24} ;  | {17:17} ; 
+Time intervals 2: {34:34} ; 
+Timeline records: | {34:34} ;  | {27:27} ; 
+ ­Duration 0.0220000000
