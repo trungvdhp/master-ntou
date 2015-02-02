@@ -319,14 +319,15 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	int i;
 	vector<frequencyItem> Stemp1,Stemp2;
 	frequencyItem p_;
-	if (FEP(p, &Stemp1, &Stemp2))
+	bool f = FEP(p, &Stemp1, &Stemp2);
+	if (f)
 	{
-		//printFrequencyItem(p);
-		bool f = BEP(p);
+		printFrequencyItem(p);
+		f = BEP(p);
 		if (f)
 		{
-			printFrequencyItem(p);
-			//printf("ok\n");
+			//printFrequencyItem(p);
+			printf("ok\n");
 			while (freSeqSet.size() < count)
 			{
 				frequentSequence Sp;
@@ -511,8 +512,8 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 void SequentialDatabase::printFrequencyItem(frequencyItem p)
 {
 	int i,j,k;
-	//printf("---------------------------------------------------------------------\n");
-	//printf("Frequent pattern: ");
+	printf("---------------------------------------------------------------------\n");
+	printf("Frequent pattern: ");
 	printf("{");
 	printf("{%c", p.item[0]+'a');
 	for (k = 1 ;k < p.item.size(); k++)
@@ -532,7 +533,7 @@ void SequentialDatabase::printFrequencyItem(frequencyItem p)
 	}
 	printf("}");
 	printf("} : %d\n", p.frequency);
-	/*for (i = 0; i < p.pTir.size(); i++)
+	for (i = 0; i < p.pTir.size(); i++)
 	{
 		printf("Time intervals %d: ", p.pTir[i]->sId);
 		for (j = 0; j <p.pTir[i]->tir.size(); j++)
@@ -544,8 +545,7 @@ void SequentialDatabase::printFrequencyItem(frequencyItem p)
 		printf("Timeline records:");
 		printTimeline(p.pTir[i]);
 		printf("\n");
-	}*/
-	
+	}
 }
 
 void SequentialDatabase::printTimeline(TimeIntervalRecord1 * tir1)
@@ -570,11 +570,13 @@ bool SequentialDatabase::BEP(frequencyItem p)
 	int icount = 0;
 	vector<TimeIntervalRecord1 *> temp;
 	size = p.pTir.size();
-	for(i=0; i<size; i++) 
+	for (i = 0; i < size; i++)
+	{
 		temp.push_back(p.pTir[i]);
+	}
 	lastId = p.item.size()-1;
 	firstId = lastId;
-	while(firstId != -1 && p.item[firstId] != -1) firstId--;
+	while (firstId > -1 && p.item[firstId] != -1) firstId--;
 	firstId++;
 	while(true)
 	{
@@ -616,20 +618,23 @@ vector<int> SequentialDatabase::generateBEPType1(TimeIntervalRecord1 * tir1,vect
 {
 	vector<int> temp;
 	vector<int>::iterator iter;
-	int j,k,ub,lb;
-	lb = tir1->tir[0].lastEndTime - maxgap;
-	ub = tir1->tir[0].lastStartTime - mingap;
-
-	for (j = 0; j < ot.size() ; j++)
+	int i,j,k,ub,lb;
+	for (i = 0; i < tir1->tir.size(); i++)
 	{
-		if (lb <= ot[j] && ot[j] <= ub )
+		lb = tir1->tir[i].lastEndTime - maxgap;
+		ub = tir1->tir[i].lastStartTime - mingap;
+
+		for (j = 0; j < ot.size(); j++)
 		{
-			for (k = 0; k < seq[tir1->sId].trans[j].t.size(); k++)
+			if (lb <= ot[j] && ot[j] <= ub)
 			{
-				iter = find(temp.begin(),temp.end(),seq[tir1->sId].trans[j].t[k]);
-				if (iter == temp.end())
+				for (k = 0; k < seq[tir1->sId].trans[j].t.size(); k++)
 				{
-					temp.push_back(seq[tir1->sId].trans[j].t[k]);
+					iter = find(temp.begin(), temp.end(), seq[tir1->sId].trans[j].t[k]);
+					if (iter == temp.end())
+					{
+						temp.push_back(seq[tir1->sId].trans[j].t[k]);
+					}
 				}
 			}
 		}
@@ -657,6 +662,37 @@ vector<int> SequentialDatabase::generateBEPType2(TimeIntervalRecord1 * tir1,vect
 				for (k = 0; k < seq[tir1->sId].trans[j].t.size(); k++)
 				{
 					iter = find(temp.begin(),temp.end(),seq[tir1->sId].trans[j].t[k]);
+					if (iter == temp.end())
+					{
+						temp.push_back(seq[tir1->sId].trans[j].t[k]);
+					}
+				}
+			}
+		}
+	}
+	return temp;
+}
+
+vector<int> SequentialDatabase::generateBEPType2(TimeIntervalRecord1 * tir1, vector<int> ot, int firstId, int lastId)
+{
+	vector<int> temp;
+	vector<int>::iterator iter;
+	int i, j, k, ub1, lb1, ub2, lb2;
+	for (i = 0; i < tir1->tir.size(); i++)
+	{
+		lb1 = tir1->tir[i].lastEndTime - swin;
+		ub1 = tir1->tir[i].lastStartTime;
+		lb2 = tir1->tir[i].lastEndTime;
+		ub2 = tir1->tir[i].lastStartTime + swin;
+
+		for (j = 0; j < ot.size(); j++)
+		{
+			if ((lb1 <= ot[j] && ot[j] <= ub1))
+			{
+				for (k = 0; k < seq[tir1->sId].trans[j].t.size(); k++)
+				{
+					if (seq[tir1->sId].trans[j].t[k])
+					iter = find(temp.begin(), temp.end(), seq[tir1->sId].trans[j].t[k]);
 					if (iter == temp.end())
 					{
 						temp.push_back(seq[tir1->sId].trans[j].t[k]);
