@@ -1,81 +1,8 @@
----------------------------------------------------
-Frequent pattern: {{a}} : 3
- + Timeline records:
-{5:5} ; {31:31} ; 
- + Timeline records:
-{6:6} ; 
- + Timeline records:
-{5:5} ; 
----------------------------------------------------
-Frequent pattern: {{a} {b}} : 2
- + Timeline records:
-{18:18} ; 
-{5:5} ; {31:31} ; 
- + Timeline records:
-{10:10} ; 
-{6:6} ; 
----------------------------------------------------
-Frequent pattern: {{a c} {b}} : 2
- + Timeline records:
-{18:18} ; 
-{3:5} ; 
- + Timeline records:
-{10:10} ; 
-{6:6} ; 
----------------------------------------------------
-Frequent pattern: {{b}} : 3
- + Timeline records:
-{18:18} ; 
- + Timeline records:
-{10:10} ; 
- + Timeline records:
-{1:1} ; {20:20} ; 
----------------------------------------------------
-Frequent pattern: {{b} {e} {d}} : 2
- + Timeline records:
-{24:24} ; 
-{17:17} ; 
-{10:10} ; 
- + Timeline records:
-{36:36} ; 
-{27:27} ; 
-{1:1} ; {20:20} ; 
----------------------------------------------------
-Frequent pattern: {{c}} : 3
- + Timeline records:
-{3:3} ; 
- + Timeline records:
-{6:6} ; {24:24} ; 
- + Timeline records:
-{21:21} ; 
----------------------------------------------------
-Frequent pattern: {{c} {b}} : 2
- + Timeline records:
-{18:18} ; 
-{3:3} ; 
- + Timeline records:
-{10:10} ; 
-{6:6} ; {24:24} ; 
----------------------------------------------------
-Frequent pattern: {{c d}} : 2
- + Timeline records:
-{24:24} ; 
- + Timeline records:
-{21:21} ; 
----------------------------------------------------
-Frequent pattern: {{d}} : 3
- + Timeline records:
-{24:24} ; 
- + Timeline records:
-{36:36} ; 
- + Timeline records:
-{10:10} ; {21:21} ; 
----------------------------------------------------
-Frequent pattern: {{e} {d}} : 2
- + Timeline records:
-{24:24} ; 
-{17:17} ; 
- + Timeline records:
-{36:36} ; 
-{27:27} ; 
- ­Duration 0.0120000000
+{{a}} : 3
+{{a c} {b}} : 2
+{{b}} : 3
+{{b} {e} {d}} : 2
+{{c}} : 3
+{{c d}} : 2
+{{d}} : 3
+ ­Duration 0.0100000000
