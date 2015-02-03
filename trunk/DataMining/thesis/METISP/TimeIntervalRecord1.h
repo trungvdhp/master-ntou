@@ -19,6 +19,7 @@ public:
 	TimeIntervalRecord1();
 	virtual ~TimeIntervalRecord1();
 	TimeIntervalRecord1 * prev;
+	TimeIntervalRecord1 * next;
 	vector<TimeIntervalRecord> tir;
 	int sId;
 	bool operator==(const TimeIntervalRecord1 &y);
