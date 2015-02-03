@@ -24,7 +24,7 @@ public:
 	vector<int> generateFEPType2(TimeIntervalRecord1 * tir1,vector<int> ot);
 	vector<int> generateBEPType1(TimeIntervalRecord1 * tir1,vector<int> ot);
 	vector<int> generateBEPType2(TimeIntervalRecord1 * tir1,vector<int> ot);
-	vector<int> generateBEPType2(TimeIntervalRecord1 * tir1, vector<int> ot, int firstId, int lastId);
+	vector<int> generateBEPType2_1(TimeIntervalRecord1 * tir1, vector<int> ot);
 	bool BEP(frequencyItem p);
 	void mineDB(frequencyItem p, int count);
 	void constructPTidx(frequencyItem & p);

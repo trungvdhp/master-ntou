@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
 	//start = time(NULL);
 	start = clock();
 	SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);
-	//SequentialDatabase * seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\METISP\\Debug\\dss.txt");
+	//SequentialDatabase * seqDB = new SequentialDatabase("D:\\Document\\master-ntou\\DataMining\\thesis\\METISP\\Debug\\dss.txt");
 	seqDB->execute();
 
 	/*if (argc >= 8)
