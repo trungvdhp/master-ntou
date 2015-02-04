@@ -57,22 +57,25 @@ TimeIntervalRecord1 * frequencyItem::binarySearch (int sId)
 	return NULL;
 }
 
-void frequencyItem::insertTir(int sid, int iniTime, int lst, int let, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int id, bool isInit)
+void frequencyItem::insertTir(int sid, int iniTime, int lst, int let, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit)
 {
 	TimeIntervalRecord temp;
 	temp.setValue(iniTime, lst,let);
 	if (!isInit)
 	{
+		id++;
 		TimeIntervalRecord1 * tir1 = new TimeIntervalRecord1();
 		tir1->setValue(sid);
 		tir1->tir.push_back(temp);
+		if (prev != NULL && next == NULL)
+			prev->next = tir1;
 		tir1->prev = prev;
 		tir1->next = next;
 		pTir.push_back(tir1);
+		isInit = true;
 	}
 	else
 	{
 		pTir[id]->tir.push_back(temp);
 	}
-	//printf("\n");
 }

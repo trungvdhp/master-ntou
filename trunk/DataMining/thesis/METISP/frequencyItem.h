@@ -13,8 +13,8 @@
 class frequencyItem  
 {
 public:
-	void insertTir(int sid, int iniTime, int lst, int let, TimeIntervalRecord1 * prev = NULL,
-		TimeIntervalRecord1 * next = NULL, int id = 0, bool isInit = false);
+	void insertTir(int sid, int iniTime, int lst, int let, TimeIntervalRecord1 * prev,
+		TimeIntervalRecord1 * next, int & id, bool & isInit);
 	frequencyItem();
 	virtual ~frequencyItem();
 	vector<int> item;
