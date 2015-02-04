@@ -239,7 +239,7 @@ void SequentialDatabase::constructPTidx(frequencyItem & p)
 	}
 }
 
-void SequentialDatabase::generateStempType1(vector<int> svttype1, vector<frequencyItem> * Stemp1)
+void SequentialDatabase::generateStempType1(vector<int> svttype1, vector<frequencyItem> & Stemp1)
 {
 	frequencyItem temp;
 	vector<frequencyItem>::iterator iter;
@@ -247,21 +247,21 @@ void SequentialDatabase::generateStempType1(vector<int> svttype1, vector<frequen
 	for (int j = 0; j < svttype1.size();j++)
 	{
 		temp.item.push_back(svttype1[j]);
-		iter = find((*Stemp1).begin(), (*Stemp1).end(), temp);
-		if (iter != (*Stemp1).end())
+		iter = find(Stemp1.begin(), Stemp1.end(), temp);
+		if (iter != Stemp1.end())
 		{
 			(*iter).frequency++;
 		}
 		else
 		{
 			temp.frequency = 1;
-			(*Stemp1).push_back(temp);
+			Stemp1.push_back(temp);
 		}
 		temp.item.clear();
 	}
 }
 
-void SequentialDatabase::generateStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> * Stemp2, int lastId)
+void SequentialDatabase::generateStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> & Stemp2, int lastId)
 {
 	frequencyItem temp;
 	vector<frequencyItem>::iterator iter;
@@ -271,22 +271,22 @@ void SequentialDatabase::generateStempType2(frequencyItem p, vector<int> svttype
 		if (p.item[lastId] < svttype2[j])
 		{
 			temp.item.push_back(svttype2[j]);
-			iter = find((*Stemp2).begin(), (*Stemp2).end(), temp);
-			if (iter != (*Stemp2).end())
+			iter = find(Stemp2.begin(), Stemp2.end(), temp);
+			if (iter != Stemp2.end())
 			{
 				(*iter).frequency++;
 			}
 			else
 			{
 				temp.frequency = 1;
-				(*Stemp2).push_back(temp);
+				Stemp2.push_back(temp);
 			}
 			temp.item.clear();
 		}
 	}
 }
 
-bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> * Stemp1, vector<frequencyItem> * Stemp2)
+bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> & Stemp1, vector<frequencyItem> & Stemp2)
 {
 	int i;
 	vector<int> svttype1,svttype2;
@@ -305,12 +305,12 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> * Stemp1, ve
 		svttype2.clear();
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
-	for (i = 0; i < (*Stemp1).size(); i++)
-		if ((*Stemp1)[i].frequency == p.frequency)
+	for (i = 0; i < Stemp1.size(); i++)
+		if (Stemp1[i].frequency == p.frequency)
 			return false;
 	//for each item x found in VTPs of type-2 pattern with support >= minsup X |D|
-	for (i = 0; i < (*Stemp2).size(); i++)
-		if ((*Stemp2)[i].frequency == p.frequency)
+	for (i = 0; i < Stemp2.size(); i++)
+		if (Stemp2[i].frequency == p.frequency)
 			return false;
 	return true;
 }
@@ -320,7 +320,7 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	int i;
 	vector<frequencyItem> Stemp1,Stemp2;
 	frequencyItem p_;
-	bool f = FEP(p, &Stemp1, &Stemp2);
+	bool f = FEP(p, Stemp1, Stemp2);
 	if (f)
 	{
 		//printFrequencyItem(p);
@@ -342,7 +342,7 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	{
 		if (Stemp1[i].frequency >= THRESHOLD)
 		{
-			p_ = updateType1Pattern(p, Stemp1[i], &count);
+			p_ = updateType1Pattern(p, Stemp1[i], count);
 		
 			mineDB(p_, count);
 		}
@@ -353,7 +353,7 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	{
 		if (Stemp2[i].frequency >= THRESHOLD)
 		{
-			p_ = updateType2Pattern(p, Stemp2[i], &count);
+			p_ = updateType2Pattern(p, Stemp2[i], count);
 			
 			mineDB(p_, count);
 		}
@@ -415,17 +415,17 @@ vector<int> SequentialDatabase::generateFEPType2(TimeIntervalRecord1 * tir1, vec
 	return temp;
 }
 
-frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyItem x, int * count)
+frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p, frequencyItem x, int & count)
 {
 	int lastId = -1;
 	bool isInit;
 	frequencyItem p_;
 	int i , j,k = 0,l,ub,lb;
-	*count = 0;
+	count = 0;
 	for (i = 0; i < p.item.size(); i++ )
 	{
 		if (p.item[i] != -1)
-			(*count)++;
+			count++;
 		p_.item.push_back(p.item[i]);
 	}
 	p_.item.push_back(-1);
@@ -459,17 +459,17 @@ frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyIt
 	return p_;
 }
 
-frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyItem x, int * count)
+frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p, frequencyItem x, int & count)
 {
 	int lastId = -1;
 	bool isInit;
 	frequencyItem p_;
 	int i , j, k = 0, l, ub ,lb;
-	*count = 0;
+	count = 0;
 	for (i = 0; i < p.item.size(); i++ )
 	{
 		if (p.item[i] != -1)
-			(*count)++;
+			count++;
 		p_.item.push_back(p.item[i]);
 	}
 	for (i = 0; i < x.item.size(); i++)
@@ -586,13 +586,13 @@ bool SequentialDatabase::BEP(frequencyItem p)
 			if(temp[i]->prev == NULL){
 				svttype1 = generateBEPType1(temp[i], seq[temp[i]->sId].timeOcc);
 				//for each item in the VTPs of type-1 pattern, add one to its support.
-				generateStempType1(svttype1, &Stemp1);
+				generateStempType1(svttype1, Stemp1);
 				svttype1.clear();
 			}
 			//use the corresponding time index to determine the VTPs for type-2 patterns.
 			svttype2 = generateBEPType2_1(temp[i], seq[temp[i]->sId].timeOcc);
 			//for each item in the VTPs of type-2 pattern, add one to its support.
-			generateBEPStempType2(p, svttype2, &Stemp2, firstId, lastId);
+			generateBEPStempType2(p, svttype2, Stemp2, firstId, lastId);
 			svttype2.clear();
 			temp[i] = temp[i]->prev;
 			if(temp[i] == NULL) count++;
@@ -745,7 +745,7 @@ vector<int> SequentialDatabase::generateBEPType2_1(TimeIntervalRecord1 * tir1, v
 }
 
 void SequentialDatabase::generateBEPStempType2(frequencyItem p, vector<int> svttype2, 
-											   vector<frequencyItem> * Stemp2, int firstId, int lastId)
+	vector<frequencyItem> & Stemp2, int firstId, int lastId)
 {
 	frequencyItem temp;
 	vector<frequencyItem>::iterator iter;
@@ -755,15 +755,15 @@ void SequentialDatabase::generateBEPStempType2(frequencyItem p, vector<int> svtt
 		if (p.item[lastId] < svttype2[j] || p.item[firstId] > svttype2[j])
 		{
 			temp.item.push_back(svttype2[j]);
-			iter = find((*Stemp2).begin(), (*Stemp2).end(), temp);
-			if (iter != (*Stemp2).end())
+			iter = find(Stemp2.begin(), Stemp2.end(), temp);
+			if (iter != Stemp2.end())
 			{
 				(*iter).frequency++;
 			}
 			else
 			{
 				temp.frequency = 1;
-				(*Stemp2).push_back(temp);
+				Stemp2.push_back(temp);
 			}
 			temp.item.clear();
 		}
