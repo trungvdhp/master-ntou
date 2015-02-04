@@ -14,12 +14,12 @@
 class SequentialDatabase  
 {
 public:
-	frequencyItem updateType1Pattern(frequencyItem p,frequencyItem x, int * count);
-	frequencyItem updateType2Pattern(frequencyItem p,frequencyItem x, int * count);
-	void generateStempType1(vector<int> svttype1, vector<frequencyItem> * Stemp1);
-	void generateStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> * Stemp2, int lastId);
-	void generateBEPStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> * Stemp2, int firstId, int lastId);
-	bool FEP(frequencyItem p, vector<frequencyItem> * Stemp1, vector<frequencyItem> * Stemp2);
+	frequencyItem updateType1Pattern(frequencyItem p,frequencyItem x, int & count);
+	frequencyItem updateType2Pattern(frequencyItem p,frequencyItem x, int & count);
+	void generateStempType1(vector<int> svttype1, vector<frequencyItem> & Stemp1);
+	void generateStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> & Stemp2, int lastId);
+	void generateBEPStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> & Stemp2, int firstId, int lastId);
+	bool FEP(frequencyItem p, vector<frequencyItem> & Stemp1, vector<frequencyItem> & Stemp2);
 	vector<int> generateFEPType1(TimeIntervalRecord1 * tir1,vector<int> ot);
 	vector<int> generateFEPType2(TimeIntervalRecord1 * tir1,vector<int> ot);
 	vector<int> generateBEPType1(TimeIntervalRecord1 * tir1,vector<int> ot);
