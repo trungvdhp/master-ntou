@@ -163,8 +163,9 @@ void SequentialDatabase::outputFrequentPattern(char * filename)
 		for (j = 0 ;j < freSeqSet[i].freSeq.size(); j++)
 		{
 			fout << "{";
-			sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[0]);
-			fout << "{" << buf;
+			/*sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[0]);
+			fout << "{" << buf;*/
+			fout << freSeqSet[i].freSeq[j].item[0];
 			for (k = 1 ;k < freSeqSet[i].freSeq[j].item.size(); k++)
 			{
 				if (freSeqSet[i].freSeq[j].item[k] == -1)
@@ -173,13 +174,15 @@ void SequentialDatabase::outputFrequentPattern(char * filename)
 				}
 				else if (freSeqSet[i].freSeq[j].item[k-1] == -1)
 				{
-					sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
-					fout << buf;
+					/*sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
+					fout << buf;*/
+					fout << freSeqSet[i].freSeq[j].item[k];
 				}
 				else
 				{
-					sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
-					fout << " " << buf;
+					/*sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
+					fout << " " << buf;*/
+					fout << " " << freSeqSet[i].freSeq[j].item[k];
 				}
 			}
 			fout << "}" ;
@@ -230,9 +233,7 @@ void SequentialDatabase::constructPTidx(frequencyItem & p)
 			iter = find(seq[sid].trans[tid].t.begin(), seq[sid].trans[tid].t.end(), pStartItem);
 			if (iter != seq[sid].trans[tid].t.end())
 			{
-				if(!isInit) lastId++;
 				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid],seq[sid].timeOcc[tid], NULL, NULL, lastId, isInit);
-				isInit = true;
 			}
 		}
 	}
@@ -326,7 +327,7 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 		f = BEP(p);
 		if (f)
 		{
-			printFrequencyItem(p);
+			//printFrequencyItem(p);
 			//printf("ok\n");
 			while (freSeqSet.size() < count)
 			{
@@ -447,15 +448,8 @@ frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p,frequencyIt
 					{
 						if (seq[p.pTir[i]->sId].trans[k].t[l] == x.item[0])
 						{
-							if(!isInit) lastId++;
 							p_.insertTir(p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k]
 							, p.pTir[i], NULL, lastId, isInit);
-							if(!isInit)
-							{
-								p.pTir[i]->next = p_.pTir[lastId];
-								p_.pTir[lastId]->prev = p.pTir[i];
-							}
-							isInit = true;
 						}
 					}
 				}
@@ -497,14 +491,12 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p,frequencyIt
 					{
 						if (seq[p.pTir[i]->sId].trans[k].t[l] == x.item[0])
 						{
-							if(!isInit) lastId++;
 							if (p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime < seq[p.pTir[i]->sId].timeOcc[k])
 								p_.insertTir(p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k]
 								, p.pTir[i]->prev, p.pTir[i]->next, lastId, isInit);
 							else
 								p_.insertTir(p.pTir[i]->sId, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k], p.pTir[i]->tir[j].lastEndTime
 								, p.pTir[i]->prev, p.pTir[i]->next, lastId, isInit);
-							isInit = true;
 						}
 					}
 				}

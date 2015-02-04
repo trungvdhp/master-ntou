@@ -55,7 +55,7 @@ int main(int argc, char * argv[])
 	SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);
 	//SequentialDatabase * seqDB = new SequentialDatabase("D:\\Document\\master-ntou\\DataMining\\thesis\\METISP\\Debug\\dss.txt");
 	seqDB->execute();
-
+	finish = clock();
 	/*if (argc >= 8)
 	{
 		seqDB->outputFrequentPattern(argv[7]);
@@ -66,7 +66,7 @@ int main(int argc, char * argv[])
 	}*/
 	seqDB->outputFrequentPattern("out.txt");
 	//finish = time(NULL);
-	finish = clock();
+	
 	//duration = difftime(finish,start);
 	duration = (double)(finish - start)/CLOCKS_PER_SEC;
 	fprintf(fp,"metisp %s %lf %d %d %d\n",argv[1],min_sup,mingap,maxgap,swin);
