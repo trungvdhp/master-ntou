@@ -15,7 +15,6 @@ extern double min_sup;
 extern int mingap;
 extern int maxgap;
 extern int swin;
-extern int dun;
 extern int THRESHOLD;
 
 extern int ITEM_NO;

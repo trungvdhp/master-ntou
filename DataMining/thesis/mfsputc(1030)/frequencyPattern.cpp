@@ -17,7 +17,6 @@ frequencyPattern::~frequencyPattern()
 {
 	frePattern.clear();
 	pTir.clear();
-//	SSID.clear();
 }
 
 bool frequencyPattern::operator==(const frequencyPattern y)
@@ -55,11 +54,6 @@ bool frequencyPattern::operator<(const frequencyPattern y)
 	return frequency < y.frequency;
 }
 
-void frequencyPattern::setFrequency(const int fre)
-{
-	frequency = fre;
-}
-
 void frequencyPattern::insertTir(const int sid, const int tid,const int iid, const int initialtime,const int laststarttime
 	, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit)
 {
@@ -76,6 +70,7 @@ void frequencyPattern::insertTir(const int sid, const int tid,const int iid, con
 		tir1->prev = prev;
 		tir1->next = next;
 		pTir.push_back(tir1);
+		frequency++;
 		isInit = true;
 	}
 	else
