@@ -13,11 +13,10 @@ int THRESHOLD;
 
 void SetParameter()
 {
-	min_sup = 0.005;
-	mingap = 5;
-	maxgap = 16;
-	swin = 3;
-	dun =30;
+	min_sup = 0.5;
+	mingap = 3;
+	maxgap = 15;
+	swin = 2;
 }
 
 int main(int argc,char * argv[])

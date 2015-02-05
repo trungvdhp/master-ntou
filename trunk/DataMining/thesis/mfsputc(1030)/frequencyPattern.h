@@ -15,13 +15,10 @@ class frequencyPattern
 public:
 	void insertTir(const int sid, const int tid,const int iid, const int initialtime,const int laststarttime
 		, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit);
-	void setFrequency(const int fre);
 	frequencyPattern();
 	virtual ~frequencyPattern();
 	vector<Element> frePattern;
 	vector<TimeIntervalRecord1*> pTir;
-	//int lastSIDIndex;
-	//vector<int> SSID;
 	int frequency;
 	bool operator==(const frequencyPattern y);
 	bool operator<(const frequencyPattern y);

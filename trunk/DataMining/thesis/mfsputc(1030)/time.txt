@@ -48,3 +48,11 @@ mfsputc (null) 0.500000 3 15 2 25
 計算過程花費的時間大約 0.000000 秒
 mfsputc (null) 0.005000 5 16 3 30
 Duration 0.000000
+mfsputc (null) 0.005000 5 16 3 30
+Duration 44.365000
+mfsputc (null) 0.005000 5 16 3 30
+Duration 0.037000
+mfsputc (null) 0.005000 5 16 3 30
+Duration 0.032000
+mfsputc (null) 0.005000 5 16 3 30
+Duration 119.286000
