@@ -15,15 +15,15 @@ class SequentialDatabase
 {
 public:
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
+	bool BEPValid(frequencyPattern p);
 	bool isLastItem(int sid,int tid,int iid);
-	bool generateSVT(int tid,int it,int lst, vector<Transaction> trans,int x);
 	void updateTypePattern(vector<frequencyPattern> & p,int x,int sid,int tid,int iid,int it,int lst,int *& index);
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
-	vector<int> generateSVTType1(TimeIntervalRecord1 tir1,vector<Transaction> trans);
-	vector<int> generateSVTType1(int tid, int it, int lst,vector<Transaction> trans);
-	vector<int> generateSVTType2(TimeIntervalRecord1 tir1,vector<Transaction> trans);
-	vector<int> generateSVTType2(int tid, int it, int lst,vector<Transaction> trans);
+	vector<int> generateFEPType1(int tid, int it, int lst,vector<Transaction> trans);
+	vector<int> generateFEPType2(int tid, int it, int lst,vector<Transaction> trans);
+	vector<int> generateBEPType1(int tid, int it, int lst,vector<Transaction> trans);
+	vector<int> generateBEPType2(int tid, int it, int lst,vector<Transaction> trans);
 	int binarySearch(vector<int> data,int x);
 	void generatePTir(frequencyPattern & p);
 	void generateUpdateL(frequentSequence Sp);
