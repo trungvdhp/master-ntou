@@ -564,7 +564,6 @@ bool SequentialDatabase::BEP(frequencyItem p)
 	int size;
 	int i, j;
 	int count=0, firstId, lastId;
-	int icount = 0;
 	vector<TimeIntervalRecord1 *> temp;
 	size = p.pTir.size();
 	for (i = 0; i < size; i++)
