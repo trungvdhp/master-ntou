@@ -16,7 +16,6 @@ class SequentialDatabase
 public:
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
 	bool BEPValid(frequencyPattern p);
-	bool isLastItem(int sid,int tid,int iid);
 	void updateTypePattern(vector<frequencyPattern> & p,int x,int sid,int tid,int iid,int it,int lst,int *& index);
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
