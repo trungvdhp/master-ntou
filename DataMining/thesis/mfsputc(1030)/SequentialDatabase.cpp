@@ -20,7 +20,6 @@ SequentialDatabase::SequentialDatabase(char * filename,char * outfilename)
 	{
 		frequency[i] = 0;
 	}
-	//	order_index = NULL;
 }
 
 SequentialDatabase::~SequentialDatabase()
@@ -268,7 +267,7 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 				for (; h < sequential[sid].transaction[svtType2[k]].element.items.size(); h++)
 				{
 					x = sequential[sid].transaction[svtType2[k]].element.items[h];
-					if (p.frePattern.back().items.back() < x)
+					if (p.getLastItem() < x)
 					{
 						if (Stemp2Index[x] == -1)
 						{
