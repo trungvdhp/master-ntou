@@ -298,3 +298,51 @@ metisp dss.txt 0.500000 3 15 2
  Duration 0.010000
 metisp dss.txt 0.500000 3 15 2
  Duration 0.010000
+metisp dss.txt 0.500000 3 15 2
+ Duration 0.010000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.020000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.020000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.020000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.040000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.020000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.020000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.030000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.030000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.034000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.052000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.020000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.020000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.025000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.023000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.039000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.022000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.021000
+metisp ds.txt 0.500000 3 15 2
+ Duration 0.022000
+metisp ds.txt 0.500000 3 15 2
+ Duration 0.022000
+metisp dss1.txt 0.500000 3 15 2
+ Duration 0.021000
+metisp ds.txt 0.500000 3 15 2
+ Duration 0.022000
+metisp ds.txt 0.500000 3 15 2
+ Duration 0.016000
+metisp ds.txt 0.500000 3 15 2
+ Duration 0.016000

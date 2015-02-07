@@ -12,12 +12,11 @@
 class TimeIntervalRecord  
 {
 public:
-	void setValue(const int tid = 0,const int iid= 0,const int initialtime= 0,const int laststarttime= 0);
+	void setValue(const int tid = 0,const int iid= 0,const int laststarttime= 0);
 	TimeIntervalRecord();
 	virtual ~TimeIntervalRecord();
 	int tId;
 	int iId;
-	int initialTime;
 	int lastStartTime;
 };
 

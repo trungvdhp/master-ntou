@@ -13,7 +13,7 @@
 class frequencyItem  
 {
 public:
-	void insertTir(int sid, int iniTime, int lst, int let, TimeIntervalRecord1 * prev,
+	void insertTir(int sid, int lst, int let, TimeIntervalRecord1 * prev,
 		TimeIntervalRecord1 * next, int & id, bool & isInit);
 	frequencyItem();
 	virtual ~frequencyItem();

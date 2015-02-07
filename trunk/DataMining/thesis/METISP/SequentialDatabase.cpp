@@ -233,7 +233,7 @@ void SequentialDatabase::constructPTidx(frequencyItem & p)
 			iter = find(seq[sid].trans[tid].t.begin(), seq[sid].trans[tid].t.end(), pStartItem);
 			if (iter != seq[sid].trans[tid].t.end())
 			{
-				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid],seq[sid].timeOcc[tid], NULL, NULL, lastId, isInit);
+				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid], NULL, NULL, lastId, isInit);
 			}
 		}
 	}
@@ -448,7 +448,7 @@ frequencyItem SequentialDatabase::updateType1Pattern(frequencyItem p, frequencyI
 					{
 						if (seq[p.pTir[i]->sId].trans[k].t[l] == x.item[0])
 						{
-							p_.insertTir(p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k]
+							p_.insertTir(p.pTir[i]->sId, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k]
 							, p.pTir[i], NULL, lastId, isInit);
 						}
 					}
@@ -491,11 +491,11 @@ frequencyItem SequentialDatabase::updateType2Pattern(frequencyItem p, frequencyI
 					{
 						if (seq[p.pTir[i]->sId].trans[k].t[l] == x.item[0])
 						{
-							if (p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime < seq[p.pTir[i]->sId].timeOcc[k])
-								p_.insertTir(p.pTir[i]->sId, p.pTir[i]->tir[j].initialTime, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k]
+							if (p.pTir[i]->sId, p.pTir[i]->tir[j].lastStartTime <= seq[p.pTir[i]->sId].timeOcc[k])
+								p_.insertTir(p.pTir[i]->sId, p.pTir[i]->tir[j].lastStartTime, seq[p.pTir[i]->sId].timeOcc[k]
 								, p.pTir[i]->prev, p.pTir[i]->next, lastId, isInit);
 							else
-								p_.insertTir(p.pTir[i]->sId, seq[p.pTir[i]->sId].timeOcc[k], seq[p.pTir[i]->sId].timeOcc[k], p.pTir[i]->tir[j].lastEndTime
+								p_.insertTir(p.pTir[i]->sId, seq[p.pTir[i]->sId].timeOcc[k], p.pTir[i]->tir[j].lastEndTime
 								, p.pTir[i]->prev, p.pTir[i]->next, lastId, isInit);
 						}
 					}
@@ -597,11 +597,21 @@ bool SequentialDatabase::BEP(frequencyItem p)
 			if(temp[i] == NULL) count++;
 		}
 		for (j = 0; j < Stemp1.size(); j++)
+		{
+			/*if (Stemp1[j].frequency > 0)
+				printf("{%d : %d} ", Stemp1[j].item.front(), Stemp1[j].frequency);*/
 			if (Stemp1[j].frequency == p.frequency)
 				return false;
+		}
+		//printf("\n");
 		for (j = 0; j < Stemp2.size(); j++)
+		{
+			/*if (Stemp2[j].frequency > 0)
+				printf("{%d : %d} ", Stemp2[j].item.front(), Stemp2[j].frequency);*/
 			if (Stemp2[j].frequency == p.frequency)
 				return false;
+		}
+		//printf("\n");
 		lastId = firstId - 2;
 		firstId = lastId;
 		while(firstId > -1 && p.item[firstId] != -1) firstId--;

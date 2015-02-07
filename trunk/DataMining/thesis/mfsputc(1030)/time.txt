@@ -56,3 +56,33 @@ mfsputc (null) 0.005000 5 16 3 30
 Duration 0.032000
 mfsputc (null) 0.005000 5 16 3 30
 Duration 119.286000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 1166.093000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.070000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.092000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.030000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.041000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.060000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.043000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 3.964000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.052000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.044000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.156000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.079000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.104000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.069000
