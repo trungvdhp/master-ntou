@@ -16,3 +16,103 @@ mfsputc (null) 0.500000 3 15 2 0
 Duration 0.010000
 mfsputc (null) 0.500000 3 15 2 0
 Duration 0.007000
+mfsputc dss.txt 0.500000 3 15 2 0
+Duration 0.015000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.010000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc dss.txt 0.500000 3 15 2 0
+Duration 0.010000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.024000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.028000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.020000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.030000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.040000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.030000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.030000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.053000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.040000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.030000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.030000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.040000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.022000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.030000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.016000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.041000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.027000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.038000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.022000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.032000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.023000
+mfsputc (null) 0.500000 3 15 2 0
+Duration 0.023000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.026000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.041000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.026000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.026000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.026000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.024000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.025000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.039000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.041000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.026000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.040000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.040000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.040000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.039000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.026000
+mfsputc ds.txt 0.500000 3 15 2 0
+Duration 0.007000
+mfsputc ds.txt 0.500000 3 15 2 0
+Duration 0.008000
+mfsputc dss1.txt 0.500000 3 15 2 0
+Duration 0.026000
+mfsputc ds.txt 0.500000 3 15 2 0
+Duration 0.007000

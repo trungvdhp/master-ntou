@@ -57,11 +57,11 @@ TimeIntervalRecord1 * frequencyItem::binarySearch (int sId)
 	return NULL;
 }
 
-void frequencyItem::insertTir(int sid, int iniTime, int lst, int let
+void frequencyItem::insertTir(int sid, int lst, int let
 	, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit)
 {
 	TimeIntervalRecord temp;
-	temp.setValue(iniTime, lst,let);
+	temp.setValue(lst,let);
 	if (!isInit)
 	{
 		id++;

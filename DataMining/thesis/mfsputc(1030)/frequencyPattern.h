@@ -13,7 +13,7 @@
 class frequencyPattern  
 {
 public:
-	void insertTir(const int sid, const int tid,const int iid, const int initialtime,const int laststarttime
+	void insertTir(const int sid, const int tid,const int iid,const int laststarttime
 		, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit);
 	frequencyPattern();
 	virtual ~frequencyPattern();

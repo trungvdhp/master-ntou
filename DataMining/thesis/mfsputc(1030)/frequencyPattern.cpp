@@ -54,11 +54,11 @@ bool frequencyPattern::operator<(const frequencyPattern y)
 	return frequency < y.frequency;
 }
 
-void frequencyPattern::insertTir(const int sid, const int tid,const int iid, const int initialtime,const int laststarttime
+void frequencyPattern::insertTir(const int sid, const int tid,const int iid,const int laststarttime
 	, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit)
 {
 	TimeIntervalRecord temp;
-	temp.setValue(tid, iid, initialtime, laststarttime);
+	temp.setValue(tid, iid, laststarttime);
 	if (!isInit)
 	{
 		id++;
@@ -89,35 +89,10 @@ void frequencyPattern::output(FILE * out)
 		frePattern[i].output(out);
 		fprintf(out,"}");
 	}
-	//fprintf(out,"}:%d(%d)\n",frequency,pTir.size());
 	fprintf(out,"}:%d\n",frequency);
-
-/*	vector<int> array;
-	array.push_back(75);
-	array.push_back(631);
-	array.push_back(758);
-
-	for (i = 0;i<array.size();i++)
-	{
-		if (frePattern[0].items[i] != array[i])
-		{
-			return;
-		}
-	}*/
-/*	int j;
-for (i = 0; i < pTir.size(); i++)
-	{
-		fprintf(out,"%d ",pTir[i].sId);
-		for (j = 0; j <pTir[i].tir.size();j++)
-		{
-			fprintf(out,"( %d , %d , %d, %d)",pTir[i].tir[j].tId,pTir[i].tir[j].iId,pTir[i].tir[j].initialTime,pTir[i].tir[j].lastStartTime);
-		}
-		fprintf(out,"\n");
-	}
-	fprintf(out,"\n");*/
 }
 
 int frequencyPattern::getLastItem()
 {
-	return frePattern[frePattern.size()-1].items[frePattern[frePattern.size()-1].items.size()-1];
+	return frePattern.back().items.back();
 }
