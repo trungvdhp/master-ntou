@@ -11,14 +11,20 @@
 #include "frequentSequence.h"
 #include "Sequential.h"
 #include "mfsputc.h"
+#include "TimeIntervalRecord1.h"
+#include <map>
 class SequentialDatabase  
 {
 public:
+	frequencyPattern updateType1Pattern(frequencyPattern p, int x);
+	frequencyPattern updateType2Pattern(frequencyPattern p, int x);
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
+	bool FEPValid(frequencyPattern p, map<int, int> & Stemp1, map<int, int> & Stemp2);
 	bool BEPValid(frequencyPattern p, bool first=false);
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
 	vector<int> generateFEPType1(int tid, int lst,vector<Transaction> trans);
+	void generateFEPType(TimeIntervalRecord1 * pTir,vector<Transaction> trans);
 	vector<int> generateFEPType2(int tid, int lst,vector<Transaction> trans);
 	vector<int> generateBEPType1(int tid, int lst,vector<Transaction> trans);
 	vector<int> generateBEPType2(int tid, int lst,vector<Transaction> trans);
