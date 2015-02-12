@@ -163,14 +163,14 @@ void SequentialDatabase::outputFrequentPattern(char * filename)
 		for (j = 0 ;j < freSeqSet[i].freSeq.size(); j++)
 		{
 			fout << "{";
-			/*sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[0]);
-			fout << "{" << buf;*/
+			//sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[0]);
+			fout << "{"; //<< buf;
 			fout << freSeqSet[i].freSeq[j].item[0];
 			for (k = 1 ;k < freSeqSet[i].freSeq[j].item.size(); k++)
 			{
 				if (freSeqSet[i].freSeq[j].item[k] == -1)
 				{
-					fout << "} {";
+					fout << "}{";
 				}
 				else if (freSeqSet[i].freSeq[j].item[k-1] == -1)
 				{
@@ -327,14 +327,14 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 		f = BEP(p);
 		if (f)
 		{
-			//printFrequencyItem(p);
+			printFrequencyItem(p);
 			//printf("ok\n");
-			while (freSeqSet.size() < count)
+			/*while (freSeqSet.size() < count)
 			{
 				frequentSequence Sp;
 				freSeqSet.push_back(Sp);
 			}
-			freSeqSet[count-1].freSeq.push_back(p);
+			freSeqSet[count-1].freSeq.push_back(p);*/
 		}
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
@@ -512,24 +512,24 @@ void SequentialDatabase::printFrequencyItem(frequencyItem p)
 	/*printf("---------------------------------------------------------------------\n");
 	printf("Frequent pattern: ");*/
 	printf("{");
-	printf("{%c", p.item[0]+'a');
+	printf("{%d", p.item[0]);
 	for (k = 1 ;k < p.item.size(); k++)
 	{
 		if (p.item[k] == -1)
 		{
-			printf("} {");
+			printf("}{");
 		}
 		else if (p.item[k-1] == -1)
 		{
-			printf("%c", p.item[k]+'a');
+			printf("%d", p.item[k]);
 		}
 		else
 		{
-			printf(" %c",p.item[k]+'a');
+			printf(" %d",p.item[k]);
 		}
 	}
 	printf("}");
-	printf("} : %d\n", p.frequency);
+	printf("}:%d\n", p.frequency);
 	/*for (i = 0; i < p.pTir.size(); i++)
 	{
 		printf("Time intervals %d: ", p.pTir[i]->sId);

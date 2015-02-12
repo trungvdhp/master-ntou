@@ -10,7 +10,6 @@
 
 frequencyPattern::frequencyPattern()
 {
-	frequency = 0;
 }
 
 frequencyPattern::~frequencyPattern()
@@ -51,7 +50,7 @@ bool frequencyPattern::operator==(const frequencyPattern y)
 
 bool frequencyPattern::operator<(const frequencyPattern y)
 {
-	return frequency < y.frequency;
+	return pTir.size() < y.pTir.size();
 }
 
 void frequencyPattern::insertTir(const int sid, const int tid,const int iid,const int laststarttime
@@ -70,7 +69,6 @@ void frequencyPattern::insertTir(const int sid, const int tid,const int iid,cons
 		tir1->prev = prev;
 		tir1->next = next;
 		pTir.push_back(tir1);
-		frequency++;
 		isInit = true;
 	}
 	else
@@ -89,7 +87,7 @@ void frequencyPattern::output(FILE * out)
 		frePattern[i].output(out);
 		fprintf(out,"}");
 	}
-	fprintf(out,"}:%d\n",frequency);
+	fprintf(out,"}:%d\n",pTir.size());
 }
 
 int frequencyPattern::getLastItem()

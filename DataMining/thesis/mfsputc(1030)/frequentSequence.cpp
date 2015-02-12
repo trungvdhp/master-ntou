@@ -30,7 +30,7 @@ void frequentSequence::output(FILE * out)
 			_frequentSequency[i].frePattern[j].output(out);
 			fprintf(out,"}");
 		}
-		fprintf(out,"}:%d(%d)\n",_frequentSequency[i].frequency,_frequentSequency[i].pTir.size());
+		fprintf(out,"}:%d(%d)\n",_frequentSequency[i].pTir.size());
 		
 	}
 }

@@ -8,15 +8,14 @@ double min_sup;
 int mingap;
 int maxgap;
 int swin;
-int dun;
 int THRESHOLD;
 
 void SetParameter()
 {
-	min_sup = 0.5;
-	mingap = 3;
-	maxgap = 15;
-	swin = 2;
+	min_sup = 0.005;
+	mingap = 5;
+	maxgap = 16;
+	swin = 3;
 }
 
 int main(int argc,char * argv[])
@@ -55,13 +54,13 @@ int main(int argc,char * argv[])
 	{
 		seqDB = new SequentialDatabase(argv[1],"out.txt");
 	}*/
-	seqDB = new SequentialDatabase(argv[1], "out.txt");
+	seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfsputc(1030)\\Debug\\ds.txt", "out.txt");
 	seqDB->execute();
 
 	finish = clock();
 	duration = (double)(finish - start)/CLOCKS_PER_SEC;
 	
-	fprintf(fp,"mfsputc %s %lf %d %d %d %d\n",argv[1],min_sup,mingap,maxgap,swin,dun);
+	fprintf(fp,"mfsputc %s %lf %d %d %d\n",argv[1],min_sup,mingap,maxgap,swin);
 	fprintf(fp,"Duration %lf\n",duration);
 
 	printf("Duration %6.10lf\n",duration);

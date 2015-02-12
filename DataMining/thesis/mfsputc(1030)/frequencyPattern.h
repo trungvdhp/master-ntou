@@ -19,7 +19,6 @@ public:
 	virtual ~frequencyPattern();
 	vector<Element> frePattern;
 	vector<TimeIntervalRecord1*> pTir;
-	int frequency;
 	bool operator==(const frequencyPattern y);
 	bool operator<(const frequencyPattern y);
 	void output(FILE * out);

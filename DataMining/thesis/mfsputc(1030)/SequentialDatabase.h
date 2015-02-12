@@ -15,7 +15,7 @@ class SequentialDatabase
 {
 public:
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
-	bool BEPValid(frequencyPattern p);
+	bool BEPValid(frequencyPattern p, bool first=false);
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
 	vector<int> generateFEPType1(int tid, int lst,vector<Transaction> trans);
@@ -25,7 +25,7 @@ public:
 	int binarySearch(vector<int> data,int x);
 	void generatePTir(frequencyPattern & p);
 	void generateUpdateL(frequentSequence Sp);
-	void patternGenerationAlgorithm(frequencyPattern p);
+	void patternGenerationAlgorithm(frequencyPattern p, bool first=false);
 	void deleteInfrequentItem();
 	void generateL1PTir(frequentSequence & Sp);
 	void scanDB();
@@ -35,7 +35,11 @@ public:
 	FILE * in,* out;
 	vector<Sequential> sequential;
 	int * frequency;
-//	int * order_index;
+private:
+	int * Stemp1Index, *Stemp2Index;
+	int * Stemp1LastIndex, *Stemp2LastIndex;
+	bool * Stemp1Init, *Stemp2Init;
+	vector<int> svtType1, svtType2;
 };
 
 #endif // !defined(AFX_SEQUENTIALDATABASE_H__936CB01E_139E_4FB0_8109_68BD741A5376__INCLUDED_)
