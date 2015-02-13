@@ -19,7 +19,8 @@ public:
 	frequencyPattern updateType1Pattern(frequencyPattern p, int x);
 	frequencyPattern updateType2Pattern(frequencyPattern p, int x);
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
-	bool FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & Stemp2);
+	bool FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
+		vector<int> & Stemp2, vector<int> & frequencyStemp2);
 	bool BEPValid(frequencyPattern p, bool first=false);
 	bool BEPValid1(frequencyPattern p);
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);

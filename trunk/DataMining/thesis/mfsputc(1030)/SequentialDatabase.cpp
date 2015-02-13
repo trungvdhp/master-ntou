@@ -191,9 +191,7 @@ bool SequentialDatabase::BEPValid(frequencyPattern p, bool first)
 
 bool SequentialDatabase::BEPValid1(frequencyPattern p)
 {
-	int sid, tid, lst, iid, let;
-	int iniTime;
-	int i, j, k, h, x, ii;
+	int i;
 	int size = p.pTir.size();
 	int count=0;
 	vector<Element>::iterator ip = p.frePattern.end();
@@ -227,7 +225,7 @@ bool SequentialDatabase::BEPValid1(frequencyPattern p)
 				}
 				else
 				{
-					freType1[stempIt-Stemp1.begin()]++;
+					freType1[stempIt - Stemp1.begin()]++;
 				}
 			}
 			for (it = svtType2.begin(); it != svtType2.end(); ++it)
@@ -240,7 +238,7 @@ bool SequentialDatabase::BEPValid1(frequencyPattern p)
 				}
 				else
 				{
-					freType2[stempIt-Stemp2.begin()]++;
+					freType2[stempIt - Stemp2.begin()]++;
 				}
 			}
 			temp[i] = temp[i]->prev;
@@ -261,7 +259,7 @@ void SequentialDatabase::generateFEPType(TimeIntervalRecord1 * pTir,vector<Trans
 	svtType1.clear();
 	svtType2.clear();
 	int i, j, h;
-	int tid, lst, iid, iniTime;
+	int tid, lst, iid;
 	int ub,lb;
 	int sid =  pTir->sId;
 	int x;
@@ -341,10 +339,10 @@ void SequentialDatabase::generateBEPType(TimeIntervalRecord1 * pTir,vector<Trans
 			{
 				if (lb <= trans[j].timeOcc && trans[j].timeOcc <= ub)
 				{
-					for (h = 0; h <trans[j].element.items.size(); h++)
+					for (h = 0; h < trans[j].element.items.size(); h++)
 					{
 						x = trans[j].element.items[h];
-						iter = find(svtType1.begin(),svtType1.end(),x);
+						iter = find(svtType1.begin(), svtType1.end(), x);
 						if (iter == svtType1.end())
 							svtType1.push_back(x);
 					}
@@ -409,7 +407,7 @@ void SequentialDatabase::generateBEPType(TimeIntervalRecord1 * pTir,vector<Trans
 						x = trans[j].element.items[h];
 						if (ip->items.back() < x || ip->items.front() > x)
 						{
-							iter = find(svtType2.begin(),svtType2.end(),x);
+							iter = find(svtType2.begin(), svtType2.end(), x);
 							if (iter == svtType2.end())
 								svtType2.push_back(x);
 						}
@@ -522,12 +520,11 @@ frequencyPattern SequentialDatabase::updateType2Pattern(frequencyPattern p, int 
 	return p_;
 }
 
-bool  SequentialDatabase::FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & Stemp2)
+bool  SequentialDatabase::FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1, vector<int> & Stemp2, vector<int> & frequencyStemp2)
 {
 	int i, k;
 	vector<int>::iterator it;
 	vector<int>::iterator stempIt;
-	vector<int> freType1, freType2;
 	for (i = 0; i < p.pTir.size(); i++)
 	{
 		generateFEPType(p.pTir[i], sequential[p.pTir[i]->sId].transaction);
@@ -537,11 +534,11 @@ bool  SequentialDatabase::FEPValid(frequencyPattern p, vector<int> & Stemp1, vec
 			if (stempIt == Stemp1.end())
 			{
 				Stemp1.push_back(*it);
-				freType1.push_back(1);
+				frequencyStemp1.push_back(1);
 			}
 			else
 			{
-				freType1[stempIt-Stemp1.begin()]++;
+				frequencyStemp1[stempIt - Stemp1.begin()]++;
 			}
 		}
 		for (it = svtType2.begin(); it != svtType2.end(); ++it)
@@ -552,20 +549,20 @@ bool  SequentialDatabase::FEPValid(frequencyPattern p, vector<int> & Stemp1, vec
 				if (stempIt == Stemp2.end())
 				{
 					Stemp2.push_back(*it);
-					freType2.push_back(1);
+					frequencyStemp2.push_back(1);
 				}
 				else
 				{
-					freType2[stempIt-Stemp2.begin()]++;
+					frequencyStemp2[stempIt - Stemp2.begin()]++;
 				}
 			}
 		}
 	}
-	for (i = 0; i < freType1.size(); i++)
-		if (freType1[i] == p.pTir.size())
+	for (i = 0; i < frequencyStemp1.size(); i++)
+		if (frequencyStemp1[i] == p.pTir.size())
 			return false;
-	for (i = 0; i < freType2.size(); i++)
-		if (freType2[i] == p.pTir.size())
+	for (i = 0; i < frequencyStemp2.size(); i++)
+		if (frequencyStemp2[i] == p.pTir.size())
 			return false;
 	return true;
 }
@@ -679,8 +676,8 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 {
 	int i;
 	frequencyPattern p_;
-	vector<int> Stemp1, Stemp2;
-	bool f = FEPValid(p, Stemp1, Stemp2);
+	vector<int> Stemp1, Stemp2, frequencyStemp1, frequencyStemp2;
+	bool f = FEPValid(p, Stemp1, frequencyStemp1, Stemp2, frequencyStemp2);
 	if (f)
 	{
 		f = BEPValid1(p);
@@ -692,7 +689,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 	}
 	for (i = 0; i < Stemp1.size(); ++i)
 	{
-		if (Stemp1[i] >= THRESHOLD)
+		if (frequencyStemp1[i] >= THRESHOLD)
 		{
 			p_ = updateType1Pattern(p, Stemp1[i]);
 			patternGenerationAlgorithm(p_);
@@ -700,7 +697,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 	}
 	for (i = 0; i < Stemp2.size(); ++i)
 	{
-		if (Stemp2[i] >= THRESHOLD)
+		if (frequencyStemp2[i] >= THRESHOLD)
 		{
 			p_ = updateType2Pattern(p, Stemp2[i]);
 			patternGenerationAlgorithm(p_, first);
