@@ -330,14 +330,13 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 		{
 			printf("%d - ", ++current);
 			printFrequencyItem(p);
-			
-			//printf("ok\n");
-			/*while (freSeqSet.size() < count)
-			{
-				frequentSequence Sp;
-				freSeqSet.push_back(Sp);
-			}
-			freSeqSet[count-1].freSeq.push_back(p);*/
+			//	//printf("ok\n");
+			//	/*while (freSeqSet.size() < count)
+			//	{
+			//		frequentSequence Sp;
+			//		freSeqSet.push_back(Sp);
+			//	}
+			//	freSeqSet[count-1].freSeq.push_back(p);*/
 		}
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
