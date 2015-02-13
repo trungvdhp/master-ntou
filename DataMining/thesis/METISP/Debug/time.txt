@@ -362,3 +362,11 @@ metisp ds.txt 0.500000 3 15 2
  Duration 182.371000
 metisp dss.txt 0.005000 5 16 3
  Duration 0.031000
+metisp (null) 0.500000 5 16 3
+ Duration 191.632000
+metisp (null) 0.500000 5 16 3
+ Duration 196.954000
+metisp (null) 0.500000 5 16 3
+ Duration 192.320000
+metisp (null) 0.500000 5 16 3
+ Duration 198.944000
