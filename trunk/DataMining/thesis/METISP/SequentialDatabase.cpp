@@ -13,6 +13,7 @@ SequentialDatabase::SequentialDatabase(char * filename)
 	in = fopen(filename,"rt");
 	assert(in != NULL);
 	frequency =NULL;
+	current=0;
 }
 
 SequentialDatabase::~SequentialDatabase()
@@ -327,7 +328,9 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 		f = BEP(p);
 		if (f)
 		{
+			printf("%d - ", ++current);
 			printFrequencyItem(p);
+			
 			//printf("ok\n");
 			/*while (freSeqSet.size() < count)
 			{

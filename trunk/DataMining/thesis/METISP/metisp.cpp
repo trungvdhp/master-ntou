@@ -12,7 +12,7 @@ int ITEM_NO = 3000;
 
 void SetParameter()
 {
-	min_sup = 0.005;
+	min_sup = 0.15;
 	mingap = 5;
 	maxgap = 16;
 	swin = 3;	

@@ -132,3 +132,19 @@ mfsputc ds.txt 0.500000 3 15 2
 Duration 351.961000
 mfsputc ds.txt 0.500000 3 15 2
 Duration 343.944000
+mfsputc (null) 0.500000 5 16 3
+Duration 236.098000
+mfsputc (null) 0.500000 5 16 3
+Duration 151.200000
+mfsputc (null) 0.500000 5 16 3
+Duration 155.782000
+mfsputc (null) 0.500000 5 16 3
+Duration 236.204000
+mfsputc (null) 0.500000 5 16 3
+Duration 158.721000
+mfsputc (null) 0.500000 5 16 3
+Duration 156.390000
+mfsputc (null) 0.500000 5 16 3
+Duration 159.799000
+mfsputc (null) 0.500000 5 16 3
+Duration 143.743000

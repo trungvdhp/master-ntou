@@ -44,6 +44,7 @@ public:
 	vector<frequentSequence> freSeqSet;
 	FILE * in;
 	int  * frequency;
+	int current;
 };
 
 #endif // !defined(AFX_SEQUENTIALDATABASE_H__61D19693_54D8_400C_9BA7_2A0CA420ACA2__INCLUDED_)
