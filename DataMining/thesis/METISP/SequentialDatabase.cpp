@@ -318,12 +318,15 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> & Stemp1, ve
 
 void SequentialDatabase::mineDB(frequencyItem p, int count)
 {
+	if (current > 100000) return;
 	int i;
 	vector<frequencyItem> Stemp1,Stemp2;
 	frequencyItem p_;
 	bool f = FEP(p, Stemp1, Stemp2);
 	if (f)
 	{
+		//printFrequencyItem(p);
+		//printf("%d - ", ++current);
 		//printFrequencyItem(p);
 		f = BEP(p);
 		if (f)

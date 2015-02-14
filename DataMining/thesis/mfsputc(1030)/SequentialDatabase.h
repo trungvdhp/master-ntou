@@ -45,10 +45,6 @@ public:
 	vector<Sequential> sequential;
 	int * frequency;
 private:
-	int * Stemp1Index, *Stemp2Index;
-	int * Stemp1LastIndex, *Stemp2LastIndex;
-	bool * Stemp1Init, *Stemp2Init;
-	set<int> svtType11, svtType12;
 	vector<int> svtType1, svtType2;
 	int current;
 };
