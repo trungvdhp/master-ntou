@@ -148,3 +148,13 @@ mfsputc (null) 0.500000 5 16 3
 Duration 159.799000
 mfsputc (null) 0.500000 5 16 3
 Duration 143.743000
+mfsputc (null) 0.350000 5 16 3
+Duration 201.562000
+mfsputc (null) 0.350000 5 16 3
+Duration 452.347000
+mfsputc (null) 0.350000 5 16 3
+Duration 254.210000
+mfsputc (null) 0.350000 5 16 3
+Duration 259.383000
+mfsputc (null) 0.350000 5 16 3
+Duration 257.727000

@@ -12,7 +12,7 @@ int THRESHOLD;
 
 void SetParameter()
 {
-	min_sup = 0.3;
+	min_sup = 0.35;
 	mingap = 5;
 	maxgap = 16;
 	swin = 3;

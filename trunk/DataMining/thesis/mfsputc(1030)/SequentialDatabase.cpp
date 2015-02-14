@@ -37,19 +37,7 @@ SequentialDatabase::~SequentialDatabase()
 void SequentialDatabase::execute()
 {
 	scanDB();
-	Stemp1Index = new int[ITEM_NO];
-	Stemp2Index = new int[ITEM_NO];
-	Stemp1LastIndex = new int[ITEM_NO];
-	Stemp2LastIndex = new int[ITEM_NO];
-	Stemp1Init = new bool[ITEM_NO];
-	Stemp2Init = new bool[ITEM_NO];
 	deleteInfrequentItem();
-	delete[] Stemp1Index;
-	delete[] Stemp2Index;
-	delete[] Stemp1LastIndex;
-	delete[] Stemp2LastIndex;
-	delete[] Stemp1Init;
-	delete[] Stemp2Init;
 }
 
 bool SequentialDatabase::BEPValid(frequencyPattern p, bool first)
@@ -67,7 +55,15 @@ bool SequentialDatabase::BEPValid(frequencyPattern p, bool first)
 	{
 		temp.push_back(p.pTir[i]);
 	}
-
+	int * Stemp1Index, *Stemp2Index;
+	int * Stemp1LastIndex, *Stemp2LastIndex;
+	bool * Stemp1Init, *Stemp2Init;
+	Stemp1Index = new int[ITEM_NO];
+	Stemp2Index = new int[ITEM_NO];
+	Stemp1LastIndex = new int[ITEM_NO];
+	Stemp2LastIndex = new int[ITEM_NO];
+	Stemp1Init = new bool[ITEM_NO];
+	Stemp2Init = new bool[ITEM_NO];
 	while(true)
 	{
 		if(count==size) break;
@@ -175,6 +171,9 @@ bool SequentialDatabase::BEPValid(frequencyPattern p, bool first)
 			temp[i] = temp[i]->prev;
 			if(temp[i] == NULL) count++;
 		}
+		delete[] Stemp1Init;
+		delete[] Stemp2Init;
+
 		for (i = 0; i < ITEM_NO; i++)
 		{
 			if (Stemp1Index[i] == p.pTir.size())
@@ -256,13 +255,12 @@ bool SequentialDatabase::BEPValid1(frequencyPattern p)
 
 void SequentialDatabase::generateFEPType(TimeIntervalRecord1 * pTir,vector<Transaction> trans)
 {
-	svtType1.clear();
-	svtType2.clear();
 	int i, j, h;
 	int tid, lst, iid;
 	int ub,lb;
 	int sid =  pTir->sId;
 	int x;
+	vector<int> temp1, temp2;
 	vector<int>::iterator iter;
 	for (i = 0; i < pTir->tir.size(); i++)
 	{
@@ -278,9 +276,9 @@ void SequentialDatabase::generateFEPType(TimeIntervalRecord1 * pTir,vector<Trans
 				for (h = 0; h <trans[j].element.items.size(); h++)
 				{
 					x = trans[j].element.items[h];
-					iter = find(svtType1.begin(),svtType1.end(),x);
-					if (iter == svtType1.end())
-						svtType1.push_back(x);
+					iter = find(temp1.begin(),temp1.end(),x);
+					if (iter == temp1.end())
+						temp1.push_back(x);
 				}
 			}
 			else if (trans[j].timeOcc > ub)
@@ -302,9 +300,9 @@ void SequentialDatabase::generateFEPType(TimeIntervalRecord1 * pTir,vector<Trans
 				for (; h < trans[j].element.items.size(); h++)
 				{
 					x = trans[j].element.items[h];
-					iter = find(svtType2.begin(),svtType2.end(),x);
-					if (iter == svtType2.end())
-						svtType2.push_back(x);
+					iter = find(temp2.begin(),temp2.end(),x);
+					if (iter == temp2.end())
+						temp2.push_back(x);
 				}
 			}
 			else if (trans[j].timeOcc > ub)
@@ -313,12 +311,12 @@ void SequentialDatabase::generateFEPType(TimeIntervalRecord1 * pTir,vector<Trans
 			}
 		}
 	}
+	svtType1 = temp1;
+	svtType2 = temp2;
 }
 
 void SequentialDatabase::generateBEPType(TimeIntervalRecord1 * pTir,vector<Transaction> trans, vector<Element>::iterator ip)
 {
-	svtType1.clear();
-	svtType2.clear();
 	int i, j, ii, h;
 	int tid, lst, let, iid, iniTime;
 	int ub,lb;
@@ -326,6 +324,7 @@ void SequentialDatabase::generateBEPType(TimeIntervalRecord1 * pTir,vector<Trans
 	bool prevValid = true, nextValid = true;
 	int start, end;
 	int x;
+	vector<int> temp1, temp2;
 	vector<int>::iterator iter;
 	for (i = 0; i < pTir->tir.size(); i++)
 	{
@@ -342,9 +341,9 @@ void SequentialDatabase::generateBEPType(TimeIntervalRecord1 * pTir,vector<Trans
 					for (h = 0; h < trans[j].element.items.size(); h++)
 					{
 						x = trans[j].element.items[h];
-						iter = find(svtType1.begin(), svtType1.end(), x);
-						if (iter == svtType1.end())
-							svtType1.push_back(x);
+						iter = find(temp1.begin(), temp1.end(), x);
+						if (iter == temp1.end())
+							temp1.push_back(x);
 					}
 				}
 				else if (trans[j].timeOcc > ub)
@@ -407,9 +406,9 @@ void SequentialDatabase::generateBEPType(TimeIntervalRecord1 * pTir,vector<Trans
 						x = trans[j].element.items[h];
 						if (ip->items.back() < x || ip->items.front() > x)
 						{
-							iter = find(svtType2.begin(), svtType2.end(), x);
-							if (iter == svtType2.end())
-								svtType2.push_back(x);
+							iter = find(temp2.begin(), temp2.end(), x);
+							if (iter == temp2.end())
+								temp2.push_back(x);
 						}
 					}
 				}
@@ -420,6 +419,8 @@ void SequentialDatabase::generateBEPType(TimeIntervalRecord1 * pTir,vector<Trans
 			}
 		}
 	}
+	svtType1 = temp1;
+	svtType2 = temp2;
 }
 
 frequencyPattern SequentialDatabase::updateType1Pattern(frequencyPattern p, int x)
@@ -572,6 +573,15 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 	int sid, tid, lst, iid;
 	int iniTime;
 	int i, j, k, h, x;
+	int * Stemp1Index, *Stemp2Index;
+	int * Stemp1LastIndex, *Stemp2LastIndex;
+	bool * Stemp1Init, *Stemp2Init;
+	Stemp1Index = new int[ITEM_NO];
+	Stemp2Index = new int[ITEM_NO];
+	Stemp1LastIndex = new int[ITEM_NO];
+	Stemp2LastIndex = new int[ITEM_NO];
+	Stemp1Init = new bool[ITEM_NO];
+	Stemp2Init = new bool[ITEM_NO];
 	for (i = 0; i < ITEM_NO; i++)
 	{
 		Stemp1Index[i] = -1;
@@ -663,6 +673,9 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 			svtType2.clear();
 		}
 	}
+	delete[] Stemp1Init, Stemp2Init;
+	delete[] Stemp1Index, Stemp2Index;
+	delete[] Stemp1LastIndex, Stemp2LastIndex;
 	for (i = 0; i < Stemp1.size(); i++)
 		if (Stemp1[i].pTir.size() == p.pTir.size())
 			return false;
@@ -674,12 +687,15 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 
 void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool first)
 {
+	if (current > 100000) return;
 	int i;
 	frequencyPattern p_;
 	vector<int> Stemp1, Stemp2, frequencyStemp1, frequencyStemp2;
 	bool f = FEPValid(p, Stemp1, frequencyStemp1, Stemp2, frequencyStemp2);
 	if (f)
 	{
+		/*printf("%d - ", ++current);
+		p.output(stdout);*/
 		f = BEPValid1(p);
 		if (f)
 		{
