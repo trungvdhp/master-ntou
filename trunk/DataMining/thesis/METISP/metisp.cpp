@@ -12,7 +12,7 @@ int ITEM_NO = 3000;
 
 void SetParameter()
 {
-	min_sup = 0.3;
+	min_sup = 0.005;
 	mingap = 5;
 	maxgap = 16;
 	swin = 3;	
@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
 	//start = time(NULL);
 	start = clock();
 	//SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);
-	SequentialDatabase * seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\METISP\\Debug\\ds.txt");
+	SequentialDatabase * seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\METISP\\Debug\\test.txt");
 	seqDB->execute();
 	/*if (argc >= 8)
 	{

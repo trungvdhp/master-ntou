@@ -15,5 +15,5 @@ Sequential::Sequential()
 
 Sequential::~Sequential()
 {
-	transaction.clear();
+	//transaction.clear();
 }
