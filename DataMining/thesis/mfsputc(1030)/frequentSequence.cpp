@@ -15,7 +15,7 @@ frequentSequence::frequentSequence()
 
 frequentSequence::~frequentSequence()
 {
-	_frequentSequency.clear();
+	/*_frequentSequency.clear();*/
 }
 
 void frequentSequence::output(FILE * out)
