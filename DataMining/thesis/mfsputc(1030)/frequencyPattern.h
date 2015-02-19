@@ -14,11 +14,11 @@ class frequencyPattern
 {
 public:
 	void insertTir(const int sid, const int tid,const int iid,const int laststarttime
-		, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit);
+		, TimeIntervalRecord1 prev, int & id, bool & isInit, bool type=false);
 	frequencyPattern();
 	virtual ~frequencyPattern();
 	vector<Element> frePattern;
-	vector<TimeIntervalRecord1*> pTir;
+	vector<TimeIntervalRecord1> pTir;
 	bool operator==(const frequencyPattern y);
 	bool operator<(const frequencyPattern y);
 	void output(FILE * out);

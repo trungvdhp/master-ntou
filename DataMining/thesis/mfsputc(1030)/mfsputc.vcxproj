@@ -24,7 +24,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -131,6 +131,7 @@
     <ClCompile Include="SequentialDatabase.cpp" />
     <ClCompile Include="TimeIntervalRecord.cpp" />
     <ClCompile Include="TimeIntervalRecord1.cpp" />
+    <ClCompile Include="TimeLine.cpp" />
     <ClCompile Include="Transaction.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="SequentialDatabase.h" />
     <ClInclude Include="TimeIntervalRecord.h" />
     <ClInclude Include="TimeIntervalRecord1.h" />
+    <ClInclude Include="TimeLine.h" />
     <ClInclude Include="Transaction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

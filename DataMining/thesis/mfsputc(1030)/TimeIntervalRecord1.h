@@ -8,7 +8,7 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-#include "TimeIntervalRecord.h"
+#include "TimeLine.h"
 #include "mfsputc.h"
 class TimeIntervalRecord1  
 {
@@ -20,10 +20,7 @@ public:
 	bool operator==(const int sid);
 	
 	int sId;
-	TimeIntervalRecord1 * prev;
-	TimeIntervalRecord1 * next;
-	vector<TimeIntervalRecord> tir;
-	
+	vector<TimeLine> til;
 };
 
 #endif // !defined(AFX_TIMEINTERVALRECORD1_H__9BD14053_9400_4D2D_A24B_639CF33DFEEB__INCLUDED_)
