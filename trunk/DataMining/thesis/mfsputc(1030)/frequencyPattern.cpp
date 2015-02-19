@@ -54,26 +54,36 @@ bool frequencyPattern::operator<(const frequencyPattern y)
 }
 
 void frequencyPattern::insertTir(const int sid, const int tid,const int iid,const int laststarttime
-	, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit)
+	, TimeIntervalRecord1 prev, int & id, bool & isInit, bool type)
 {
 	TimeIntervalRecord temp;
 	temp.setValue(tid, iid, laststarttime);
+	int tsize = prev.til.size();
 	if (!isInit)
 	{
 		id++;
-		TimeIntervalRecord1 * tir1 = new TimeIntervalRecord1();
-		tir1->setValue(sid);
-		tir1->tir.push_back(temp);
-		if (prev != NULL && next == NULL)
-			prev->next = tir1;
-		tir1->prev = prev;
-		tir1->next = next;
+		TimeIntervalRecord1  tir1 = prev;
+		if (!type)
+		{
+			TimeLine til;
+			til.tir.push_back(temp);
+			tir1.setValue(sid);
+			tir1.til.push_back(til);
+		}
+		else
+		{
+			tir1.til[tsize - 1].tir.clear();
+			tir1.til[tsize - 1].tir.push_back(temp);
+		}
 		pTir.push_back(tir1);
 		isInit = true;
 	}
 	else
 	{
-		pTir[id]->tir.push_back(temp);
+		if (!type)
+			pTir[id].til[tsize].tir.push_back(temp);
+		else
+			pTir[id].til[tsize-1].tir.push_back(temp);
 	}
 }
 
