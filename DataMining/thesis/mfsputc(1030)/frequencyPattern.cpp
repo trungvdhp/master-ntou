@@ -14,6 +14,8 @@ frequencyPattern::frequencyPattern()
 
 frequencyPattern::~frequencyPattern()
 {
+	frePattern.clear();
+	pTir.clear();
 }
 
 bool frequencyPattern::operator==(const frequencyPattern y)

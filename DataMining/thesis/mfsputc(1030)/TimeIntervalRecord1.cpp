@@ -16,7 +16,7 @@ TimeIntervalRecord1::TimeIntervalRecord1()
 
 TimeIntervalRecord1::~TimeIntervalRecord1()
 {
-	//tir.clear();
+	tir.clear();
 }
 
 void TimeIntervalRecord1::setValue(const int sid)

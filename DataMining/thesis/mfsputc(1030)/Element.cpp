@@ -15,7 +15,7 @@ Element::Element()
 
 Element::~Element()
 {
-	//items.clear();
+	items.clear();
 }
 
 void Element::output(FILE *out)
