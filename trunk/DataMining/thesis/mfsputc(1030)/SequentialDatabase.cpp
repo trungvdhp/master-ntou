@@ -808,6 +808,7 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool first)
 {
 	//if (current > 100000) return;
+	/*if(p.pTir.size() < THRESHOLD) return;*/
 	int i;
 	frequencyPattern p_;
 	//vector<int> Stemp1, Stemp2, frequencyStemp1, frequencyStemp2;
@@ -843,14 +844,14 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 	bool f = FEPValid(p, Stemp1, Stemp2);
 	if (f)
 	{
-		/*printf("%d - ", ++current);
-		p.output(stdout);*/
-		f = BEPValid(p, first);
+		//printf("%d - ", ++current);
+		//p.output(out);
+		/*f = BEPValid(p, first);
 		if (f)
 		{
 			printf("%d - ", ++current);
 			p.output(stdout);
-		}
+		}*/
 	}
 	for (i = 0; i < Stemp1.size(); ++i)
 	{
@@ -860,6 +861,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 			patternGenerationAlgorithm(p_);
 		}
 	}
+	Stemp1.clear();
 	for (i = 0; i < Stemp2.size(); ++i)
 	{
 		if (Stemp2[i].pTir.size() >= THRESHOLD)
@@ -868,6 +870,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 			patternGenerationAlgorithm(p_, first);
 		}
 	}
+	Stemp2.clear();
 }
 
 void SequentialDatabase::scanDB()
