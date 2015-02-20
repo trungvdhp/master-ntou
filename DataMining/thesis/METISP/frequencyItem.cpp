@@ -21,6 +21,7 @@ bool frequencyItem::operator<(const frequencyItem &y)
 {
 	return frequency < y.frequency;
 }
+
 bool frequencyItem::operator==(const frequencyItem &y)
 {
 	int i , flag = 1; // false 0 true 1
@@ -36,47 +37,36 @@ bool frequencyItem::operator==(const frequencyItem &y)
 	return true;
 }
 
-TimeIntervalRecord1 * frequencyItem::binarySearch (int sId)
-{
-	int left = 0;
-	int right = pTir.size()-1;
-	int mid = (right+left)/2;
-	TimeIntervalRecord1 * it;
-
-	while(left <= right)
-	{
-		mid = (right+left)/2;
-		it = pTir[mid];
-		if (it->sId == sId)
-			return it;
-		if (it->sId < sId)
-			left = mid + 1;
-		else if (it->sId > sId)
-			right = mid - 1;
-	}
-	return NULL;
-}
-
-void frequencyItem::insertTir(int sid, int lst, int let
-	, TimeIntervalRecord1 * prev, TimeIntervalRecord1 * next, int & id, bool & isInit)
+void frequencyItem::insertTir(int sid, int lst, int let, int & id, bool & isInit,
+	const TimeIntervalRecord1 prev, bool type)
 {
 	TimeIntervalRecord temp;
-	temp.setValue(lst,let);
+	temp.setValue(lst, let);
+	int tsize = prev.til.size();
 	if (!isInit)
 	{
 		id++;
-		TimeIntervalRecord1 * tir1 = new TimeIntervalRecord1();
-		tir1->setValue(sid);
-		tir1->tir.push_back(temp);
-		if (prev != NULL && next == NULL)
-			prev->next = tir1;
-		tir1->prev = prev;
-		tir1->next = next;
+		TimeIntervalRecord1  tir1;
+		tir1.setValue(sid, prev.til);
+		if (!type)
+		{
+			TimeLine til;
+			til.tir.push_back(temp);
+			tir1.til.push_back(til);
+		}
+		else
+		{
+			tir1.til[tsize - 1].tir.clear();
+			tir1.til[tsize - 1].tir.push_back(temp);
+		}
 		pTir.push_back(tir1);
-		isInit = true;
+		isInit = 1;
 	}
 	else
 	{
-		pTir[id]->tir.push_back(temp);
+		if (!type)
+			pTir[id].til[tsize].tir.push_back(temp);
+		else
+			pTir[id].til[tsize - 1].tir.push_back(temp);
 	}
 }

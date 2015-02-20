@@ -20,17 +20,18 @@ public:
 	void generateStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> & Stemp2, int lastId);
 	void generateBEPStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> & Stemp2, int firstId, int lastId);
 	bool FEP(frequencyItem p, vector<frequencyItem> & Stemp1, vector<frequencyItem> & Stemp2);
-	vector<int> generateFEPType1(TimeIntervalRecord1 * tir1,vector<int> ot);
-	vector<int> generateFEPType2(TimeIntervalRecord1 * tir1,vector<int> ot);
-	vector<int> generateBEPType1(TimeIntervalRecord1 * tir1,vector<int> ot);
-	vector<int> generateBEPType2(TimeIntervalRecord1 * tir1,vector<int> ot);
-	vector<int> generateBEPType2_1(TimeIntervalRecord1 * tir1, vector<int> ot);
+	vector<int> generateFEPType1(int sId, TimeLine til, vector<int> ot);
+	vector<int> generateFEPType2(int sId, TimeLine til, vector<int> ot);
+	vector<int> generateBEPType1(int sId, TimeLine til, vector<int> ot);
+	vector<int> generateBEPType2(int sId, TimeLine til, vector<int> ot);
+	vector<int> generateBEPType2_1(int sId, TimeLine til, vector<int> ot,
+		TimeLine prevTil = TimeLine(), TimeLine nextTil = TimeLine());
 	bool BEP(frequencyItem p);
 	void mineDB(frequencyItem p, int count);
 	void constructPTidx(frequencyItem & p);
 	void generateSequentialPattern();
 	void printFrequencyItem(frequencyItem p);
-	void printTimeline(TimeIntervalRecord1 * tir1);
+	void printTimeline(TimeIntervalRecord1 tir1);
 
 	void outputFrequentPattern(char * filename);
 

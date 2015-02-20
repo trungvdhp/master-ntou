@@ -13,13 +13,14 @@
 class frequencyItem  
 {
 public:
-	void insertTir(int sid, int lst, int let, TimeIntervalRecord1 * prev,
-		TimeIntervalRecord1 * next, int & id, bool & isInit);
+	
 	frequencyItem();
 	virtual ~frequencyItem();
 	vector<int> item;
 	int frequency;
-	vector<TimeIntervalRecord1*> pTir;
+	vector<TimeIntervalRecord1> pTir;
+	void insertTir(int sid, int lst, int let, int & id, bool & isInit,
+		const TimeIntervalRecord1 prev = TimeIntervalRecord1(), bool type = false);
 	bool operator==(const frequencyItem &y);
 	bool operator<(const frequencyItem &y);
 private:
