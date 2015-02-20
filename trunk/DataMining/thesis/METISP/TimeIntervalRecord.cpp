@@ -24,3 +24,9 @@ void TimeIntervalRecord::setValue(const int laststarttime, const int lastendtime
 	lastEndTime = lastendtime;
 	lastStartTime = laststarttime;
 }
+
+TimeIntervalRecord & TimeIntervalRecord::operator = (const TimeIntervalRecord tir)
+{
+	setValue(tir.lastStartTime, tir.lastEndTime);
+	return *this;
+}

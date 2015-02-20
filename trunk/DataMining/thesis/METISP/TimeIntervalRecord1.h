@@ -9,18 +9,17 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "TimeIntervalRecord.h"
+#include "TimeLine.h"
 #include "metisp.h"
 
 class TimeIntervalRecord1  
 {
 public:
-	void setValue(const int sid = 0);
+	void setValue(const int _sId, const vector<TimeLine> _til);
 	TimeIntervalRecord1();
 	virtual ~TimeIntervalRecord1();
-	TimeIntervalRecord1 * prev;
-	TimeIntervalRecord1 * next;
-	vector<TimeIntervalRecord> tir;
+	TimeIntervalRecord1 & operator = (const TimeIntervalRecord1 tir1);
+	vector<TimeLine> til;
 	int sId;
 	bool operator==(const TimeIntervalRecord1 &y);
 	bool operator==(const int sid);

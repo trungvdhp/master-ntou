@@ -14,8 +14,8 @@ frequencyPattern::frequencyPattern()
 
 frequencyPattern::~frequencyPattern()
 {
-	frePattern.clear();
-	pTir.clear();
+	frePattern = vector<Element>();
+	pTir = vector<TimeIntervalRecord1>();
 }
 
 bool frequencyPattern::operator==(const frequencyPattern y)
