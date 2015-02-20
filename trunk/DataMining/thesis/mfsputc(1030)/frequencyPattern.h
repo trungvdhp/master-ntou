@@ -14,7 +14,7 @@ class frequencyPattern
 {
 public:
 	void insertTir(const int sid, const int tid,const int iid,const int laststarttime
-		, TimeIntervalRecord1 prev, int & id, bool & isInit, bool type=false);
+		, int & id, int & isInit, const TimeIntervalRecord1 prev = TimeIntervalRecord1(), bool type=false);
 	frequencyPattern();
 	virtual ~frequencyPattern();
 	vector<Element> frePattern;

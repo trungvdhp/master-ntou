@@ -15,6 +15,7 @@ public:
 	void setValue(const int tid = 0,const int iid= 0,const int laststarttime= 0);
 	TimeIntervalRecord();
 	virtual ~TimeIntervalRecord();
+	TimeIntervalRecord & operator = (const TimeIntervalRecord tir);
 	int tId;
 	int iId;
 	int lastStartTime;
