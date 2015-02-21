@@ -12,10 +12,10 @@ int THRESHOLD;
 
 void SetParameter()
 {
-	min_sup = 0.005;
-	mingap = 5;
-	maxgap = 16;
-	swin = 3;
+	min_sup = 0.5;
+	mingap = 3;
+	maxgap = 15;
+	swin = 2;
 }
 
 int main(int argc,char * argv[])
@@ -54,7 +54,7 @@ int main(int argc,char * argv[])
 	{
 		seqDB = new SequentialDatabase(argv[1],"out.txt");
 	}*/
-	seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfsputc(1030)\\Debug\\test.txt", "out.txt");
+	seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfsputc(1030)\\Debug\\dss.txt", "out.txt");
 	seqDB->execute();
 
 	finish = clock();

@@ -25,7 +25,7 @@ SequentialDatabase::~SequentialDatabase()
 	delete [] frequency;
 
 }
-// 
+
 void SequentialDatabase::scanDB()
 {
 	int i,j,k;
@@ -292,15 +292,16 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> & Stemp1, ve
 	int i;
 	vector<int> svttype1,svttype2;
 	int lastId = p.item.size() - 1;
+	int tid = p.pTir[0].til.size() - 1;
 	for (i = 0; i < p.pTir.size(); i++)
 	{
 		//use the corresponding time index to determine the VTPs for type-1 patterns.
-		svttype1 = generateFEPType1(p.pTir[i].sId, p.pTir[i].til[lastId],seq[p.pTir[i].sId].timeOcc);
+		svttype1 = generateFEPType1(p.pTir[i].sId, p.pTir[i].til[tid],seq[p.pTir[i].sId].timeOcc);
 		//for each item in the VTPs of type-1 pattern, add one to its support.
 		generateStempType1(svttype1, Stemp1);
 		svttype1.clear();
 		//use the corresponding time index to determine the VTPs for type-2 patterns.
-		svttype2 = generateFEPType2(p.pTir[i].sId, p.pTir[i].til[lastId], seq[p.pTir[i].sId].timeOcc);
+		svttype2 = generateFEPType2(p.pTir[i].sId, p.pTir[i].til[tid], seq[p.pTir[i].sId].timeOcc);
 		//for each item in the VTPs of type-2 pattern, add one to its support.
 		generateStempType2(p, svttype2, Stemp2, lastId);
 		svttype2.clear();
@@ -318,7 +319,6 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> & Stemp1, ve
 
 void SequentialDatabase::mineDB(frequencyItem p, int count)
 {
-	if (current > 100000) return;
 	int i;
 	vector<frequencyItem> Stemp1,Stemp2;
 	frequencyItem p_;
@@ -352,7 +352,7 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 			mineDB(p_, count);
 		}
 	}
-
+	Stemp1.clear();
 	//for each item x found in VTPs of type-2 pattern with support >= minsup X |D|
 	for (i = 0; i < Stemp2.size(); i++)
 	{
@@ -363,6 +363,7 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 			mineDB(p_, count);
 		}
 	}
+	Stemp2.clear();
 }
 
 vector<int> SequentialDatabase::generateFEPType1(int sId, TimeLine til, vector<int> ot)
@@ -567,18 +568,19 @@ bool SequentialDatabase::BEP(frequencyItem p)
 	int i, j;
 	int count=0, firstId, lastId;
 	int size = p.pTir.size();
-	int itemSize = p.item.size();
+	int itemSize = p.pTir[0].til.size();
 	int currentId = 0;
-	lastId = size - 1;
+	lastId = p.item.size() - 1;
 	firstId = lastId;
 	while (firstId > -1 && p.item[firstId] != -1) firstId--;
 	firstId++;
 	TimeLine prevTil, nextTil;
+	vector<int> svttype1, svttype2;
+	vector<frequencyItem> Stemp1, Stemp2;
 	while(true)
 	{
 		if (currentId == itemSize) break;
-		vector<int> svttype1, svttype2;
-		vector<frequencyItem> Stemp1, Stemp2;
+		
 		for (i = 0; i < size; i++)
 		{
 			//use the corresponding time index to determine the VTPs for type-1 patterns.
@@ -603,11 +605,13 @@ bool SequentialDatabase::BEP(frequencyItem p)
 			if (Stemp1[j].frequency == p.frequency)
 				return false;
 		}
+		Stemp1.clear();
 		for (j = 0; j < Stemp2.size(); j++)
 		{
 			if (Stemp2[j].frequency == p.frequency)
 				return false;
 		}
+		Stemp2.clear();
 		lastId = firstId - 2;
 		firstId = lastId;
 		while(firstId > -1 && p.item[firstId] != -1) firstId--;
