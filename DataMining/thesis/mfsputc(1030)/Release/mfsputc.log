@@ -1,101 +1,68 @@
-﻿Build started 2/17/2015 10:37:10 PM.
+﻿Build started 21/02/2015 20:44:47.
      1>Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" on node 2 (Rebuild target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /FR".\Release\\" /Gd /TP /analyze- /errorReport:prompt Element.cpp frequencyPattern.cpp frequentSequence.cpp mfsputc.cpp Sequential.cpp SequentialDatabase.cpp TimeIntervalRecord.cpp TimeIntervalRecord1.cpp Transaction.cpp
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>_PrepareForClean:
+         Deleting file ".\Release\mfsputc.lastbuildstate".
+       InitializeBuildStatus:
+         Creating ".\Release\mfsputc.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc110.pdb" /FR".\Release\\" /Gd /TP /analyze- /errorReport:prompt Element.cpp frequencyPattern.cpp frequentSequence.cpp mfsputc.cpp Sequential.cpp SequentialDatabase.cpp TimeIntervalRecord.cpp TimeIntervalRecord1.cpp TimeLine.cpp Transaction.cpp
          Element.cpp
      1>Element.cpp(25): warning C4018: '<' : signed/unsigned mismatch
          frequencyPattern.cpp
-     1>frequencyPattern.cpp(28): warning C4018: '<' : signed/unsigned mismatch
-     1>frequencyPattern.cpp(36): warning C4018: '<' : signed/unsigned mismatch
-     1>frequencyPattern.cpp(82): warning C4018: '<' : signed/unsigned mismatch
+     1>frequencyPattern.cpp(30): warning C4018: '<' : signed/unsigned mismatch
+     1>frequencyPattern.cpp(38): warning C4018: '<' : signed/unsigned mismatch
+     1>frequencyPattern.cpp(94): warning C4018: '<' : signed/unsigned mismatch
          frequentSequence.cpp
      1>frequentSequence.cpp(24): warning C4018: '<' : signed/unsigned mismatch
      1>frequentSequence.cpp(27): warning C4018: '<' : signed/unsigned mismatch
          mfsputc.cpp
      1>mfsputc.cpp(23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
          Sequential.cpp
          SequentialDatabase.cpp
      1>SequentialDatabase.cpp(14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
      1>SequentialDatabase.cpp(15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
-     1>SequentialDatabase.cpp(82): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(90): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(93): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(107): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(123): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(138): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(152): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(249): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(252): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(268): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(275): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(279): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(295): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(303): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(332): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(339): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(343): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(361): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(369): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(400): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(408): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(412): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(428): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(446): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(461): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(475): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(392): warning C4101: 'iid' : unreferenced local variable
-     1>SequentialDatabase.cpp(504): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(512): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(517): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(523): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(528): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(550): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(556): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(561): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(568): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(577): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(600): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(633): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(636): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(597): warning C4101: 'k' : unreferenced local variable
-     1>SequentialDatabase.cpp(647): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(650): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(663): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(681): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(684): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(716): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(724): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(730): warning C4018: '<' : signed/unsigned mismatch
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
+     1>SequentialDatabase.cpp(73): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(81): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(84): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(98): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(115): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(131): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(145): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(699): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(704): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(710): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(713): warning C4018: '<' : signed/unsigned mismatch
      1>SequentialDatabase.cpp(733): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(753): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(760): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(799): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(802): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(855): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(857): warning C4018: '>=' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(863): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(865): warning C4018: '>=' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(968): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>SequentialDatabase.cpp(972): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(974): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(984): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1047): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1050): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1069): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1089): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1109): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1129): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1149): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1163): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(740): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(776): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(779): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(804): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(806): warning C4018: '>=' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(813): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(815): warning C4018: '>=' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(919): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>SequentialDatabase.cpp(923): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(925): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(935): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(998): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1001): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1020): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1040): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1060): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1080): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1100): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1114): warning C4018: '<' : signed/unsigned mismatch
          TimeIntervalRecord.cpp
          TimeIntervalRecord1.cpp
+         TimeLine.cpp
          Transaction.cpp
          Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release\mfsputc.exe" /INCREMENTAL:NO /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\Release\mfsputc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Release\mfsputc.lib" /MACHINE:X86 /SAFESEH .\Release\Element.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release\mfsputc.exe" /INCREMENTAL:NO /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\Release\mfsputc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Release\mfsputc.lib" /MACHINE:X86 /SAFESEH .\Release\Element.obj
          .\Release\frequencyPattern.obj
          .\Release\frequentSequence.obj
          .\Release\mfsputc.obj
@@ -103,12 +70,16 @@
          .\Release\SequentialDatabase.obj
          .\Release\TimeIntervalRecord.obj
          .\Release\TimeIntervalRecord1.obj
+         .\Release\TimeLine.obj
          .\Release\Transaction.obj
          mfsputc.vcxproj -> D:\Master\DataMining\thesis\mfsputc(1030)\.\Release\mfsputc.exe
        BscMake:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o".\Release\mfsputc.bsc" .\Release\Element.sbr .\Release\frequencyPattern.sbr .\Release\frequentSequence.sbr .\Release\mfsputc.sbr .\Release\Sequential.sbr .\Release\SequentialDatabase.sbr .\Release\TimeIntervalRecord.sbr .\Release\TimeIntervalRecord1.sbr .\Release\Transaction.sbr
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o".\Release\mfsputc.bsc" .\Release\Element.sbr .\Release\frequencyPattern.sbr .\Release\frequentSequence.sbr .\Release\mfsputc.sbr .\Release\Sequential.sbr .\Release\SequentialDatabase.sbr .\Release\TimeIntervalRecord.sbr .\Release\TimeIntervalRecord1.sbr .\Release\TimeLine.sbr .\Release\Transaction.sbr
+       FinalizeBuildStatus:
+         Deleting file ".\Release\mfsputc.unsuccessfulbuild".
+         Touching ".\Release\mfsputc.lastbuildstate".
      1>Done Building Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.40
+Time Elapsed 00:00:03.16
