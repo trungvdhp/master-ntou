@@ -570,10 +570,10 @@ bool SequentialDatabase::BEP(frequencyItem p)
 	int size = p.pTir.size();
 	int itemSize = p.pTir[0].til.size();
 	int currentId = 0;
-	lastId = p.item.size() - 1;
-	firstId = lastId;
-	while (firstId > -1 && p.item[firstId] != -1) firstId--;
-	firstId++;
+	firstId = 0;
+	lastId = firstId;
+	while (lastId < p.item.size() && p.item[lastId] != -1) lastId++;
+	lastId--;
 	TimeLine prevTil, nextTil;
 	vector<int> svttype1, svttype2;
 	vector<frequencyItem> Stemp1, Stemp2;
@@ -612,10 +612,10 @@ bool SequentialDatabase::BEP(frequencyItem p)
 				return false;
 		}
 		Stemp2.clear();
-		lastId = firstId - 2;
-		firstId = lastId;
-		while(firstId > -1 && p.item[firstId] != -1) firstId--;
-		firstId++;
+		firstId = lastId + 2;
+		lastId = firstId;
+		while (lastId < p.item.size() && p.item[lastId] != -1) lastId++;
+		lastId--;
 		currentId++;
 	}
 	return true;
