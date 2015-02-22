@@ -47,8 +47,9 @@ public:
 	FILE * in,* out;
 	vector<Sequential> sequential;
 	int * frequency;
+	void printTimeLine(frequencyPattern p);
 private:
-	vector<int> svtType1, svtType2;
+	//vector<int> svtType1, svtType2;
 	int current;
 };
 
