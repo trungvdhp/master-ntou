@@ -719,10 +719,11 @@ bool SequentialDatabase::BEPValid(frequencyPattern p)
 					}
 					else
 						prevValid = true;
+					tir1.clear();
 					nextValid = false;
 					if (prevValid && currentId < itemSize-1)
 					{
-						tir1 = p.pTir[i].til[current+1].tir;
+						tir1 = p.pTir[i].til[currentId+1].tir;
 						for (ii = 0; ii < tir1.size(); ii++)
 						{
 							let = sequential[sid].transaction[tir1[ii].tId].timeOcc;
@@ -735,6 +736,7 @@ bool SequentialDatabase::BEPValid(frequencyPattern p)
 					}
 					else
 						nextValid = true;
+					tir1.clear();
 					if (prevValid && nextValid)
 					{
 						for (h = 0; h < sequential[sid].transaction[svtType2[k]].element.items.size(); h++)
@@ -754,23 +756,24 @@ bool SequentialDatabase::BEPValid(frequencyPattern p)
 				}
 				svtType2.clear();
 			}
+			tir.clear();
+		}
+		
+		for (i = 0; i < ITEM_NO; i++)
+		{
+			if (Stemp1Index[i] == p.pTir.size() || Stemp2Index[i] == p.pTir.size())
+			{
+				if (current == 18010)
+				{
+					printf("i = %d\n", i);
+				}
+				return false;
+			}
 		}
 		currentId++;
 		ip++;
-		for (i = 0; i < ITEM_NO; i++)
-		{
-			if (Stemp1Index[i] == p.pTir.size())
-			{
-				return false;
-			}
-		}
-		for (i = 0; i < ITEM_NO; i++)
-		{
-			if (Stemp2Index[i] == p.pTir.size())
-			{
-				return false;
-			}
-		}
+		Stemp1Index.clear();
+		Stemp2Index.clear();
 	}
 	return true;
 }
@@ -787,11 +790,20 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p)
 	{
 		/*printf("%d - ", ++current);
 		p.output(out);*/
+		
+		if (current == 18010)
+		{
+			p.output(stdout);
+			printTimeLine(p);
+			f = BEPValid(p);
+			return;
+		}
 		f = BEPValid(p);
 		if (f)
 		{
+			++current;
 			//printf("%d - ", ++current);
-			p.output(stdout);
+			//p.output(stdout);
 		}
 	}
 	for (i = 0; i < Stemp1.size(); ++i)
@@ -802,7 +814,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p)
 			patternGenerationAlgorithm(p_);
 		}
 	}
-	Stemp1.clear();
+	//Stemp1.clear();
 	for (i = 0; i < Stemp2.size(); ++i)
 	{
 		if (Stemp2[i].pTir.size() >= THRESHOLD)
@@ -811,7 +823,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p)
 			patternGenerationAlgorithm(p_);
 		}
 	}
-	Stemp2.clear();
+	//Stemp2.clear();
 }
 
 void SequentialDatabase::scanDB()
@@ -1111,4 +1123,24 @@ frequencyPattern SequentialDatabase::updateType2Pattern(frequencyPattern p,frequ
 	i = x.frePattern.size() - 1;
 	x.frePattern[i].items.push_back(addx);
 	return x;
+}
+
+void SequentialDatabase::printTimeLine(frequencyPattern p)
+{
+	int sid, tid;
+	for (int i = 0; i < p.pTir.size(); i++)
+	{
+		sid = p.pTir[i].sId;
+		printf("SID #%d\n", sid);
+		for (int j = 0; j < p.pTir[i].til.size(); j++)
+		{
+			for (int k = 0; k < p.pTir[i].til[j].tir.size(); k++)
+			{
+				tid = p.pTir[i].til[j].tir[k].tId;
+				printf("{%d %d} ; ", p.pTir[i].til[j].tir[k].lastStartTime, sequential[sid].transaction[tid].timeOcc);
+			}
+			printf("--");
+		}
+		printf("\n");
+	}
 }
