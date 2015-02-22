@@ -40,146 +40,6 @@ void SequentialDatabase::execute()
 	deleteInfrequentItem();
 }
 
-bool SequentialDatabase::BEPValid(frequencyPattern p, bool first)
-{
-	int sid, tid, lst, iid, let;
-	int iniTime;
-	int i, j, k, h, x, ii;
-	bool prevValid = true, nextValid = true;
-	int start, end;
-	int size = p.pTir.size();
-	int itemSize = p.frePattern.size();
-	int currentId=0;
-	vector<Element>::iterator ip = p.frePattern.begin();
-	vector<int> Stemp1Index, Stemp2Index;
-	vector<int> Stemp1Init, Stemp2Init;
-	Stemp1Index.assign(ITEM_NO, 0);
-	Stemp2Index.assign(ITEM_NO, 0);
-	Stemp1Init.assign(ITEM_NO, 0);
-	Stemp2Init.assign(ITEM_NO, 0);
-	vector<int> svtType1, svtType2;
-	vector<TimeIntervalRecord> tir, tir1;
-	while(true)
-	{
-		if(currentId==itemSize) break;
-		Stemp1Index.assign(ITEM_NO, 0);
-		Stemp2Index.assign(ITEM_NO, 0);
-		for (i = 0; i < size; i++)
-		{
-			Stemp1Init.assign(ITEM_NO, 0);
-			Stemp2Init.assign(ITEM_NO, 0);
-			sid = p.pTir[i].sId;
-			tir = p.pTir[i].til[currentId].tir;
-			for (j = 0; j < tir.size(); j++)
-			{
-				tid = tir[j].tId;
-				lst = tir[j].lastStartTime;
-				iid = tir[j].iId;
-				if(currentId == 0)
-				{
-					svtType1 = generateBEPType1(tid, lst, sequential[sid].transaction);
-					for (k = 0; k < svtType1.size(); k++)
-					{
-						iniTime = sequential[sid].transaction[svtType1[k]].timeOcc;
-						for (h = 0; h < sequential[sid].transaction[svtType1[k]].element.items.size(); h++)
-						{
-							x = sequential[sid].transaction[svtType1[k]].element.items[h];
-							if (!Stemp1Init[x])
-							{
-								Stemp1Index[x]++;
-								Stemp1Init[x] = 1;
-							}
-						}
-					}
-					svtType1.clear();
-				}
-
-				svtType2 = generateBEPType2(tid, lst, sequential[sid].transaction);
-				for (k = 0; k < svtType2.size(); k++)
-				{
-					iniTime = sequential[sid].transaction[svtType2[k]].timeOcc;
-					if (lst <= iniTime)
-					{
-						start = lst;
-						end = iniTime;
-					}
-					else
-					{
-						start = iniTime;
-						end = lst;
-					}
-					prevValid = false;
-					if (currentId != 0)
-					{
-						tir1 = p.pTir[i].til[currentId-1].tir;
-						for (ii = 0; ii < tir1.size(); ii++)
-						{
-							let = sequential[sid].transaction[tir1[ii].tId].timeOcc;
-							if (end - tir1[ii].lastStartTime <= maxgap && start - let >= mingap)
-							{
-								prevValid = true;
-								break;
-							}
-						}
-					}
-					else
-						prevValid = true;
-					nextValid = false;
-					if (prevValid && currentId < itemSize-1 && first == false)
-					{
-						tir1 = p.pTir[i].til[current+1].tir;
-						for (ii = 0; ii < tir1.size(); ii++)
-						{
-							let = sequential[sid].transaction[tir1[ii].tId].timeOcc;
-							if (let - start <= maxgap && tir1[ii].lastStartTime - end >= mingap)
-							{
-								nextValid = true;
-								break;
-							}
-						}
-					}
-					else
-						nextValid = true;
-					if (prevValid && nextValid)
-					{
-						for (h = 0; h < sequential[sid].transaction[svtType2[k]].element.items.size(); h++)
-						{
-							x = sequential[sid].transaction[svtType2[k]].element.items[h];
-							if (ip->items.back() < x || ip->items.front() > x)
-							{
-								if (Stemp2Init[x] == false)
-								{
-									Stemp2Index[x]++;
-									Stemp2Init[x] = true;
-								}
-							}
-						}
-					}
-
-				}
-				svtType2.clear();
-			}
-		}
-		currentId++;
-		ip++;
-		for (i = 0; i < ITEM_NO; i++)
-		{
-			if (Stemp1Index[i] == p.pTir.size())
-			{
-				return false;
-			}
-		}
-		for (i = 0; i < ITEM_NO; i++)
-		{
-			if (Stemp2Index[i] == p.pTir.size())
-			{
-				return false;
-			}
-		}
-	}
-	return true;
-}
-
 //bool SequentialDatabase::BEPValid1(frequencyPattern p)
 //{
 //	int i;
@@ -688,8 +548,6 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 	Stemp2Index.assign(ITEM_NO, -1);
 	Stemp1LastIndex.assign(ITEM_NO, -1);
 	Stemp2LastIndex.assign(ITEM_NO, -1);
-	Stemp1Init.assign(ITEM_NO, 0);
-	Stemp2Init.assign(ITEM_NO, 0);
 	Element newElement;
 	frequencyPattern newFrequencyPattern;
 	newElement.items.push_back(0);
@@ -745,7 +603,6 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 						if (Stemp2Index[x] == -1)
 						{
 							newFrequencyPattern.frePattern[0].items[0] = x;
-
 							if (lst <= iniTime)
 								newFrequencyPattern.insertTir(sid, svtType2[k], h, lst,
 									Stemp2LastIndex[x], Stemp2Init[x], p.pTir[i], true);
@@ -782,7 +639,143 @@ bool SequentialDatabase::FEPValid(frequencyPattern p, vector<frequencyPattern> &
 	return true;
 }
 
-void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool first)
+bool SequentialDatabase::BEPValid(frequencyPattern p)
+{
+	int sid, tid, lst, iid, let;
+	int iniTime;
+	int i, j, k, h, x, ii;
+	bool prevValid = true, nextValid = true;
+	int start, end;
+	int size = p.pTir.size();
+	int itemSize = p.frePattern.size();
+	int currentId=0;
+	vector<Element>::iterator ip = p.frePattern.begin();
+	vector<int> Stemp1Index, Stemp2Index;
+	vector<int> Stemp1Init, Stemp2Init;
+	vector<int> svtType1, svtType2;
+	vector<TimeIntervalRecord> tir, tir1;
+	while(true)
+	{
+		if(currentId==itemSize) break;
+		Stemp1Index.assign(ITEM_NO, 0);
+		Stemp2Index.assign(ITEM_NO, 0);
+		for (i = 0; i < size; i++)
+		{
+			Stemp1Init.assign(ITEM_NO, 0);
+			Stemp2Init.assign(ITEM_NO, 0);
+			sid = p.pTir[i].sId;
+			tir = p.pTir[i].til[currentId].tir;
+			for (j = 0; j < tir.size(); j++)
+			{
+				tid = tir[j].tId;
+				lst = tir[j].lastStartTime;
+				iid = tir[j].iId;
+				if(currentId == 0)
+				{
+					svtType1 = generateBEPType1(tid, lst, sequential[sid].transaction);
+					for (k = 0; k < svtType1.size(); k++)
+					{
+						iniTime = sequential[sid].transaction[svtType1[k]].timeOcc;
+						for (h = 0; h < sequential[sid].transaction[svtType1[k]].element.items.size(); h++)
+						{
+							x = sequential[sid].transaction[svtType1[k]].element.items[h];
+							if (!Stemp1Init[x])
+							{
+								Stemp1Index[x]++;
+								Stemp1Init[x] = 1;
+							}
+						}
+					}
+					svtType1.clear();
+				}
+
+				svtType2 = generateBEPType2(tid, lst, sequential[sid].transaction);
+				for (k = 0; k < svtType2.size(); k++)
+				{
+					iniTime = sequential[sid].transaction[svtType2[k]].timeOcc;
+					if (lst <= iniTime)
+					{
+						start = lst;
+						end = iniTime;
+					}
+					else
+					{
+						start = iniTime;
+						end = lst;
+					}
+					prevValid = false;
+					if (currentId != 0)
+					{
+						tir1 = p.pTir[i].til[currentId-1].tir;
+						for (ii = 0; ii < tir1.size(); ii++)
+						{
+							let = sequential[sid].transaction[tir1[ii].tId].timeOcc;
+							if (end - tir1[ii].lastStartTime <= maxgap && start - let >= mingap)
+							{
+								prevValid = true;
+								break;
+							}
+						}
+					}
+					else
+						prevValid = true;
+					nextValid = false;
+					if (prevValid && currentId < itemSize-1)
+					{
+						tir1 = p.pTir[i].til[current+1].tir;
+						for (ii = 0; ii < tir1.size(); ii++)
+						{
+							let = sequential[sid].transaction[tir1[ii].tId].timeOcc;
+							if (let - start <= maxgap && tir1[ii].lastStartTime - end >= mingap)
+							{
+								nextValid = true;
+								break;
+							}
+						}
+					}
+					else
+						nextValid = true;
+					if (prevValid && nextValid)
+					{
+						for (h = 0; h < sequential[sid].transaction[svtType2[k]].element.items.size(); h++)
+						{
+							x = sequential[sid].transaction[svtType2[k]].element.items[h];
+							if (ip->items.back() < x || ip->items.front() > x)
+							{
+								if (Stemp2Init[x] == false)
+								{
+									Stemp2Index[x]++;
+									Stemp2Init[x] = true;
+								}
+							}
+						}
+					}
+
+				}
+				svtType2.clear();
+			}
+		}
+		currentId++;
+		ip++;
+		for (i = 0; i < ITEM_NO; i++)
+		{
+			if (Stemp1Index[i] == p.pTir.size())
+			{
+				return false;
+			}
+		}
+		for (i = 0; i < ITEM_NO; i++)
+		{
+			if (Stemp2Index[i] == p.pTir.size())
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p)
 {
 	//if (current > 100000) return;
 	/*if(p.pTir.size() < THRESHOLD) return;*/
@@ -794,11 +787,11 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 	{
 		/*printf("%d - ", ++current);
 		p.output(out);*/
-		f = BEPValid(p, first);
+		f = BEPValid(p);
 		if (f)
 		{
 			//printf("%d - ", ++current);
-			p.output(out);
+			p.output(stdout);
 		}
 	}
 	for (i = 0; i < Stemp1.size(); ++i)
@@ -815,7 +808,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p, bool fir
 		if (Stemp2[i].pTir.size() >= THRESHOLD)
 		{
 			p_ = updateType2Pattern(p, Stemp2[i]);
-			patternGenerationAlgorithm(p_, first);
+			patternGenerationAlgorithm(p_);
 		}
 	}
 	Stemp2.clear();
@@ -955,7 +948,7 @@ void SequentialDatabase::deleteInfrequentItem()
 			newFrequencyPattern.frePattern[0].items[0] = i;
 			
 			generatePTir(newFrequencyPattern);
-			patternGenerationAlgorithm(newFrequencyPattern, true);
+			patternGenerationAlgorithm(newFrequencyPattern);
 			newFrequencyPattern.pTir.clear();
 		}
 	}

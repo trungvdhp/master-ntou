@@ -23,7 +23,7 @@ public:
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);
 	bool FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);*/
-	bool BEPValid(frequencyPattern p, bool first=false);
+	bool BEPValid(frequencyPattern p);
 	/*bool BEPValid1(frequencyPattern p);*/
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
@@ -37,7 +37,7 @@ public:
 	int binarySearch(vector<int> data,int x);
 	void generatePTir(frequencyPattern & p);
 	/*void generateUpdateL(frequentSequence Sp);*/
-	void patternGenerationAlgorithm(frequencyPattern p, bool first=false);
+	void patternGenerationAlgorithm(frequencyPattern p);
 	void deleteInfrequentItem();
 	/*void generateL1PTir(frequentSequence & Sp);*/
 	void scanDB();
