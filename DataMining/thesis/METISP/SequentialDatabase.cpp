@@ -328,11 +328,17 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 		//printFrequencyItem(p);
 		//printf("%d - ", ++current);
 		//printFrequencyItem(p);
+		if(current == 635)
+		{
+			printFrequencyItem(p);
+			return;
+		}
 		f = BEP(p);
 		if (f)
 		{
-			//printf("%d - ", ++current);
-			printFrequencyItem(p);
+			printf("%d - ", ++current);
+			
+			/*printFrequencyItem(p);*/
 			//	//printf("ok\n");
 			//	/*while (freSeqSet.size() < count)
 			//	{
@@ -537,30 +543,22 @@ void SequentialDatabase::printFrequencyItem(frequencyItem p)
 	}
 	printf("}");
 	printf("}:%d\n", p.frequency);
-	/*for (i = 0; i < p.pTir.size(); i++)
+	for (i = 0; i < p.pTir.size(); i++)
 	{
-		printf("Time intervals %d: ", p.pTir[i].sId);
-		for (j = 0; j <p.pTir[i].tir.size(); j++)
-		{
-			printf("{%d:%d} ; ", p.pTir[i].tir[j].lastStartTime,  
-				p.pTir[i].tir[j].lastEndTime);
-		}
-		printf("\n");
-		printf("Timeline records:");
 		printTimeline(p.pTir[i]);
 		printf("\n");
-	}*/
+	}
 }
 
 void SequentialDatabase::printTimeline(TimeIntervalRecord1 tir1)
 {
-		int k = tir1.til.size();
-		for (int i = 0; i < k; i++)
-		{
-			for (int j = 0; j < tir1.til[i].tir.size(); j++)
-				printf("{%d:%d} ; ", tir1.til[i].tir[j].lastStartTime, tir1.til[i].tir[j].lastEndTime);
-			printf("\n");
-		}
+	int k = tir1.til.size();
+	for (int i = 0; i < k; i++)
+	{
+		for (int j = 0; j < tir1.til[i].tir.size(); j++)
+			printf("{%d:%d} ; ", tir1.til[i].tir[j].lastStartTime, tir1.til[i].tir[j].lastEndTime);
+		printf(" -- ");
+	}
 }
 
 bool SequentialDatabase::BEP(frequencyItem p)

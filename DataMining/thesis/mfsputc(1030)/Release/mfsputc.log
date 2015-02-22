@@ -1,4 +1,4 @@
-﻿Build started 21/02/2015 20:44:47.
+﻿Build started 22/02/2015 14:57:53.
      1>Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" on node 2 (Rebuild target(s)).
        Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>_PrepareForClean:
@@ -25,37 +25,37 @@
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
      1>SequentialDatabase.cpp(15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
-     1>SequentialDatabase.cpp(73): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(81): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(84): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(98): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(115): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(131): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(145): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(699): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(704): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(557): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(562): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(568): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(571): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(591): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(598): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(633): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(636): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(668): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(676): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(679): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(693): warning C4018: '<' : signed/unsigned mismatch
      1>SequentialDatabase.cpp(710): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(713): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(733): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(726): warning C4018: '<' : signed/unsigned mismatch
      1>SequentialDatabase.cpp(740): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(776): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(779): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(804): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(806): warning C4018: '>=' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(813): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(815): warning C4018: '>=' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(919): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>SequentialDatabase.cpp(923): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(925): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(935): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(998): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1001): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1020): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1040): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1060): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1080): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1100): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(1114): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(797): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(799): warning C4018: '>=' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(806): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(808): warning C4018: '>=' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(912): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>SequentialDatabase.cpp(916): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(918): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(928): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(991): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(994): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1013): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1033): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1053): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1073): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1093): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1107): warning C4018: '<' : signed/unsigned mismatch
          TimeIntervalRecord.cpp
          TimeIntervalRecord1.cpp
          TimeLine.cpp
@@ -82,4 +82,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.16
+Time Elapsed 00:00:03.19
