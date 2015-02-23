@@ -16,12 +16,16 @@
 class SequentialDatabase  
 {
 public:
-	/*frequencyPattern updateType1Pattern(frequencyPattern p, int x);
-	frequencyPattern updateType2Pattern(frequencyPattern p, int x);*/
+	vector<int> generateFEPType_1(int sId, TimeLine til);
+	vector<int> generateFEPType_2(int sId, TimeLine til);
+	void generateStempType1(vector<int> svtType1, vector<int> & Stemp1, vector<int> & frequencyStemp1);
+	void generateStempType2(vector<int> svtType2, vector<int> & Stemp2, vector<int> & frequencyStemp2, int lastItem);
+	frequencyPattern updateType1Pattern(frequencyPattern p, int x);
+	frequencyPattern updateType2Pattern(frequencyPattern p, int x);
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
-	/*bool FEPValid_1(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
+	bool FEPValid_1(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);
-	bool FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
+	/*bool FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);*/
 	bool BEPValid(frequencyPattern p);
 	/*bool BEPValid1(frequencyPattern p);*/
@@ -29,7 +33,7 @@ public:
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
 	vector<int> generateFEPType1(int tid, int lst,vector<Transaction> trans);
 	/*void generateFEPType(TimeIntervalRecord1 * pTir,vector<Transaction> trans);*/
-	/*void generateFEPType_1(TimeIntervalRecord1 * pTir, vector<Transaction> trans);*/
+	
 	/*void generateBEPType(TimeIntervalRecord1 * pTir,vector<Transaction> trans, vector<Element>::iterator ip);*/
 	vector<int> generateFEPType2(int tid, int lst,vector<Transaction> trans);
 	vector<int> generateBEPType1(int tid, int lst,vector<Transaction> trans);

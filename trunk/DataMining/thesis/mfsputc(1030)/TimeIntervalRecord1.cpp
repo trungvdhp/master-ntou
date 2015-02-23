@@ -15,7 +15,7 @@ TimeIntervalRecord1::TimeIntervalRecord1()
 
 TimeIntervalRecord1::~TimeIntervalRecord1()
 {
-	til = vector<TimeLine>();
+	//til = vector<TimeLine>();
 }
 
 void TimeIntervalRecord1::setValue(const int _sId, const vector<TimeLine> _til)

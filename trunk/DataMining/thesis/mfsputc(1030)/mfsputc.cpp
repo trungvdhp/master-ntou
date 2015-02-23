@@ -54,7 +54,7 @@ int main(int argc,char * argv[])
 	{
 		seqDB = new SequentialDatabase(argv[1],"out.txt");
 	}*/
-	seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfsputc(1030)\\release\\test.txt", "out.txt");
+	seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfsputc(1030)\\Release\\T10I4D1K.dat", "out3.txt");
 	seqDB->execute();
 
 	finish = clock();

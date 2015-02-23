@@ -262,14 +262,14 @@ void SequentialDatabase::generateStempType1(vector<int> svttype1, vector<frequen
 	}
 }
 
-void SequentialDatabase::generateStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> & Stemp2, int lastId)
+void SequentialDatabase::generateStempType2(vector<int> svttype2, vector<frequencyItem> & Stemp2, int lastItem)
 {
 	frequencyItem temp;
 	vector<frequencyItem>::iterator iter;
 
 	for (int j = 0; j < svttype2.size(); j++)
 	{
-		if (p.item[lastId] < svttype2[j])
+		if (lastItem < svttype2[j])
 		{
 			temp.item.push_back(svttype2[j]);
 			iter = find(Stemp2.begin(), Stemp2.end(), temp);
@@ -291,7 +291,7 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> & Stemp1, ve
 {
 	int i;
 	vector<int> svttype1,svttype2;
-	int lastId = p.item.size() - 1;
+	int lastItem = p.item.back();
 	int tid = p.pTir[0].til.size() - 1;
 	for (i = 0; i < p.pTir.size(); i++)
 	{
@@ -303,7 +303,7 @@ bool SequentialDatabase::FEP(frequencyItem p, vector<frequencyItem> & Stemp1, ve
 		//use the corresponding time index to determine the VTPs for type-2 patterns.
 		svttype2 = generateFEPType2(p.pTir[i].sId, p.pTir[i].til[tid], seq[p.pTir[i].sId].timeOcc);
 		//for each item in the VTPs of type-2 pattern, add one to its support.
-		generateStempType2(p, svttype2, Stemp2, lastId);
+		generateStempType2(svttype2, Stemp2, lastItem);
 		svttype2.clear();
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
@@ -325,28 +325,20 @@ void SequentialDatabase::mineDB(frequencyItem p, int count)
 	bool f = FEP(p, Stemp1, Stemp2);
 	if (f)
 	{
-		//printFrequencyItem(p);
-		//printf("%d - ", ++current);
-		//printFrequencyItem(p);
-		if(current == 635)
-		{
-			printFrequencyItem(p);
-			return;
-		}
-		f = BEP(p);
-		if (f)
-		{
-			printf("%d - ", ++current);
-			
-			/*printFrequencyItem(p);*/
-			//	//printf("ok\n");
-			//	/*while (freSeqSet.size() < count)
-			//	{
-			//		frequentSequence Sp;
-			//		freSeqSet.push_back(Sp);
-			//	}
-			//	freSeqSet[count-1].freSeq.push_back(p);*/
-		}
+		printf("%d - ", ++current);
+		printFrequencyItem(p);
+		//f = BEP(p);
+		//if (f)
+		//{
+		//	printFrequencyItem(p);
+		//	//	//printf("ok\n");
+		//	//	/*while (freSeqSet.size() < count)
+		//	//	{
+		//	//		frequentSequence Sp;
+		//	//		freSeqSet.push_back(Sp);
+		//	//	}
+		//	//	freSeqSet[count-1].freSeq.push_back(p);*/
+		//}
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
 	for (i = 0; i < Stemp1.size(); i++)
@@ -543,11 +535,11 @@ void SequentialDatabase::printFrequencyItem(frequencyItem p)
 	}
 	printf("}");
 	printf("}:%d\n", p.frequency);
-	for (i = 0; i < p.pTir.size(); i++)
+	/*for (i = 0; i < p.pTir.size(); i++)
 	{
 		printTimeline(p.pTir[i]);
 		printf("\n");
-	}
+	}*/
 }
 
 void SequentialDatabase::printTimeline(TimeIntervalRecord1 tir1)

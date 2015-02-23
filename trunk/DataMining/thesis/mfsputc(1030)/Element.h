@@ -12,9 +12,9 @@
 class Element  
 {
 public:
-	void output(FILE * out);
 	Element();
 	virtual ~Element();
+	void output(FILE * out);
 	vector<int> items;
 };
 

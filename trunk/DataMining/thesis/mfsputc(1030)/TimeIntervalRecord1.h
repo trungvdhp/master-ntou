@@ -18,9 +18,8 @@ public:
 	TimeIntervalRecord1 & operator = (const TimeIntervalRecord1 tir1);
 	void setValue(const int sid = 0, const vector<TimeLine> til=vector<TimeLine>());
 	bool operator==(const int sid);
-	
-	int sId;
 	vector<TimeLine> til;
+	int sId;
 };
 
 #endif // !defined(AFX_TIMEINTERVALRECORD1_H__9BD14053_9400_4D2D_A24B_639CF33DFEEB__INCLUDED_)
