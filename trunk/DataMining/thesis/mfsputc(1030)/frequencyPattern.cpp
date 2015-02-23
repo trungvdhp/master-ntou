@@ -54,16 +54,16 @@ bool frequencyPattern::operator<(const frequencyPattern y)
 }
 
 void frequencyPattern::insertTir(const int sid, const int tid,const int iid,const int laststarttime
-	, int & id, int & isInit,const TimeIntervalRecord1 prev, bool type)
+	, int & id, int & isInit, const vector<TimeLine> prev, bool type)
 {
 	TimeIntervalRecord temp;
 	temp.setValue(tid, iid, laststarttime);
-	int tsize = prev.til.size();
+	int tsize = prev.size();
 	if (!isInit)
 	{
 		id++;
 		TimeIntervalRecord1  tir1;
-		tir1.setValue(sid, prev.til);
+		tir1.setValue(sid, prev);
 		if (!type)
 		{
 			TimeLine til;

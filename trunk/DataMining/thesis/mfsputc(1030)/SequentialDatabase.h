@@ -27,15 +27,18 @@ public:
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);
 	/*bool FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);*/
+	vector<int> generateBEPType_1(int sId, TimeLine til);
+	vector<int> generateBEPType_2(int sId, TimeLine til, TimeLine prevTil, TimeLine nextTil, int firstItem, int lastItem);
 	bool BEPValid(frequencyPattern p);
-	/*bool BEPValid1(frequencyPattern p);*/
+	bool BEPValid_1(frequencyPattern p);
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
-	vector<int> generateFEPType1(int tid, int lst,vector<Transaction> trans);
+	vector<int> generateFEPType1(int sId, int tId, int lst);
+	vector<int> generateFEPType2(int sId, int tId, int lst);
 	/*void generateFEPType(TimeIntervalRecord1 * pTir,vector<Transaction> trans);*/
 	
 	/*void generateBEPType(TimeIntervalRecord1 * pTir,vector<Transaction> trans, vector<Element>::iterator ip);*/
-	vector<int> generateFEPType2(int tid, int lst,vector<Transaction> trans);
+	
 	vector<int> generateBEPType1(int tid, int lst,vector<Transaction> trans);
 	vector<int> generateBEPType2(int tid, int lst,vector<Transaction> trans);
 	int binarySearch(vector<int> data,int x);
