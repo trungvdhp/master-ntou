@@ -12,12 +12,13 @@
 class Transaction  
 {
 public:
-	void insertItem(int item);
-	void setTimeOcc(int time);
 	Transaction();
 	virtual ~Transaction();
-	int timeOcc;
+	void insertItem(int item);
+	void setTimeOcc(int time);
 	Element element;
+	int timeOcc;
+	
 };
 
 #endif // !defined(AFX_TRANSACTION_H__7D1D9072_2847_4E2B_8D4E_51B257D6FA30__INCLUDED_)

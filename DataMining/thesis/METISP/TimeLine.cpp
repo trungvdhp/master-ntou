@@ -7,7 +7,7 @@ TimeLine::TimeLine()
 
 TimeLine::~TimeLine()
 {
-	vector<TimeIntervalRecord>().swap(tir);
+	//vector<TimeIntervalRecord>().swap(tir);
 }
 
 TimeLine & TimeLine::operator=(const TimeLine til)
