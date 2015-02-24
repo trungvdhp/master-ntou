@@ -29,19 +29,18 @@ int main(int argc,char * argv[])
 		printf("usage: mfsputc <infile> [<MINSUP> <MINGAP> <MAXGAP> <SWIN> <DUN>] [<outfile>]\n");
 		exit(1);
 	}
-	else if (argc >= 7)
+	else */
+	if (argc >= 6)
 	{
 		min_sup = atof(argv[2]);
 		mingap = atoi(argv[3]);
 		maxgap = atoi(argv[4]);
 		swin = atoi(argv[5]);
-		dun =atoi(argv[6]);
-		printf("mfsputc %s %lf %d %d %d %d\n",argv[1],min_sup,mingap,maxgap,swin,dun);
 	}
 	else
-	{*/
+	{
 		SetParameter();
-	/*}*/
+	}
 	time_t rawtime;
 	struct tm * timeinfo;
 	time ( &rawtime );

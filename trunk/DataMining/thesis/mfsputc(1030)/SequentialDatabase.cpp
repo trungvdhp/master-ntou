@@ -859,12 +859,10 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p)
 
 void SequentialDatabase::scanDB()
 {
-	int temp = 0;
+	int k, temp = 0;
 	char c;
 	int item, pos;
-	
-	int net_itemno = 0,k;
-	
+	int net_itemno = 0;
 	set<int> oneSeqItem;
 	set<int>::iterator iterSet;
 	while (!feof(in))
@@ -1050,17 +1048,16 @@ void SequentialDatabase::generatePTir(frequencyPattern & p)
 vector<int> SequentialDatabase::generateFEPType1(int sId, int tId, int lst)
 {
 	vector<int> temp;
-	int i,ub,lb;
+	int i, ub, lb, k;
 	lb = sequential[sId].transaction[tId].timeOcc + mingap;
 	ub = lst + maxgap;
 	for (i = tId + 1; i < sequential[sId].transaction.size(); i++)
 	{
-		int k = sequential[sId].transaction[i].timeOcc;
-		if (lb <= k && k <= ub)
+		if (lb <= sequential[sId].transaction[i].timeOcc && sequential[sId].transaction[i].timeOcc <= ub)
 		{
 			temp.push_back(i);
 		}
-		else if (k > ub)
+		else if (sequential[sId].transaction[i].timeOcc > ub)
 		{
 			break;
 		}
@@ -1076,12 +1073,11 @@ vector<int> SequentialDatabase::generateFEPType2(int sId, int tId, int lst)
 	ub = lst + swin;
 	for (i = 0; i < sequential[sId].transaction.size(); i++)
 	{
-		int k = sequential[sId].transaction[i].timeOcc;
-		if (lb <= k && k <= ub)
+		if (lb <= sequential[sId].transaction[i].timeOcc && sequential[sId].transaction[i].timeOcc <= ub)
 		{
 			temp.push_back(i);
 		}
-		else if (k > ub)
+		else if (sequential[sId].transaction[i].timeOcc > ub)
 		{
 			break;
 		}

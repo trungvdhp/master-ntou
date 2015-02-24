@@ -320,7 +320,6 @@ void SequentialDatabase::mineDB(frequencyItem p)
 {
 	int i;
 	vector<frequencyItem> Stemp1,Stemp2;
-	frequencyItem p_;
 	bool f = FEP(p, Stemp1, Stemp2);
 	if (f)
 	{
@@ -345,17 +344,18 @@ void SequentialDatabase::mineDB(frequencyItem p)
 	{
 		if (Stemp1[i].frequency >= THRESHOLD)
 		{
-			p_ = updateType1Pattern(p, Stemp1[i]);
+			frequencyItem p_ = updateType1Pattern(p, Stemp1[i]);
 		
 			mineDB(p_);
 		}
 	}
-	Stemp1.clear();
+	//Stemp1.clear();
 	//for each item x found in VTPs of type-2 pattern with support >= minsup X |D|
 	for (i = 0; i < Stemp2.size(); i++)
 	{
 		if (Stemp2[i].frequency >= THRESHOLD)
 		{
+			frequencyItem p_;
 			if(p.pTir[0].til.size() == 1)
 				p_ = updateType2Pattern(p, Stemp2[i]);
 			else
@@ -364,7 +364,7 @@ void SequentialDatabase::mineDB(frequencyItem p)
 			mineDB(p_);
 		}
 	}
-	Stemp2.clear();
+	//Stemp2.clear();
 }
 
 vector<int> SequentialDatabase::generateFEPType1(int sId, TimeLine til, vector<int> ot)
@@ -425,11 +425,11 @@ vector<int> SequentialDatabase::generateFEPType2(int sId, TimeLine til, TimeLine
 	vector<int> temp;
 	vector<int>::iterator iter;
 	bool prevValid;
-	for (i = 0; i < til.tir.size(); i++)
+	for (i = 0; i < til.tir.size(); ++i)
 	{
 		lb = til.tir[i].lastEndTime - swin;
 		ub = til.tir[i].lastStartTime + swin;
-		for (j = 0; j < ot.size() ; j++)
+		for (j = 0; j < ot.size(); ++j)
 		{
 			if (lb <= ot[j] && ot[j] <= ub )
 			{
@@ -456,12 +456,13 @@ vector<int> SequentialDatabase::generateFEPType2(int sId, TimeLine til, TimeLine
 				}
 				if (prevValid)
 				{
-					for (int k = 0; k < seq[sId].trans[j].t.size(); k++)
+					vector<int> t = seq[sId].trans[j].t;
+					for (int k = 0; k < t.size(); k++)
 					{
-						iter = find(temp.begin(),temp.end(),seq[sId].trans[j].t[k]);
+						iter = find(temp.begin(),temp.end(), t[k]);
 						if (iter == temp.end())
 						{
-							temp.push_back(seq[sId].trans[j].t[k]);
+							temp.push_back(t[k]);
 						}
 					}
 				}
