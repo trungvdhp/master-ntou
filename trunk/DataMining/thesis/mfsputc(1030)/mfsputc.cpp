@@ -22,7 +22,6 @@ int main(int argc,char * argv[])
 {
 	FILE * fp = fopen("time.txt","a");
 	clock_t start,finish;
-
 	double duration;
 
 	/*if (argc < 2)
@@ -43,7 +42,9 @@ int main(int argc,char * argv[])
 	{*/
 		SetParameter();
 	/*}*/
-
+	time_t rawtime;
+	struct tm * timeinfo;
+	time ( &rawtime );
 	start = clock();
 	SequentialDatabase * seqDB;
 	/*if (argc >= 8)
@@ -54,16 +55,17 @@ int main(int argc,char * argv[])
 	{
 		seqDB = new SequentialDatabase(argv[1],"out.txt");
 	}*/
-	seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfsputc(1030)\\Release\\T10I4D1K.dat", "out3.txt");
+	seqDB = new SequentialDatabase(argv[1],"out.txt");
+	//seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfsputc(1030)\\Release\\dss.txt", "out3.txt");
 	seqDB->execute();
 
 	finish = clock();
 	duration = (double)(finish - start)/CLOCKS_PER_SEC;
 	
-	fprintf(fp,"mfsputc %s %lf %d %d %d\n",argv[1],min_sup,mingap,maxgap,swin);
-	fprintf(fp,"Duration %lf\n",duration);
+	fprintf(fp,"%s mfsputc %s %lf %d %d %d\n", ctime (&rawtime), argv[1],min_sup,mingap,maxgap,swin);
+	fprintf(fp," Duration %lf\n",duration);
 
-	printf("Duration %6.10lf\n",duration);
+	printf(" Duration %6.10lf\n",duration);
 	fclose(fp);
 	delete seqDB;
 	return 0;

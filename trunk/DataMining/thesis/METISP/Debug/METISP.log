@@ -1,4 +1,4 @@
-﻿Build started 22/02/2015 15:00:49.
+﻿Build started 24/02/2015 16:56:01.
      1>Project "D:\Master\DataMining\thesis\METISP\METISP.vcxproj" on node 2 (Rebuild target(s)).
        Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>_PrepareForClean:
@@ -27,10 +27,10 @@
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(248): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(270): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(296): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(310): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(314): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(351): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(362): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(313): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(317): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(348): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(359): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(379): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(383): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(387): warning C4018: '<' : signed/unsigned mismatch
@@ -38,39 +38,51 @@
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(410): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(414): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(435): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(442): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(446): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(450): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(439): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(454): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(458): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(480): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(465): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(486): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(490): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(494): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(498): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(502): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(528): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(523): warning C4101: 'i' : unreferenced local variable
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(523): warning C4101: 'j' : unreferenced local variable
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(565): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(580): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(608): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(614): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(622): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(634): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(489): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(493): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(497): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(501): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(505): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(527): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(529): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(533): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(537): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(541): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(545): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(571): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(573): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(581): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(589): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(605): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(616): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(639): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(643): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(662): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(667): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(671): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(693): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(698): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(715): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(730): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(743): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(634): warning C4101: 'i' : unreferenced local variable
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(634): warning C4101: 'j' : unreferenced local variable
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(668): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(683): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(710): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(716): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(724): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(676): warning C4101: 'j' : unreferenced local variable
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(736): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(741): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(745): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(764): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(769): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(773): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(795): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(799): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(816): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(831): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(844): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\metisp\sequentialdatabase.cpp(865): warning C4018: '<' : signed/unsigned mismatch
          Sequential.cpp
          metisp.cpp
+     1>d:\master\datamining\thesis\metisp\metisp.cpp(53): warning C4101: 'timeinfo' : unreferenced local variable
          frequentSequence.cpp
          frequencyItem.cpp
      1>d:\master\datamining\thesis\metisp\frequencyitem.cpp(30): warning C4018: '<' : signed/unsigned mismatch
@@ -96,4 +108,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.36
+Time Elapsed 00:00:04.02

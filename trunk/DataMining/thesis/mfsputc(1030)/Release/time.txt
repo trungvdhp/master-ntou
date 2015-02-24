@@ -28,3 +28,64 @@ mfsputc (null) 0.005000 5 16 3
 Duration 624.614000
 mfsputc (null) 0.005000 5 16 3
 Duration 655.713000
+mfsputc (null) 0.005000 5 16 3
+Duration 352.672000
+mfsputc (null) 0.005000 5 16 3
+Duration 355.853000
+mfsputc (null) 0.005000 5 16 3
+Duration 352.291000
+mfsputc (null) 0.500000 3 15 2
+Duration 0.003000
+mfsputc (null) 0.500000 3 15 2
+Duration 0.003000
+mfsputc (null) 0.500000 3 15 2
+Duration 0.003000
+mfsputc (null) 0.500000 3 15 2
+Duration 0.003000
+mfsputc (null) 0.500000 3 15 2
+Duration 0.002000
+mfsputc (null) 0.500000 3 15 2
+Duration 0.020000
+mfsputc T10I4D1K.dat 0.005000 5 16 3
+Duration 367.930000
+mfsputc (null) 0.500000 3 15 2
+Duration 0.005000
+mfsputc (null) 0.350000 5 16 3
+Duration 2.795000
+mfsputc T10I4D1K.dat 0.005000 5 16 3
+Duration 368.497000
+mfsputc T10I4D1K.dat 0.005000 5 16 3
+Duration 356.292000
+Tue Feb 24 13:16:21 2015
+ - mfsputc dss.txt 0.005000 5 16 3
+Duration 0.007000
+Tue Feb 24 13:17:27 2015
+mfsputc dss.txt 0.005000 5 16 3
+Duration 0.006000
+Tue Feb 24 13:48:45 2015
+ mfsputc test.txt 0.005000 5 16 3
+ Duration 58.045000
+Tue Feb 24 13:51:11 2015
+ mfsputc test.txt 0.005000 5 16 3
+ Duration 58.007000
+Tue Feb 24 13:53:08 2015
+ mfsputc test.txt 0.005000 5 16 3
+ Duration 57.876000
+Tue Feb 24 13:54:40 2015
+ mfsputc test.txt 0.005000 5 16 3
+ Duration 58.121000
+Tue Feb 24 13:58:23 2015
+ mfsputc test.txt 0.005000 5 16 3
+ Duration 57.978000
+Tue Feb 24 14:52:00 2015
+ mfsputc test.txt 0.005000 5 16 3
+ Duration 590.862000
+Tue Feb 24 16:31:12 2015
+ mfsputc (null) 0.005000 5 16 3
+ Duration 0.022000
+Tue Feb 24 16:31:48 2015
+ mfsputc dss.txt 0.005000 5 16 3
+ Duration 0.007000
+Tue Feb 24 16:45:44 2015
+ mfsputc test.txt 0.005000 5 16 3
+ Duration 595.106000

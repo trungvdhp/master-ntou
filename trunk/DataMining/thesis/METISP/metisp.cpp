@@ -7,7 +7,6 @@ int mingap;
 int maxgap;
 int swin;
 int THRESHOLD;
-
 int ITEM_NO = 3000;
 
 void SetParameter()
@@ -17,7 +16,6 @@ void SetParameter()
 	maxgap = 16;
 	swin = 3;	
 }
-
 
 int main(int argc, char * argv[])
 {
@@ -51,9 +49,12 @@ int main(int argc, char * argv[])
 	//SetParameter();
 	//char filename[] = "dss.txt";
 	//start = time(NULL);
+	time_t rawtime;
+	struct tm * timeinfo;
+	time ( &rawtime );
 	start = clock();
-	//SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);
-	SequentialDatabase * seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\METISP\\Release\\T10I4D1K.dat");
+	SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);
+	//SequentialDatabase * seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\METISP\\Release\\T10I4D1K.dat");
 	seqDB->execute();
 	/*if (argc >= 8)
 	{
@@ -69,7 +70,7 @@ int main(int argc, char * argv[])
 	
 	//duration = difftime(finish,start);
 	duration = (double)(finish - start)/CLOCKS_PER_SEC;
-	fprintf(fp,"metisp %s %lf %d %d %d\n",argv[1],min_sup,mingap,maxgap,swin);
+	fprintf(fp,"%s metisp %s %lf %d %d %d\n", ctime(&rawtime),argv[1],min_sup,mingap,maxgap,swin);
 	fprintf(fp," Duration %lf\n",duration);
 	fclose(fp);
 	printf(" Duration %lf\n",duration);

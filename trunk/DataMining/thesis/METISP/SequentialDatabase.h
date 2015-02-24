@@ -14,20 +14,22 @@
 class SequentialDatabase  
 {
 public:
-	frequencyItem updateType1Pattern(frequencyItem p,frequencyItem x, int & count);
-	frequencyItem updateType2Pattern(frequencyItem p,frequencyItem x, int & count);
+	frequencyItem updateType1Pattern(frequencyItem p,frequencyItem x);
+	frequencyItem updateType2Pattern(frequencyItem p,frequencyItem x);
+	frequencyItem updateType2Pattern_1(frequencyItem p,frequencyItem x);
 	void generateStempType1(vector<int> svttype1, vector<frequencyItem> & Stemp1);
 	void generateStempType2(vector<int> svttype2, vector<frequencyItem> & Stemp2, int lastItem);
 	void generateBEPStempType2(frequencyItem p, vector<int> svttype2, vector<frequencyItem> & Stemp2, int firstId, int lastId);
 	bool FEP(frequencyItem p, vector<frequencyItem> & Stemp1, vector<frequencyItem> & Stemp2);
 	vector<int> generateFEPType1(int sId, TimeLine til, vector<int> ot);
 	vector<int> generateFEPType2(int sId, TimeLine til, vector<int> ot);
+	vector<int> generateFEPType2(int sId, TimeLine til, TimeLine prevTil, vector<int> ot);
 	vector<int> generateBEPType1(int sId, TimeLine til, vector<int> ot);
 	vector<int> generateBEPType2(int sId, TimeLine til, vector<int> ot);
 	vector<int> generateBEPType2_1(int sId, TimeLine til, vector<int> ot,
 		TimeLine prevTil = TimeLine(), TimeLine nextTil = TimeLine());
 	bool BEP(frequencyItem p);
-	void mineDB(frequencyItem p, int count);
+	void mineDB(frequencyItem p);
 	void constructPTidx(frequencyItem & p);
 	void generateSequentialPattern();
 	void printFrequencyItem(frequencyItem p);
