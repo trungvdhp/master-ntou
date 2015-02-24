@@ -14,3 +14,33 @@ metisp (null) 0.005000 5 16 3
  Duration 1134.000000
 metisp (null) 0.005000 5 16 3
  Duration 720.336000
+metisp (null) 0.005000 5 16 3
+ Duration 700.130000
+metisp (null) 0.500000 3 15 2
+ Duration 0.002000
+metisp (null) 0.500000 3 15 2
+ Duration 0.001000
+metisp T10I4D1K.dat 0.005000 5 16 3
+ Duration 871.638000
+metisp (null) 0.350000 5 16 3
+ Duration 6.400000
+metisp T10I4D1K.dat 0.005000 5 16 3
+ Duration 843.501000
+Tue Feb 24 15:04:15 2015
+ metisp test.txt 0.005000 5 16 3
+ Duration 1601.738000
+Tue Feb 24 16:25:25 2015
+ metisp dss.txt 0.005000 5 16 3
+ Duration 0.005000
+Tue Feb 24 16:57:03 2015
+ metisp dss.txt 0.005000 5 16 3
+ Duration 0.005000
+Tue Feb 24 16:57:07 2015
+ metisp test.txt 0.005000 5 16 3
+ Duration 1570.007000
+Tue Feb 24 17:32:12 2015
+ metisp test.txt 0.005000 5 16 3
+ Duration 1570.335000
+Tue Feb 24 18:07:49 2015
+ metisp test.txt 0.005000 5 16 3
+ Duration 1613.825000

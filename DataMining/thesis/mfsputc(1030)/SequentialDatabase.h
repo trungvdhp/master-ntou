@@ -18,10 +18,12 @@ class SequentialDatabase
 public:
 	vector<int> generateFEPType_1(int sId, TimeLine til);
 	vector<int> generateFEPType_2(int sId, TimeLine til);
+	vector<int> generateFEPType_2(int sId, TimeLine til, TimeLine prevTil);
 	void generateStempType1(vector<int> svtType1, vector<int> & Stemp1, vector<int> & frequencyStemp1);
 	void generateStempType2(vector<int> svtType2, vector<int> & Stemp2, vector<int> & frequencyStemp2, int lastItem);
 	frequencyPattern updateType1Pattern(frequencyPattern p, int x);
 	frequencyPattern updateType2Pattern(frequencyPattern p, int x);
+	frequencyPattern updateType2Pattern_1(frequencyPattern p, int x);
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
 	bool FEPValid_1(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);
