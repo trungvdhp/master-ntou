@@ -89,3 +89,12 @@ Tue Feb 24 16:31:48 2015
 Tue Feb 24 16:45:44 2015
  mfsputc test.txt 0.005000 5 16 3
  Duration 595.106000
+Tue Feb 24 20:47:51 2015
+ mfsputc T10I4D1K.dat 0.005000 5 16 3
+ Duration 822.893000
+Tue Feb 24 21:41:55 2015
+ mfsputc T10I4D1K.dat 0.005000 5 16 3
+ Duration 570.284000
+Tue Feb 24 22:05:35 2015 2138028
+ mfsputc T10I4D2K.dat 0.010000 5 16 3
+ Duration 4803.691000

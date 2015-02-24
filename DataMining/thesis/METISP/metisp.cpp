@@ -34,17 +34,18 @@ int main(int argc, char * argv[])
 	//	printf("usage: metisp <infile> [<MINSUP> <MINGAP> <MAXGAP> <SWIN> <DUN>] [<outfile>]\n");
 	//	exit(1);
 	//}
-	//else if (argc >= 7)
-	//{
-	//	min_sup = atof(argv[2]);
-	//	mingap = atoi(argv[3]);
-	//	maxgap = atoi(argv[4]);
-	//	swin = atoi(argv[5]);
-	//}
-	//else
-	//{
+	//else 
+	if (argc >= 6)
+	{
+		min_sup = atof(argv[2]);
+		mingap = atoi(argv[3]);
+		maxgap = atoi(argv[4]);
+		swin = atoi(argv[5]);
+	}
+	else
+	{
 		SetParameter();
-	//}
+	}
 	// Set Parameter
 	//SetParameter();
 	//char filename[] = "dss.txt";
