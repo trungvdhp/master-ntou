@@ -131,3 +131,9 @@ Wed Feb 25 14:54:20 2015
 Wed Feb 25 15:49:01 2015
  mfsputc T10I4D2K.dat 0.010000 5 16 3
  Duration 2052.654000
+Wed Feb 25 21:47:49 2015
+ mfsputc T10I4D1K.dat 0.010000 5 16 3
+ Duration 329.846000
+Wed Feb 25 22:56:46 2015
+ mfsputc T10I4D1K.dat 0.010000 5 16 3
+ Duration 379.501000
