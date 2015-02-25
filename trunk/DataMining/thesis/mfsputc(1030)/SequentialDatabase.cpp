@@ -84,13 +84,15 @@ vector<int> SequentialDatabase::generateBEPType_1(int sId, TimeLine til)
 {
 	int i, j, ub, lb;
 	vector<int> temp;
+	int iniTime;
 	for (i = 0; i < til.tir.size(); ++i)
 	{
 		lb = sequential[sId].transaction[til.tir[i].tId].timeOcc - maxgap;
 		ub = til.tir[i].lastStartTime - mingap;
 		for (j = 0; j < til.tir[i].tId; ++j)
 		{
-			if (lb <= sequential[sId].transaction[j].timeOcc && sequential[sId].transaction[j].timeOcc <= ub)
+			iniTime = sequential[sId].transaction[j].timeOcc;
+			if (lb <= iniTime && iniTime <= ub)
 			{
 				vector<int> items = sequential[sId].transaction[j].element.items;
 				for (int h = 0; h < items.size(); ++h)
@@ -102,7 +104,7 @@ vector<int> SequentialDatabase::generateBEPType_1(int sId, TimeLine til)
 					}
 				}
 			}
-			else if (sequential[sId].transaction[j].timeOcc > ub)
+			else if (iniTime > ub)
 			{
 				break;
 			}
@@ -116,12 +118,10 @@ vector<int> SequentialDatabase::generateBEPType_2(int sId, TimeLine til, TimeLin
 {
 	int i, j, ub, lb;
 	vector<int> temp;
-	int start, end;
 	for (i = 0; i < til.tir.size(); ++i)
 	{
 		lb = sequential[sId].transaction[til.tir[i].tId].timeOcc - swin;
 		ub = til.tir[i].lastStartTime + swin;
-		
 		for (j = 0; j < sequential[sId].transaction.size(); ++j)
 		{
 			int iniTime = sequential[sId].transaction[j].timeOcc;
@@ -197,13 +197,16 @@ vector<int> SequentialDatabase::generateFEPType_1(int sId, TimeLine til)
 {
 	int i, j, ub, lb;
 	vector<int> temp;
+	int tId, iniTime;
 	for (i = 0; i < til.tir.size(); ++i)
 	{
-		lb = sequential[sId].transaction[til.tir[i].tId].timeOcc + mingap;
+		tId = til.tir[i].tId;
+		lb = sequential[sId].transaction[tId].timeOcc + mingap;
 		ub = til.tir[i].lastStartTime + maxgap;
-		for (j = til.tir[i].tId + 1; j < sequential[sId].transaction.size(); ++j)
+		for (j = tId + 1; j < sequential[sId].transaction.size(); ++j)
 		{
-			if (lb <= sequential[sId].transaction[j].timeOcc && sequential[sId].transaction[j].timeOcc <= ub)
+			iniTime = sequential[sId].transaction[j].timeOcc;
+			if (lb <= iniTime && iniTime <= ub)
 			{
 				vector<int> items = sequential[sId].transaction[j].element.items;
 				for (int h = 0; h < items.size(); ++h)
@@ -215,7 +218,7 @@ vector<int> SequentialDatabase::generateFEPType_1(int sId, TimeLine til)
 					}
 				}
 			}
-			else if (sequential[sId].transaction[j].timeOcc > ub)
+			else if (iniTime > ub)
 			{
 				break;
 			}
@@ -228,13 +231,15 @@ vector<int> SequentialDatabase::generateFEPType_2(int sId, TimeLine til)
 {
 	int i, j, ub, lb;
 	vector<int> temp;
+	int iniTime;
 	for (i = 0; i < til.tir.size(); ++i)
 	{
 		lb = sequential[sId].transaction[til.tir[i].tId].timeOcc - swin;
 		ub = til.tir[i].lastStartTime + swin;
 		for (j = 0; j < sequential[sId].transaction.size(); ++j)
 		{
-			if (lb <= sequential[sId].transaction[j].timeOcc && sequential[sId].transaction[j].timeOcc <= ub)
+			iniTime = sequential[sId].transaction[j].timeOcc;
+			if (lb <= iniTime && iniTime <= ub)
 			{
 				int h = 0;
 				if (j == til.tir[i].tId)
@@ -249,7 +254,7 @@ vector<int> SequentialDatabase::generateFEPType_2(int sId, TimeLine til)
 					}
 				}
 			}
-			else if (sequential[sId].transaction[j].timeOcc > ub)
+			else if (iniTime > ub)
 			{
 				break;
 			}
@@ -262,13 +267,14 @@ vector<int> SequentialDatabase::generateFEPType_2(int sId, TimeLine til, TimeLin
 {
 	int i, j, ub, lb;
 	vector<int> temp;
+	int iniTime;
 	for (i = 0; i < til.tir.size(); ++i)
 	{
 		lb = sequential[sId].transaction[til.tir[i].tId].timeOcc - swin;
 		ub = til.tir[i].lastStartTime + swin;
 		for (j = 0; j < sequential[sId].transaction.size(); ++j)
 		{
-			int iniTime = sequential[sId].transaction[j].timeOcc;
+			iniTime = sequential[sId].transaction[j].timeOcc;
 			if (lb <= iniTime && iniTime <= ub)
 			{
 				int start, end;
@@ -362,8 +368,8 @@ frequencyPattern SequentialDatabase::updateType1Pattern(frequencyPattern p, int 
 {
 	int i, j, k;
 	int lastId = -1, isInit;
-	int lb, ub, sId;
-	int lastIid = p.frePattern.size() - 1;
+	int lb, ub, sId, tId, iId;
+	int lastTil = p.frePattern.size() - 1;
 	frequencyPattern p_;
 	for (i = 0; i < p.frePattern.size(); i++ )
 	{
@@ -373,28 +379,41 @@ frequencyPattern SequentialDatabase::updateType1Pattern(frequencyPattern p, int 
 	element.items.push_back(x);
 	p_.frePattern.push_back(element);
 	int tirSize;
+	int iniTime;
 	for (i = 0; i < p.pTir.size(); ++i)
 	{
 		isInit = 0;
 		sId = p.pTir[i].sId;
-		tirSize = p.pTir[i].til[lastIid].tir.size();
+		tirSize = p.pTir[i].til[lastTil].tir.size();
 		for (j = 0; j < tirSize; ++j)
 		{
-			lb = sequential[sId].transaction[p.pTir[i].til[lastIid].tir[j].tId].timeOcc + mingap;
-			ub = p.pTir[i].til[lastIid].tir[j].lastStartTime + maxgap;
-			for (k = p.pTir[i].til[lastIid].tir[j].tId + 1; k < sequential[sId].transaction.size(); ++k)
+			tId = p.pTir[i].til[lastTil].tir[j].tId;
+			iId = p.pTir[i].til[lastTil].tir[j].iId;
+			lb = sequential[sId].transaction[tId].timeOcc + mingap;
+			ub = p.pTir[i].til[lastTil].tir[j].lastStartTime + maxgap;
+			for (k = tId + 1; k < sequential[sId].transaction.size(); ++k)
 			{
-				if (lb <= sequential[sId].transaction[k].timeOcc && sequential[sId].transaction[k].timeOcc <= ub)
+				iniTime = sequential[sId].transaction[k].timeOcc;
+				if (lb <= iniTime && iniTime <= ub)
 				{
 					vector<int> items = sequential[sId].transaction[k].element.items;
 					for (int h = 0; h < items.size(); ++h)
 					{
 						if (items[h] == x)
 						{
-							p_.insertTir(sId, k, h, sequential[sId].transaction[k].timeOcc, lastId, isInit, p.pTir[i].til);
+							p_.insertTir(sId, k, h, iniTime, lastId, isInit, p.pTir[i].til);
 							break;
 						}
 					}
+					/*int iId = binarySearch(sequential[sId].transaction[k].element.items, x);
+					if(iId != -1)
+					{
+						p_.insertTir(sId, tId, iId, sequential[sId].transaction[tId].timeOcc, lastId, isInit, p.pTir[i].til);
+					}*/
+				}
+				else if(iniTime > ub)
+				{
+					break;
 				}
 			}
 		}
@@ -406,44 +425,62 @@ frequencyPattern SequentialDatabase::updateType2Pattern(frequencyPattern p, int 
 {
 	int i, j, k;
 	int lastId = -1, isInit;
-	int lb, ub, sId;
-	int lastIid = p.frePattern.size() - 1;
+	int lb, ub, sId, tId, iId;
+	int lastTil = p.frePattern.size() - 1;
 	frequencyPattern p_;
 	for (i = 0; i < p.frePattern.size(); i++ )
 	{
 		p_.frePattern.push_back(p.frePattern[i]);
 	}
 	p_.frePattern[i-1].items.push_back(x);
-
+	int iniTime;
 	for (i = 0; i < p.pTir.size(); ++i)
 	{
 		isInit = 0;
 		sId = p.pTir[i].sId;
-		int tirSize = p.pTir[i].til[lastIid].tir.size();
+		int tirSize = p.pTir[i].til[lastTil].tir.size();
 		for (j = 0; j < tirSize; ++j)
 		{
-			lb = sequential[sId].transaction[p.pTir[i].til[lastIid].tir[j].tId].timeOcc - swin;
-			ub = p.pTir[i].til[lastIid].tir[j].lastStartTime + swin;
+			tId = p.pTir[i].til[lastTil].tir[j].tId;
+			iId = p.pTir[i].til[lastTil].tir[j].iId;
+			lb = sequential[sId].transaction[tId].timeOcc - swin;
+			ub = p.pTir[i].til[lastTil].tir[j].lastStartTime + swin;
 			for (k = 0 ; k < sequential[sId].transaction.size(); ++k)
 			{
-				if (lb <= sequential[sId].transaction[k].timeOcc && sequential[sId].transaction[k].timeOcc <= ub)
+				iniTime = sequential[sId].transaction[k].timeOcc;
+				if (lb <= iniTime && iniTime <= ub)
 				{
 					int h = 0;
-					if (k == p.pTir[i].til[lastIid].tir[j].tId)
-						h = p.pTir[i].til[lastIid].tir[j].iId + 1;
+					if (k == tId) h = iId + 1;
 					vector<int> items = sequential[sId].transaction[k].element.items;
-					for (; h < items.size(); h++)
+					for (; h < items.size(); ++h)
 					{
 						if (items[h] == x)
 						{
-							if (p.pTir[i].til[lastIid].tir[j].lastStartTime <= sequential[sId].transaction[k].timeOcc)
-								p_.insertTir(sId, k, h, p.pTir[i].til[lastIid].tir[j].lastStartTime, lastId, isInit, p.pTir[i].til, true);
+							if (p.pTir[i].til[lastTil].tir[j].lastStartTime < iniTime)
+								p_.insertTir(sId, k, h, p.pTir[i].til[lastTil].tir[j].lastStartTime, lastId, isInit, p.pTir[i].til, true);
 							else
-								p_.insertTir(sId, p.pTir[i].til[lastIid].tir[j].tId, p.pTir[i].til[lastIid].tir[j].iId, 
-									sequential[sId].transaction[k].timeOcc, lastId, isInit, p.pTir[i].til, true);
+								p_.insertTir(sId, tId, iId, iniTime, lastId, isInit, p.pTir[i].til, true);
 							break;
 						}
 					}
+					//int iId;
+					//if (tId == p.pTir[i].til[lastTil].tir[j].tId)
+					//	iId = binarySearch(sequential[sId].transaction[tId].element.items, x, p.pTir[i].til[lastTil].tir[j].iId + 1);
+					//else
+					//	iId = binarySearch(sequential[sId].transaction[tId].element.items, x);
+					//if(iId != -1)
+					//{
+					//	if (p.pTir[i].til[lastTil].tir[j].lastStartTime < sequential[sId].transaction[tId].timeOcc)
+					//		p_.insertTir(sId, tId, iId, p.pTir[i].til[lastTil].tir[j].lastStartTime, lastId, isInit, p.pTir[i].til, true);
+					//	else
+					//		p_.insertTir(sId, p.pTir[i].til[lastTil].tir[j].tId, p.pTir[i].til[lastTil].tir[j].iId, 
+					//			sequential[sId].transaction[tId].timeOcc, lastId, isInit, p.pTir[i].til, true);
+					//}
+				}
+				else if(iniTime > ub)
+				{
+					break;
 				}
 			}
 		}
@@ -455,46 +492,48 @@ frequencyPattern SequentialDatabase::updateType2Pattern_1(frequencyPattern p, in
 {
 	int i, j, k;
 	int lastId = -1, isInit;
-	int lb, ub, sId;
-	int lastIid = p.frePattern.size() - 1;
+	int lb, ub, sId, tId, iId;
+	int lastTil = p.frePattern.size() - 1;
 	frequencyPattern p_;
-	for (i = 0; i < p.frePattern.size(); i++ )
+	for (i = 0; i < p.frePattern.size(); ++i)
 	{
 		p_.frePattern.push_back(p.frePattern[i]);
 	}
 	p_.frePattern[i-1].items.push_back(x);
-
+	int tirSize, iniTime;
 	for (i = 0; i < p.pTir.size(); ++i)
 	{
 		isInit = 0;
 		sId = p.pTir[i].sId;
-		int tirSize = p.pTir[i].til[lastIid].tir.size();
+		tirSize = p.pTir[i].til[lastTil].tir.size();
 		for (j = 0; j < tirSize; ++j)
 		{
-			lb = sequential[sId].transaction[p.pTir[i].til[lastIid].tir[j].tId].timeOcc - swin;
-			ub = p.pTir[i].til[lastIid].tir[j].lastStartTime + swin;
-			
-			for (k = 0 ; k < sequential[sId].transaction.size(); ++k)
+			tId = p.pTir[i].til[lastTil].tir[j].tId;
+			iId = p.pTir[i].til[lastTil].tir[j].iId;
+			lb = sequential[sId].transaction[tId].timeOcc - swin;
+			ub = p.pTir[i].til[lastTil].tir[j].lastStartTime + swin;
+			for (k = 0; k < sequential[sId].transaction.size(); ++k)
 			{
-				int iniTime = sequential[sId].transaction[k].timeOcc;
+				iniTime = sequential[sId].transaction[k].timeOcc;
 				if (lb <= iniTime && iniTime <= ub)
 				{
 					int start, end;
-					if (p.pTir[i].til[lastIid].tir[j].lastStartTime < iniTime)
+					if (p.pTir[i].til[lastTil].tir[j].lastStartTime < iniTime)
 					{
-						start = p.pTir[i].til[lastIid].tir[j].lastStartTime;
+						start = p.pTir[i].til[lastTil].tir[j].lastStartTime;
 						end = iniTime;
 					}
 					else
 					{
 						start = iniTime;
-						end = sequential[sId].transaction[p.pTir[i].til[lastIid].tir[j].tId].timeOcc;
+						end = sequential[sId].transaction[tId].timeOcc;
 					}
 					bool prevValid = false;
-					for (int ii = 0; ii < p.pTir[i].til[lastIid-1].tir.size(); ++ii)
+					int prevSize = p.pTir[i].til[lastTil-1].tir.size();
+					for (int ii = 0; ii < prevSize; ++ii)
 					{
-						if (end - p.pTir[i].til[lastIid-1].tir[ii].lastStartTime <= maxgap && 
-							start - sequential[sId].transaction[p.pTir[i].til[lastIid-1].tir[ii].tId].timeOcc >= mingap)
+						if (end - p.pTir[i].til[lastTil-1].tir[ii].lastStartTime <= maxgap && 
+							start - sequential[sId].transaction[p.pTir[i].til[lastTil-1].tir[ii].tId].timeOcc >= mingap)
 						{
 							prevValid = true;
 							break;
@@ -503,22 +542,36 @@ frequencyPattern SequentialDatabase::updateType2Pattern_1(frequencyPattern p, in
 					if (prevValid)
 					{
 						int h = 0;
-						if (k == p.pTir[i].til[lastIid].tir[j].tId)
-							h = p.pTir[i].til[lastIid].tir[j].iId + 1;
+						if (k == tId) h = iId + 1;
 						vector<int> items = sequential[sId].transaction[k].element.items;
-						for (; h < items.size(); h++)
+						for (; h < items.size(); ++h)
 						{
 							if (items[h] == x)
 							{
-								if (p.pTir[i].til[lastIid].tir[j].lastStartTime < iniTime)
+								if (end == iniTime)
 									p_.insertTir(sId, k, h, start, lastId, isInit, p.pTir[i].til, true);
 								else
-									p_.insertTir(sId, p.pTir[i].til[lastIid].tir[j].tId, p.pTir[i].til[lastIid].tir[j].iId, 
-										end, lastId, isInit, p.pTir[i].til, true);
+									p_.insertTir(sId, tId, iId, iniTime, lastId, isInit, p.pTir[i].til, true);
 								break;
 							}
 						}
+						/*int h = 0;
+						if (k == id)
+							h = p.pTir[i].til[lastTil].tir[j].iId + 1;
+						h = binarySearch(sequential[sId].transaction[k].element.items, x, h);
+						if(h != -1)
+						{
+							if (p.pTir[i].til[lastTil].tir[j].lastStartTime < iniTime)
+									p_.insertTir(sId, k, h, start, lastId, isInit, p.pTir[i].til, true);
+							else
+								p_.insertTir(sId, p.pTir[i].til[lastTil].tir[j].tId, p.pTir[i].til[lastTil].tir[j].iId, 
+									iniTime, lastId, isInit, p.pTir[i].til, true);
+						}*/
 					}
+				}
+				else if(iniTime > ub)
+				{
+					break;
 				}
 			}
 		}
@@ -821,18 +874,18 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p)
 	{
 		/*printf("%d - ", ++current);
 		p.output(stdout);*/
-		if(current==23126)
+	/*	if(current==23126)
 		{
 			p.output(stdout);
 			printTimeLine(p);
 			return;
-		}
+		}*/
 		f = BEPValid_1(p);
 		if (f)
 		{
-			++current;
+			//++current;
 			//printf("%d - ", ++current);
-			//p.output(stdout);
+			p.output(stdout);
 		}
 	}
 	for (i = 0; i < Stemp1.size(); ++i)
@@ -997,49 +1050,49 @@ void SequentialDatabase::deleteInfrequentItem()
 	frequency = NULL;
 }
 
-int SequentialDatabase::binarySearch(vector<int> data,int search)
+int SequentialDatabase::binarySearch(vector<int> & data, int search, int low)
 {
-	int low = 0;
     int high = data.size()-1;
-	
-    while (low <= high)
+	int mid;
+    while (true)
     {
-        int mid = (low + high) / 2;
-		
-        if (data[mid] == search)
-        {
-            return mid;
-        }
-        else if (data[mid] > search)
-        {
-            high = mid - 1;
-        }
-        else if (data[mid] < search)
-        {
-            low = mid + 1;
-        }
+		if(low > high) return -1;
+        mid = (low + high)>>1;
+        if (data[mid] == search) return mid;
+        if (data[mid] > search) high = mid - 1;
+        else low = mid + 1;
     }
 	return -1;
 }
 
 void SequentialDatabase::generatePTir(frequencyPattern & p)
 {
-	int sid,tid,iid,iniTime;
+	int sid,tid,iid;
+	int transSize;
 	int i = p.frePattern[0].items[0];
-	vector<int>::iterator iter;
 	int isInit;
 	int lastId = -1;
-	for (sid = 0; sid < sequential.size(); sid++)
+	vector<int>::iterator iter;
+	for (sid = 0; sid < sequential.size(); ++sid)
 	{
 		isInit = 0;
-		for (tid = 0 ; tid < sequential[sid].transaction.size() ; tid++ )
+		transSize = sequential[sid].transaction.size();
+		for (tid = 0 ; tid < transSize; ++tid)
 		{
-			iid = binarySearch(sequential[sid].transaction[tid].element.items,i);
+			vector<int> items = sequential[sid].transaction[tid].element.items;
+			for(iid=0; iid < items.size(); ++iid)
+			{
+				if(items[iid] == i)
+				{
+					p.insertTir(sid, tid, iid, sequential[sid].transaction[tid].timeOcc, lastId, isInit);
+					break;
+				}
+			}
+			/*iid = binarySearch(, i);
 			if (iid != -1)
 			{
-				iniTime = sequential[sid].transaction[tid].timeOcc;
-				p.insertTir(sid, tid, iid, iniTime, lastId, isInit);
-			}
+				p.insertTir(sid, tid, iid, sequential[sid].transaction[tid].timeOcc, lastId, isInit);
+			}*/
 		}
 	}
 	

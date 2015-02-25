@@ -1,5 +1,9 @@
-﻿Build started 2/25/2015 8:33:48 AM.
+﻿Build started 25/02/2015 18:30:06.
+     1>Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" on node 2 (Clean target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppClean.targets(75,5): warning : Access to the path 'D:\Master\DataMining\thesis\mfsputc(1030)\Release\mfsputc.exe' is denied.
+     1>Done Building Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" (Clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.01
+Time Elapsed 00:00:00.00

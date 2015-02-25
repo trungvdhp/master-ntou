@@ -235,6 +235,7 @@ void SequentialDatabase::constructPTidx(frequencyItem & p)
 			if (iter != seq[sid].trans[tid].t.end())
 			{
 				p.insertTir(sid,seq[sid].timeOcc[tid],seq[sid].timeOcc[tid], lastId, isInit);
+				break;
 			}
 		}
 	}
