@@ -43,7 +43,7 @@ public:
 	
 	vector<int> generateBEPType1(int tid, int lst,vector<Transaction> trans);
 	vector<int> generateBEPType2(int tid, int lst,vector<Transaction> trans);
-	int binarySearch(vector<int> data,int x);
+	int binarySearch(vector<int> & data,int x, int low = 0);
 	void generatePTir(frequencyPattern & p);
 	/*void generateUpdateL(frequentSequence Sp);*/
 	void patternGenerationAlgorithm(frequencyPattern p);
