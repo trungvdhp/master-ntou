@@ -821,18 +821,18 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern p)
 	{
 		/*printf("%d - ", ++current);
 		p.output(stdout);*/
-		/*if(current==632)
+		if(current==23126)
 		{
 			p.output(stdout);
 			printTimeLine(p);
 			return;
-		}*/
+		}
 		f = BEPValid_1(p);
 		if (f)
 		{
-			//++current;
+			++current;
 			//printf("%d - ", ++current);
-			p.output(stdout);
+			//p.output(stdout);
 		}
 	}
 	for (i = 0; i < Stemp1.size(); ++i)
@@ -1160,7 +1160,7 @@ void SequentialDatabase::printTimeLine(frequencyPattern p)
 	for (int i = 0; i < p.pTir.size(); i++)
 	{
 		sid = p.pTir[i].sId;
-		printf("SID #%d\n", sid);
+		printf("SID #%d: ", sid);
 		for (int j = 0; j < p.pTir[i].til.size(); j++)
 		{
 			for (int k = 0; k < p.pTir[i].til[j].tir.size(); k++)

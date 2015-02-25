@@ -50,3 +50,12 @@ Tue Feb 24 20:47:51 2015
 Tue Feb 24 21:18:49 2015
  metisp T10I4D1K.dat 0.005000 5 16 3
  Duration 1303.680000
+Tue Feb 24 23:29:08 2015
+ metisp T10I4D2K.dat 0.010000 5 16 3
+ Duration 9312.502000
+Wed Feb 25 07:29:08 2015
+ metisp dss.txt 0.500000 3 15 2
+ Duration 0.000000
+Wed Feb 25 07:34:41 2015
+ metisp T10I4D1K.dat 0.010000 5 16 3
+ Duration 1249.874000
