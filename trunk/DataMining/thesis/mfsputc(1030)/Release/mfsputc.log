@@ -1,5 +1,8 @@
-﻿Build started 2/25/2015 11:40:00 PM.
+﻿Build started 2/27/2015 12:16:30 AM.
+     1>Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" on node 2 (Clean target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets(76,5): warning : Access to the path 'd:\master\datamining\thesis\mfsputc(1030)\release\mfsputc.exe' is denied.
+     1>Done Building Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" (Clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.01
+Time Elapsed 00:00:00.00

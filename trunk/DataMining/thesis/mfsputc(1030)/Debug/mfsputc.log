@@ -1,86 +1,95 @@
-﻿Build started 24/02/2015 16:30:03.
-     1>Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" on node 2 (Build target(s)).
-       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
-     1>InitializeBuildStatus:
-         Touching ".\Debug\mfsputc.unsuccessfulbuild".
-       ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc110.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt SequentialDatabase.cpp mfsputc.cpp
-         mfsputc.cpp
-     1>d:\master\datamining\thesis\mfsputc(1030)\mfsputc.cpp(46): warning C4101: 'timeinfo' : unreferenced local variable
+﻿Build started 2/26/2015 11:30:50 PM.
+     1>Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt Element.cpp frequencyPattern.cpp frequentSequence.cpp mfsputc.cpp Sequential.cpp SequentialDatabase.cpp TimeIntervalRecord.cpp TimeIntervalRecord1.cpp TimeLine.cpp Transaction.cpp
+         Transaction.cpp
+         TimeLine.cpp
+         TimeIntervalRecord1.cpp
+         TimeIntervalRecord.cpp
          SequentialDatabase.cpp
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(55): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(71): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(87): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(96): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(120): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(88): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(98): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(121): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(125): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(144): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(159): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(174): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(119): warning C4101: 'end' : unreferenced local variable
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(119): warning C4101: 'start' : unreferenced local variable
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(200): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(204): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(209): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(231): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(201): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(206): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(212): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(235): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(243): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(265): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(269): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(286): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(301): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(324): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(343): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(368): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(376): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(385): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(390): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(412): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(418): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(427): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(435): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(461): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(467): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(477): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(494): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(509): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(534): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(545): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(548): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(578): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(582): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(239): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(248): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(271): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(275): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(292): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(307): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(330): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(349): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(374): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(383): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(394): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(400): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(431): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(437): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(448): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(456): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(498): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(504): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(515): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(547): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(587): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(598): warning C4018: '<' : signed/unsigned mismatch
      1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(601): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(609): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(642): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(645): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(677): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(686): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(689): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(703): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(720): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(737): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(752): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(838): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(846): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(955): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(959): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(961): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(971): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1034): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1037): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1056): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1077): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1098): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1118): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1138): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1152): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1164): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1168): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1170): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(631): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(635): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(654): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(662): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(695): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(698): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(730): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(739): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(742): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(756): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(773): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(790): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(805): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(891): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(899): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1006): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1010): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1012): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1022): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1076): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1083): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1107): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1104): warning C4101: 'k' : unreferenced local variable
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1127): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1147): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1167): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1187): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1201): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1213): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1217): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\sequentialdatabase.cpp(1219): warning C4018: '<' : signed/unsigned mismatch
+         Sequential.cpp
+         mfsputc.cpp
+     1>d:\master\datamining\thesis\mfsputc(1030)\mfsputc.cpp(45): warning C4101: 'timeinfo' : unreferenced local variable
+         frequentSequence.cpp
+     1>d:\master\datamining\thesis\mfsputc(1030)\frequentsequence.cpp(24): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\frequentsequence.cpp(27): warning C4018: '<' : signed/unsigned mismatch
+         frequencyPattern.cpp
+     1>d:\master\datamining\thesis\mfsputc(1030)\frequencypattern.cpp(30): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\frequencypattern.cpp(38): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\master\datamining\thesis\mfsputc(1030)\frequencypattern.cpp(94): warning C4018: '<' : signed/unsigned mismatch
+         Element.cpp
+     1>d:\master\datamining\thesis\mfsputc(1030)\element.cpp(25): warning C4018: '<' : signed/unsigned mismatch
          Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\mfsputc.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Debug\mfsputc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\mfsputc.lib" /MACHINE:X86 /SAFESEH:NO .\Debug\Element.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\mfsputc.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Debug\mfsputc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\mfsputc.lib" /MACHINE:X86 /SAFESEH:NO .\Debug\Element.obj
          .\Debug\frequencyPattern.obj
          .\Debug\frequentSequence.obj
          .\Debug\mfsputc.obj
@@ -92,12 +101,9 @@
          .\Debug\Transaction.obj
          mfsputc.vcxproj -> D:\Master\DataMining\thesis\mfsputc(1030)\.\Debug\mfsputc.exe
        BscMake:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o".\Debug\mfsputc.bsc" .\Debug\Element.sbr .\Debug\frequencyPattern.sbr .\Debug\frequentSequence.sbr .\Debug\mfsputc.sbr .\Debug\Sequential.sbr .\Debug\SequentialDatabase.sbr .\Debug\TimeIntervalRecord.sbr .\Debug\TimeIntervalRecord1.sbr .\Debug\TimeLine.sbr .\Debug\Transaction.sbr
-       FinalizeBuildStatus:
-         Deleting file ".\Debug\mfsputc.unsuccessfulbuild".
-         Touching ".\Debug\mfsputc.lastbuildstate".
-     1>Done Building Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o".\Debug\mfsputc.bsc" .\Debug\Element.sbr .\Debug\frequencyPattern.sbr .\Debug\frequentSequence.sbr .\Debug\mfsputc.sbr .\Debug\Sequential.sbr .\Debug\SequentialDatabase.sbr .\Debug\TimeIntervalRecord.sbr .\Debug\TimeIntervalRecord1.sbr .\Debug\TimeLine.sbr .\Debug\Transaction.sbr
+     1>Done Building Project "D:\Master\DataMining\thesis\mfsputc(1030)\mfsputc.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.79
+Time Elapsed 00:00:05.27
