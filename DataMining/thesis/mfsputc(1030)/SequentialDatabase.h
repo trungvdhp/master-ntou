@@ -21,11 +21,15 @@ public:
 	vector<int> generateFEPType_2(int sId, TimeLine til, TimeLine prevTil);
 	void generateStempType1(vector<int> svtType1, vector<int> & Stemp1, vector<int> & frequencyStemp1);
 	void generateStempType2(vector<int> svtType2, vector<int> & Stemp2, vector<int> & frequencyStemp2, int lastItem);
+	bool generateStempType_1(vector<int> svtType1, vector<int> & Stemp1, vector<int> & frequencyStemp1, int minT);
+	bool generateStempType_2(vector<int> svtType2, vector<int> & Stemp2, vector<int> & frequencyStemp2, int lastItem, int minT);
 	frequencyPattern updateType1Pattern(frequencyPattern p, int x);
 	frequencyPattern updateType2Pattern(frequencyPattern p, int x);
 	frequencyPattern updateType2Pattern_1(frequencyPattern p, int x);
 	bool FEPValid(frequencyPattern p, vector<frequencyPattern> & Stemp1, vector<frequencyPattern> & Stemp2);
 	bool FEPValid_1(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
+		vector<int> & Stemp2, vector<int> & frequencyStemp2);
+	bool FEPValid_2(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);
 	/*bool FEPValid(frequencyPattern p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);*/
@@ -33,6 +37,7 @@ public:
 	vector<int> generateBEPType_2(int sId, TimeLine til, TimeLine prevTil, TimeLine nextTil, int firstItem, int lastItem);
 	bool BEPValid(frequencyPattern p);
 	bool BEPValid_1(frequencyPattern p);
+	bool BEPValid_2(frequencyPattern p);
 	frequencyPattern updateType1Pattern(frequencyPattern p,frequencyPattern x);
 	frequencyPattern updateType2Pattern(frequencyPattern p,frequencyPattern x);
 	vector<int> generateFEPType1(int sId, int tId, int lst);
