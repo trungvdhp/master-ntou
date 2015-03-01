@@ -2,7 +2,7 @@
 #include <time.h>
 #include "SequentialDatabase.h"
 #define OUTPUTFILE
-int ITEM_NO = 3000;
+int ITEM_NO = 300000;
 
 double min_sup;
 int mingap;
@@ -42,7 +42,6 @@ int main(int argc,char * argv[])
 		SetParameter();
 	}
 	time_t rawtime;
-	struct tm * timeinfo;
 	time ( &rawtime );
 	start = clock();
 	SequentialDatabase * seqDB;
