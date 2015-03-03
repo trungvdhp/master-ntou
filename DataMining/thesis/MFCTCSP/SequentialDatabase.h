@@ -8,9 +8,9 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-#include "frequentSequence.h"
 #include "Sequential.h"
 #include "mfctcsp.h"
+#include "frequencyPattern.h"
 #include "TimeIntervalRecord1.h"
 #include <map>
 class SequentialDatabase  

@@ -126,7 +126,6 @@
   <ItemGroup>
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="frequencyPattern.cpp" />
-    <ClCompile Include="frequentSequence.cpp" />
     <ClCompile Include="mfctcsp.cpp" />
     <ClCompile Include="Sequential.cpp" />
     <ClCompile Include="SequentialDatabase.cpp" />
@@ -138,7 +137,6 @@
   <ItemGroup>
     <ClInclude Include="Element.h" />
     <ClInclude Include="frequencyPattern.h" />
-    <ClInclude Include="frequentSequence.h" />
     <ClInclude Include="mfctcsp.h" />
     <ClInclude Include="Sequential.h" />
     <ClInclude Include="SequentialDatabase.h" />
