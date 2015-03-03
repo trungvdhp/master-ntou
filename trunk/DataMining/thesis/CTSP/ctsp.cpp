@@ -19,22 +19,15 @@ void SetParameter()
 
 int main(int argc, char * argv[])
 {
-	FILE * fp = fopen("time.txt","a");
-	//fstream fout("time.txt",ios::app);
-	//fout.open("time.txt",fstream::app);
-	
-	//time_t start,finish;
 	clock_t start , finish;
+	char outFileName[] = "test.out";
 	double duration;
-//	argc = 2;
-//	argv[0] = "";
-//	argv[1] = "dss.txt"; // ¿é¤JÀÉ®×
-	//if (argc < 2)
-	//{
-	//	printf("usage: ctsp <infile> [<MINSUP> <MINGAP> <MAXGAP> <SWIN> <DUN>] [<outfile>]\n");
-	//	exit(1);
-	//}
-	//else 
+
+	if (argc < 2)
+	{
+		printf("usage: ctsp <infile> [<MINSUP> <MINGAP> <MAXGAP> <SWIN>] [<outfile>]\n");
+		exit(1);
+	}
 	if (argc >= 6)
 	{
 		min_sup = atof(argv[2]);
@@ -46,38 +39,24 @@ int main(int argc, char * argv[])
 	{
 		SetParameter();
 	}
-	// Set Parameter
-	//SetParameter();
-	//char filename[] = "dss.txt";
-	//start = time(NULL);
 	time_t rawtime;
-	//struct tm * timeinfo;
 	time ( &rawtime );
+
+	if (argc >= 7)
+		strcpy(outFileName, argv[6]);
+	
 	start = clock();
-	SequentialDatabase * seqDB = new SequentialDatabase(argv[1]);
-	//SequentialDatabase * seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\ctsp\\Release\\T10I4D1K.dat");
+	SequentialDatabase * seqDB = new SequentialDatabase(argv[1], outFileName);
 	seqDB->execute();
-	/*if (argc >= 8)
-	{
-		seqDB->outputFrequentPattern(argv[7]);
-	}
-	else
-	{
-		seqDB->outputFrequentPattern("out.txt");
-	}*/
-	//seqDB->outputFrequentPattern("out.txt");
-	finish = clock();
-	//finish = time(NULL);
-	
-	//duration = difftime(finish,start);
-	duration = (double)(finish - start)/CLOCKS_PER_SEC;
-	fprintf(fp,"%s ctsp %s %lf %d %d %d\n", ctime(&rawtime),argv[1],min_sup,mingap,maxgap,swin);
-	fprintf(fp," Duration %lf\n",duration);
-	fclose(fp);
-	printf(" Duration %lf\n",duration);
-	
-	//fout.close();
 	delete seqDB;
-	//system("pause");
+	finish = clock();
+	duration = (double)(finish - start)/CLOCKS_PER_SEC;
+
+	FILE * fp = fopen("test.log","a");
+	fprintf(fp, "%s ctsp %s %lf %d %d %d %s\n", ctime(&rawtime),argv[1], min_sup, mingap, maxgap, swin, outFileName);
+	fprintf(fp, " Duration %lf\n", duration);
+	fclose(fp);
+
+	printf(" Duration %lf\n", duration);
 	return 0;
 }

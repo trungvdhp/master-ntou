@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 #include "Sequential.h"
-#include "frequentSequence.h"
+#include "frequencyItem.h"
 class SequentialDatabase  
 {
 public:
@@ -43,9 +43,7 @@ public:
 	frequencyItem updateType2Pattern(frequencyItem & p,frequencyItem & x);
 	frequencyItem updateType2Pattern_1(frequencyItem & p,frequencyItem & x);
 	// Mining algorithm
-	void printFrequencyItem(frequencyItem & p);
-	void printTimeline(TimeIntervalRecord1 & tir1);
-	void outputFrequentPattern(char * filename);
+	void printFrequencyItem(frequencyItem & p, FILE * out);
 	void mineDB(frequencyItem & p);
 	void getSequential();
 	void scanDB();
@@ -54,14 +52,13 @@ public:
 	void execute();
 
 	// Constructor and destructor
-	SequentialDatabase(char * filename);
+	SequentialDatabase(char * inFileName, char * outFileName);
 	virtual ~SequentialDatabase();
 
 	// Define variables
 	vector<Sequential> seq;
-	vector<frequentSequence> freSeqSet;
-	FILE * in;
-	int  * frequency;
+	FILE * in, * out;
+	int * frequency;
 	//int current;
 };
 

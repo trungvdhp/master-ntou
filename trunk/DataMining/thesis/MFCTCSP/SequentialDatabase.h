@@ -57,14 +57,13 @@ public:
 
 	// Pattern generation algorithm
 	void scanDB();
-	void printTimeLine(frequencyPattern & p);
 	void patternGenerationAlgorithm(frequencyPattern & p);
 	void generatePTir(frequencyPattern & p);
 	void deleteInfrequentItem();
 	void execute();
 
 	// Constructor and destructor
-	SequentialDatabase(char * filename,char * outfilename);
+	SequentialDatabase(char * inFileName,char * outFileName);
 	virtual ~SequentialDatabase();
 
 	// Define variables

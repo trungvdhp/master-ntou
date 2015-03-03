@@ -12,24 +12,24 @@ int THRESHOLD;
 
 void SetParameter()
 {
-	min_sup = 0.5;
-	mingap = 3;
-	maxgap = 15;
-	swin = 2;
+	min_sup = 0.005;
+	mingap = 5;
+	maxgap = 16;
+	swin = 3;
 }
 
 int main(int argc,char * argv[])
 {
-	FILE * fp = fopen("time.txt","a");
+	
 	clock_t start,finish;
 	double duration;
-
-	/*if (argc < 2)
+	char outFileName[] = "test.out";
+	if (argc < 2)
 	{
-		printf("usage: mfctcsp <infile> [<MINSUP> <MINGAP> <MAXGAP> <SWIN> <DUN>] [<outfile>]\n");
+		printf("usage: mfctcsp <infile> [<MINSUP> <MINGAP> <MAXGAP> <SWIN>] [<outfile>]\n");
 		exit(1);
 	}
-	else */
+	else 
 	if (argc >= 6)
 	{
 		min_sup = atof(argv[2]);
@@ -41,30 +41,23 @@ int main(int argc,char * argv[])
 	{
 		SetParameter();
 	}
+	if (argc >= 7)
+		strcpy(outFileName, argv[6]);
+
 	time_t rawtime;
 	time ( &rawtime );
 	start = clock();
-	SequentialDatabase * seqDB;
-	/*if (argc >= 8)
-	{
-		seqDB = new SequentialDatabase(argv[1],argv[7]);
-	}
-	else
-	{
-		seqDB = new SequentialDatabase(argv[1],"out.txt");
-	}*/
-	seqDB = new SequentialDatabase(argv[1],"out.txt");
-	//seqDB = new SequentialDatabase("D:\\Master\\DataMining\\thesis\\mfctcsp(1030)\\Release\\dss.txt", "out1.txt");
+	SequentialDatabase * seqDB = new SequentialDatabase(argv[1], outFileName);
 	seqDB->execute();
-
+	delete seqDB;
 	finish = clock();
 	duration = (double)(finish - start)/CLOCKS_PER_SEC;
-	
-	fprintf(fp,"%s mfctcsp %s %lf %d %d %d\n", ctime (&rawtime), argv[1],min_sup,mingap,maxgap,swin);
-	fprintf(fp," Duration %lf\n",duration);
 
-	printf(" Duration %6.10lf\n",duration);
+	FILE * fp = fopen("test.log","a");
+	fprintf(fp,"%s mfctcsp %s %lf %d %d %d %s\n", ctime (&rawtime), argv[1], min_sup, mingap, maxgap, swin, outFileName);
+	fprintf(fp," Duration %lf\n", duration);
 	fclose(fp);
-	delete seqDB;
+
+	printf(" Duration %lf\n", duration);
 	return 0;
 }
