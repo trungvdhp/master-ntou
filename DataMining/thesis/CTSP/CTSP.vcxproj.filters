@@ -18,9 +18,6 @@
     <ClCompile Include="frequencyItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="frequentSequence.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Sequential.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,9 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frequencyItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="frequentSequence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sequential.h">

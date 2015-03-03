@@ -8,10 +8,12 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-SequentialDatabase::SequentialDatabase(char * filename)
+SequentialDatabase::SequentialDatabase(char * inFileName, char * outFileName)
 {
-	in = fopen(filename,"rt");
+	in = fopen(inFileName,"rt");
+	out = fopen(outFileName,"w");
 	assert(in != NULL);
+	assert(out != NULL);
 	frequency =NULL;
 	//current=0;
 }
@@ -578,87 +580,28 @@ frequencyItem SequentialDatabase::updateType2Pattern_1(frequencyItem & p, freque
 	return p_;
 }
 
-void SequentialDatabase::printFrequencyItem(frequencyItem & p)
+void SequentialDatabase::printFrequencyItem(frequencyItem & p, FILE * out)
 {
 	int k;
-	/*printf("---------------------------------------------------------------------\n");
-	printf("Frequent pattern: ");*/
-	printf("{");
-	printf("{%d", p.item[0]);
+	fprintf(out, "{");
+	fprintf(out, "{%d", p.item[0]);
 	for (k = 1; k < p.item.size(); ++k)
 	{
 		if (p.item[k] == -1)
 		{
-			printf("}{");
+			fprintf(out, "}{");
 		}
 		else if (p.item[k-1] == -1)
 		{
-			printf("%d", p.item[k]);
+			fprintf(out, "%d", p.item[k]);
 		}
 		else
 		{
-			printf(" %d",p.item[k]);
+			fprintf(out, " %d",p.item[k]);
 		}
 	}
-	printf("}");
-	printf("}:%d\n", p.frequency);
-	/*for (i = 0; i < p.pTir.size(); i++)
-	{
-		printTimeline(p.pTir[i]);
-		printf("\n");
-	}*/
-}
-
-void SequentialDatabase::printTimeline(TimeIntervalRecord1 & tir1)
-{
-	int k = tir1.til.size();
-	for (int i = 0; i < k; i++)
-	{
-		for (int j = 0; j < tir1.til[i].tir.size(); j++)
-			printf("{%d:%d} ; ", tir1.til[i].tir[j].lastStartTime, tir1.til[i].tir[j].lastEndTime);
-		printf(" -- ");
-	}
-}
-
-void SequentialDatabase::outputFrequentPattern(char * filename)
-{
-	int i , j , k;	
-	fstream fout;
-	//fout.open("out.txt",ios::out);
-	fout.open(filename,fstream::out);
-	//char buf[2];
-	for (i = 0; i < freSeqSet.size(); i++)
-	{
-		for (j = 0 ;j < freSeqSet[i].freSeq.size(); j++)
-		{
-			fout << "{";
-			//sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[0]);
-			fout << "{"; //<< buf;
-			fout << freSeqSet[i].freSeq[j].item[0];
-			for (k = 1 ;k < freSeqSet[i].freSeq[j].item.size(); k++)
-			{
-				if (freSeqSet[i].freSeq[j].item[k] == -1)
-				{
-					fout << "}{";
-				}
-				else if (freSeqSet[i].freSeq[j].item[k-1] == -1)
-				{
-					/*sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
-					fout << buf;*/
-					fout << freSeqSet[i].freSeq[j].item[k];
-				}
-				else
-				{
-					/*sprintf(buf, "%c", 'a' + freSeqSet[i].freSeq[j].item[k]);
-					fout << " " << buf;*/
-					fout << " " << freSeqSet[i].freSeq[j].item[k];
-				}
-			}
-			fout << "}" ;
-			fout << "}:"<< freSeqSet[i].freSeq[j].frequency<< endl;
-		}
-	}
-	fout.close();
+	fprintf(out, "}");
+	fprintf(out, "}:%d\n", p.frequency);
 }
 
 void SequentialDatabase::mineDB(frequencyItem & p)
@@ -668,19 +611,10 @@ void SequentialDatabase::mineDB(frequencyItem & p)
 	bool f = FEP(p, Stemp1, Stemp2);
 	if (f)
 	{
-		/*printf("%d - ", ++current);
-		printFrequencyItem(p);*/
 		f = BEP(p);
 		if (f)
 		{
-			//printf("%d - ", ++current);
-			printFrequencyItem(p);
-			//	/*while (freSeqSet.size() < count)
-			//	{
-			//		frequentSequence Sp;
-			//		freSeqSet.push_back(Sp);
-			//	}
-			//	freSeqSet[count-1].freSeq.push_back(p);*/
+			printFrequencyItem(p, out);
 		}
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
@@ -825,6 +759,8 @@ void SequentialDatabase::scanDB()
 		frequencySet.clear();
 	}
 	ITEM_NO = net_itemno + 1;
+	if (in)
+		fclose(in);
 }
 
 void SequentialDatabase::constructPTidx(frequencyItem & p)
@@ -849,27 +785,21 @@ void SequentialDatabase::constructPTidx(frequencyItem & p)
 void SequentialDatabase::generateSequentialPattern()
 {
 	THRESHOLD = min_sup * seq.size();
-
-	frequentSequence frequentSet; 
-	frequencyItem freItem;
 	int i;
-
-	for (i = 0; i < ITEM_NO; i++)
+	for (i = 0; i < ITEM_NO; ++i)
 	{
 		if (frequency[i] >= THRESHOLD)
 		{
+			frequencyItem freItem;
 			freItem.item.push_back(i) ;
 			freItem.frequency = frequency[i];
-			frequentSet.freSeq.push_back(freItem);
-			freItem.item.clear();
+			constructPTidx(freItem);
+			mineDB(freItem);
 		}
 	}
-	for (i = 0; i < frequentSet.freSeq.size(); i++)
-	{
-		constructPTidx(frequentSet.freSeq[i]);
-		//printFrequencyItem(frequentSet.freSeq[i]);
-		mineDB(frequentSet.freSeq[i]);
-	}
+	delete [] frequency;
+	if (out)
+		fclose(out);
 }
 
 void SequentialDatabase::execute()
@@ -880,9 +810,4 @@ void SequentialDatabase::execute()
 
 SequentialDatabase::~SequentialDatabase()
 {
-	//seq.clear();
-	//freSeqSet.clear();
-	if (in)
-		fclose(in);
-	delete [] frequency;
 }

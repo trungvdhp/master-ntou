@@ -226,7 +226,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="frequencyItem.cpp" />
-    <ClCompile Include="frequentSequence.cpp" />
     <ClCompile Include="ctsp.cpp" />
     <ClCompile Include="Sequential.cpp" />
     <ClCompile Include="SequentialDatabase.cpp" />
@@ -237,7 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frequencyItem.h" />
-    <ClInclude Include="frequentSequence.h" />
     <ClInclude Include="ctsp.h" />
     <ClInclude Include="Sequential.h" />
     <ClInclude Include="SequentialDatabase.h" />

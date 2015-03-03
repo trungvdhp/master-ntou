@@ -8,18 +8,13 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-SequentialDatabase::SequentialDatabase(char * filename,char * outfilename)
+SequentialDatabase::SequentialDatabase(char * inFileName,char * outFileName)
 {
-	int i;
-	in = fopen(filename,"rt");
-	out = fopen(outfilename,"w");
+	in = fopen(inFileName,"rt");
+	out = fopen(outFileName,"w");
 	assert(in != NULL);
 	assert(out != NULL);
-	frequency = new int[ITEM_NO];
-	for (i = 0; i < ITEM_NO; i++)
-	{
-		frequency[i] = 0;
-	}
+	frequency = NULL;
 	//current = 0;
 }
 
@@ -832,7 +827,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern & p)
 	if (FEPValid_2(p, Stemp1, frequencyStemp1, Stemp2, frequencyStemp2, check1, check2))
 	{
 		if (BEPValid_2(p))
-			p.output(stdout);
+			p.output(out);
 	}
 	if(check1)
 	{
@@ -867,6 +862,9 @@ void SequentialDatabase::scanDB()
 	int net_itemno = 0;
 	set<int> oneSeqItem;
 	set<int>::iterator iterSet;
+	frequency = new int[ITEM_NO];
+	for (int i = 0; i < ITEM_NO; ++i)
+		frequency[i] = 0;
 	while (!feof(in))
 	{
 		Sequential data;
@@ -948,26 +946,8 @@ void SequentialDatabase::scanDB()
 		rewind(in);
 		sequential.pop_back();
 	}
-}
-
-void SequentialDatabase::printTimeLine(frequencyPattern & p)
-{
-	int sid, tid;
-	for (int i = 0; i < p.pTir.size(); i++)
-	{
-		sid = p.pTir[i].sId;
-		printf("SID #%d: ", sid);
-		for (int j = 0; j < p.pTir[i].til.size(); j++)
-		{
-			for (int k = 0; k < p.pTir[i].til[j].tir.size(); k++)
-			{
-				tid = p.pTir[i].til[j].tir[k].tId;
-				printf("{%d %d} ; ", p.pTir[i].til[j].tir[k].lastStartTime, sequential[sid].transaction[tid].timeOcc);
-			}
-			printf("--");
-		}
-		printf("\n");
-	}
+	if (in)
+		fclose(in);
 }
 
 void SequentialDatabase::generatePTir(frequencyPattern & p)
@@ -1038,7 +1018,8 @@ void SequentialDatabase::deleteInfrequentItem()
 		}
 	}
 	delete [] frequency;
-	frequency = NULL;
+	if (out)
+		fclose(out);
 }
 
 void SequentialDatabase::execute()
@@ -1049,10 +1030,4 @@ void SequentialDatabase::execute()
 
 SequentialDatabase::~SequentialDatabase()
 {
-	if (frequency)
-		delete [] frequency;
-	if (in)
-		fclose(in);
-	if (out)
-		fclose(out);
 }
