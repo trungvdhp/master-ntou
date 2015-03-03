@@ -16,11 +16,11 @@
 class SequentialDatabase  
 {
 public:
-	// Generate stems type no termination criterial
+	// Generate stems type no termination criteria
 	void generateStempType1(vector<int> & sviType1, vector<int> & Stemp1, vector<int> & frequencyStemp1);
 	void generateStempType2(vector<int> & sviType2, vector<int> & Stemp2, vector<int> & frequencyStemp2, int lastItem);
 
-	// Generate stems type with termination criterial
+	// Generate stems type with termination criteria
 	bool generateStempType_1(vector<int> & sviType1, vector<int> & Stemp1, vector<int> & frequencyStemp1, 
 		int & maxT, int minT);
 	bool generateStempType_2(vector<int> & sviType2, vector<int> & Stemp2, vector<int> & frequencyStemp2, 
@@ -31,11 +31,11 @@ public:
 	vector<int> generateFEPType_2(int sId, TimeLine & til);
 	vector<int> generateFEPType_2(int sId, TimeLine & til, TimeLine & prevTil);
 
-	// FEP: no termination criterial
+	// FEP: no termination criteria
 	bool FEPValid_1(frequencyPattern & p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2);
 
-	// FEP: with ternimation criterial
+	// FEP: with termination criteria
 	bool FEPValid_2(frequencyPattern & p, vector<int> & Stemp1, vector<int> & frequencyStemp1,
 		vector<int> & Stemp2, vector<int> & frequencyStemp2, bool & check1, bool & check2);
 	
@@ -44,10 +44,10 @@ public:
 	vector<int> generateBEPType_2(int sId, TimeLine & til, TimeLine & prevTil, 
 		TimeLine & nextTil, int firstItem, int lastItem);
 
-	// BEP: no termination criterial
+	// BEP: no termination criteria
 	bool BEPValid_1(frequencyPattern & p);
 
-	// BEP: with termination criterial
+	// BEP: with termination criteria
 	bool BEPValid_2(frequencyPattern & p);
 
 	// Update pattern
