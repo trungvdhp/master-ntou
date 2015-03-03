@@ -14,40 +14,55 @@
 class SequentialDatabase  
 {
 public:
-	frequencyItem updateType1Pattern(frequencyItem & p,frequencyItem & x);
-	frequencyItem updateType2Pattern(frequencyItem & p,frequencyItem & x);
-	frequencyItem updateType2Pattern_1(frequencyItem & p,frequencyItem & x);
-	void generateStempType1(vector<int> & svttype1, vector<frequencyItem> & Stemp1);
-	void generateStempType2(vector<int> & svttype2, vector<frequencyItem> & Stemp2, int lastItem);
-	void generateBEPStempType2(frequencyItem & p, vector<int> & svttype2, vector<frequencyItem> & Stemp2, int firstId, int lastId);
-	bool FEP(frequencyItem & p, vector<frequencyItem> & Stemp1, vector<frequencyItem> & Stemp2);
+	// Generate stems type
+	void generateStempType1(vector<int> & sviType1, vector<frequencyItem> & Stemp1);
+	void generateStempType2(vector<int> & sviType2, vector<frequencyItem> & Stemp2, int lastItem);
+
+	// FEP: select valid items
 	vector<int> generateFEPType1(int sId, TimeLine & til, vector<int> & ot);
 	vector<int> generateFEPType2(int sId, TimeLine & til, vector<int> & ot);
 	vector<int> generateFEPType2(int sId, TimeLine & til, TimeLine & prevTil, vector<int> & ot);
+
+	// FEP valid
+	bool FEP(frequencyItem & p, vector<frequencyItem> & Stemp1, vector<frequencyItem> & Stemp2);
+
+	// BEP: generate stemps type 2
+	void generateBEPStempType2(frequencyItem & p, vector<int> & sviType2, vector<frequencyItem> & Stemp2, int firstId, int lastId);
+
+	// BEP: select valid items
 	vector<int> generateBEPType1(int sId, TimeLine & til, vector<int> & ot);
 	vector<int> generateBEPType2(int sId, TimeLine & til, vector<int> & ot);
 	vector<int> generateBEPType2_1(int sId, TimeLine & til, vector<int> & ot,
 		TimeLine & prevTil = TimeLine(), TimeLine & nextTil = TimeLine());
+
+	// BEP valid
 	bool BEP(frequencyItem & p);
-	void mineDB(frequencyItem & p);
-	void constructPTidx(frequencyItem & p);
-	void generateSequentialPattern();
+
+	// Update patterns
+	frequencyItem updateType1Pattern(frequencyItem & p,frequencyItem & x);
+	frequencyItem updateType2Pattern(frequencyItem & p,frequencyItem & x);
+	frequencyItem updateType2Pattern_1(frequencyItem & p,frequencyItem & x);
+	// Mining algorithm
 	void printFrequencyItem(frequencyItem & p);
 	void printTimeline(TimeIntervalRecord1 & tir1);
-
 	void outputFrequentPattern(char * filename);
-
+	void mineDB(frequencyItem & p);
+	void getSequential();
+	void scanDB();
+	void constructPTidx(frequencyItem & p);
+	void generateSequentialPattern();
 	void execute();
 
-	void scanDB();
+	// Constructor and destructor
 	SequentialDatabase(char * filename);
 	virtual ~SequentialDatabase();
-	void getSequential();
+
+	// Define variables
 	vector<Sequential> seq;
 	vector<frequentSequence> freSeqSet;
 	FILE * in;
 	int  * frequency;
-	int current;
+	//int current;
 };
 
 #endif // !defined(AFX_SEQUENTIALDATABASE_H__61D19693_54D8_400C_9BA7_2A0CA420ACA2__INCLUDED_)
