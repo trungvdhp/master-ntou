@@ -18,7 +18,7 @@ void GFKM::read(string full_path)
 	double dt;
 	FILE *f = fopen(full_path.c_str(), "r");
 	int index=0;
-	if(f == NULL){
+	if (f == NULL){
 		cerr << "* File you are trying to access cannot be found or opened!" << endl;
 		exit(1);
 	}
@@ -26,28 +26,30 @@ void GFKM::read(string full_path)
 	points = new double[N*D];
 	centroids = new double[K*D];
 	labels = new string[N];
+	U_ALG = new double[N*K];
+	tempU = new double[N*K];
 
-	if(L == 0){
-		for(int i=0; i<N; i++){
+	if (L == 0){
+		for (int i = 0; i < N; ++i){
 			fscanf(f, "%s", &labels[i]);
 
-			for(int j=0; j<D; j++){
+			for (int j = 0; j < D; ++j){
 				fscanf(f, "%lf", &dt);
 				points[index++] = dt;
 			}
 		}
 	}
-	else if(L==-1){
-		for(int i=0; i<N; i++){
-			for(int j=0; j<D; j++){
+	else if (L==-1){
+		for (int i = 0; i < N; ++i){
+			for (int j = 0; j < D; ++j){
 				fscanf(f, "%lf", &dt);
 				points[index++] = dt;
 			}
 		}
 	}
 	else{
-		for(int i=0; i<N; i++){
-			for(int j=0; j<D; j++){
+		for (int i = 0; i < N; ++i){
+			for (int j = 0; j < D; ++j){
 				fscanf(f, "%lf", &dt);
 				points[index++] = dt;
 			}
@@ -69,9 +71,9 @@ void GFKM::initialize_centroids()
 
 	srand((unsigned int)time((time_t*)(NULL)));
 
-	for(int i=0; i<KD;){
+	for (int i = 0; i < KD;){
 		first_index = (span + rand() % step)*D;
-		last_index = first_index+D;
+		last_index = first_index + D;
 
 		while(first_index < last_index)
 			centroids[i++] = points[first_index++];
@@ -85,36 +87,36 @@ void GFKM::initialize_NNT()
 	DNNT = new double[N*M];
 	
 	int i, j, x, idx;
-	int* pNNT = NNT;
-	double* pDNNT = DNNT;
-	double* pPoints = points;
-	double* pCentroids;
+	int * pNNT = NNT;
+	double * pDNNT = DNNT;
+	double * pPoints = points;
+	double * pCentroids;
 	double diff, temp;
 
-	for(i=0; i<N; i++,pNNT+=M, pDNNT+=M,pPoints+=D){
+	for (i = 0; i < N; ++i,pNNT+=M, pDNNT+=M,pPoints+=D){
 		pCentroids = centroids;
 
-		for(j=0; j<M; j++) pDNNT[j] = DBL_MAX;
+		for (j = 0; j < M; ++j) pDNNT[j] = DBL_MAX;
 
-		for(j=0; j<K; j++,pCentroids+=D){
+		for (j = 0; j < K; ++j,pCentroids+=D){
 			diff = 0.0;
 
-			for(x=0; x<D; x++){
+			for (x = 0; x < D; ++x){
 				temp = pPoints[x] - pCentroids[x];
 				diff = diff + temp*temp;
 			}
 			idx = 0;
 
-			for(; idx < M; idx++){
-				if(pDNNT[idx] > diff) break;
+			for (; idx < M; ++idx){
+				if (pDNNT[idx] > diff) break;
 			}
 
-			for(x=M-1; x>idx; x--){
+			for (x = M-1; x > idx; --x){
 				pDNNT[x] = pDNNT[x-1];
 				pNNT[x] = pNNT[x-1];
 			}
 
-			if(idx < M){
+			if (idx < M){
 				pDNNT[idx] = diff;
 				pNNT[idx] = j;
 			}
@@ -125,25 +127,31 @@ void GFKM::initialize_NNT()
 void GFKM::update_memberships()
 {
 	int i, j, idx;
-	int* pNNT = NNT;
-	double* pDNNT = DNNT;
-	U_ALG = new double[N*K]();
-	tempU = new double[N*K]();
-	double* pU = U_ALG;
-	double* pTempU = tempU;
+	int * pNNT = NNT;
+	double * pDNNT = DNNT;
+	memset(U_ALG, 0.0, N*K*sizeof(double));
+	memset(tempU, 0.0, N*K*sizeof(double));
+	/*for (i = 0; i < N*K; ++i){
+		U_ALG[i] = 0.0;
+		tempU[i] = 0.0;
+	}*/
+	//U_ALG = new double[N*K]();
+	//tempU = new double[N*K]();
+	double * pU = U_ALG;
+	double * pTempU = tempU;
 	double f = 1.0/(fuzzifier-1);
 	double diff, sum;
 	bool next;
 
-	for(i=0; i<N; i++,pU+=K,pTempU+=K,pNNT+=M,pDNNT+=M){
+	for (i = 0; i < N; ++i, pU += K, pTempU += K, pNNT += M, pDNNT += M){
 		sum = 0.0;
 		next = false;
 
-		for(j=0; j<M; j++){
+		for (j = 0; j < M; ++j){
 			idx = pNNT[j];
 			diff = pDNNT[j];
 
-			if(diff == 0.0){
+			if (diff == 0.0){
 				pU[idx] = 1.0;
 				pTempU[idx] = 1.0;
 				next = true;
@@ -153,10 +161,10 @@ void GFKM::update_memberships()
 			sum = sum + 1.0 / pU[idx];
 		}
 
-		if(next)
+		if (next)
 			continue;
 
-		for(j=0; j<M; j++){
+		for (j = 0; j < M; ++j){
 			idx = pNNT[j];
 			pU[idx] = 1.0 / (pU[idx]*sum);
 			pTempU[idx] = pow(pU[idx], fuzzifier);
@@ -167,66 +175,66 @@ void GFKM::update_memberships()
 void GFKM::update_centroids()
 {
 	int i, j, k, idx;
-	int* pNNT = NNT;
-	double* pTempU = tempU;
-	double* pPoints = points;
-	double* pCentroids;
-	double* sum = new double[K]();
+	int * pNNT = NNT;
+	double * pTempU = tempU;
+	double * pPoints = points;
+	double * pCentroids;
+	double * sum = new double[K]();
 	memset(centroids, 0, K*D*sizeof(double));
 
-	for(i=0; i<N; i++,pTempU+=K,pNNT+=M,pPoints+=D){
-		for(j=0; j<M; j++){
+	for (i = 0; i < N; ++i,pTempU+= K,pNNT+=M,pPoints+=D){
+		for (j = 0; j < M; ++j){
 			idx = pNNT[j];
 			sum[idx] = sum[idx] + pTempU[idx];
 			pCentroids = centroids + idx*D;
 
-			for(k=0; k<D; k++)
+			for (k=0; k<D; k++)
 				pCentroids[k] = pCentroids[k] + pTempU[idx]*pPoints[k];
 		}
 	}
 	pCentroids = centroids;
 
-	for(i=0; i<K; i++,pCentroids+=D)
-		for(j=0; j<D; j++)
+	for (i = 0; i < K; ++i,pCentroids+=D)
+		for (j = 0; j < D; ++j)
 			pCentroids[j] = pCentroids[j] / sum[i];
 }
 
 double GFKM::update_NNT()
 {
 	int i, j, x, idx;
-	int* pNNT = NNT;
-	double* pDNNT = DNNT;
-	double* pPoints = points;
-	double* pTempU = tempU;
-	double* pCentroids;
+	int * pNNT = NNT;
+	double * pDNNT = DNNT;
+	double * pPoints = points;
+	double * pTempU = tempU;
+	double * pCentroids;
 	double diff, temp;
 	double JK = 0.0;
 
-	for(i=0; i<N; i++,pNNT+=M,pDNNT+=M,pPoints+=D,pTempU+=K){
+	for (i = 0; i < N; ++i,pNNT+=M,pDNNT+=M,pPoints+=D,pTempU+= K){
 		pCentroids = centroids;
 
-		for(j=0; j<M; j++) pDNNT[j] = DBL_MAX;
+		for (j = 0; j < M; ++j) pDNNT[j] = DBL_MAX;
 
-		for(j=0; j<K; j++,pCentroids+=D){
+		for (j = 0; j < K; ++j,pCentroids+=D){
 			diff = 0.0;
 
-			for(x=0; x<D; x++){
+			for (x = 0; x < D; ++x){
 				temp = pPoints[x] - pCentroids[x];
 				diff = diff + temp*temp;
 			}
 			JK = JK + pTempU[j] * diff;
 			idx = 0;
 
-			for(; idx < M; idx++){
-				if(pDNNT[idx] > diff) break;
+			for (; idx < M; ++idx){
+				if (pDNNT[idx] > diff) break;
 			}
 
-			for(x=M-1; x>idx; x--){
+			for (x = M-1; x > idx; --x){
 				pDNNT[x] = pDNNT[x-1];
 				pNNT[x] = pNNT[x-1];
 			}
 
-			if(idx < M){
+			if (idx < M){
 				pDNNT[idx] = diff;
 				pNNT[idx] = j;
 			}
@@ -235,7 +243,7 @@ double GFKM::update_NNT()
 	return JK;
 }
 
-double* GFKM::run(int stop_iter)
+double * GFKM::run(int stop_iter)
 {
 	int i;
 	double t0, t1 = 0.0, t2 = 0.0, t3 = 0.0;
@@ -247,7 +255,7 @@ double* GFKM::run(int stop_iter)
 	tmr.stop();
 	t0 = tmr.elapsed();
 
-	for(i=0; i<max_iter && i<=stop_iter; i++){
+	for (i = 0; i<max_iter && i<=stop_iter; ++i){
 		// Update membership by CPU
 		tmr.start();
 		update_memberships();
@@ -269,12 +277,12 @@ double* GFKM::run(int stop_iter)
 		// Check if stop
 		a = fabs(newJ - J);
 
-		if((a < epsilon && (stop_iter == INT_MAX || i==stop_iter)) || i == stop_iter)
+		if ((a < epsilon && (stop_iter == INT_MAX || i==stop_iter)) || i == stop_iter)
 			break;
 		J = newJ;
 	}
 
-	if(i==max_iter) i--;
+	if (i==max_iter) i--;
 	Util::write<double>(centroids, K, D, path + "centroids.txt");
 	Util::write<int>(NNT, N, M, path + "NNT.txt");
 	//Util::write<double>(DNNT, N, M, path + "DNNT.txt");
@@ -284,6 +292,5 @@ double* GFKM::run(int stop_iter)
 	double *rs = new double[2];
 	rs[0] = t0 + t1 + t2 + t3;
 	rs[1] = (double)i;
-
 	return rs;
 }

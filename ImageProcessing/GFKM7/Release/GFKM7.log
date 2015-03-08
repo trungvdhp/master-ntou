@@ -1,0 +1,25 @@
+﻿Build started 3/8/2015 8:38:39 AM.
+     1>Project "D:\Projects\master-ntou\ImageProcessing\GFKM7\GFKM7.vcxproj" on node 2 (Clean target(s)).
+     1>CudaClean:
+         cmd.exe /C "C:\Users\TRUNG\AppData\Local\Temp\tmpfd1b66e1fc3b4a17bf0412b284fe2a43.cmd"
+         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"     --keep-dir Release -maxrregcount=0  --machine 32 --compile     -use_fast_math -DWIN32 -DNDEBUG -D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o Release\GFKM.cu.obj "D:\Projects\master-ntou\ImageProcessing\GFKM7\GFKM.cu" -clean
+         
+         D:\Projects\master-ntou\ImageProcessing\GFKM7>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"     --keep-dir Release -maxrregcount=0  --machine 32 --compile     -use_fast_math -DWIN32 -DNDEBUG -D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o Release\GFKM.cu.obj "D:\Projects\master-ntou\ImageProcessing\GFKM7\GFKM.cu" -clean 
+         GFKM.cu
+       CudaClean:
+         cmd.exe /C "C:\Users\TRUNG\AppData\Local\Temp\tmp288e8198ca0d446d9c5c4dc2652ca155.cmd"
+         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"     --keep-dir Release -maxrregcount=0  --machine 32 --compile     -use_fast_math -DWIN32 -DNDEBUG -D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o Release\Main.cu.obj "D:\Projects\master-ntou\ImageProcessing\GFKM7\Main.cu" -clean
+         
+         D:\Projects\master-ntou\ImageProcessing\GFKM7>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"     --keep-dir Release -maxrregcount=0  --machine 32 --compile     -use_fast_math -DWIN32 -DNDEBUG -D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o Release\Main.cu.obj "D:\Projects\master-ntou\ImageProcessing\GFKM7\Main.cu" -clean 
+         Main.cu
+       CudaClean:
+         cmd.exe /C "C:\Users\TRUNG\AppData\Local\Temp\tmp4ee2fa565bff4592b65b59da6cd6092b.cmd"
+         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"     --keep-dir Release -maxrregcount=0  --machine 32 --compile     -use_fast_math -DWIN32 -DNDEBUG -D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o Release\TimingGPU.cu.obj "D:\Projects\master-ntou\ImageProcessing\GFKM7\TimingGPU.cu" -clean
+         
+         D:\Projects\master-ntou\ImageProcessing\GFKM7>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"     --keep-dir Release -maxrregcount=0  --machine 32 --compile     -use_fast_math -DWIN32 -DNDEBUG -D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o Release\TimingGPU.cu.obj "D:\Projects\master-ntou\ImageProcessing\GFKM7\TimingGPU.cu" -clean 
+         TimingGPU.cu
+     1>Done Building Project "D:\Projects\master-ntou\ImageProcessing\GFKM7\GFKM7.vcxproj" (Clean target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.70

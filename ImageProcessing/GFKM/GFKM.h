@@ -8,6 +8,7 @@
 #include <ctime>
 #include <cassert>
 #include <cstdlib>
+#include <vector>
 #include "TimingCPU.h"
 using namespace std;
 
@@ -27,14 +28,14 @@ public:
 	double epsilon;
 	double J;
 
-	double* points;
-	double* centroids;
-	double* U_ALG;
-	double* tempU;
-	double* DNNT;
-	int* NNT;
+	double * points;
+	double * centroids;
+	double * U_ALG;
+	double * tempU;
+	double * DNNT;
+	int * NNT;
 
-	string* labels;
+	string * labels;
 
 	GFKM(void);
 	GFKM(string path, string filename);
@@ -44,5 +45,5 @@ public:
 	void update_memberships();
 	void update_centroids();
 	double update_NNT();
-	double* run(int stop_iter);
+	double * run(int stop_iter);
 };

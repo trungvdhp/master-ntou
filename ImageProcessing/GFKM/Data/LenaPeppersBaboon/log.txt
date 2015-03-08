@@ -1,23 +1,24 @@
 D:\Projects\master-ntou\ImageProcessing\GFKM\Data\LenaPeppersBaboon\
+mode = 1
 -------------------------------------------------------
 GPU running
 -------------------------------------------------------
- Number of iterations: 100
- Initializing NNT    :     0.191551998
- Updating memberships:     0.229539519    22.953951940
- Updating centroids  :     0.659770864    65.977086423
- Updating NNT and J  :     0.226085712    22.608571166
+ Number of iterations: 1000
+ Initializing NNT    :     1.123584032
+ Updating memberships:     1.354726975  1354.726975203
+ Updating centroids  :     2.124548037  2124.548036580
+ Updating NNT and J  :     1.412558980  1412.558979505
 -------------------------------------------------------
 CPU running
 -------------------------------------------------------
- Number of iterations: 100
- Initializing NNT    :     2.742833670
- Updating memberships:     1.620650451   162.065045094
- Updating centroids  :     0.574611220    57.461121978
- Updating NNT and J  :     2.735662806   273.566280612
+ Number of iterations: 1000
+ Initializing NNT    :    20.424123110
+ Updating memberships:     9.083041132  9083.041131744
+ Updating centroids  :     4.316912116  4316.912116002
+ Updating NNT and J  :    20.515269819 20515.269818728
 -------------------------------------------------------
-Total CPU time: 495.835281355
-Total GPU time: 111.739161527
+Total CPU time: 33935.647189584
+Total GPU time: 4893.000999319
 -------------------------------------------------------
-Total CPU time / Total GPU time: 4.437435135
+Total CPU time / Total GPU time: 6.935548796
 -------------------------------------------------------
