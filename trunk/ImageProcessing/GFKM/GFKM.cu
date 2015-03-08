@@ -3,50 +3,50 @@
 #define DIM_MAX 36
 #define BLOCK_MAX 1024
 
-inline __host__ int roundup(int x, int y)
+__host__ int roundup(int x, int y)
 {
 	return 1 + (x-1)/y;
 }
 
 __global__ void initialize_NNT_kernel
-	(double* points, double* centroids, int* NNT, double* DNNT,
+	(double * points, double * centroids, int * NNT, double * DNNT,
 	 int N, int D, int K, int M)
 {
 	int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
-	if(idx >= N) return;
+	if (idx >= N) return;
 	int i, j;
 	i = idx*M;
-	int* pNNT = NNT + i;
-	double* pDNNT = DNNT + i;
-	double* pCentroids = centroids;
+	int * pNNT = NNT + i;
+	double * pDNNT = DNNT + i;
+	double * pCentroids = centroids;
 	
 	double X[DIM_MAX];
 	double diff, temp;
 	
 	j= idx*D;
-	for(i=0; i<D; i++) X[i] = points[j++];
+	for (i = 0; i < D; ++i) X[i] = points[j++];
 
-	for(i=0; i<M; i++) pDNNT[i] = DBL_MAX;
+	for (i = 0; i < M; ++i) pDNNT[i] = DBL_MAX;
 
-	for(i=0; i<K; i++,pCentroids+=D){
+	for (i = 0; i < K; ++i,pCentroids+=D){
 		diff = 0.0;
 
-		for(j=0; j<D; j++){
+		for (j = 0; j < D; ++j){
 			temp = X[j] - pCentroids[j];
 			diff = diff + temp*temp;
 		}
 		idx = 0;
 
-		for(; idx < M; idx++)
-			if(pDNNT[idx] > diff) break;
+		for (; idx < M; ++idx)
+			if (pDNNT[idx] > diff) break;
 
-		for(j=M-1; j>idx; j--){
+		for (j=M-1; j>idx; --j){
 			pDNNT[j] = pDNNT[j-1];
 			pNNT[j] = pNNT[j-1];
 		}
 
-		if(idx < M){
+		if (idx < M){
 			pDNNT[idx] = diff;
 			pNNT[idx] = i;
 		}
@@ -54,32 +54,32 @@ __global__ void initialize_NNT_kernel
 }
 
 __global__ void update_memberships_kernel
-	(int* NNT, double* DNNT, double* U_ALG, double* tempU, 
+	(int * NNT, double * DNNT, double * U_ALG, double * tempU, 
 	 int N, int K, int M, double fuzzifier)
 {
 	int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
-	if(idx >= N) return;
+	if (idx >= N) return;
 	int i;
 	i = idx*M;
-	int* pNNT = NNT + i;
-	double* pDNNT = DNNT + i;
+	int * pNNT = NNT + i;
+	double * pDNNT = DNNT + i;
 	i = idx*K;
-	double* pU = U_ALG + i;
-	double* pTempU = tempU + i;
+	double * pU = U_ALG + i;
+	double * pTempU = tempU + i;
 	double f = 1.0 / (fuzzifier-1.0);
 	double diff, sum = 0.0;
 
-	for(i=0; i<K; i++){
+	for (i = 0; i < K; ++i){
 		pU[i] = 0.0;
 		pTempU[i] = 0.0;
 	}
 
-	for(i=0; i<M; i++){
+	for (i = 0; i < M; ++i){
 		idx = pNNT[i];
 		diff = pDNNT[i];
 
-		if(diff == 0.0){ 
+		if (diff == 0.0){ 
 			pU[idx] = 1.0;
 			pTempU[idx] = 1.0;
 			return;
@@ -89,7 +89,7 @@ __global__ void update_memberships_kernel
 		sum = sum + 1.0 / diff;
 	}
 
-	for(i=0; i<M; i++){
+	for (i = 0; i < M; ++i){
 		idx = pNNT[i];
 		diff =  1.0 / (pU[idx]*sum);
 		pU[idx] = diff;
@@ -98,60 +98,60 @@ __global__ void update_memberships_kernel
 }
 
 __host__ void update_centroids
-	(double* points, double* centroids, int* NNT, double* tempU,
+	(double * points, double * centroids, int * NNT, double * tempU,
 	 int N, int D, int K, int M)
 {
 	int i, j, k, idx;
-	int* pNNT = NNT;
-	double* pTempU = tempU;
-	double* pPoints = points;
-	double* pCentroids;
-	double* sum = new double[K]();
+	int * pNNT = NNT;
+	double * pTempU = tempU;
+	double * pPoints = points;
+	double * pCentroids;
+	double * sum = new double[K]();
 	memset(centroids, 0, K*D*sizeof(double));
 
-	for(i=0; i<N; i++,pTempU+=K,pNNT+=M,pPoints+=D){
-		for(j=0; j<M; j++){
+	for (i = 0; i < N; ++i, pTempU += K, pNNT += M, pPoints += D){
+		for (j = 0; j < M; ++j){
 			idx = pNNT[j];
 			sum[idx] = sum[idx] + pTempU[idx];
 			pCentroids = centroids + idx*D;
 
-			for(k=0; k<D; k++)
+			for (k = 0; k < D; ++k)
 				pCentroids[k] = pCentroids[k] + pTempU[idx]*pPoints[k];
 		}
 	}
 	pCentroids = centroids;
 
-	for(i=0; i<K; i++,pCentroids+=D)
-		for(j=0; j<D; j++)
+	for (i = 0; i < K; ++i, pCentroids += D)
+		for (j = 0; j < D; ++j)
 			pCentroids[j] = pCentroids[j] / sum[i];
 }
 
-__global__ void histogram_kernel(int* NNT, int* histo, int size)
+__global__ void histogram_kernel(int * NNT, int * histo, int size)
 {
 	int i = blockIdx.x * blockDim.x + threadIdx.x;
 
-	if(i < size)
+	if (i < size)
 		atomicAdd(&(histo[NNT[i]+1]), 1);
 }
 
-__global__ void scan_kernel(int* histo, int K)
+__global__ void scan_kernel(int * histo, int K)
 {
-	for(int i=1; i<K; i++)
+	for (int i=1; i < K; ++i)
 		histo[i] += histo[i-1];
 }
 
-__global__ void counting_sort_kernel(int* NNT, int* histo, int* odata, int size, int M)
+__global__ void counting_sort_kernel(int * NNT, int * histo, int * odata, int size, int M)
 {
 	int i = blockIdx.x * blockDim.x + threadIdx.x;
 
-	if(i < size){
+	if (i < size){
 		int idx = atomicAdd(&(histo[NNT[i]]), 1);
 		odata[idx] = i/M;
 	}
 }
 
 __global__ void reduce_memberships_kernel
-	(int* NNT, double* tempU, double* odata, int N, int K, int cid)
+	(int * NNT, double * tempU, double * odata, int N, int K, int cid)
 {
 	extern __shared__ double sdata[];
 
@@ -167,28 +167,28 @@ __global__ void reduce_memberships_kernel
 	sdata[tid] = temp;
 	__syncthreads();
 
-	//if(blockDim.x > 255){
-		if(tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
+	//if (blockDim.x > 255){
+		if (tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
 		__syncthreads();
 	//}
 
-	//if(blockDim.x > 127){
-		if(tid < 64)
+	//if (blockDim.x > 127){
+		if (tid < 64)
 			sdata[tid] = sdata[tid] + sdata[tid+64];
 		__syncthreads();
 	//}
 
-	if(tid < 32) sdata[tid] = sdata[tid] + sdata[tid + 32];
-	if(tid < 16) sdata[tid] = sdata[tid] + sdata[tid + 16];
-	if(tid < 8) sdata[tid] = sdata[tid] + sdata[tid + 8];
-	if(tid < 4) sdata[tid] = sdata[tid] + sdata[tid + 4];
-	if(tid < 2) sdata[tid] = sdata[tid] + sdata[tid + 2];
+	if (tid < 32) sdata[tid] = sdata[tid] + sdata[tid + 32];
+	if (tid < 16) sdata[tid] = sdata[tid] + sdata[tid + 16];
+	if (tid < 8) sdata[tid] = sdata[tid] + sdata[tid + 8];
+	if (tid < 4) sdata[tid] = sdata[tid] + sdata[tid + 4];
+	if (tid < 2) sdata[tid] = sdata[tid] + sdata[tid + 2];
 
-	if(tid == 0) odata[blockIdx.x] = sdata[0] + sdata[1];
+	if (tid == 0) odata[blockIdx.x] = sdata[0] + sdata[1];
 }
 
 __global__ void reduce_centroids_kernel
-	(double* points, int* NNT, double* tempU, double* odata,
+	(double * points, int * NNT, double * tempU, double * odata,
 	 int N, int D, int K, int pid, int cid)
 {
 	extern __shared__ double sdata[];
@@ -207,69 +207,69 @@ __global__ void reduce_centroids_kernel
 	sdata[tid] = temp;
 	__syncthreads();
 
-	//if(blockDim.x > 255){
-		if(tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
+	//if (blockDim.x > 255){
+		if (tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
 		__syncthreads();
 	//}
 
-	//if(blockDim.x > 127){
-		if(tid < 64) sdata[tid] = sdata[tid] + sdata[tid+64];
+	//if (blockDim.x > 127){
+		if (tid < 64) sdata[tid] = sdata[tid] + sdata[tid+64];
 		__syncthreads();
 	//}
 
-	if(tid < 32) sdata[tid] = sdata[tid] + sdata[tid + 32];
-	if(tid < 16) sdata[tid] = sdata[tid] + sdata[tid + 16];
-	if(tid < 8) sdata[tid] = sdata[tid] + sdata[tid + 8];
-	if(tid < 4) sdata[tid] = sdata[tid] + sdata[tid + 4];
-	if(tid < 2) sdata[tid] = sdata[tid] + sdata[tid + 2];
+	if (tid < 32) sdata[tid] = sdata[tid] + sdata[tid + 32];
+	if (tid < 16) sdata[tid] = sdata[tid] + sdata[tid + 16];
+	if (tid < 8) sdata[tid] = sdata[tid] + sdata[tid + 8];
+	if (tid < 4) sdata[tid] = sdata[tid] + sdata[tid + 4];
+	if (tid < 2) sdata[tid] = sdata[tid] + sdata[tid + 2];
 
-	if(tid == 0) odata[blockIdx.x] = sdata[0] + sdata[1];
+	if (tid == 0) odata[blockIdx.x] = sdata[0] + sdata[1];
 }
 
 __global__ void reduce_centroids_kernel
-	(double* centroids, double* memberships, double* tempC, int* histo,  int D, int K)
+	(double * centroids, double * memberships, double * tempC, int * histo,  int D, int K)
 {
 	int tid = threadIdx.x;
 
-	if(tid >= K) return;
-	double* C = centroids + tid*D;
+	if (tid >= K) return;
+	double * C = centroids + tid*D;
 	int size = histo[tid];
 	double a = 0.0;
 
-	if(tid>0) tid = histo[tid-1];
+	if (tid > 0) tid = histo[tid-1];
 	int i;
-	double* tempU = memberships + tid;
-	double* temp = tempC + tid*D;
+	double * tempU = memberships + tid;
+	double * temp = tempC + tid*D;
 	size -= tid;
 	
-	for(i=0; i<size; i++)
+	for (i = 0; i < size; ++i)
 		a = a + tempU[i];
 
-	for(i=0; i<D; i++,temp+=size){
+	for (i = 0; i < D; ++i, temp += size){
 		C[i] = 0.0;
 
-		for(tid=0; tid<size; tid++)
+		for (tid = 0; tid < size; ++tid)
 			C[i] = C[i] + temp[tid];
 		C[i] = C[i]/a;
 	}
 }
 
-inline __host__ void reduce_centroids
-	(double* centroids, double* u, double* tempC, int* histo, int D, int K)
+__host__ void reduce_centroids
+	(double * centroids, double * u, double * tempC, int * histo, int D, int K)
 {
-	int i, j, t, x=0, y=0, cid=0;
+	int i, j, t, x = 0, y=0, cid=0;
 	double a;
 
-	for(i=0; i<K; i++){
+	for (i = 0; i < K; ++i){
 		a = 0.0;
 
-		for(j=0; j<histo[i]; j++,x++)
+		for (j = 0; j < histo[i]; ++j, ++x)
 			a = a + u[x];
 
-		for(j=0; j<D; j++,cid++){
+		for (j = 0; j < D; ++j, ++cid){
 			centroids[cid] = 0.0;
 
-			for(t=0; t<histo[i]; t++,y++)
+			for (t = 0; t < histo[i]; ++t,++y)
 				centroids[cid] = centroids[cid] + tempC[y];
 			centroids[cid] = centroids[cid]/a;
 		}
@@ -277,65 +277,65 @@ inline __host__ void reduce_centroids
 }
 
 __global__ void update_NNT_kernel
-	(double* points, double* centroids, int* NNT, double* DNNT, double* tempU, double* D_ALG,
+	(double * points, double * centroids, int * NNT, double * DNNT, double * tempU, double * D_ALG,
 	 int N, int D, int K, int M)
 {
 	int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
-	if(idx >= N) return;
+	if (idx >= N) return;
 	int i, j;
 	i = idx*M;
-	int* pNNT = NNT + i;
-	double* pDNNT = DNNT + i;
+	int * pNNT = NNT + i;
+	double * pDNNT = DNNT + i;
 	i = idx*K;
-	double* pTempU = tempU + i;
-	double* pD_ALG = D_ALG + i;
-	double* pCentroids = centroids;
+	double * pTempU = tempU + i;
+	double * pD_ALG = D_ALG + i;
+	double * pCentroids = centroids;
 	
 	double X[DIM_MAX];
 	double diff, temp;
 	
 	j= idx*D;
-	for(i=0; i<D; i++) X[i] = points[j++];
+	for (i = 0; i < D; ++i) X[i] = points[j++];
 
-	for(i=0; i<M; i++) pDNNT[i] = DBL_MAX;
+	for (i = 0; i < M; ++i) pDNNT[i] = DBL_MAX;
 
-	for(i=0; i<K; i++,pCentroids+=D){
+	for (i = 0; i < K; ++i, pCentroids += D){
 		diff = 0.0;
 
-		for(j=0; j<D; j++){
+		for (j = 0; j < D; ++j){
 			temp = X[j] - pCentroids[j];
 			diff = diff + temp*temp;
 		}
 		pD_ALG[i] = pTempU[i]*diff;
 		idx = 0;
 
-		for(; idx < M; idx++)
-			if(pDNNT[idx] > diff) break;
+		for (; idx < M; ++idx)
+			if (pDNNT[idx] > diff) break;
 
-		for(j=M-1; j>idx; j--){
+		for (j = M-1; j > idx; --j){
 			pDNNT[j] = pDNNT[j-1];
 			pNNT[j] = pNNT[j-1];
 		}
 
-		if(idx < M){
+		if (idx < M){
 			pDNNT[idx] = diff;
 			pNNT[idx] = i;
 		}
 	}
 }
 
-__host__ double reduce_J(double* D_ALG, int N, int K)
+__host__ double reduce_J(double * D_ALG, int N, int K)
 {
 	int i, NK = N*K;;
 	double JK = 0.0;
 	
-	for(i=0; i<NK; i++)
+	for (i = 0; i < NK; ++i)
 		JK = JK + D_ALG[i];
 	return JK;
 }
 
-__global__ void reduce_J_kernel(double* idata, double* odata, int n)
+__global__ void reduce_J_kernel(double * idata, double * odata, int n)
 {
 	extern __shared__ double sdata[];
 
@@ -351,34 +351,32 @@ __global__ void reduce_J_kernel(double* idata, double* odata, int n)
 	sdata[tid] = temp;
 	__syncthreads();
 
-	//if(blockDim.x > 511){
-	//	if(tid < 256)
+	//if (blockDim.x > 511){
+	//	if (tid < 256)
 	//		sdata[tid] = sdata[tid] + sdata[tid+256];
 	//	__syncthreads();
 	//}
 
-	if(blockDim.x > 255){
-		if(tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
+	if (blockDim.x > 255){
+		if (tid < 128) sdata[tid] = sdata[tid] + sdata[tid+128];
 		__syncthreads();
 	}
 
-	if(blockDim.x > 127){
-		if(tid < 64) sdata[tid] = sdata[tid] + sdata[tid+64];
+	if (blockDim.x > 127){
+		if (tid < 64) sdata[tid] = sdata[tid] + sdata[tid+64];
 		__syncthreads();
 	}
 
-	if(tid < 32) sdata[tid] = sdata[tid] + sdata[tid + 32];
-	if(tid < 16) sdata[tid] = sdata[tid] + sdata[tid + 16];
-	if(tid < 8) sdata[tid] = sdata[tid] + sdata[tid + 8];
-	if(tid < 4) sdata[tid] = sdata[tid] + sdata[tid + 4];
-	if(tid < 2) sdata[tid] = sdata[tid] + sdata[tid + 2];
+	if (tid < 32) sdata[tid] = sdata[tid] + sdata[tid + 32];
+	if (tid < 16) sdata[tid] = sdata[tid] + sdata[tid + 16];
+	if (tid < 8) sdata[tid] = sdata[tid] + sdata[tid + 8];
+	if (tid < 4) sdata[tid] = sdata[tid] + sdata[tid + 4];
+	if (tid < 2) sdata[tid] = sdata[tid] + sdata[tid + 2];
 
-	if(tid == 0) odata[blockIdx.x] = sdata[0] + sdata[1];
+	if (tid == 0) odata[blockIdx.x] = sdata[0] + sdata[1];
 }
 
-
-
-__host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
+__host__ double * GFKM_GPU(GFKM & G, int block_size, int stop_iter, int mode)
 {
 #pragma region Declare common variables
 	int i, j, x, y, z, q;
@@ -413,33 +411,35 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 #pragma endregion
 
 #pragma region Declare device memories
-	double* d_points;
-	double* d_centroids;
-	double* d_DNNT;
-	int* d_NNT;
-	int* d_histo;
-	int* d_sp;
-	double* d_DALG;
-	double* d_u;
-	double* d_tempU;
-	double* d_JB;
-	double* d_J;
-	double* d_tempC;
-	double* d_m;
+	double * d_points;
+	double * d_centroids;
+	double * d_DNNT;
+	double * d_DALG;
+	double * d_u;
+	double * d_tempU;
+	double * d_JB;
+	double * d_J;
+	double * d_tempC;
+	double * d_m;
+
+	int * d_NNT;
+	int * d_histo;
+	int * d_sp;
 #pragma endregion
 
 #pragma region Declare host pinned memories
-	double* p_points;
-	double* p_centroids;
-	double* p_DNNT;
-	int* p_NNT;
-	int* p_histo;
-	double* p_DALG;
-	double* p_u;
-	double* p_tempU;
-	double* p_J;
-	double* p_tempC;
-	double* p_m;
+	double * p_points;
+	double * p_centroids;
+	double * p_DNNT;
+	double * p_DALG;
+	double * p_u;
+	double * p_tempU;
+	double * p_J;
+	double * p_tempC;
+	double * p_m;
+
+	int * p_NNT;
+	int * p_histo;
 #pragma endregion
 
 #pragma region Malloc device
@@ -472,7 +472,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 	CudaSafeCall(cudaMallocHost(&p_tempC, num_cblocks*centroids_size*DBL_SIZE));
 	CudaSafeCall(cudaMallocHost(&p_m, num_cblocks*DBL_SIZE));
 
-	if(num_Jblocks1 < BLOCK_MAX)
+	if (num_Jblocks1 < BLOCK_MAX)
 		CudaSafeCall(cudaMallocHost(&p_J, num_Jblocks1*DBL_SIZE));
 	else
 		CudaSafeCall(cudaMallocHost(&p_J, num_Jblocks2*DBL_SIZE));
@@ -487,7 +487,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 
 #pragma region Cuda stream create
 	cudaStream_t *streams = new cudaStream_t[G.D+1];
-	for(i = 0; i<=G.D; i++)
+	for (i = 0; i<=G.D; ++i)
 		cudaStreamCreate(&streams[i]);  
 #pragma endregion
 
@@ -500,7 +500,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 #pragma endregion
 
 #pragma region Main loop
-	for(i=0; i<G.max_iter; i++){
+	for (i = 0; i<G.max_iter; ++i){
 #pragma region  Updating memberships by GPU
 		tmr_GPU.StartCounter();
 		update_memberships_kernel<<<num_blocks, block_size>>>
@@ -510,7 +510,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 #pragma endregion
 
 #pragma region Updating centroids
-		if(mode){
+		if (mode == 1){
 #pragma region Counting sort by GPU
 			tmr_GPU.StartCounter();
 			cudaMemset(d_histo, 0, histo_size);
@@ -528,12 +528,13 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 #pragma region Reducing centroids by GPU
 			y = 0; z = 0; q = 0;
 			tmr_GPU.StartCounter();
-			for(j=0; j<G.K; j++){
+
+			for (j = 0; j < G.K; ++j){
 				p_histo[j] = roundup(p_histo[j+1], block_dsize);
 				reduce_memberships_kernel<<<p_histo[j], block_size, sm_size, streams[0]>>>
 					(d_sp+q, d_tempU, d_m+y, p_histo[j+1], G.K, j);
 
-				for(x=0; x<G.D; x++){
+				for (x = 0; x < G.D; ++x){
 					reduce_centroids_kernel<<<p_histo[j], block_size, sm_size, streams[x+1]>>>
 						(d_points, d_sp+q, d_tempU, d_tempC+z, p_histo[j+1], G.D, G.K, x, j);
 					z += p_histo[j];
@@ -597,14 +598,14 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 		reduce_J_kernel<<<num_Jblocks1, block_size, sm_size>>>(d_DALG, d_JB, uk_size);
 		//CudaCheckError();
 
-		if(num_Jblocks1 < BLOCK_MAX){
+		if (num_Jblocks1 < BLOCK_MAX){
 			CudaSafeCall(cudaMemcpyAsync(p_J, d_JB, Jblock1_size, cudaMemcpyDeviceToHost));
 			t3 = t3 + tmr_GPU.GetCounter();
 			// Reduction J blocksums by CPU
 			tmr_CPU.start();
 			newJ = 0.0;
 
-			for(j=0; j<num_Jblocks1; j++)
+			for (j = 0; j<num_Jblocks1; ++j)
 				newJ = newJ + p_J[j];
 		}  
 		else{
@@ -617,7 +618,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 			tmr_CPU.start();
 			newJ = 0.0;
 
-			for(j=0; j<num_Jblocks2; j++)
+			for (j = 0; j<num_Jblocks2; ++j)
 				newJ = newJ + p_J[j];
 		}
 #pragma endregion
@@ -627,21 +628,22 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 		tmr_CPU.stop();
 		t4 = tmr_CPU.elapsed();
 
-		if(t0 < 0) t0 = 0;
+		if (t4 < 0) t4 = 0;
 		t3 = t3 + t4;
 		a = fabs(newJ - G.J);
 
-		if((a < G.epsilon && (stop_iter == INT_MAX || i==stop_iter)) || i==stop_iter)
+		if ((a < G.epsilon && (stop_iter == INT_MAX || i==stop_iter)) || i==stop_iter)
 			break;
 		G.J = newJ;
 #pragma endregion
 	}
-	if(i == G.max_iter) i--;
+	if (i == G.max_iter) i--;
 #pragma endregion
 
 #pragma region Copying device back to host
 	tmr_GPU.StartCounter();
-	CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, um_size*INT_SIZE, cudaMemcpyDeviceToHost));
+	if (mode == 1)
+		CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, um_size*INT_SIZE, cudaMemcpyDeviceToHost));
 	//CudaSafeCall(cudaMemcpyAsync(p_DNNT, d_DNNT, um_size*DBL_SIZE, cudaMemcpyDeviceToHost));
 	//CudaSafeCall(cudaMemcpyAsync(p_u, d_u, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
 	//CudaSafeCall(cudaMemcpyAsync(p_tempU, d_tempU, uk_size*DBL_SIZE, cudaMemcpyDeviceToHost));
@@ -694,7 +696,7 @@ __host__ double* GFKM_GPU(GFKM G, int block_size, int stop_iter, int mode)
 #pragma endregion
 
 #pragma region CudaStreamDestroy and DeviceReset
-	for(i = 0; i<=G.D; i++)
+	for (i = 0; i<=G.D; ++i)
 		cudaStreamDestroy(streams[i]);
 	cudaDeviceReset();
 #pragma endregion
