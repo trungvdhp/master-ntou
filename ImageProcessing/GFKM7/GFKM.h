@@ -45,5 +45,5 @@ public:
 	void update_memberships();
 	void update_centroids();
 	double update_NNT();
-	double * run(int stop_iter);
+	double * run(FILE * f, int stop_iter);
 };

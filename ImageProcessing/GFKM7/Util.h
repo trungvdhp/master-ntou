@@ -12,6 +12,7 @@ public:
 	template <typename T>
 	static void write(T * a, int N, int D, string filename);
 	static void print_times(double t0, double t1, double t2, double t3, int num_iters);
+	static void print_times(FILE * f, double t0, double t1, double t2, double t3, int num_iters);
 };
 template <typename T>
 void Util::write(T * a, int N, int D, string filename)
