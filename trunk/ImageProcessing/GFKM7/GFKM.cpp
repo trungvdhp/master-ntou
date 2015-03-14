@@ -186,7 +186,7 @@ void GFKM::update_centroids()
 	}*/
 	memset(centroids, 0, K*D*sizeof(double));
 
-	for (i = 0; i < N; ++i, pTempU += K,pNNT += M, pPoints += D){
+	for (i = 0; i < N; ++i, pTempU += K, pNNT += M, pPoints += D){
 		for (j = 0; j < M; ++j){
 			idx = pNNT[j];
 			sum[idx] = sum[idx] + pTempU[idx];
@@ -247,7 +247,7 @@ double GFKM::update_NNT()
 	return JK;
 }
 
-double * GFKM::run(int stop_iter)
+double * GFKM::run(FILE * f, int stop_iter)
 {
 	int i;
 	double t0, t1 = 0.0, t2 = 0.0, t3 = 0.0;
@@ -292,7 +292,7 @@ double * GFKM::run(int stop_iter)
 	//Util::write<double>(DNNT, N, M, path + "DNNT.txt");
 	//Util::write<double>(U_ALG, N, K, path + "u.txt");
 	//Util::write<double>(tempU, N, K, path + "tempU.txt");
-	Util::print_times(t0, t1, t2, t3, i+1);
+	Util::print_times(f, t0, t1, t2, t3, i+1);
 	double *rs = new double[2];
 	rs[0] = t0 + t1 + t2 + t3;
 	rs[1] = (double)i;
