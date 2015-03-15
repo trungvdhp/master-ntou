@@ -93,12 +93,12 @@ void GFKM::initialize_NNT()
 	double * pCentroids;
 	double diff, temp;
 
-	for (i = 0; i < N; ++i,pNNT+=M, pDNNT+=M,pPoints+=D){
+	for (i = 0; i < N; ++i, pNNT += M, pDNNT += M, pPoints += D){
 		pCentroids = centroids;
 
 		for (j = 0; j < M; ++j) pDNNT[j] = DBL_MAX;
 
-		for (j = 0; j < K; ++j,pCentroids+=D){
+		for (j = 0; j < K; ++j, pCentroids += D){
 			diff = 0.0;
 
 			for (x = 0; x < D; ++x){
@@ -180,10 +180,6 @@ void GFKM::update_centroids()
 	double * pPoints = points;
 	double * pCentroids;
 	double * sum = new double[K]();
-
-	/*for (i = 0; i < K*D; ++i){
-	centroids[i] = 0.0;
-	}*/
 	memset(centroids, 0, K*D*sizeof(double));
 
 	for (i = 0; i < N; ++i, pTempU += K, pNNT += M, pPoints += D){
