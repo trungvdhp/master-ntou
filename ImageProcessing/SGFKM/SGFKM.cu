@@ -1,7 +1,7 @@
 #include "SGFKM.cuh"
 #include "Util.h"
 #define DIM_MAX 16
-#define KMAX 32
+#define MMAX 32
 #define NSTREAM 5
 
 inline __host__ int roundup(int x, int y)
@@ -23,7 +23,7 @@ __global__ void update_memberships_kernel(
 	double * pCentroids = centroids;
 	
 	double X[DIM_MAX];
-	double DNNT[KMAX];
+	double DNNT[MMAX];
 
 	double f = 1. / (fuzzifier - 1.);
 	double diff, temp, sum = 0.;
@@ -401,11 +401,13 @@ __host__ double * FKM_GPU(FILE * f, GFKM & G, int block_size, int stop_iter, int
 #pragma region Copying device back to host
 	tmr_GPU.StartCounter();
 	CudaSafeCall(cudaMemcpyAsync(p_centroids, d_centroids, centroids_size, cudaMemcpyDeviceToHost));
+	CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
 	t4 = tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Writing results to files
 	Util::write<double>(p_centroids, G.K, G.D, G.path + "centroids.GPU.txt");
+	Util::write<int>(p_NNT, G.N, G.M, G.path + "NNT.GPU.txt");
 	Util::print_times(f, t1, t2, t3, i+1);
 #pragma endregion
 

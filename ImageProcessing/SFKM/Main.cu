@@ -5,17 +5,17 @@
 
 int main(int argc, char* argv[])
 {
-	string path = "D:\\Master\\ImageProcessing\\Data\\LenaPeppersBaboon\\";
-	string fname = "LenaPeppersBaboon.txt";
-	int max_iter = 300;
+	std::string path = "D:\\Master\\ImageProcessing\\Data\\LenaPeppersBaboon\\";
+	std::string fname = "LenaPeppersBaboon.txt";
+	int max_iter = 1;
 	int stop_iter = INT_MAX;
 	int mode = 1;
 	double epsilon = 1e-8;//numeric_limits<double>::epsilon();
 	FILE * fp;
 
 	if (argc > 2){
-		path = string(argv[1]);
-		fname = string(argv[2]);
+		path = std::string(argv[1]);
+		fname = std::string(argv[2]);
 
 		if (argc > 3){
 			max_iter = atoi(argv[3]);

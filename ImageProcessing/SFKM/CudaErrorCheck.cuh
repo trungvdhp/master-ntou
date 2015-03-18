@@ -1,7 +1,6 @@
 #include "cuda_runtime.h"
 #include <cublas_v2.h>
 #include <stdio.h>
-#include <stdlib.h>
 #define CUDA_ERROR_CHECK
 
 #define CudaSafeCall(err) __cudaSafeCall(err, __FILE__, __LINE__)

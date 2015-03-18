@@ -5,8 +5,8 @@
 
 int main(int argc, char* argv[])
 {
-	string path = "D:\\Master\\ImageProcessing\\Data\\LenaPeppersBaboon\\";
-	string fname = "LenaPeppersBaboon.txt";
+	std::string path = "D:\\Master\\ImageProcessing\\Data\\LenaPeppersBaboon\\";
+	std::string fname = "LenaPeppersBaboon.txt";
 	int M = 2;
 	int max_iter = 300;
 	int stop_iter = INT_MAX;
@@ -15,8 +15,8 @@ int main(int argc, char* argv[])
 	FILE * fp;
 
 	if (argc > 2){
-		path = string(argv[1]);
-		fname = string(argv[2]);
+		path = std::string(argv[1]);
+		fname = std::string(argv[2]);
 
 		if (argc > 3){
 			M = atoi(argv[3]);
