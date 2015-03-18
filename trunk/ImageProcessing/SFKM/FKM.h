@@ -8,9 +8,8 @@
 #include <ctime>
 #include <cassert>
 #include <cstdlib>
-#include <vector>
+#include <malloc.h>
 #include "TimingCPU.h"
-using namespace std;
 
 class FKM
 {
@@ -28,12 +27,12 @@ public:
 	double * centroids;
 	double * memberships;
 
-	string path;
-	string * labels;
+	std::string path;
+	std::string * labels;
 
 	FKM(void);
-	FKM(string path, string filename);
-	void read(string full_path);
+	FKM(std::string path, std::string filename);
+	void read(std::string full_path);
 	void initialize_centroids();
 	void update_memberships();
 	double * calculate_new_centroids();

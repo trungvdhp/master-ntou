@@ -1,13 +1,11 @@
+#include "device_launch_parameters.h"
 #include "device_functions.h"
-#include "device_double_functions.h"
 #include "math_functions.h"
-#include "cublas_v2.h"
 
 #include "CudaErrorCheck.cuh"
 #include "TimingGPU.cuh"
 #include "TimingCPU.h"
 #include "GFKM.h"
-#include <malloc.h>
 
 //void run();
 

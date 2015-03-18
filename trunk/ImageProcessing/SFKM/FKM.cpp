@@ -5,26 +5,26 @@ FKM::FKM(void)
 {
 }
 
-FKM::FKM(string _path, string filename)
+FKM::FKM(std::string _path, std::string filename)
 {
 	*this = FKM();
 	path = _path;
 	read(path + filename);
 }
 
-void FKM::read(string full_path)
+void FKM::read(std::string full_path)
 {
 	double dt;
 	FILE *f = fopen(full_path.c_str(), "r");
 	int index=0;
 	if (f == NULL){
-		cerr << "* File you are trying to access cannot be found or opened!" << endl;
+		std::cerr << "* File you are trying to access cannot be found or opened!" << std::endl;
 		exit(1);
 	}
 	fscanf(f, "%d %d %d %d", &N, &K, &D, &L);
 	points = new double[N*D];
 	centroids = new double[K*D];
-	labels = new string[N];
+	labels = new std::string[N];
 	memberships = new double[N*K];
 
 	if (L == 0){
