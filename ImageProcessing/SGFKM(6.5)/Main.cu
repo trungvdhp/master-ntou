@@ -1,5 +1,5 @@
-#include "SFKM.cuh"
-#include "FKM.h"
+#include "SGFKM.cuh"
+#include "GFKM.h"
 #include "TimingCPU.h"
 #include <conio.h>
 
@@ -7,6 +7,7 @@ int main(int argc, char* argv[])
 {
 	std::string path = "D:\\Master\\ImageProcessing\\Data\\LenaPeppersBaboon\\";
 	std::string fname = "LenaPeppersBaboon.txt";
+	int M = 2;
 	int max_iter = 300;
 	int stop_iter = INT_MAX;
 	int mode = 1;
@@ -18,19 +19,23 @@ int main(int argc, char* argv[])
 		fname = std::string(argv[2]);
 
 		if (argc > 3){
-			max_iter = atoi(argv[3]);
+			M = atoi(argv[3]);
 
 			if (argc > 4){
-				epsilon = atof(argv[4]);
+				max_iter = atoi(argv[4]);
 
 				if (argc > 5){
-					mode = atoi(argv[5]);
+					epsilon = atof(argv[5]);
 
 					if (argc > 6){
-						stop_iter = atoi(argv[6]) - 1;
+						mode = atoi(argv[6]);
 
 						if (argc > 7){
-							fp = fopen(argv[7], "a");
+							stop_iter = atoi(argv[7]) - 1;
+
+							if (argc > 8){
+								fp = fopen(argv[8], "a");
+							}
 						}
 					}
 				}
@@ -39,13 +44,13 @@ int main(int argc, char* argv[])
 	}
 	time_t rawtime;
 	time ( &rawtime );
-	FKM G(path, fname);
+	GFKM G(path, fname, M);
 	G.epsilon = epsilon;
 	G.max_iter = max_iter;
 	G.initialize_centroids();
 
-	if(argc < 8) 
-		fp = fopen("SFKM.test.log", "a");
+	if(argc < 9) 
+		fp = fopen("SGFKM.test.log", "a");
 	fprintf(fp, "-------------------------------------------------------------------------------\n");
 	fprintf(fp, "# %s", ctime(&rawtime));
 	fprintf(fp, "-------------------------------------------------------------------------------\n");
