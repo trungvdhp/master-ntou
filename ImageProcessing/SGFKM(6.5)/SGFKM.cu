@@ -1,7 +1,7 @@
 #include "SGFKM.cuh"
 #include "Util.h"
 #define DIM_MAX 16
-#define MMAX 32
+#define MMAX 4
 #define NSTREAM 5
 
 inline __host__ int roundup(int x, int y)
