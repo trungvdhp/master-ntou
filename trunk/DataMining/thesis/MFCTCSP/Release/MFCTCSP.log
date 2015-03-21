@@ -1,4 +1,4 @@
-﻿Build started 03/03/2015 21:23:39.
+﻿Build started 16/03/2015 09:21:19.
      1>Project "D:\Master\DataMining\thesis\MFCTCSP\MFCTCSP.vcxproj" on node 2 (Rebuild target(s)).
        Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>_PrepareForClean:
@@ -61,14 +61,14 @@
      1>SequentialDatabase.cpp(755): warning C4018: '<' : signed/unsigned mismatch
      1>SequentialDatabase.cpp(766): warning C4018: '<' : signed/unsigned mismatch
      1>SequentialDatabase.cpp(798): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(834): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(844): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(961): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(968): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(983): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>SequentialDatabase.cpp(987): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(836): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(846): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(963): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(970): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(985): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>SequentialDatabase.cpp(989): warning C4018: '<' : signed/unsigned mismatch
-     1>SequentialDatabase.cpp(998): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(991): warning C4018: '<' : signed/unsigned mismatch
+     1>SequentialDatabase.cpp(1000): warning C4018: '<' : signed/unsigned mismatch
          TimeIntervalRecord.cpp
          TimeIntervalRecord1.cpp
          TimeLine.cpp
@@ -94,4 +94,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.73
+Time Elapsed 00:00:03.15

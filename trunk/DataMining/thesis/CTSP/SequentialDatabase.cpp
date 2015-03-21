@@ -608,13 +608,12 @@ void SequentialDatabase::mineDB(frequencyItem & p)
 {
 	int i;
 	vector<frequencyItem> Stemp1,Stemp2;
-	bool f = FEP(p, Stemp1, Stemp2);
-	if (f)
+
+	if (FEP(p, Stemp1, Stemp2))
 	{
-		f = BEP(p);
-		if (f)
+		if (BEP(p))
 		{
-			printFrequencyItem(p, out);
+			//printFrequencyItem(p, out);
 		}
 	}
 	//for each item x found in VTPs of type-1 pattern with support >= minsup X |D|
