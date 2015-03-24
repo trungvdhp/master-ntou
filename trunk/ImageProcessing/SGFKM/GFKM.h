@@ -33,8 +33,8 @@ public:
 	std::string * labels;
 
 	GFKM(void);
-	GFKM(std::string path, std::string filename, int M);
-	void read(std::string full_path);
+	GFKM(std::string path, std::string filename, int _M);
+	void read(std::string full_path, int _M);
 	void initialize_centroids();
 	void update_memberships();
 	double * calculate_new_centroids();
