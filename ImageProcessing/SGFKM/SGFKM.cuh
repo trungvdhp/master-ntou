@@ -5,6 +5,13 @@
 #include "device_functions.h"
 #include "sm_20_atomic_functions.h"
 
+#include <thrust/device_ptr.h>
+#include <thrust/sort.h>
+#include <thrust/binary_search.h>
+#include <thrust/iterator/counting_iterator.h>
+#include <thrust/adjacent_difference.h>
+
+
 #include "CudaErrorCheck.cuh"
 #include "TimingGPU.cuh"
 #include "TimingCPU.h"
@@ -12,7 +19,11 @@
 
 inline __host__ int roundup(int x, int y);
 
-__global__ void update_memberships_kernel(
+__global__ void update_memberships_kernel_v1(
+	double * points, double * centroids, double * memberships, int * NNT,
+	int N, int D, int K, int M, double fuzzifier);
+
+__global__ void update_memberships_kernel_v2(
 	double * points, double * centroids, double * memberships, int * NNT,
 	int N, int D, int K, int M, double fuzzifier);
 
@@ -37,7 +48,7 @@ __global__ void scan_kernel(int * histo, int K);
 
 __global__ void counting_sort_kernel( 
 	int * histo, int * NNT, int * sNNT, double * memberships, double * sU, 
-	int size, int K, int M);
+	int size, int M);
 
 __global__ void reduce_centroids_kernel
 	(double * points, double * sU, int * sNNT, double * sumC, int size);
@@ -47,5 +58,11 @@ __host__ void reduce_centroids
 
 ////
 __global__ void check_convergence(double * centroids, double * newCentroids, bool * flag, double epsilon);
+
+__host__ double * GFKM_GPU_v1(FILE * f, GFKM & G, int block_size, int stop_iter);
+
+__host__ double * GFKM_GPU_v2(FILE * f, GFKM & G, int block_size, int stop_iter);
+
+__host__ double * GFKM_GPU_v3(FILE * f, GFKM & G, int block_size, int stop_iter);
 
 __host__ double * GFKM_GPU(FILE * f, GFKM & G, int block_size, int stop_iter, int mode = 1);
