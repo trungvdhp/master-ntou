@@ -1203,6 +1203,7 @@ __host__ double * GFKM_GPU_v4(FILE * f, GFKM & G, int block_size, int stop_iter)
 	int * d_histo_values;
 	int * d_histo;
 	int * d_NNT;
+	int * d_sNNT;
 	int * d_indices;
 #pragma endregion
 
@@ -1240,12 +1241,13 @@ __host__ double * GFKM_GPU_v4(FILE * f, GFKM & G, int block_size, int stop_iter)
 	CudaSafeCall(cudaMalloc(&d_histo_values, histo_size));
 	CudaSafeCall(cudaMalloc(&d_histo, histo_size));
 	CudaSafeCall(cudaMalloc(&d_NNT, NNT_size));
+	CudaSafeCall(cudaMalloc(&d_sNNT, NNT_size));
 	CudaSafeCall(cudaMalloc(&d_indices, NNT_size));
 
 	CudaSafeCall(cudaMemset(d_histo, 0, INT_SIZE));
 
 	thrust::device_ptr<int> dev_indices_ptr(d_indices);
-	thrust::device_ptr<int> dev_NNT_ptr(d_NNT);
+	thrust::device_ptr<int> dev_sNNT_ptr(d_sNNT);
 	thrust::device_ptr<int> dev_histo_values_ptr(d_histo_values);
 	thrust::device_ptr<int> dev_histo_counts_ptr(d_histo);
 
@@ -1295,16 +1297,18 @@ __host__ double * GFKM_GPU_v4(FILE * f, GFKM & G, int block_size, int stop_iter)
 	for (i = 0; i< G.max_iter; ++i){
 #pragma region  Update memberships by GPU
 		tmr_GPU.StartCounter();
-		update_memberships_kernel<<<num_blocks, block_size>>>
-			(d_points, d_centroids,d_memberships, d_NNT, d_indices, G.N, G.D, G.K, G.M, G.fuzzifier);
+		update_memberships_kernel_v1<<<num_blocks, block_size>>>
+			(d_points, d_centroids,d_memberships, d_NNT, G.N, G.D, G.K, G.M, G.fuzzifier);
 		//CudaCheckError();
 		t1 = t1 + tmr_GPU.GetCounter();
 #pragma endregion
 		
 #pragma region Sort NNT, calculate histogram, and rearrange data using Thrust on GPU
 		tmr_GPU.StartCounter();
-		thrust::stable_sort_by_key(dev_NNT_ptr, dev_NNT_ptr + NM_SIZE, dev_indices_ptr);
-		thrust::upper_bound(dev_NNT_ptr, dev_NNT_ptr + NM_SIZE, search, search + G.K, dev_histo_counts_ptr+1);
+		CudaSafeCall(cudaMemcpyAsync(d_sNNT, d_NNT, NNT_size, cudaMemcpyDeviceToDevice));
+		thrust::sequence(dev_indices_ptr, dev_indices_ptr + NM_SIZE);
+		thrust::stable_sort_by_key(dev_sNNT_ptr, dev_sNNT_ptr + NM_SIZE, dev_indices_ptr);
+		thrust::upper_bound(dev_sNNT_ptr, dev_sNNT_ptr + NM_SIZE, search, search + G.K, dev_histo_counts_ptr+1);
 		thrust::adjacent_difference(dev_histo_counts_ptr, dev_histo_counts_ptr + G.K + 1, dev_histo_counts_ptr);
 		CudaSafeCall(cudaMemcpyAsync(p_histo, d_histo, histo_size, cudaMemcpyDeviceToHost));
 		gather_kernel<<<num_histo_blocks, block_size>>>(d_indices, d_memberships, d_sU, NM_SIZE, G.M);
@@ -1396,6 +1400,7 @@ __host__ double * GFKM_GPU_v4(FILE * f, GFKM & G, int block_size, int stop_iter)
 	cudaFree(d_histo_values);
 	cudaFree(d_histo);
 	cudaFree(d_NNT);
+	cudaFree(d_sNNT);
 	cudaFree(d_indices);
 #pragma endregion
 

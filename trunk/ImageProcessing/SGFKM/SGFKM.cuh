@@ -5,6 +5,9 @@
 #include "device_functions.h"
 #include "sm_20_atomic_functions.h"
 
+#include <thrust/device_vector.h>
+#include <thrust/tuple.h>
+#include <thrust/iterator/zip_iterator.h>
 #include <thrust/device_ptr.h>
 #include <thrust/sort.h>
 #include <thrust/binary_search.h>
