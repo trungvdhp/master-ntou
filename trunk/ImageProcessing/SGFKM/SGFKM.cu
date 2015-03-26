@@ -1,7 +1,7 @@
 #include "SGFKM.cuh"
 #include "Util.h"
-#define DIM_MAX 16
-#define MMAX 4
+#define DIM_MAX 100
+#define MMAX 2
 #define NSTREAM 5
 
 inline __host__ int roundup(int x, int y)
@@ -66,6 +66,9 @@ __global__ void update_memberships_kernel_v1(
 			return;
 		}
 		diff = pow(DNNT[i], f);
+
+		//if (__isinf(diff)) diff = DBL_MAX;
+
 		pMemberships[i] = diff;
 		sum = sum + 1. / diff;
 	}
@@ -99,7 +102,7 @@ __global__ void update_memberships_kernel_v2(
 	for (i = 0; i < M; ++i) DNNT[i] = DBL_MAX;
 
 	for (i = 0; i < K; ++i, pCentroids += D){
-		pMemberships[i] = 0;
+		pMemberships[i] = 0.;
 		diff = 0.;
 
 		for (j = 0; j < D; ++j){
@@ -129,80 +132,15 @@ __global__ void update_memberships_kernel_v2(
 			return;
 		}
 		diff = pow( DNNT[i], f);
+
+		//if (__isinf(diff)) diff = DBL_MAX;
+
 		pMemberships[pNNT[i]] = diff;
 		sum = sum + 1. / diff;
 	}
 
 	for (i = 0; i < M; ++i){
 		pMemberships[pNNT[i]] = pow(pMemberships[pNNT[i]]*sum, -fuzzifier);
-	}
-}
-
-__global__ void update_memberships_kernel(
-	double * points, double * centroids, double * memberships, int * NNT, int * indices,
-	int N, int D, int K, int M, double fuzzifier)
-{
-	int idx = blockIdx.x * blockDim.x + threadIdx.x;
-
-	if (idx >= N) return;
-	int i, j, k;
-	k = idx * M;
-	int * pNNT = NNT + k;
-	int * pIndices = indices + k;
-	double * pMemberships = memberships + k;
-	double * pCentroids = centroids;
-	
-	double X[DIM_MAX];
-	double DNNT[MMAX];
-
-	double f = 1. / (fuzzifier - 1.);
-	double diff, temp, sum = 0.;
-
-	for (i = 0, j = idx*D; i < D; ++i, ++j) X[i] = points[j];
-
-	for (i = 0; i < M; ++i){
-		pIndices[i] = k + i;
-		DNNT[i] = DBL_MAX;
-		pMemberships[i] = 0.;
-	}
-
-	for (i = 0; i < K; ++i, pCentroids += D){
-		diff = 0.;
-
-		for (j = 0; j < D; ++j){
-			temp = X[j] - pCentroids[j];
-			diff = diff + temp*temp;
-		}
-		idx = 0;
-
-		for (; idx < M; ++idx){
-			if (DNNT[idx] > diff) break;
-		}
-
-		for (j = M-1; j > idx; --j){
-			DNNT[j] = DNNT[j-1];
-			pNNT[j] = pNNT[j-1];
-		}
-
-		if (idx < M){
-			DNNT[idx] = diff;
-			pNNT[idx] = i;
-		}
-	}
-
-	for (i = 0; i < M; ++i){
-
-		if (DNNT[i] == 0.){ 
-			pMemberships[i] = 1.;
-			return;
-		}
-		diff = pow(DNNT[i], f);
-		pMemberships[i] = diff;
-		sum = sum + 1. / diff;
-	}
-
-	for (i = 0; i < M; ++i){
-		pMemberships[i] = pow(pMemberships[i]*sum, -fuzzifier);
 	}
 }
 
@@ -329,7 +267,7 @@ __host__ void calculate_new_centroids(
 			sum[idx] = sum[idx] + pMemberships[j];
 			pCentroids = newCentroids + idx*D;
 
-			for (k=0; k<D; ++k)
+			for (k = 0; k < D; ++k)
 				pCentroids[k] = pCentroids[k] + pMemberships[j]*pPoints[k];
 		}
 	}
@@ -535,7 +473,7 @@ __host__ double * GFKM_GPU_v1(FILE * f, GFKM & G, int block_size, int stop_iter)
 		t1 = t1 + tmr_GPU.GetCounter();
 #pragma endregion
 		
-#pragma region Calculate centroids by CPU
+#pragma region Calculate new centroids by CPU
 			tmr_GPU.StartCounter();
 			CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
 			CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
