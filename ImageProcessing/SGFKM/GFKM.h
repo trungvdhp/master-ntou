@@ -33,11 +33,13 @@ public:
 	std::string * labels;
 
 	GFKM(void);
+	virtual ~GFKM(void);
 	GFKM(std::string path, std::string filename, int _M);
 	void read(std::string full_path, int _M);
 	void initialize_centroids();
 	void update_memberships();
 	double * calculate_new_centroids();
+	void calculate_new_centroids(double * newCentroids);
 	bool converged(double * newCentroids);
 	double * run(FILE * f, int stop_iter);
 };

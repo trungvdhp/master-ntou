@@ -5,12 +5,12 @@
 
 int main(int argc, char* argv[])
 {
-	std::string path = "D:\\Master\\ImageProcessing\\Data\\LenaPeppersBaboon\\";
-	std::string fname = "LenaPeppersBaboon.txt";
+	std::string path = "D:\\Master\\ImageProcessing\\Data\\Synthetic\\";
+	std::string fname = "1024x960x96.dat";
 	int M = 2;
 	int max_iter = 1;
 	int stop_iter = INT_MAX;
-	int mode = 4;
+	int mode = 1;
 	double epsilon = 1e-8;//numeric_limits<double>::epsilon();
 	FILE * fp;
 
