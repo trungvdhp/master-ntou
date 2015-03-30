@@ -5,18 +5,18 @@ GFKM::GFKM(void)
 {
 }
 
-GFKM::GFKM(std::string _path, std::string filename, int M)
+GFKM::~GFKM(void)
 {
-	*this = GFKM();
-	path = _path;
-	read(path + filename);
-	
-	if (M > K) M = K;
-	this->M = M;
-	this->NNT = new int[N*M];
+	delete[] points, centroids, memberships, labels, NNT;
 }
 
-void GFKM::read(std::string full_path)
+GFKM::GFKM(std::string _path, std::string filename, int _M)
+{
+	path = _path;
+	read(path + filename, _M);
+}
+
+void GFKM::read(std::string full_path, int _M)
 {
 	double dt;
 	FILE *f = fopen(full_path.c_str(), "r");
@@ -29,8 +29,13 @@ void GFKM::read(std::string full_path)
 	points = new double[N*D];
 	centroids = new double[K*D];
 	labels = new std::string[N];
-	memberships = new double[N*K];
 
+	if (_M > K) M = K;
+	else M = _M;
+
+	NNT = new int[N*M];
+	memberships = new double[N*M];
+	
 	if (L == 0){
 		for (int i = 0; i < N; ++i){
 			fscanf(f, "%s", &labels[i]);
@@ -95,12 +100,15 @@ void GFKM::update_memberships()
 	double * DNNT = new double[M];
 	int * pNNT = NNT;
 
-	for (i = 0; i < N; ++i, pNNT += M, pMemberships += K, pPoints += D){
+	for (i = 0; i < N; ++i, pNNT += M, pMemberships += M, pPoints += D){
 		pCentroids = centroids;
-		sum = 0.0;
+		
 		next = false;
 
-		for (j = 0; j < M; ++j) DNNT[j] = DBL_MAX;
+		for (j = 0; j < M; ++j){
+			DNNT[j] = DBL_MAX;
+			pMemberships[j] = 0.0;
+		}
 		
 		for (j = 0; j < K; ++j, pCentroids += D){
 			diff = 0.0;
@@ -125,28 +133,30 @@ void GFKM::update_memberships()
 				pNNT[idx] = j;
 			}
 		}
-		for (j = 0; j < K; ++j)
-			pMemberships[j] = 0.0;
+		sum = 0.0;
 
 		for (j = 0; j < M; ++j){
-			diff = DNNT[j];
 
-			if (diff == 0.0){
-				pMemberships[pNNT[j]] = 1.0;
+			if (DNNT[j] == 0){
+				pMemberships[j] = 1.0;
 				next = true;
 				break;
 			}
-			diff =  pow(diff, f);
-			pMemberships[pNNT[j]] = diff;
+			diff =  pow(DNNT[j], f);
+
+			//if (diff == std::numeric_limits<double>::infinity()) diff = DBL_MAX;
+			pMemberships[j] = diff;
 			sum = sum + 1.0 / diff;
+			
 		}
 		if (next)
 			continue;
 
 		for (j = 0; j < M; ++j){
-			pMemberships[pNNT[j]] = pow(pMemberships[pNNT[j]]*sum, -fuzzifier);
+			pMemberships[j] = pow(pMemberships[j]*sum, -fuzzifier);
 		}
 	}
+	//Util::write<double>(memberships, N, M, path + "memberships.txt");
 }
 
 double * GFKM::calculate_new_centroids()
@@ -159,14 +169,14 @@ double * GFKM::calculate_new_centroids()
 	double * sum = new double[K]();
 	double * newCentroids = new double[K*D]();
 
-	for (i = 0; i < N; ++i, pMemberships += K, pNNT += M, pPoints += D){
+	for (i = 0; i < N; ++i, pMemberships += M, pNNT += M, pPoints += D){
 		for (j = 0; j < M; ++j){
 			idx = pNNT[j];
-			sum[idx] = sum[idx] + pMemberships[idx];
+			sum[idx] = sum[idx] + pMemberships[j];
 			pCentroids = newCentroids + idx*D;
 
-			for (k=0; k<D; ++k)
-				pCentroids[k] = pCentroids[k] + pMemberships[idx]*pPoints[k];
+			for ( k= 0; k < D; ++k)
+				pCentroids[k] = pCentroids[k] + pMemberships[j]*pPoints[k];
 		}
 	}
 	pCentroids = newCentroids;
@@ -175,6 +185,33 @@ double * GFKM::calculate_new_centroids()
 		for (j = 0; j < D; ++j)
 			pCentroids[j] = pCentroids[j] / sum[i];
 	return newCentroids;
+}
+
+void GFKM::calculate_new_centroids(double * newCentroids)
+{
+	int i, j, k, idx;
+	int * pNNT = NNT;
+	double * pMemberships = memberships;
+	double * pPoints = points;
+	double * pCentroids;
+	double * sum = new double[K]();
+	memset(newCentroids, 0, K*D*sizeof(double));
+
+	for (i = 0; i < N; ++i, pMemberships += M, pNNT += M, pPoints += D){
+		for (j = 0; j < M; ++j){
+			idx = pNNT[j];
+			sum[idx] = sum[idx] + pMemberships[j];
+			pCentroids = newCentroids + idx*D;
+
+			for (k=0; k<D; ++k)
+				pCentroids[k] = pCentroids[k] + pMemberships[j]*pPoints[k];
+		}
+	}
+	pCentroids = newCentroids;
+
+	for (i = 0; i < K; ++i, pCentroids += D)
+		for (j = 0; j < D; ++j)
+			pCentroids[j] = pCentroids[j] / sum[i];
 }
 
 bool GFKM::converged(double * newCentroids)
@@ -194,7 +231,9 @@ double * GFKM::run(FILE * f, int stop_iter)
 	double t, t1 = 0.0, t2 = 0.0, t3 = 0.0;
 	TimingCPU tmr;
 	// initialize and update NNT
-	double * newCentroids;
+	int centroidsSize = K*D*sizeof(double);
+	double * newCentroids = (double*)malloc(centroidsSize);
+
 	bool stop;
 
 	for (i = 0; i < max_iter && i <= stop_iter; ++i){
@@ -206,19 +245,19 @@ double * GFKM::run(FILE * f, int stop_iter)
 		
 		// Calculate new centroids
 		tmr.start();
-		newCentroids = calculate_new_centroids();
+		calculate_new_centroids(newCentroids);
 		tmr.stop();
 		t2 = t2 + tmr.elapsed();
 		
 		// Check convergence
 		tmr.start();
 		stop = converged(newCentroids);
+		memcpy(centroids, newCentroids, centroidsSize);
 		tmr.stop();
 		t = tmr.elapsed();
 
 		if (t < 0.0) t = 0.0;
 		t3 = t3 + t;
-		centroids = newCentroids;
 
 		if ((stop && (stop_iter == INT_MAX || i == stop_iter)) || i == stop_iter)
 			break;
