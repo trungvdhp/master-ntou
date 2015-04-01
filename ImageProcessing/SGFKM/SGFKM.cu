@@ -1,6 +1,6 @@
 #include "SGFKM.cuh"
 #include "Util.h"
-#define DIM_MAX 10
+#define DIM_MAX 100
 #define MMAX 2
 #define NSTREAM 5
 

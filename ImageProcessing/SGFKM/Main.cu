@@ -5,8 +5,8 @@
 
 int main(int argc, char* argv[])
 {
-	std::string path = "D:\\Master\\ImageProcessing\\Data\\poker\\";
-	std::string fname = "poker.dat";
+	std::string path = "D:\\Master\\ImageProcessing\\Data\\Synthetic\\";
+	std::string fname = "960x512x100.dat";
 	int M = 2;
 	int max_iter = 1;
 	int stop_iter = INT_MAX;
