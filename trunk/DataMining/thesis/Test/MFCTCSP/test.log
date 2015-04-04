@@ -1,3 +1,60 @@
 Sat Mar 21 17:33:20 2015
  mfctcsp T10I4D5K.dat 0.001400 5 16 3 T10I4D5K.out
  Duration 2619.125000
+Wed Apr 01 10:52:40 2015
+ mfctcsp syns1k.txt 0.005000 5 16 3 syns1k.out
+ Duration 575.612000
+Wed Apr 01 11:11:29 2015
+ mfctcsp syns2k.txt 0.005000 5 16 3 syns2k.out
+ Duration 1124.959000
+Wed Apr 01 11:38:34 2015
+ mfctcsp syns3k.txt 0.005000 5 16 3 syns3k.out
+ Duration 1678.848000
+Wed Apr 01 14:38:47 2015
+ mfctcsp syns4k.txt 0.005000 5 16 3 syns4k.out
+ Duration 2258.176000
+Wed Apr 01 15:21:19 2015
+ mfctcsp syns5k.txt 0.005000 5 16 3 syns5k.out
+ Duration 2836.471000
+Thu Apr 02 10:54:01 2015
+ mfctcsp T11.dat 0.005000 5 16 3 T11.out
+ Duration 1.629000
+Thu Apr 02 11:00:17 2015
+ mfctcsp T12.dat 0.005000 5 16 3 T12.out
+ Duration 338.600000
+Thu Apr 02 11:22:15 2015
+ mfctcsp T2.dat 0.005000 5 16 3 T2.out
+ Duration 26.207000
+Thu Apr 02 11:24:45 2015
+ mfctcsp T12.dat 0.005000 5 16 3 T12.out
+ Duration 40.654000
+Thu Apr 02 11:27:14 2015
+ mfctcsp T15.dat 0.005000 5 16 3 T12.out
+ Duration 1798.609000
+Thu Apr 02 12:44:19 2015
+ mfctcsp T25.dat 0.005000 5 16 3 T12.out
+ Duration 1603.971000
+Thu Apr 02 13:21:17 2015
+ mfctcsp T35.dat 0.005000 5 16 3 T12.out
+ Duration 542.894000
+Thu Apr 02 13:36:58 2015
+ mfctcsp T45.dat 0.005000 5 16 3 T12.out
+ Duration 466.708000
+Thu Apr 02 13:44:44 2015
+ mfctcsp T55.dat 0.005000 5 16 3 T12.out
+ Duration 469.103000
+Thu Apr 02 13:57:02 2015
+ mfctcsp T01.dat 0.005000 5 16 3 T12.out
+ Duration 8439.002000
+Thu Apr 02 16:17:41 2015
+ mfctcsp T02.dat 0.005000 5 16 3 T12.out
+ Duration 14641.304000
+Thu Apr 02 20:36:10 2015
+ mfctcsp T03.dat 0.005000 5 16 3 T12.out
+ Duration 20092.088000
+Fri Apr 03 02:11:02 2015
+ mfctcsp T04.dat 0.005000 5 16 3 T12.out
+ Duration 27497.360000
+Fri Apr 03 09:49:20 2015
+ mfctcsp T05.dat 0.005000 5 16 3 T12.out
+ Duration 33641.169000
