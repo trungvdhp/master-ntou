@@ -828,7 +828,7 @@ void SequentialDatabase::patternGenerationAlgorithm(frequencyPattern & p)
 	{
 		if (BEPValid_2(p))
 		{
-			//p.output(out);
+			//p.output(stdout);
 		}
 	}
 	if(check1)
