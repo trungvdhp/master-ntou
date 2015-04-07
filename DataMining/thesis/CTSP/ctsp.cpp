@@ -7,7 +7,7 @@ int mingap;
 int maxgap;
 int swin;
 int THRESHOLD;
-int ITEM_NO = 3000;
+int ITEM_NO = 50000;
 
 void SetParameter()
 {
