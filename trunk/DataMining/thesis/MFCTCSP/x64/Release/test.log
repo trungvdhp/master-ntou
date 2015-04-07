@@ -1,0 +1,84 @@
+Sat Apr 04 09:45:14 2015
+ mfctcsp R3K.dat 0.005000 5 16 3 T10I4D5K.out
+ Duration 532.984000
+Sat Apr 04 10:56:29 2015
+ mfctcsp R3K.dat 0.005000 5 16 3 T1K.out
+ Duration 1178.821000
+Sat Apr 04 11:16:08 2015
+ mfctcsp R4K.dat 0.005000 5 16 3 T1K.out
+ Duration 1545.959000
+Sat Apr 04 11:41:54 2015
+ mfctcsp R5K.dat 0.005000 5 16 3 T1K.out
+ Duration 2040.330000
+Sat Apr 04 12:15:55 2015
+ mfctcsp R6K.dat 0.005000 5 16 3 T1K.out
+ Duration 2437.632000
+Sun Apr 05 11:03:31 2015
+ mfctcsp R6K.dat 0.010000 5 16 3 T1K.out
+ Duration 1449.808000
+Sun Apr 05 11:27:41 2015
+ mfctcsp R6K.dat 0.004000 5 16 3 T1K.out
+ Duration 3079.533000
+Sun Apr 05 16:22:29 2015
+ mfctcsp R6K.dat 0.006000 5 16 3 T1K.out
+ Duration 2163.038000
+Sun Apr 05 16:58:32 2015
+ mfctcsp R6K.dat 0.007000 5 16 3 T1K.out
+ Duration 1888.910000
+Sun Apr 05 17:30:01 2015
+ mfctcsp R6K.dat 0.008000 5 16 3 T1K.out
+ Duration 1777.036000
+Sun Apr 05 17:59:38 2015
+ mfctcsp R6K.dat 0.009000 5 16 3 T1K.out
+ Duration 1591.715000
+Mon Apr 06 07:53:19 2015
+ mfctcsp R6K.dat 0.005000 12 16 3 T1K.out
+ Duration 1512.845000
+Mon Apr 06 08:18:32 2015
+ mfctcsp R6K.dat 0.005000 10 16 3 T1K.out
+ Duration 1742.105000
+Mon Apr 06 08:47:34 2015
+ mfctcsp R6K.dat 0.005000 8 16 3 T1K.out
+ Duration 1926.956000
+Mon Apr 06 09:19:41 2015
+ mfctcsp R6K.dat 0.005000 6 16 3 T1K.out
+ Duration 2237.756000
+Mon Apr 06 09:58:54 2015
+ mfctcsp R6K.dat 0.005000 4 16 3 T1K.out
+ Duration 2617.605000
+Mon Apr 06 10:42:31 2015
+ mfctcsp R6K.dat 0.005000 2 16 3 T1K.out
+ Duration 3153.307000
+Mon Apr 06 11:35:05 2015
+ mfctcsp R6K.dat 0.005000 1 16 3 T1K.out
+ Duration 3462.900000
+Tue Apr 07 06:24:21 2015
+ mfctcsp R6K.dat 0.005000 5 6 3 T1K.out
+ Duration 1365.740000
+Tue Apr 07 06:47:07 2015
+ mfctcsp R6K.dat 0.005000 5 8 3 T1K.out
+ Duration 1420.637000
+Tue Apr 07 07:10:47 2015
+ mfctcsp R6K.dat 0.005000 5 10 3 T1K.out
+ Duration 1579.733000
+Tue Apr 07 07:37:07 2015
+ mfctcsp R6K.dat 0.005000 5 12 3 T1K.out
+ Duration 1689.609000
+Tue Apr 07 08:05:17 2015
+ mfctcsp R6K.dat 0.005000 5 14 3 T1K.out
+ Duration 1981.291000
+Tue Apr 07 13:53:22 2015
+ mfctcsp strns1K.dat 0.005000 5 16 3 T1K.out
+ Duration 487.095000
+Tue Apr 07 14:01:30 2015
+ mfctcsp strns2K.dat 0.005000 5 16 3 T1K.out
+ Duration 965.864000
+Tue Apr 07 14:17:35 2015
+ mfctcsp strns3K.dat 0.005000 5 16 3 T1K.out
+ Duration 1457.455000
+Tue Apr 07 14:41:53 2015
+ mfctcsp strns4K.dat 0.005000 5 16 3 T1K.out
+ Duration 1958.886000
+Tue Apr 07 15:14:32 2015
+ mfctcsp strns5K.dat 0.005000 5 16 3 T1K.out
+ Duration 2476.586000
