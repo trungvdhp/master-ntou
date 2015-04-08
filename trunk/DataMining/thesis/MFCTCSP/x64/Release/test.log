@@ -82,3 +82,92 @@ Tue Apr 07 14:41:53 2015
 Tue Apr 07 15:14:32 2015
  mfctcsp strns5K.dat 0.005000 5 16 3 T1K.out
  Duration 2476.586000
+>> sliding retail
+Wed Apr 08 15:08:36 2015
+ mfctcsp R6K.dat 0.005000 5 16 1 T1K.out
+ Duration 2126.570000
+Wed Apr 08 15:44:03 2015
+ mfctcsp R6K.dat 0.005000 5 16 2 T1K.out
+ Duration 2271.928000
+Wed Apr 08 16:21:55 2015
+ mfctcsp R6K.dat 0.005000 5 16 4 T1K.out
+ Duration 2541.335000
+>> Small synthetic
+Wed Apr 08 17:20:18 2015
+ mfctcsp ss1K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.206000
+Wed Apr 08 17:20:19 2015
+ mfctcsp ss2K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.379000
+Wed Apr 08 17:20:19 2015
+ mfctcsp ss3K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.563000
+Wed Apr 08 17:20:20 2015
+ mfctcsp ss4K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.775000
+Wed Apr 08 17:20:20 2015
+ mfctcsp ss5K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.950000
+Wed Apr 08 17:20:21 2015
+ mfctcsp ss1K.dat 0.002000 5 16 3 T1K.out
+ Duration 0.288000
+Wed Apr 08 17:20:22 2015
+ mfctcsp ss1K.dat 0.003000 5 16 3 T1K.out
+ Duration 0.244000
+Wed Apr 08 17:20:22 2015
+ mfctcsp ss1K.dat 0.004000 5 16 3 T1K.out
+ Duration 0.222000
+Wed Apr 08 17:20:22 2015
+ mfctcsp ss1K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.210000
+Wed Apr 08 17:20:22 2015
+ mfctcsp ss1K.dat 0.010000 5 16 3 T1K.out
+ Duration 0.167000
+Wed Apr 08 17:20:22 2015
+ mfctcsp ss1K.dat 0.020000 5 16 3 T1K.out
+ Duration 0.135000
+Wed Apr 08 17:20:23 2015
+ mfctcsp ss1K.dat 0.005000 1 16 3 T1K.out
+ Duration 0.269000
+Wed Apr 08 17:20:23 2015
+ mfctcsp ss1K.dat 0.005000 2 16 3 T1K.out
+ Duration 0.254000
+Wed Apr 08 17:20:23 2015
+ mfctcsp ss1K.dat 0.005000 4 16 3 T1K.out
+ Duration 0.226000
+Wed Apr 08 17:20:23 2015
+ mfctcsp ss1K.dat 0.005000 6 16 3 T1K.out
+ Duration 0.193000
+Wed Apr 08 17:20:24 2015
+ mfctcsp ss1K.dat 0.005000 8 16 3 T1K.out
+ Duration 0.166000
+Wed Apr 08 17:20:24 2015
+ mfctcsp ss1K.dat 0.005000 10 16 3 T1K.out
+ Duration 0.141000
+Wed Apr 08 17:20:24 2015
+ mfctcsp ss1K.dat 0.005000 12 16 3 T1K.out
+ Duration 0.125000
+Wed Apr 08 17:20:24 2015
+ mfctcsp ss1K.dat 0.005000 5 6 3 T1K.out
+ Duration 0.095000
+Wed Apr 08 17:20:24 2015
+ mfctcsp ss1K.dat 0.005000 5 8 3 T1K.out
+ Duration 0.110000
+Wed Apr 08 17:20:24 2015
+ mfctcsp ss1K.dat 0.005000 5 10 3 T1K.out
+ Duration 0.127000
+Wed Apr 08 17:20:24 2015
+ mfctcsp ss1K.dat 0.005000 5 12 3 T1K.out
+ Duration 0.147000
+Wed Apr 08 17:20:25 2015
+ mfctcsp ss1K.dat 0.005000 5 14 3 T1K.out
+ Duration 0.174000
+Wed Apr 08 17:20:25 2015
+ mfctcsp ss1K.dat 0.005000 5 16 1 T1K.out
+ Duration 0.191000
+Wed Apr 08 17:20:25 2015
+ mfctcsp ss1K.dat 0.005000 5 16 2 T1K.out
+ Duration 0.201000
+Wed Apr 08 17:20:25 2015
+ mfctcsp ss1K.dat 0.005000 5 16 4 T1K.out
+ Duration 0.219000

@@ -91,3 +91,95 @@ Wed Apr 08 00:57:12 2015
 Wed Apr 08 03:50:21 2015
  ctsp strns5K.dat 0.005000 4 16 3 T1K.out
  Duration 7699.788000
+Wed Apr 08 05:58:41 2015
+ ctsp strns5K.dat 0.005000 6 16 3 T1K.out
+ Duration 5515.808000
+>> sliding retail
+Wed Apr 08 08:53:42 2015
+ ctsp R6K.dat 0.005000 5 16 1 T1K.out
+ Duration 6946.271000
+Wed Apr 08 10:49:29 2015
+ ctsp R6K.dat 0.005000 5 16 2 T1K.out
+ Duration 7338.379000
+Wed Apr 08 12:51:47 2015
+ ctsp R6K.dat 0.005000 5 16 4 T1K.out
+ Duration 8105.472000
+>>Small synthetic
+Wed Apr 08 17:20:03 2015
+ ctsp ss1K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.289000
+Wed Apr 08 17:20:04 2015
+ ctsp ss2K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.540000
+Wed Apr 08 17:20:04 2015
+ ctsp ss3K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.802000
+Wed Apr 08 17:20:05 2015
+ ctsp ss4K.dat 0.005000 5 16 3 T1K.out
+ Duration 1.065000
+Wed Apr 08 17:20:06 2015
+ ctsp ss5K.dat 0.005000 5 16 3 T1K.out
+ Duration 1.334000
+Wed Apr 08 17:20:07 2015
+ ctsp ss1K.dat 0.002000 5 16 3 T1K.out
+ Duration 0.408000
+Wed Apr 08 17:20:08 2015
+ ctsp ss1K.dat 0.003000 5 16 3 T1K.out
+ Duration 0.348000
+Wed Apr 08 17:20:08 2015
+ ctsp ss1K.dat 0.004000 5 16 3 T1K.out
+ Duration 0.309000
+Wed Apr 08 17:20:08 2015
+ ctsp ss1K.dat 0.005000 5 16 3 T1K.out
+ Duration 0.292000
+Wed Apr 08 17:20:09 2015
+ ctsp ss1K.dat 0.010000 5 16 3 T1K.out
+ Duration 0.234000
+Wed Apr 08 17:20:09 2015
+ ctsp ss1K.dat 0.020000 5 16 3 T1K.out
+ Duration 0.176000
+Wed Apr 08 17:20:09 2015
+ ctsp ss1K.dat 0.005000 1 16 3 T1K.out
+ Duration 0.380000
+Wed Apr 08 17:20:10 2015
+ ctsp ss1K.dat 0.005000 2 16 3 T1K.out
+ Duration 0.362000
+Wed Apr 08 17:20:10 2015
+ ctsp ss1K.dat 0.005000 4 16 3 T1K.out
+ Duration 0.317000
+Wed Apr 08 17:20:10 2015
+ ctsp ss1K.dat 0.005000 6 16 3 T1K.out
+ Duration 0.266000
+Wed Apr 08 17:20:11 2015
+ ctsp ss1K.dat 0.005000 8 16 3 T1K.out
+ Duration 0.226000
+Wed Apr 08 17:20:11 2015
+ ctsp ss1K.dat 0.005000 10 16 3 T1K.out
+ Duration 0.200000
+Wed Apr 08 17:20:11 2015
+ ctsp ss1K.dat 0.005000 12 16 3 T1K.out
+ Duration 0.164000
+Wed Apr 08 17:20:11 2015
+ ctsp ss1K.dat 0.005000 5 6 3 T1K.out
+ Duration 0.115000
+Wed Apr 08 17:20:11 2015
+ ctsp ss1K.dat 0.005000 5 8 3 T1K.out
+ Duration 0.141000
+Wed Apr 08 17:20:11 2015
+ ctsp ss1K.dat 0.005000 5 10 3 T1K.out
+ Duration 0.170000
+Wed Apr 08 17:20:12 2015
+ ctsp ss1K.dat 0.005000 5 12 3 T1K.out
+ Duration 0.200000
+Wed Apr 08 17:20:12 2015
+ ctsp ss1K.dat 0.005000 5 14 3 T1K.out
+ Duration 0.244000
+Wed Apr 08 17:20:12 2015
+ ctsp ss1K.dat 0.005000 5 16 1 T1K.out
+ Duration 0.271000
+Wed Apr 08 17:20:12 2015
+ ctsp ss1K.dat 0.005000 5 16 2 T1K.out
+ Duration 0.279000
+Wed Apr 08 17:20:13 2015
+ ctsp ss1K.dat 0.005000 5 16 4 T1K.out
+ Duration 0.307000
