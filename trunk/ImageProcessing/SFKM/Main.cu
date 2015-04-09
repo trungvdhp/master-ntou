@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	fprintf(fp, "-------------------------------------------------------------------------------\n");
 	fprintf(fp," %s%s\n N = %d, D = %d, K = %d, epsilon = %.0e\n", 
 		path.c_str(), fname.c_str(), G.N, G.D, G.K, G.epsilon);
-	fprintf(fp, " Mode: Calculating new centroids on %s\n", mode == 1 ? "GPU" : "CPU");
+	fprintf(fp, " Mode: Calculating new centroids on %s\n", mode == 1 ? "CPU" : "GPU");
 	fprintf(fp, "-------------------------------------------------------------------------------\n");
 	fprintf(fp, "# GPU running\n");
 	fprintf(fp, "-------------------------------------------------------------------------------\n");

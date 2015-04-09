@@ -1023,17 +1023,17 @@ __host__ double * GFKM_GPU_v1a(FILE * f, GFKM & G, int block_size, int stop_iter
 #pragma endregion
 		
 #pragma region Calculate new centroids by CPU
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
-			CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
-			t2 = t2 + tmr_GPU.GetCounter();
-			tmr_CPU.start();
-			calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
-			tmr_CPU.stop();
-			t2 = t2 + tmr_CPU.elapsed();
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
-			t2 = t2 + tmr_GPU.GetCounter();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
+		CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
+		t2 = t2 + tmr_GPU.GetCounter();
+		tmr_CPU.start();
+		calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
+		tmr_CPU.stop();
+		t2 = t2 + tmr_CPU.elapsed();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
+		t2 = t2 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Getting and checking stop-condition
@@ -1159,17 +1159,17 @@ __host__ double * GFKM_GPU_v1b(FILE * f, GFKM & G, int block_size, int stop_iter
 #pragma endregion
 		
 #pragma region Calculate new centroids by CPU
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
-			CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
-			t2 = t2 + tmr_GPU.GetCounter();
-			tmr_CPU.start();
-			calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
-			tmr_CPU.stop();
-			t2 = t2 + tmr_CPU.elapsed();
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
-			t2 = t2 + tmr_GPU.GetCounter();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
+		CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
+		t2 = t2 + tmr_GPU.GetCounter();
+		tmr_CPU.start();
+		calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
+		tmr_CPU.stop();
+		t2 = t2 + tmr_CPU.elapsed();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
+		t2 = t2 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Getting and checking stop-condition
@@ -1298,17 +1298,17 @@ __host__ double * GFKM_GPU_v1c(FILE * f, GFKM & G, int block_size, int stop_iter
 #pragma endregion
 		
 #pragma region Calculate new centroids by CPU
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
-			CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
-			t2 = t2 + tmr_GPU.GetCounter();
-			tmr_CPU.start();
-			calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
-			tmr_CPU.stop();
-			t2 = t2 + tmr_CPU.elapsed();
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
-			t2 = t2 + tmr_GPU.GetCounter();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
+		CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
+		t2 = t2 + tmr_GPU.GetCounter();
+		tmr_CPU.start();
+		calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
+		tmr_CPU.stop();
+		t2 = t2 + tmr_CPU.elapsed();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
+		t2 = t2 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Getting and checking stop-condition
@@ -1438,17 +1438,17 @@ __host__ double * GFKM_GPU_v1d(FILE * f, GFKM & G, int block_size, int stop_iter
 #pragma endregion
 		
 #pragma region Calculate new centroids by CPU
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
-			CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
-			t2 = t2 + tmr_GPU.GetCounter();
-			tmr_CPU.start();
-			calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
-			tmr_CPU.stop();
-			t2 = t2 + tmr_CPU.elapsed();
-			tmr_GPU.StartCounter();
-			CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
-			t2 = t2 + tmr_GPU.GetCounter();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(p_NNT, d_NNT, NNT_size, cudaMemcpyDeviceToHost));
+		CudaSafeCall(cudaMemcpyAsync(p_memberships, d_memberships, memberships_size, cudaMemcpyDeviceToHost));
+		t2 = t2 + tmr_GPU.GetCounter();
+		tmr_CPU.start();
+		calculate_new_centroids(p_points, p_memberships, p_centroids, p_NNT, G.N, G.D, G.K, G.M);
+		tmr_CPU.stop();
+		t2 = t2 + tmr_CPU.elapsed();
+		tmr_GPU.StartCounter();
+		CudaSafeCall(cudaMemcpyAsync(d_newCentroids, p_centroids, centroids_size, cudaMemcpyHostToDevice));
+		t2 = t2 + tmr_GPU.GetCounter();
 #pragma endregion
 
 #pragma region Getting and checking stop-condition
