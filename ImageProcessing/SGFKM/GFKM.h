@@ -26,6 +26,7 @@ public:
 
 	double * points;
 	double * centroids;
+	double * tempCentroids;
 	double * memberships;
 	int * NNT;
 
@@ -37,6 +38,7 @@ public:
 	GFKM(std::string path, std::string filename, int _M);
 	void read(std::string full_path, int _M);
 	void initialize_centroids();
+	void restore_initial_centroids();
 	void update_memberships();
 	double * calculate_new_centroids();
 	void calculate_new_centroids(double * newCentroids);

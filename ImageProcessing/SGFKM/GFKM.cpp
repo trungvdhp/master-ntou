@@ -28,6 +28,7 @@ void GFKM::read(std::string full_path, int _M)
 	fscanf(f, "%d %d %d %d", &N, &K, &D, &L);
 	points = new double[N*D];
 	centroids = new double[K*D];
+	tempCentroids = new double[K*D];
 	labels = new std::string[N];
 
 	if (_M > K) M = K;
@@ -86,6 +87,12 @@ void GFKM::initialize_centroids()
 			centroids[i++] = points[first_index++];
 		span += step;
 	}
+	memcpy(tempCentroids, centroids, K*D*sizeof(double));
+}
+
+void GFKM::restore_initial_centroids()
+{
+	memcpy(centroids, tempCentroids, K*D*sizeof(double));
 }
 
 void GFKM::update_memberships()
@@ -230,13 +237,12 @@ double * GFKM::run(FILE * f, int stop_iter)
 	int i;
 	double t, t1 = 0.0, t2 = 0.0, t3 = 0.0;
 	TimingCPU tmr;
-	// initialize and update NNT
 	int centroidsSize = K*D*sizeof(double);
 	double * newCentroids = (double*)malloc(centroidsSize);
 
 	bool stop;
-
-	for (i = 0; i < max_iter && i <= stop_iter; ++i){
+	// && i <= stop_iter
+	for (i = 0; i < max_iter; ++i){
 		// Update membership by
 		tmr.start();
 		update_memberships();
@@ -259,16 +265,18 @@ double * GFKM::run(FILE * f, int stop_iter)
 		if (t < 0.0) t = 0.0;
 		t3 = t3 + t;
 
-		if ((stop && (stop_iter == INT_MAX || i == stop_iter)) || i == stop_iter)
+		if ((stop && (stop_iter < 0 || i == stop_iter)) || i == stop_iter)
 			break;
 	}
 
 	if (i == max_iter) i--;
 	Util::write<double>(centroids, K, D, path + "centroids.txt");
 	Util::write<int>(NNT, N, M, path + "NNT.txt");
-	Util::print_times(f, t1, t2, t3, i+1);
-	double *rs = new double[2];
-	rs[0] = t1 + t2 + t3;
-	rs[1] = (double)i;
+	//Util::print_times(f, t1, t2, t3, i+1);
+	double *rs = new double[4];
+	rs[0] = t1;
+	rs[1] = t2;
+	rs[2] = t3;
+	rs[3] = (double)i;
 	return rs;
 }

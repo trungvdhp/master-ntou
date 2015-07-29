@@ -1,4 +1,6 @@
 #include "SFKM.cuh"
+#include "cuda_runtime.h"
+#include "cuda_occupancy.h"
 #include "Util.h"
 #define DIM_MAX 100
 #define NSTREAM 5
@@ -1440,7 +1442,6 @@ __host__ double * FKM_GPU(FILE * f, FKM & G, int block_size, int stop_iter, int 
 {
 	int centroids_size = G.K*G.D;
 	int step = roundup(centroids_size, block_size);
-
 	if (mode == 1){
 		if (step > 4)
 			return FKM_GPU_v1a(f, G, block_size, stop_iter);
